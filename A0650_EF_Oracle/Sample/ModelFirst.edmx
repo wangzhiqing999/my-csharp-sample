@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelFirst.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ModelFirstStoreContainer">
+    <EntitySet Name="STRATEGYS" EntityType="ModelFirst.Store.STRATEGYS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STOCKS" EntityType="ModelFirst.Store.STOCKS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TRANS_DETAILS" EntityType="ModelFirst.Store.TRANS_DETAILS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TRANS_RELATIONS" EntityType="ModelFirst.Store.TRANS_RELATIONS" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="STRATEGYTRANS_DETAIL" Association="ModelFirst.Store.STRATEGYTRANS_DETAIL">
+      <End Role="STRATEGY" EntitySet="STRATEGYS" />
+      <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="STOCKTRANS_DETAIL" Association="ModelFirst.Store.STOCKTRANS_DETAIL">
+      <End Role="STOCK" EntitySet="STOCKS" />
+      <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="TRANS_DETAILTRANS_RELATION_OPEN" Association="ModelFirst.Store.TRANS_DETAILTRANS_RELATION_OPEN">
+      <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+      <End Role="TRANS_RELATION" EntitySet="TRANS_RELATIONS" />
+    </AssociationSet>
+    <AssociationSet Name="TRANS_DETAILTRANS_RELATION_CLOSE" Association="ModelFirst.Store.TRANS_DETAILTRANS_RELATION_CLOSE">
+      <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+      <End Role="TRANS_RELATION" EntitySet="TRANS_RELATIONS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="STRATEGYS">
+    <Key>
+      <PropertyRef Name="STRATEGY_CODE" />
+    </Key>
+    <Property Name="STRATEGY_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="STRATEGY_NAME" Type="nvarchar2" Nullable="false" MaxLength="50" />
+    <Property Name="STRATEGY_DESC" Type="nvarchar2" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="STOCKS">
+    <Key>
+      <PropertyRef Name="STOCK_CODE" />
+    </Key>
+    <Property Name="STOCK_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="STOCK_NAME" Type="nvarchar2" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TRANS_DETAILS">
+    <Key>
+      <PropertyRef Name="TRANS_ID" />
+    </Key>
+    <Property Name="TRANS_ID" Type="number" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STRATEGY_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="STOCK_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="TRANS_DATETIME" Type="date" Nullable="false" />
+    <Property Name="TRANS_DIRECTION" Type="nvarchar2" Nullable="false" MaxLength="1" />
+    <Property Name="TRANS_TYPE" Type="nvarchar2" Nullable="false" MaxLength="1" />
+    <Property Name="TRANS_VOLUME" Type="number" Nullable="false" />
+    <Property Name="TRANS_PRICE" Type="number" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="PROFIT_POINT" Type="number" Nullable="true" Precision="8" Scale="2" />
+    <Property Name="PROFIT_AMOUNT" Type="number" Nullable="true" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="TRANS_RELATIONS">
+    <Key>
+      <PropertyRef Name="OPEN_TRANS_ID" />
+      <PropertyRef Name="CLOSE_TRANS_ID" />
+    </Key>
+    <Property Name="OPEN_TRANS_ID" Type="number" Nullable="false" />
+    <Property Name="CLOSE_TRANS_ID" Type="number" Nullable="false" />
+  </EntityType>
+  <Association Name="STRATEGYTRANS_DETAIL">
+    <End Role="STRATEGY" Type="ModelFirst.Store.STRATEGYS" Multiplicity="1" />
+    <End Role="TRANS_DETAIL" Type="ModelFirst.Store.TRANS_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STRATEGY">
+        <PropertyRef Name="STRATEGY_CODE" />
+      </Principal>
+      <Dependent Role="TRANS_DETAIL">
+        <PropertyRef Name="STRATEGY_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="STOCKTRANS_DETAIL">
+    <End Role="STOCK" Type="ModelFirst.Store.STOCKS" Multiplicity="1" />
+    <End Role="TRANS_DETAIL" Type="ModelFirst.Store.TRANS_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STOCK">
+        <PropertyRef Name="STOCK_CODE" />
+      </Principal>
+      <Dependent Role="TRANS_DETAIL">
+        <PropertyRef Name="STOCK_CODE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TRANS_DETAILTRANS_RELATION_OPEN">
+    <End Role="TRANS_DETAIL" Type="ModelFirst.Store.TRANS_DETAILS" Multiplicity="1" />
+    <End Role="TRANS_RELATION" Type="ModelFirst.Store.TRANS_RELATIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANS_DETAIL">
+        <PropertyRef Name="TRANS_ID" />
+      </Principal>
+      <Dependent Role="TRANS_RELATION">
+        <PropertyRef Name="OPEN_TRANS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TRANS_DETAILTRANS_RELATION_CLOSE">
+    <End Role="TRANS_DETAIL" Type="ModelFirst.Store.TRANS_DETAILS" Multiplicity="1" />
+    <End Role="TRANS_RELATION" Type="ModelFirst.Store.TRANS_RELATIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANS_DETAIL">
+        <PropertyRef Name="TRANS_ID" />
+      </Principal>
+      <Dependent Role="TRANS_RELATION">
+        <PropertyRef Name="CLOSE_TRANS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelFirst" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ModelFirstContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="STRATEGYS" EntityType="ModelFirst.STRATEGY" />
+          <EntitySet Name="STOCKS" EntityType="ModelFirst.STOCK" />
+          <EntitySet Name="TRANS_DETAILS" EntityType="ModelFirst.TRANS_DETAIL" />
+          <EntitySet Name="TRANS_RELATIONS" EntityType="ModelFirst.TRANS_RELATION" />
+          <AssociationSet Name="STRATEGYTRANS_DETAIL" Association="ModelFirst.STRATEGYTRANS_DETAIL">
+            <End Role="STRATEGY" EntitySet="STRATEGYS" />
+            <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="STOCKTRANS_DETAIL" Association="ModelFirst.STOCKTRANS_DETAIL">
+            <End Role="STOCK" EntitySet="STOCKS" />
+            <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="TRANS_DETAILTRANS_RELATION_OPEN" Association="ModelFirst.TRANS_DETAILTRANS_RELATION_OPEN">
+            <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+            <End Role="TRANS_RELATION" EntitySet="TRANS_RELATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="TRANS_DETAILTRANS_RELATION_CLOSE" Association="ModelFirst.TRANS_DETAILTRANS_RELATION_CLOSE">
+            <End Role="TRANS_DETAIL" EntitySet="TRANS_DETAILS" />
+            <End Role="TRANS_RELATION" EntitySet="TRANS_RELATIONS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="STRATEGY">
+          <Key>
+            <PropertyRef Name="STRATEGY_CODE" />
+          </Key>
+          <Property Type="String" Name="STRATEGY_CODE" Nullable="false" MaxLength="20" Unicode="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="STRATEGY_NAME" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="STRATEGY_DESC" MaxLength="200" />
+          <NavigationProperty Name="TRANS_DETAIL" Relationship="ModelFirst.STRATEGYTRANS_DETAIL" FromRole="STRATEGY" ToRole="TRANS_DETAIL" />
+        </EntityType>
+        <EntityType Name="STOCK">
+          <Key>
+            <PropertyRef Name="STOCK_CODE" />
+          </Key>
+          <Property Type="String" Name="STOCK_CODE" Nullable="false" MaxLength="20" Unicode="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="STOCK_NAME" Nullable="false" MaxLength="50" />
+          <NavigationProperty Name="TRANS_DETAIL" Relationship="ModelFirst.STOCKTRANS_DETAIL" FromRole="STOCK" ToRole="TRANS_DETAIL" />
+        </EntityType>
+        <EntityType Name="TRANS_DETAIL">
+          <Key>
+            <PropertyRef Name="TRANS_ID" />
+          </Key>
+          <Property Type="Int32" Name="TRANS_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="STRATEGY_CODE" Nullable="false" MaxLength="20" Unicode="false" />
+          <Property Type="String" Name="STOCK_CODE" Nullable="false" MaxLength="20" Unicode="false" />
+          <Property Type="DateTime" Name="TRANS_DATETIME" Nullable="false" />
+          <Property Type="String" Name="TRANS_DIRECTION" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="TRANS_TYPE" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="TRANS_VOLUME" Nullable="false" />
+          <Property Type="Decimal" Name="TRANS_PRICE" Nullable="false" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="PROFIT_POINT" Precision="8" Scale="2" />
+          <Property Type="Decimal" Name="PROFIT_AMOUNT" Precision="12" Scale="2" />
+          <NavigationProperty Name="STRATEGY" Relationship="ModelFirst.STRATEGYTRANS_DETAIL" FromRole="TRANS_DETAIL" ToRole="STRATEGY" />
+          <NavigationProperty Name="STOCK" Relationship="ModelFirst.STOCKTRANS_DETAIL" FromRole="TRANS_DETAIL" ToRole="STOCK" />
+          <NavigationProperty Name="TRANS_RELATION_OPEN" Relationship="ModelFirst.TRANS_DETAILTRANS_RELATION_OPEN" FromRole="TRANS_DETAIL" ToRole="TRANS_RELATION" />
+          <NavigationProperty Name="TRANS_RELATION_CLOSE" Relationship="ModelFirst.TRANS_DETAILTRANS_RELATION_CLOSE" FromRole="TRANS_DETAIL" ToRole="TRANS_RELATION" />
+        </EntityType>
+        <EntityType Name="TRANS_RELATION">
+          <Key>
+            <PropertyRef Name="OPEN_TRANS_ID" />
+            <PropertyRef Name="CLOSE_TRANS_ID" />
+          </Key>
+          <Property Type="Int32" Name="OPEN_TRANS_ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="Int32" Name="CLOSE_TRANS_ID" Nullable="false" />
+          <NavigationProperty Name="TRANS_DETAIL_OPEN" Relationship="ModelFirst.TRANS_DETAILTRANS_RELATION_OPEN" FromRole="TRANS_RELATION" ToRole="TRANS_DETAIL" />
+          <NavigationProperty Name="TRANS_DETAIL_CLOSE" Relationship="ModelFirst.TRANS_DETAILTRANS_RELATION_CLOSE" FromRole="TRANS_RELATION" ToRole="TRANS_DETAIL" />
+        </EntityType>
+        <Association Name="STRATEGYTRANS_DETAIL">
+          <End Type="ModelFirst.STRATEGY" Role="STRATEGY" Multiplicity="1" />
+          <End Type="ModelFirst.TRANS_DETAIL" Role="TRANS_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STRATEGY">
+              <PropertyRef Name="STRATEGY_CODE" />
+            </Principal>
+            <Dependent Role="TRANS_DETAIL">
+              <PropertyRef Name="STRATEGY_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="STOCKTRANS_DETAIL">
+          <End Type="ModelFirst.STOCK" Role="STOCK" Multiplicity="1" />
+          <End Type="ModelFirst.TRANS_DETAIL" Role="TRANS_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCK">
+              <PropertyRef Name="STOCK_CODE" />
+            </Principal>
+            <Dependent Role="TRANS_DETAIL">
+              <PropertyRef Name="STOCK_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRANS_DETAILTRANS_RELATION_OPEN">
+          <End Type="ModelFirst.TRANS_DETAIL" Role="TRANS_DETAIL" Multiplicity="1" />
+          <End Type="ModelFirst.TRANS_RELATION" Role="TRANS_RELATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANS_DETAIL">
+              <PropertyRef Name="TRANS_ID" />
+            </Principal>
+            <Dependent Role="TRANS_RELATION">
+              <PropertyRef Name="OPEN_TRANS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRANS_DETAILTRANS_RELATION_CLOSE">
+          <End Type="ModelFirst.TRANS_DETAIL" Role="TRANS_DETAIL" Multiplicity="1" />
+          <End Type="ModelFirst.TRANS_RELATION" Role="TRANS_RELATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANS_DETAIL">
+              <PropertyRef Name="TRANS_ID" />
+            </Principal>
+            <Dependent Role="TRANS_RELATION">
+              <PropertyRef Name="CLOSE_TRANS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelFirstStoreContainer" CdmEntityContainer="ModelFirstContainer">
+    <EntitySetMapping Name="STRATEGYS">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.STRATEGY)">
+        <MappingFragment StoreEntitySet="STRATEGYS">
+          <ScalarProperty Name="STRATEGY_CODE" ColumnName="STRATEGY_CODE" />
+          <ScalarProperty Name="STRATEGY_NAME" ColumnName="STRATEGY_NAME" />
+          <ScalarProperty Name="STRATEGY_DESC" ColumnName="STRATEGY_DESC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKS">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.STOCK)">
+        <MappingFragment StoreEntitySet="STOCKS">
+          <ScalarProperty Name="STOCK_CODE" ColumnName="STOCK_CODE" />
+          <ScalarProperty Name="STOCK_NAME" ColumnName="STOCK_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANS_DETAILS">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TRANS_DETAIL)">
+        <MappingFragment StoreEntitySet="TRANS_DETAILS">
+          <ScalarProperty Name="TRANS_ID" ColumnName="TRANS_ID" />
+          <ScalarProperty Name="STRATEGY_CODE" ColumnName="STRATEGY_CODE" />
+          <ScalarProperty Name="STOCK_CODE" ColumnName="STOCK_CODE" />
+          <ScalarProperty Name="TRANS_DATETIME" ColumnName="TRANS_DATETIME" />
+          <ScalarProperty Name="TRANS_DIRECTION" ColumnName="TRANS_DIRECTION" />
+          <ScalarProperty Name="TRANS_TYPE" ColumnName="TRANS_TYPE" />
+          <ScalarProperty Name="TRANS_VOLUME" ColumnName="TRANS_VOLUME" />
+          <ScalarProperty Name="TRANS_PRICE" ColumnName="TRANS_PRICE" />
+          <ScalarProperty Name="PROFIT_POINT" ColumnName="PROFIT_POINT" />
+          <ScalarProperty Name="PROFIT_AMOUNT" ColumnName="PROFIT_AMOUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRANS_RELATIONS">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelFirst.TRANS_RELATION)">
+        <MappingFragment StoreEntitySet="TRANS_RELATIONS">
+          <ScalarProperty Name="OPEN_TRANS_ID" ColumnName="OPEN_TRANS_ID" />
+          <ScalarProperty Name="CLOSE_TRANS_ID" ColumnName="CLOSE_TRANS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToOracle.tt" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="ModelFirst" ZoomLevel="66" >
+        <EntityTypeShape EntityType="ModelFirst.STRATEGY" Width="1.5" PointX="11.906464805782989" PointY="9.16861494312464" />
+        <EntityTypeShape EntityType="ModelFirst.STOCK" Width="1.5" PointX="4.6370389389977973" PointY="2.9024165435239748" />
+        <EntityTypeShape EntityType="ModelFirst.TRANS_DETAIL" Width="1.5" PointX="9.0064058010496222" PointY="1.3329084372766822" />
+        <EntityTypeShape EntityType="ModelFirst.TRANS_RELATION" Width="1.5" PointX="7.5239525379258918" PointY="28.939377306466632" />
+        <AssociationConnector Association="ModelFirst.STRATEGYTRANS_DETAIL" />
+        <AssociationConnector Association="ModelFirst.STOCKTRANS_DETAIL" />
+        <AssociationConnector Association="ModelFirst.TRANS_DETAILTRANS_RELATION_OPEN" />
+        <AssociationConnector Association="ModelFirst.TRANS_DETAILTRANS_RELATION_CLOSE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

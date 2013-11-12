@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--  
+  NANT 的 build 文件， 扩展名为 .build 
+  不同于 java 的 ant 的  build.xml
+  
+  
+  
+环境搭建：
+NANT 嘛， 是下载了一个 nant-0.91-bin.zip
+简单解压缩到 D:\nant-0.91
+
+NUNIT 嘛， 是下载一个 NUnit-2.5.7.10213.msi
+使用默认安装。
+
+NUnit2Report 嘛，是下载一个 NUnit2Report-V1.2.2.zip
+解压缩以后，看看文档， 就是简单的把  bin 目录下的文件， 复制到  D:\nant-0.91\bin 目录下就好了。
+
+-->
+
+
+<!--
+  project表示构建文件的项目，每个构建文件有且只有一个项目，他包括一系列的target
+  default=" show "表示项目的默认目的（target）是show
+  basedir="." 表示基准目录为当前目录
+-->
+<project name="B0100_NAnt" default="show" basedir=".">
+
+  <property name="basename" value="HelloNAnt" />
+  <property name="debug" value="true" />
+
+
+
+  <!--
+     target 表示一个目的，他包括一系列的task，
+	 name="show"指定目的的名称，这个是必选的。
+  -->
+  <target name="show">
+    
+	
+	<!-- 
+	  echo是一个任务（task）他用来显示一个特定的字符串，
+	  message="Hello NAnt"表示要显示的字符串为Hello NAnt。
+	-->
+    <echo message="Hello NAnt"/>
+  </target>
+
+  
+  
+
+  <!-- 编译文件 -->
+  <target name="build">
+    <mkdir dir="bin" />
+    <csc target="exe" output="bin/${basename}-cs.exe" debug="${debug}">
+      <sources>
+        <include name="*.cs"/>
+      </sources>
+      <references>
+        <include name="C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\framework\nunit.framework.dll" />
+      </references>
+    </csc>
+  </target>
+
+ 
+ 
+  <!--运行文件，run基于build-->
+  <target name="run" depends="build">
+    <exec program="bin/${basename}-cs.exe" basedir="."/>
+  </target>
+	
+	
+  
+  <!--  单元测试  -->
+  <target name="unittest" depends="build">	
+    
+	<!-- 调用 Nunit 进行测试  -->
+    <nunit2>
+	  <!-- 输出的文件为  XML 格式.  -->
+      <formatter type="Xml" usefile="true" extension=".xml" outputdir="bin/results" />
+
+      <test assemblyname="bin/${basename}-cs.exe" >
+		<references>
+          <include name="C:\Program Files (x86)\NUnit 2.5.7\bin\net-2.0\framework\nunit.framework.dll" />
+        </references>
+	  </test>
+    </nunit2>
+	
+	<!-- 根据 前面的测试结果 XML 文件， 产生 html 报表. -->
+    <nunit2report out="NUnitReport.html" >
+	  <fileset>
+		<include name="bin/results/*results.xml" />
+	  </fileset>
+	</nunit2report>
+
+  </target>
+
+</project>
+

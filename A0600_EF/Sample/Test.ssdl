@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="A0600_EF.Sample.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="A0600_EFSampleStoreContainer">
+    <EntitySet Name="test_main" EntityType="A0600_EF.Sample.Store.test_main" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test_sub" EntityType="A0600_EF.Sample.Store.test_sub" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="main_id_cons" Association="A0600_EF.Sample.Store.main_id_cons">
+      <End Role="test_main" EntitySet="test_main" />
+      <End Role="test_sub" EntitySet="test_sub" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="test_main">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="test_sub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="main_id" Type="int" />
+    <Property Name="value" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="main_id_cons">
+    <End Role="test_main" Type="A0600_EF.Sample.Store.test_main" Multiplicity="0..1" />
+    <End Role="test_sub" Type="A0600_EF.Sample.Store.test_sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="test_main">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="test_sub">
+        <PropertyRef Name="main_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

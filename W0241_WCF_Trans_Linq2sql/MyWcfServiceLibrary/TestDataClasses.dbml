@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Test" Class="TestDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True" SettingsObjectName="MyWcfServiceLibrary.Properties.Settings" SettingsPropertyName="TestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.test_main" Member="test_main">
+    <Type Name="test_main">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="test_main_test_sub" Member="test_sub" ThisKey="id" OtherKey="main_id" Type="test_sub" />
+    </Type>
+  </Table>
+  <Table Name="dbo.test_sub" Member="test_sub">
+    <Type Name="test_sub">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="main_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="test_main_test_sub" Member="test_main" ThisKey="main_id" OtherKey="id" Type="test_main" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

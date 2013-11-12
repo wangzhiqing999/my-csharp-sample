@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRule", "MyRule\MyRule.csproj", "{9AF19192-0C73-448A-B493-2DB66BCB32C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyRule.Test", "MyRule.Test\MyRule.Test.csproj", "{F788D9BF-3046-4AC0-87EC-C01F0746E147}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04BB44D4-EEE2-41CA-84A3-C59716617B4E}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MyRule.vsmdi = MyRule.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MyRule.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AF19192-0C73-448A-B493-2DB66BCB32C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF19192-0C73-448A-B493-2DB66BCB32C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF19192-0C73-448A-B493-2DB66BCB32C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF19192-0C73-448A-B493-2DB66BCB32C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F788D9BF-3046-4AC0-87EC-C01F0746E147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F788D9BF-3046-4AC0-87EC-C01F0746E147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F788D9BF-3046-4AC0-87EC-C01F0746E147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F788D9BF-3046-4AC0-87EC-C01F0746E147}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

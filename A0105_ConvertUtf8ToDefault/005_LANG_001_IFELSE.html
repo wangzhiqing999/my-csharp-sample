@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <title> 控制结构 - IF/ELSE </title>
+  <link href="Common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+<h1> 控制结构 </h1>
+
+
+<h2> IF/ELSE </h2>
+
+
+
+<table border="1" style="width:100%">
+
+  <tr>
+    <td> Oracle </td>
+    <td>
+<pre><code>
+
+SQL> DECLARE
+  2    testvalue  INT;
+  3  BEGIN
+  4    testvalue := 100;
+  5
+  6    IF testvalue > 100 THEN
+  7      dbms_output.put_line( '100+' );
+  8    ELSIF testvalue = 100 THEN
+  9      dbms_output.put_line( '100' );
+ 10    ELSE
+ 11      dbms_output.put_line( '100-' );
+ 12    END IF;
+ 13
+ 14  END;
+ 15  /
+100
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+如果某些情况下， IF  ELSE  之间， 暂时不想写任何内容， 希望以后再补充。
+那么， 保持空白内容，将导致编译出错。
+
+SQL> DECLARE
+  2    testvalue  INT;
+  3  BEGIN
+  4    testvalue := 100;
+  5  
+  6    IF testvalue > 100 THEN
+  7  
+  8    ELSIF testvalue = 100 THEN
+  9      dbms_output.put_line( '100' );
+ 10    ELSE
+ 11      dbms_output.put_line( '100-' );
+ 12    END IF;
+ 13  
+ 14  END;
+ 15  /
+  ELSIF testvalue = 100 THEN
+        *
+ERROR 位于第 8 行:
+ORA-06550: 第 8 行, 第 9 列:
+PLS-00103: 出现符号 "TESTVALUE"在需要下列之一时：
+:= . ( @
+% ;
+ORA-06550: 第 14 行, 第 4 列:
+PLS-00103: 出现符号 ";"在需要下列之一时：
+if
+
+
+
+
+
+
+如果什么事情也不想做， 那么指定行的地方， 加一行  NULL;  可以让程序编译通过并运行。
+
+SQL> DECLARE
+  2    testvalue  INT;
+  3  BEGIN
+  4    testvalue := 100;
+  5  
+  6    IF testvalue > 100 THEN
+  7     NULL;
+  8    ELSIF testvalue = 100 THEN
+  9      dbms_output.put_line( '100' );
+ 10    ELSE
+ 11      dbms_output.put_line( '100-' );
+ 12    END IF;
+ 13  
+ 14  END;
+ 15  /
+100
+
+PL/SQL 过程已成功完成。
+
+
+
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+
+
+  <tr>
+    <td> DB2 </td>
+    <td>
+<pre><code>
+
+db2 => CREATE TABLE output_debug(data varchar(200))
+DB20000I  SQL 命令成功完成。
+
+db2 => CREATE PROCEDURE TestIfElse(p_val INT) \
+db2 (cont.) => LANGUAGE SQL \
+db2 (cont.) => BEGIN \
+db2 (cont.) =>   IF p_val > 100 THEN \
+db2 (cont.) =>     INSERT INTO output_debug VALUES( '100+' ); \
+db2 (cont.) =>   ELSEIF p_val = 100 THEN \
+db2 (cont.) =>     INSERT INTO output_debug VALUES( '100' ); \
+db2 (cont.) =>   ELSE \
+db2 (cont.) =>     INSERT INTO output_debug VALUES( '100-' ); \
+db2 (cont.) =>   END IF; \
+db2 (cont.) => END
+DB20000I  SQL 命令成功完成。
+
+db2 => call TestIfElse(101)
+  返回状态 = 0
+db2 => call TestIfElse(100)
+  返回状态 = 0
+db2 => call TestIfElse(99)
+  返回状态 = 0
+
+db2 => select * from output_debug
+DATA
+-----------------------------------
+100+
+100
+100-
+  3 条记录已选择。
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+
+
+  <tr>
+    <td> SQL Server </td>
+    <td>
+<pre><code>
+
+1> DECLARE
+2>   @testvalue AS INT;
+3> BEGIN
+4>   SET @testvalue = 100;
+5>
+6>   IF @testvalue > 100
+7>   BEGIN
+8>     PRINT( '100+' );
+9>   END
+10>   ELSE IF @testvalue = 100
+11>   BEGIN
+12>     PRINT( '100' );
+13>   END
+14>   ELSE
+15>   BEGIN
+16>     PRINT( '100-' );
+17>   END
+18>
+19> END;
+20> go
+100
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+
+
+  <tr>
+    <td> MySQL</td>
+    <td>
+<pre><code>
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE TestIfElse
+    -> (
+    ->   p_val  INT
+    -> )
+    -> BEGIN
+    ->   IF (p_val = 1) THEN
+    ->     SELECT '1' AS A;
+    ->   ELSEIF (p_val = 2) THEN
+    ->     SELECT '2' AS A;
+    ->   ELSE
+    ->     SELECT 'other' AS A;
+    ->   END IF;
+    -> END//
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> call TestIfElse(1);
+    -> //
++---+
+| A |
++---+
+| 1 |
++---+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call TestIfElse(2);
+    -> //
++---+
+| A |
++---+
+| 2 |
++---+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call TestIfElse(3);
+    -> //
++-------+
+| A     |
++-------+
+| other |
++-------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+
+
+
+  <tr>
+    <td> SQLite </td>
+    <td>
+<pre><code>
+
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td> PostgreSQL </td>
+    <td>
+<pre><code>
+
+Test=# CREATE TABLE output_debug(data varchar(200));
+CREATE TABLE
+
+
+Test=# CREATE OR REPLACE FUNCTION TestIfElse(p_val INT) RETURNS void AS
+Test-# $$
+Test$# BEGIN
+Test$#   IF p_val > 100 THEN
+Test$#     INSERT INTO output_debug VALUES( '100+' );
+Test$#   ELSEIF p_val = 100 THEN
+Test$#     INSERT INTO output_debug VALUES( '100' );
+Test$#   ELSE
+Test$#     INSERT INTO output_debug VALUES( '100-' );
+Test$#   END IF;
+Test$# END;
+Test$# $$
+Test-# LANGUAGE plpgsql;
+CREATE FUNCTION
+Test=# SELECT TestIfElse(101);
+ testifelse
+------------
+
+(1 行记录)
+
+
+Test=# SELECT TestIfElse(100);
+ testifelse
+------------
+
+(1 行记录)
+
+
+Test=# SELECT TestIfElse(99);
+ testifelse
+------------
+
+(1 行记录)
+
+
+Test=# select * from output_debug;
+ data
+------
+ 100+
+ 100
+ 100-
+(3 行记录)
+
+
+Test=#
+
+</code></pre>
+    </td>
+  </tr>
+
+
+
+</table>
+
+
+
+
+</body>
+
+
+</html>

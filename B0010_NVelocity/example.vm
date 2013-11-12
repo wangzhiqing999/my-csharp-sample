@@ -1,0 +1,20 @@
+## 这是一个 NVelocity 模版的例子.
+
+## 这里是 模版内定义变量.
+#set( $this = "Velocity")
+$this is great!
+
+
+## 这里是使用 外部传入的 list 来填写信息.
+#foreach( $name in $list )
+    $name is great!
+#end
+
+
+## 这里设置一个 变量，并测试 if/else.
+#set( $condition = true)
+#if ($condition)
+    The condition is true!
+#else
+    The condition is false!
+#end    

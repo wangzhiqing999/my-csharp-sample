@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="A0610_EFSampleStoreContainer" CdmEntityContainer="TestContext">
+    <EntitySetMapping Name="goods" StoreEntitySet="goods" TypeName="A0610_EF.Sample.goods">
+      <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      <ScalarProperty Name="name" ColumnName="name" />
+      <ScalarProperty Name="unit" ColumnName="unit" />
+      <ScalarProperty Name="in_price" ColumnName="in_price" />
+      <ScalarProperty Name="out_price" ColumnName="out_price" />
+      <ScalarProperty Name="maxqty" ColumnName="maxqty" />
+      <ScalarProperty Name="minqty" ColumnName="minqty" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="goods_type" StoreEntitySet="goods_type" TypeName="A0610_EF.Sample.goods_type">
+      <ScalarProperty Name="type_id" ColumnName="type_id" />
+      <ScalarProperty Name="type_code" ColumnName="type_code" />
+      <ScalarProperty Name="type_name" ColumnName="type_name" />
+      <ScalarProperty Name="description" ColumnName="description" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="onhand" StoreEntitySet="onhand" TypeName="A0610_EF.Sample.onhand">
+      <ScalarProperty Name="store_id" ColumnName="store_id" />
+      <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      <ScalarProperty Name="onhand1" ColumnName="onhand" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="store" StoreEntitySet="store" TypeName="A0610_EF.Sample.store">
+      <ScalarProperty Name="store_id" ColumnName="store_id" />
+      <ScalarProperty Name="store_code" ColumnName="store_code" />
+      <ScalarProperty Name="store_name" ColumnName="store_name" />
+      <ScalarProperty Name="description" ColumnName="description" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="test_main" StoreEntitySet="test_main" TypeName="A0610_EF.Sample.test_main">
+      <ScalarProperty Name="id" ColumnName="id" />
+      <ScalarProperty Name="value" ColumnName="value" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="test_sub" StoreEntitySet="test_sub" TypeName="A0610_EF.Sample.test_sub">
+      <ScalarProperty Name="id" ColumnName="id" />
+      <ScalarProperty Name="value" ColumnName="value" />
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK__goods__type_id__1273C1CD" TypeName="A0610_EF.Sample.FK__goods__type_id__1273C1CD" StoreEntitySet="goods">
+      <EndProperty Name="goods_type">
+        <ScalarProperty Name="type_id" ColumnName="type_id" />
+      </EndProperty>
+      <EndProperty Name="goods">
+        <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__onhand__goodsid__117F9D94" TypeName="A0610_EF.Sample.FK__onhand__goodsid__117F9D94" StoreEntitySet="onhand">
+      <EndProperty Name="goods">
+        <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      </EndProperty>
+      <EndProperty Name="onhand">
+        <ScalarProperty Name="store_id" ColumnName="store_id" />
+        <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__onhand__store_id__1367E606" TypeName="A0610_EF.Sample.FK__onhand__store_id__1367E606" StoreEntitySet="onhand">
+      <EndProperty Name="store">
+        <ScalarProperty Name="store_id" ColumnName="store_id" />
+      </EndProperty>
+      <EndProperty Name="onhand">
+        <ScalarProperty Name="store_id" ColumnName="store_id" />
+        <ScalarProperty Name="goodsid" ColumnName="goodsid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="main_id_cons" TypeName="A0610_EF.Sample.main_id_cons" StoreEntitySet="test_sub">
+      <EndProperty Name="test_main">
+        <ScalarProperty Name="id" ColumnName="main_id" />
+      </EndProperty>
+      <EndProperty Name="test_sub">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="main_id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

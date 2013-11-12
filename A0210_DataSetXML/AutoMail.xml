@@ -1,0 +1,516 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+
+  <SystemCheck>
+    <desc>检查天气/入店人数的数据，是否已经进入系统</desc>
+    <connect_string>Data Source=REPORT;User ID=REPORT2;Password=REPORT2</connect_string>
+    <query>
+      SELECT
+      case when pertime >0 AND weather is not null then 1
+      else 0
+      end
+      FROM everydayinfo where busdate = trunc(sysdate - 1)
+    </query>
+    <wish_value>1</wish_value>
+  </SystemCheck>
+
+  <SystemCheck>
+    <desc>检查百货车库数据是否上传</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select
+      CASE WHEN COUNT(1) != 0 THEN '交易数据已上传' else '交易数据未上传' END
+      from
+      buy1bck
+      where
+      buy1bck.posno = '2109'
+      and buy1bck.flowno like  TO_CHAR(sysdate, 'YYYYMMDD') || '%'
+    </query>
+    <wish_value>交易数据已上传</wish_value>
+  </SystemCheck>
+
+  <SystemCheck>
+    <desc>百货是否日结</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>select COUNT(1) from daysettle where busdate = TRUNC(SYSDATE)</query>
+    <wish_value>1</wish_value>
+  </SystemCheck>
+  <SystemCheck>
+    <desc>超市是否日结</desc>
+    <connect_string>Data Source=FMART;User ID=hd40;Password=hd40</connect_string>
+    <query>select COUNT(1) from daysettle where busdate = TRUNC(SYSDATE)</query>
+    <wish_value>1</wish_value>
+  </SystemCheck>
+
+
+
+  <SystemCheck>
+    <desc>检查百货餐饮数据是否全部上传（当昨天有开店/关店的事件时，可能会检查出错）</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      SELECT
+      (
+      SELECT
+      COUNT( DISTINCT de1.countcode )
+      FROM
+      dataexchange de1
+      WHERE
+      de1.businessdate = TO_CHAR(sysdate - 1, 'YYYY.MM.DD')
+      ) - (
+      SELECT
+      COUNT( DISTINCT de2.countcode )
+      FROM
+      dataexchange de2
+      WHERE
+      de2.businessdate = TO_CHAR(sysdate - 2, 'YYYY.MM.DD')
+      )
+      FROM DUAL
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+  <SystemCheck>
+    <desc>检查超市餐饮数据是否全部上传（当昨天有开店/关店的事件时，可能会检查出错）</desc>
+    <connect_string>Data Source=FMART;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      SELECT
+      (
+      SELECT
+      COUNT( DISTINCT de1.countcode )
+      FROM
+      dataexchange de1
+      WHERE
+      de1.businessdate = TO_CHAR(sysdate - 1, 'YYYY.MM.DD')
+      ) - (
+      SELECT
+      COUNT( DISTINCT de2.countcode )
+      FROM
+      dataexchange de2
+      WHERE
+      de2.businessdate = TO_CHAR(sysdate - 2, 'YYYY.MM.DD')
+      )
+      FROM DUAL
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+
+  <SystemCheck>
+    <desc>检查百货餐饮数据是否上传了前天的交易数据.</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select
+      COUNT(1)
+      from
+      dataexchange
+      where
+      dataexchange.businessdate &gt; SUBSTR(dataexchange.transdatetime, 1, 10)
+      AND dataexchange.businessdate = TO_CHAR(sysdate - 1, 'YYYY.MM.DD')
+      and countcode != '80008650'
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+  <SystemCheck>
+    <desc>检查超市餐饮数据是否上传了前天的交易数据.</desc>
+    <connect_string>Data Source=FMART;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select
+      COUNT(1)
+      from
+      dataexchange
+      where
+      dataexchange.businessdate &gt; SUBSTR(dataexchange.transdatetime, 1, 10)
+      AND dataexchange.businessdate = TO_CHAR(sysdate - 1, 'YYYY.MM.DD')
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+  <SystemCheck>
+    <desc>检查百货自营品牌是否有重复</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select
+      COUNT( distinct goods.brand)
+      from
+      goods
+      where
+      goods.code like '25%'
+    </query>
+    <wish_value>12</wish_value>
+  </SystemCheck>
+
+
+  <SystemCheck>
+    <desc>检查积分规则中，是否存在有消费金额小于1的数据</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      SELECT count(1) FROM PSGDCONSSCORE WHERE AMOUNT &lt; 1
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+  <SystemCheck>
+    <desc>检查积分规则中，是否存在有积分数大于1的数据</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select count(1) from PSGDConsScoreDtl where score &gt; 1
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+  <SystemCheck>
+    <desc>检查百货折扣规则中，是否存在有低于80的数据</desc>
+    <connect_string>Data Source=DEPT;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      SELECT count(1) FROM psctgddisrule WHERE  discount &lt; 80
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+  <SystemCheck>
+    <desc>检查超市商品中，是否存在有 进项税与销项税不一致的数据</desc>
+    <connect_string>Data Source=FMART;User ID=hd40;Password=hd40</connect_string>
+    <query>
+      select
+      count(1)
+      from
+      goods
+      where
+      taxrate != saletax
+      and ALWOUT = 1
+    </query>
+    <wish_value>0</wish_value>
+  </SystemCheck>
+
+
+  <FilesCopy>
+    <file_id>1</file_id>
+    <file_name>日报表dailysales</file_name>
+    <copy_from>http://172.20.1.20/salesreport/shuju/dailysales{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\Dailysales\sales{YYYY}{MM}\dailysales{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>2</file_id>
+    <file_name>每日汇总销售报表</file_name>
+    <copy_from>http://172.20.1.20/salesreport/daily/{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\DailySales{YYYY}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>3</file_id>
+    <file_name>月度销售对比分析</file_name>
+    <copy_from>http://172.20.1.20/salesreport/month/MonthComp{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>4</file_id>
+    <file_name>月度累计销售对比分析</file_name>
+    <copy_from>http://172.20.1.20/salesreport/month2/MonthComp{YYYY}{MM}{DD}_adj.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}_adj.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>5</file_id>
+    <file_name>销售进度分析</file_name>
+    <copy_from>http://172.20.1.20/salesreport/xiaoshou/xsjd{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>6</file_id>
+    <file_name>会员卡与销售数据分析</file_name>
+    <copy_from>http://172.20.1.20/salesreport/hyk/hyk_xs{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>7</file_id>
+    <file_name>财务报表</file_name>
+    <copy_from>http://172.20.1.20/salesreport/htm/caiwu_{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <FilesCopy>
+    <file_id>8</file_id>
+    <file_name>挑战日</file_name>
+    <copy_from>http://172.20.1.20/salesreport/sdrl/sdrl{YYYY}{MM}{DD}.xls</copy_from>
+    <copy_to>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</copy_to>
+  </FilesCopy>
+  <Mail>
+    <mail_id>1</mail_id>
+    <mail_subject>{YYYY}/{MM}/{DD} 全天销售数据</mail_subject>
+    <mail_to>june; janechen; Cashier-room</mail_to>
+    <mail_cc />
+    <mail_attach>\\172.20.1.1\it_share\销售数据\香港财务报表\{YYYY}\{YYYY}{MM}\shanghai{YYYY}{MM}{DD}-all.xls</mail_attach>
+    <mail_body />
+  </Mail>
+  <Mail>
+    <mail_id>2</mail_id>
+    <mail_subject>Daily sales in Shanghai({YYYY}-{MM}-{DD})</mail_subject>
+    <mail_to>thomas@sogo.com.hk; eliza@sogo.com.hk; jameskwok</mail_to>
+    <mail_cc>Maeda; Secretariat(info.gen.sh); info.gen@sogo.com.hk</mail_cc>
+    <mail_attach>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}.xls; \\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\DailySales{YYYY}.xls</mail_attach>
+    <mail_body>
+      Dear Top Management,
+      Attached please find two files (Daily Sales Report of this month &amp; Monthly Cumulative Comparison Report) for your kindly reference.
+      Best Regards!
+      IT
+    </mail_body>
+  </Mail>
+  <Mail>
+    <mail_id>3</mail_id>
+    <mail_subject>Monthly Cumulative Comparison Report（adjust） in Shanghai({YYYY}-{MM}-{DD})</mail_subject>
+    <mail_to>jameskwok;</mail_to>
+    <mail_cc>Secretariat(info.gen.sh)</mail_cc>
+    <mail_attach>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}_adj.xls</mail_attach>
+    <mail_body>
+      Dear Top Management,
+      Attached please find the soft copy of Monthly Cumulative Comparison Report（adjust） for your kindly reference.
+      Best Regards,
+      IT
+    </mail_body>
+  </Mail>
+  <Mail>
+    <mail_id>4</mail_id>
+    <mail_subject>Daily Sales Report {YY}{MM}{DD}</mail_subject>
+    <mail_to>jameskwok;</mail_to>
+    <mail_cc>Secretariat(info.gen.sh)</mail_cc>
+    <mail_attach>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}.xls; \\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}.xls</mail_attach>
+    <mail_body>
+      Dear Top Management,
+      Attached please find the soft copy of Daily Sales Report for your kindly reference.
+      Best Regards,
+      IT
+    </mail_body>
+  </Mail>
+  <Mail>
+    <mail_id>5</mail_id>
+    <mail_subject>{YYYY}-{MM}-{DD}时段销售和人流量统计表</mail_subject>
+    <mail_to>pengzl;tejima</mail_to>
+    <mail_cc />
+    <mail_attach>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}.xls</mail_attach>
+    <mail_body>
+      各位领导：
+      附件为时段销售和人流量统计表，请查看！
+      久光IT部
+    </mail_body>
+  </Mail>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>Page</sheet_name>
+    <row>100</row>
+    <col>G</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>Page</sheet_name>
+    <row>72</row>
+    <col>E</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>Page</sheet_name>
+    <row>72</row>
+    <col>G</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>会员卡与销售数据分析</sheet_name>
+    <row>32</row>
+    <col>F</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>上海久光百货销售进度分析</sheet_name>
+    <row>41</row>
+    <col>M</col>
+    <wish_value>0</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>月度对比分析</sheet_name>
+    <row>21</row>
+    <col>E</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}_adj.xls</excel_file_name>
+    <sheet_name>month</sheet_name>
+    <row>27</row>
+    <col>D</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <Excel>
+    <excel_file_name>\\172.20.1.1\it_share\销售数据\Dailysales\sales{YYYY}{MM}\dailysales{YYYY}{MM}{DD}.xls</excel_file_name>
+    <sheet_name>dailysales</sheet_name>
+    <row>17</row>
+    <col>E</col>
+    <wish_value>0.00</wish_value>
+  </Excel>
+  <MulExcel>
+    <desc>Department Store Total</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name1>
+    <sheet_name1>Page</sheet_name1>
+    <row1>64</row1>
+    <col1>E</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\香港财务报表\{YYYY}\{YYYY}{MM}\shanghai{YYYY}{MM}{DD}-all.xls</excel_file_name2>
+    <sheet_name2>Sheet1</sheet_name2>
+    <row2>11</row2>
+    <col2>B</col2>
+  </MulExcel>
+  <MulExcel>
+    <desc>月度消费笔数合计</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</excel_file_name1>
+    <sheet_name1>月度对比分析</sheet_name1>
+    <row1>21</row1>
+    <col1>B</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}_adj.xls</excel_file_name2>
+    <sheet_name2>month</sheet_name2>
+    <row2>20</row2>
+    <col2>B</col2>
+  </MulExcel>
+  <MulExcel>
+    <desc>月度消费笔数合计</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\DailySales{YYYY}.xls</excel_file_name1>
+    <sheet_name1>{M}月</sheet_name1>
+    <row1>67</row1>
+    <col1>AH</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</excel_file_name2>
+    <sheet_name2>月度对比分析</sheet_name2>
+    <row2>22</row2>
+    <col2>B</col2>
+  </MulExcel>
+  <MulExcel>
+    <desc>月度收银客单价</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\DailySales{YYYY}.xls</excel_file_name1>
+    <sheet_name1>{M}月</sheet_name1>
+    <row1>68</row1>
+    <col1>AH</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</excel_file_name2>
+    <sheet_name2>月度对比分析</sheet_name2>
+    <row2>25</row2>
+    <col2>B</col2>
+  </MulExcel>
+  <MulExcel>
+    <desc>月度收银客单价</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\{YYYY}新财务报表\{YYYY}\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name1>
+    <sheet_name1>Page</sheet_name1>
+    <row1>14</row1>
+    <col1>K</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</excel_file_name2>
+    <sheet_name2>月度对比分析</sheet_name2>
+    <row2>25</row2>
+    <col2>B</col2>
+  </MulExcel>
+  <MulExcel>
+    <desc>时段营业额合计对比</desc>
+    <excel_file_name1>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</excel_file_name1>
+    <sheet_name1>挑战日小时销售报表</sheet_name1>
+    <row1>20</row1>
+    <col1>U</col1>
+    <excel_file_name2>\\172.20.1.1\it_share\销售数据\Dailysales\sales{YYYY}{MM}\dailysales{YYYY}{MM}{DD}.xls</excel_file_name2>
+    <sheet_name2>dailysales</sheet_name2>
+    <row2>14</row2>
+    <col2>D</col2>
+  </MulExcel>
+
+
+
+
+  <ExcleCombination>
+    <desc>日报表dailysales</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\Dailysales\sales{YYYY}{MM}\dailysales{YYYY}{MM}.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\Dailysales\sales{YYYY}{MM}\dailysales{YYYY}{MM}{DD}.xls</sub_excel_file>
+    <sub_excel_sheet>dailysales</sub_excel_sheet>
+  </ExcleCombination>
+
+  <ExcleCombination>
+    <desc>月度销售对比分析</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls</sub_excel_file>
+    <sub_excel_sheet>月度对比分析</sub_excel_sheet>
+  </ExcleCombination>
+
+  <ExcleCombination>
+    <desc>月度累计销售对比分析</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}_adj.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}_adj.xls</sub_excel_file>
+    <sub_excel_sheet>month</sub_excel_sheet>
+  </ExcleCombination>
+
+  <ExcleCombination>
+    <desc>销售进度分析</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}{DD}.xls</sub_excel_file>
+    <sub_excel_sheet>上海久光百货销售进度分析</sub_excel_sheet>
+  </ExcleCombination>
+
+  <ExcleCombination>
+    <desc>会员卡与销售数据分析</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}{DD}.xls</sub_excel_file>
+    <sub_excel_sheet>会员卡与销售数据分析</sub_excel_sheet>
+  </ExcleCombination>
+
+  <ExcleCombination>
+    <desc>时段人流报表</desc>
+    <main_excel_file>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}.xls</main_excel_file>
+    <main_excel_sheet>{YYYY}{MM}{DD}</main_excel_sheet>
+    <sub_excel_file>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</sub_excel_file>
+    <sub_excel_sheet>挑战日小时销售报表</sub_excel_sheet>
+  </ExcleCombination>
+
+
+  <FileCheck>
+    <check_subject>{YYYY}/{MM}/{DD} 全天销售数据</check_subject>
+    <check_file>\\172.20.1.1\it_share\销售数据\香港财务报表\{YYYY}\{YYYY}{MM}\shanghai{YYYY}{MM}{DD}-all.xls</check_file>
+  </FileCheck>
+
+  <FileCheck>
+    <check_subject>Daily sales in Shanghai({YYYY}-{MM}-{DD})</check_subject>
+    <check_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}.xls; \\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\DailySales{YYYY}.xls</check_file>
+  </FileCheck>
+
+  <FileCheck>
+    <check_subject>Monthly Cumulative Comparison Report（adjust） in Shanghai({YYYY}-{MM}-{DD})</check_subject>
+    <check_file>\\172.20.1.1\it_share\销售数据\日报表\{YYYY}\{YYYY}{MM}\MonthComp{YYYY}{MM}{DD}_adj.xls</check_file>
+  </FileCheck>
+
+
+  <FileCheck>
+    <check_subject>Daily Sales Report {YY}{MM}{DD}</check_subject>
+    <check_file>\\172.20.1.1\it_share\销售数据\销售进度分析\{YYYY}\{YYYY}{MM}\xsjd{YYYY}{MM}{DD}.xls; \\172.20.1.1\it_share\销售数据\会员卡与销售数据分析\{YYYY}\{YYYY}{MM}\hyk_xs{YYYY}{MM}{DD}.xls</check_file>
+  </FileCheck>
+
+  <FileCheck>
+    <check_subject>{YYYY}-{MM}-{DD}时段销售和人流量统计表</check_subject>
+    <check_file>\\172.20.1.1\it_share\销售数据\时段人流报表\{YYYY}{MM}\{YYYY}{MM}{DD}.xls</check_file>
+  </FileCheck>
+
+
+
+  <Appointment>
+    <desc>周五报表要打印</desc>
+    <week>5</week>
+    <day>0</day>
+    <message>今天星期五，报表需要打印出来给陈经理！</message>
+  </Appointment>
+
+  <Appointment>
+    <desc>每月1号，出完报表后，要修改下月模版</desc>
+    <week>0</week>
+    <day>1</day>
+    <message>今天1号，出完报表后，需要修改下个月的报表模版！</message>
+  </Appointment>
+
+</NewDataSet>

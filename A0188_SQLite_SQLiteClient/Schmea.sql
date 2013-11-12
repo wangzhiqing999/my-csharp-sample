@@ -1,0 +1,28 @@
+sqlite mytest.db
+
+
+
+CREATE TABLE SALE_REPORT (
+      SALE_DATE  DATETIME NOT NULL ,
+      SALE_ITEM  VARCHAR(2) NOT NULL ,
+      SALE_MONEY DECIMAL(10,2) NOT NULL,
+	  PRIMARY KEY(sale_date, sale_item)
+);
+
+
+INSERT INTO SALE_REPORT 
+SELECT date('2009-01-15'),	'A',  1		UNION  ALL
+SELECT date('2009-02-15'),	'A',  2		UNION  ALL
+SELECT date('2009-03-15'),	'A',  3		UNION  ALL
+SELECT date('2009-04-15'),	'A',  4		UNION  ALL
+SELECT date('2009-05-15'),	'A',  5		UNION  ALL
+SELECT date('2009-06-15'),	'A',  6		UNION  ALL
+SELECT date('2009-01-15'),	'B',  11	UNION  ALL
+SELECT date('2009-02-15'),	'B',  12	UNION  ALL
+SELECT date('2009-03-15'),	'B',  13	UNION  ALL
+SELECT date('2009-04-15'),	'B',  14	UNION  ALL
+SELECT date('2009-05-15'),	'B',  15	UNION  ALL
+SELECT date('2009-06-15'),	'B',  16;
+
+
+

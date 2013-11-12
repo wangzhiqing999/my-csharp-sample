@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="test" xmlns="http://schemas.microsoft.com/linqtosql/mapping/2007">
+  <Table Name="dbo.test_main" Member="Test_main">
+    <Type Name="A0540_LINQ_SQL.Sample.Test_main">
+      <Column Name="id" Member="Id" Storage="_Id" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="value" Member="Value" Storage="_Value" DbType="VarChar(10)" />
+      <Association Name="main_id_cons" Member="Test_sub" Storage="_Test_sub" ThisKey="Id" OtherKey="Main_id" DeleteRule="NO ACTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.test_sub" Member="Test_sub">
+    <Type Name="A0540_LINQ_SQL.Sample.Test_sub">
+      <Column Name="id" Member="Id" Storage="_Id" DbType="Int NOT NULL" IsPrimaryKey="true" />
+      <Column Name="main_id" Member="Main_id" Storage="_Main_id" DbType="Int" />
+      <Column Name="value" Member="Value" Storage="_Value" DbType="VarChar(10)" />
+      <Association Name="main_id_cons" Member="Test_main" Storage="_Test_main" ThisKey="Main_id" OtherKey="Id" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

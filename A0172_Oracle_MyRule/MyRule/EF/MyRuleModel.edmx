@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="BIN$54r+Y+BPRDGKx/nl9Kutiw==$0" EntityType="Model.Store.BIN$54r+Y+BPRDGKx/nl9Kutiw==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$BuwYlxusSSaOICpwVVx/VQ==$0" EntityType="Model.Store.BIN$BuwYlxusSSaOICpwVVx/VQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$FLx3irbvQZCBfRMDhXlXEw==$0" EntityType="Model.Store.BIN$FLx3irbvQZCBfRMDhXlXEw==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$JqhJdr/3QxK5bUV25bNhSw==$0" EntityType="Model.Store.BIN$JqhJdr/3QxK5bUV25bNhSw==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$nutpFEwnRDO3U2cyZnhRgw==$0" EntityType="Model.Store.BIN$nutpFEwnRDO3U2cyZnhRgw==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$OGQg08yeTP6tunQdU8C5EQ==$0" EntityType="Model.Store.BIN$OGQg08yeTP6tunQdU8C5EQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$OvDPPsHmQuaZ4JuS3EKpgw==$0" EntityType="Model.Store.BIN$OvDPPsHmQuaZ4JuS3EKpgw==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$rN0l9Ta+RxO7okkNiPr3mQ==$0" EntityType="Model.Store.BIN$rN0l9Ta+RxO7okkNiPr3mQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$VqVSubLdQVWcTG0PDUFuZQ==$0" EntityType="Model.Store.BIN$VqVSubLdQVWcTG0PDUFuZQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$z3NXAVT3SVm8QG9Tuwt+lQ==$0" EntityType="Model.Store.BIN$z3NXAVT3SVm8QG9Tuwt+lQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="BIN$ZMKj1PapRjKXYzT0goxciQ==$0" EntityType="Model.Store.BIN$ZMKj1PapRjKXYzT0goxciQ==$0" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_ACTION" EntityType="Model.Store.MR_ACTION" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_DEPT" EntityType="Model.Store.MR_DEPT" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_DEPT_TYPE" EntityType="Model.Store.MR_DEPT_TYPE" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_DEPT_USER" EntityType="Model.Store.MR_DEPT_USER" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_MODULE" EntityType="Model.Store.MR_MODULE" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_ROLE" EntityType="Model.Store.MR_ROLE" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_ROLE_ACTION" EntityType="Model.Store.MR_ROLE_ACTION" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_ROLE_MODULE" EntityType="Model.Store.MR_ROLE_MODULE" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_USER" EntityType="Model.Store.MR_USER" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_USER_ACTION" EntityType="Model.Store.MR_USER_ACTION" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_USER_MODULE" EntityType="Model.Store.MR_USER_MODULE" store:Type="Tables" Schema="MYRULE" />
+          <EntitySet Name="MR_USER_ROLE" EntityType="Model.Store.MR_USER_ROLE" store:Type="Tables" Schema="MYRULE" />
+          <AssociationSet Name="FK_MR_ACTION_M" Association="Model.Store.FK_MR_ACTION_M">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_PARENT" Association="Model.Store.FK_MR_DEPT_PARENT">
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+            <End Role="MR_DEPT1" EntitySet="MR_DEPT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_T" Association="Model.Store.FK_MR_DEPT_T">
+            <End Role="MR_DEPT_TYPE" EntitySet="MR_DEPT_TYPE" />
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_USER_D" Association="Model.Store.FK_MR_DEPT_USER_D">
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+            <End Role="MR_DEPT_USER" EntitySet="MR_DEPT_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_USER_U" Association="Model.Store.FK_MR_DEPT_USER_U">
+            <End Role="MR_USER" EntitySet="MR_USER" />
+            <End Role="MR_DEPT_USER" EntitySet="MR_DEPT_USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_MODULE_PARENT" Association="Model.Store.FK_MR_MODULE_PARENT">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_MODULE1" EntitySet="MR_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_ROLE_ACTION_A" Association="Model.Store.FK_MR_ROLE_ACTION_A">
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+            <End Role="MR_ROLE_ACTION" EntitySet="MR_ROLE_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_ROLE_ACTION_R" Association="Model.Store.FK_MR_ROLE_ACTION_R">
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+            <End Role="MR_ROLE_ACTION" EntitySet="MR_ROLE_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_ROLE_MODULE_M" Association="Model.Store.FK_MR_ROLE_MODULE_M">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_ROLE_MODULE" EntitySet="MR_ROLE_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_ROLE_MODULE_R" Association="Model.Store.FK_MR_ROLE_MODULE_R">
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+            <End Role="MR_ROLE_MODULE" EntitySet="MR_ROLE_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_ACTION_A" Association="Model.Store.FK_MR_USER_ACTION_A">
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+            <End Role="MR_USER_ACTION" EntitySet="MR_USER_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_ACTION_U" Association="Model.Store.FK_MR_USER_ACTION_U">
+            <End Role="MR_USER" EntitySet="MR_USER" />
+            <End Role="MR_USER_ACTION" EntitySet="MR_USER_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_MODULE_M" Association="Model.Store.FK_MR_USER_MODULE_M">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_USER_MODULE" EntitySet="MR_USER_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_MODULE_U" Association="Model.Store.FK_MR_USER_MODULE_U">
+            <End Role="MR_USER" EntitySet="MR_USER" />
+            <End Role="MR_USER_MODULE" EntitySet="MR_USER_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_ROLE_R" Association="Model.Store.FK_MR_USER_ROLE_R">
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+            <End Role="MR_USER_ROLE" EntitySet="MR_USER_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_USER_ROLE_U" Association="Model.Store.FK_MR_USER_ROLE_U">
+            <End Role="MR_USER" EntitySet="MR_USER" />
+            <End Role="MR_USER_ROLE" EntitySet="MR_USER_ROLE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BIN$54r+Y+BPRDGKx/nl9Kutiw==$0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BIN$BuwYlxusSSaOICpwVVx/VQ==$0">
+          <Key>
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Name="ACTION_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DEFAULT_RULE" Type="number" Nullable="false" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIN$FLx3irbvQZCBfRMDhXlXEw==$0">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="PARENT_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="MODULE_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIN$JqhJdr/3QxK5bUV25bNhSw==$0">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Name="DEPT_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BIN$nutpFEwnRDO3U2cyZnhRgw==$0">
+          <Key>
+            <PropertyRef Name="DEPT_TYPE" />
+          </Key>
+          <Property Name="DEPT_TYPE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DEPT_TYPE_DESC" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIN$OGQg08yeTP6tunQdU8C5EQ==$0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BIN$OvDPPsHmQuaZ4JuS3EKpgw==$0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BIN$rN0l9Ta+RxO7okkNiPr3mQ==$0">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+          </Key>
+          <Property Name="DEPT_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DEPT_TYPE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="PARENT_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="DEPT_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIN$VqVSubLdQVWcTG0PDUFuZQ==$0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="USER_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BIN$z3NXAVT3SVm8QG9Tuwt+lQ==$0">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="BIN$ZMKj1PapRjKXYzT0goxciQ==$0">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_ACTION">
+          <Key>
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Name="ACTION_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_EXPAND" Type="varchar2" MaxLength="100" />
+          <Property Name="DEFAULT_RULE" Type="number" Nullable="false" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_DEPT">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+          </Key>
+          <Property Name="DEPT_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DEPT_TYPE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="PARENT_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="DEPT_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_DEPT_TYPE">
+          <Key>
+            <PropertyRef Name="DEPT_TYPE" />
+          </Key>
+          <Property Name="DEPT_TYPE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="DEPT_TYPE_DESC" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_DEPT_USER">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Name="DEPT_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MR_MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="PARENT_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="MODULE_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="MODULE_EXPAND" Type="varchar2" MaxLength="100" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_ROLE_ACTION">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MR_ROLE_MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MR_USER">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="USER_NAME" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="STATUS" Type="number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MR_USER_ACTION">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ACTION_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MR_USER_MODULE">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="MODULE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MR_USER_ROLE">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Name="USER_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="ROLE_CODE" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_MR_ACTION_M">
+          <End Role="MR_MODULE" Type="Model.Store.MR_MODULE" Multiplicity="1" />
+          <End Role="MR_ACTION" Type="Model.Store.MR_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_ACTION">
+              <PropertyRef Name="MODULE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_PARENT">
+          <End Role="MR_DEPT" Type="Model.Store.MR_DEPT" Multiplicity="0..1" />
+          <End Role="MR_DEPT1" Type="Model.Store.MR_DEPT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_DEPT">
+              <PropertyRef Name="DEPT_CODE" />
+            </Principal>
+            <Dependent Role="MR_DEPT1">
+              <PropertyRef Name="PARENT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_T">
+          <End Role="MR_DEPT_TYPE" Type="Model.Store.MR_DEPT_TYPE" Multiplicity="1" />
+          <End Role="MR_DEPT" Type="Model.Store.MR_DEPT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_DEPT_TYPE">
+              <PropertyRef Name="DEPT_TYPE" />
+            </Principal>
+            <Dependent Role="MR_DEPT">
+              <PropertyRef Name="DEPT_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_USER_D">
+          <End Role="MR_DEPT" Type="Model.Store.MR_DEPT" Multiplicity="1" />
+          <End Role="MR_DEPT_USER" Type="Model.Store.MR_DEPT_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_DEPT">
+              <PropertyRef Name="DEPT_CODE" />
+            </Principal>
+            <Dependent Role="MR_DEPT_USER">
+              <PropertyRef Name="DEPT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_USER_U">
+          <End Role="MR_USER" Type="Model.Store.MR_USER" Multiplicity="1" />
+          <End Role="MR_DEPT_USER" Type="Model.Store.MR_DEPT_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_USER">
+              <PropertyRef Name="USER_CODE" />
+            </Principal>
+            <Dependent Role="MR_DEPT_USER">
+              <PropertyRef Name="USER_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_MODULE_PARENT">
+          <End Role="MR_MODULE" Type="Model.Store.MR_MODULE" Multiplicity="0..1" />
+          <End Role="MR_MODULE1" Type="Model.Store.MR_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_MODULE1">
+              <PropertyRef Name="PARENT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_ROLE_ACTION_A">
+          <End Role="MR_ACTION" Type="Model.Store.MR_ACTION" Multiplicity="1" />
+          <End Role="MR_ROLE_ACTION" Type="Model.Store.MR_ROLE_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_ACTION">
+              <PropertyRef Name="ACTION_CODE" />
+            </Principal>
+            <Dependent Role="MR_ROLE_ACTION">
+              <PropertyRef Name="ACTION_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_ROLE_ACTION_R">
+          <End Role="MR_ROLE" Type="Model.Store.MR_ROLE" Multiplicity="1" />
+          <End Role="MR_ROLE_ACTION" Type="Model.Store.MR_ROLE_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_ROLE">
+              <PropertyRef Name="ROLE_CODE" />
+            </Principal>
+            <Dependent Role="MR_ROLE_ACTION">
+              <PropertyRef Name="ROLE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_ROLE_MODULE_M">
+          <End Role="MR_MODULE" Type="Model.Store.MR_MODULE" Multiplicity="1" />
+          <End Role="MR_ROLE_MODULE" Type="Model.Store.MR_ROLE_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_ROLE_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_ROLE_MODULE_R">
+          <End Role="MR_ROLE" Type="Model.Store.MR_ROLE" Multiplicity="1" />
+          <End Role="MR_ROLE_MODULE" Type="Model.Store.MR_ROLE_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_ROLE">
+              <PropertyRef Name="ROLE_CODE" />
+            </Principal>
+            <Dependent Role="MR_ROLE_MODULE">
+              <PropertyRef Name="ROLE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_ACTION_A">
+          <End Role="MR_ACTION" Type="Model.Store.MR_ACTION" Multiplicity="1" />
+          <End Role="MR_USER_ACTION" Type="Model.Store.MR_USER_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_ACTION">
+              <PropertyRef Name="ACTION_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_ACTION">
+              <PropertyRef Name="ACTION_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_ACTION_U">
+          <End Role="MR_USER" Type="Model.Store.MR_USER" Multiplicity="1" />
+          <End Role="MR_USER_ACTION" Type="Model.Store.MR_USER_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_USER">
+              <PropertyRef Name="USER_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_ACTION">
+              <PropertyRef Name="USER_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_MODULE_M">
+          <End Role="MR_MODULE" Type="Model.Store.MR_MODULE" Multiplicity="1" />
+          <End Role="MR_USER_MODULE" Type="Model.Store.MR_USER_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_MODULE_U">
+          <End Role="MR_USER" Type="Model.Store.MR_USER" Multiplicity="1" />
+          <End Role="MR_USER_MODULE" Type="Model.Store.MR_USER_MODULE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_USER">
+              <PropertyRef Name="USER_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_MODULE">
+              <PropertyRef Name="USER_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_ROLE_R">
+          <End Role="MR_ROLE" Type="Model.Store.MR_ROLE" Multiplicity="1" />
+          <End Role="MR_USER_ROLE" Type="Model.Store.MR_USER_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_ROLE">
+              <PropertyRef Name="ROLE_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_ROLE">
+              <PropertyRef Name="ROLE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_USER_ROLE_U">
+          <End Role="MR_USER" Type="Model.Store.MR_USER" Multiplicity="1" />
+          <End Role="MR_USER_ROLE" Type="Model.Store.MR_USER_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_USER">
+              <PropertyRef Name="USER_CODE" />
+            </Principal>
+            <Dependent Role="MR_USER_ROLE">
+              <PropertyRef Name="USER_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MyRuleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MR_ACTION" EntityType="Model.MR_ACTION" />
+          <EntitySet Name="MR_DEPT" EntityType="Model.MR_DEPT" />
+          <EntitySet Name="MR_DEPT_TYPE" EntityType="Model.MR_DEPT_TYPE" />
+          <EntitySet Name="MR_MODULE" EntityType="Model.MR_MODULE" />
+          <EntitySet Name="MR_ROLE" EntityType="Model.MR_ROLE" />
+          <EntitySet Name="MR_USER" EntityType="Model.MR_USER" />
+          <AssociationSet Name="FK_MR_ACTION_M" Association="Model.FK_MR_ACTION_M">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_PARENT" Association="Model.FK_MR_DEPT_PARENT">
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+            <End Role="MR_DEPT1" EntitySet="MR_DEPT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_DEPT_T" Association="Model.FK_MR_DEPT_T">
+            <End Role="MR_DEPT_TYPE" EntitySet="MR_DEPT_TYPE" />
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MR_MODULE_PARENT" Association="Model.FK_MR_MODULE_PARENT">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_MODULE1" EntitySet="MR_MODULE" />
+          </AssociationSet>
+          <AssociationSet Name="MR_DEPT_USER" Association="Model.MR_DEPT_USER">
+            <End Role="MR_DEPT" EntitySet="MR_DEPT" />
+            <End Role="MR_USER" EntitySet="MR_USER" />
+          </AssociationSet>
+          <AssociationSet Name="MR_ROLE_ACTION" Association="Model.MR_ROLE_ACTION">
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="MR_ROLE_MODULE" Association="Model.MR_ROLE_MODULE">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="MR_USER_ACTION" Association="Model.MR_USER_ACTION">
+            <End Role="MR_ACTION" EntitySet="MR_ACTION" />
+            <End Role="MR_USER" EntitySet="MR_USER" />
+          </AssociationSet>
+          <AssociationSet Name="MR_USER_MODULE" Association="Model.MR_USER_MODULE">
+            <End Role="MR_MODULE" EntitySet="MR_MODULE" />
+            <End Role="MR_USER" EntitySet="MR_USER" />
+          </AssociationSet>
+          <AssociationSet Name="MR_USER_ROLE" Association="Model.MR_USER_ROLE">
+            <End Role="MR_ROLE" EntitySet="MR_ROLE" />
+            <End Role="MR_USER" EntitySet="MR_USER" />
+          </AssociationSet>
+          <EntitySet Name="BIN_54r_Y_BPRDGKx_nl9Kutiw___0" EntityType="Model.BIN_54r_Y_BPRDGKx_nl9Kutiw___0" />
+          <EntitySet Name="BIN_BuwYlxusSSaOICpwVVx_VQ___0" EntityType="Model.BIN_BuwYlxusSSaOICpwVVx_VQ___0" />
+          <EntitySet Name="BIN_FLx3irbvQZCBfRMDhXlXEw___0" EntityType="Model.BIN_FLx3irbvQZCBfRMDhXlXEw___0" />
+          <EntitySet Name="BIN_JqhJdr_3QxK5bUV25bNhSw___0" EntityType="Model.BIN_JqhJdr_3QxK5bUV25bNhSw___0" />
+          <EntitySet Name="BIN_nutpFEwnRDO3U2cyZnhRgw___0" EntityType="Model.BIN_nutpFEwnRDO3U2cyZnhRgw___0" />
+          <EntitySet Name="BIN_OGQg08yeTP6tunQdU8C5EQ___0" EntityType="Model.BIN_OGQg08yeTP6tunQdU8C5EQ___0" />
+          <EntitySet Name="BIN_OvDPPsHmQuaZ4JuS3EKpgw___0" EntityType="Model.BIN_OvDPPsHmQuaZ4JuS3EKpgw___0" />
+          <EntitySet Name="BIN_rN0l9Ta_RxO7okkNiPr3mQ___0" EntityType="Model.BIN_rN0l9Ta_RxO7okkNiPr3mQ___0" />
+          <EntitySet Name="BIN_VqVSubLdQVWcTG0PDUFuZQ___0" EntityType="Model.BIN_VqVSubLdQVWcTG0PDUFuZQ___0" />
+          <EntitySet Name="BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0" EntityType="Model.BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0" />
+          <EntitySet Name="BIN_ZMKj1PapRjKXYzT0goxciQ___0" EntityType="Model.BIN_ZMKj1PapRjKXYzT0goxciQ___0" />
+        </EntityContainer>
+        <EntityType Name="MR_ACTION">
+          <Key>
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Type="String" Name="ACTION_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACTION_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DEFAULT_RULE" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_MODULE" Relationship="Model.FK_MR_ACTION_M" FromRole="MR_ACTION" ToRole="MR_MODULE" />
+          <NavigationProperty Name="MR_ROLE" Relationship="Model.MR_ROLE_ACTION" FromRole="MR_ACTION" ToRole="MR_ROLE" />
+          <NavigationProperty Name="MR_USER" Relationship="Model.MR_USER_ACTION" FromRole="MR_ACTION" ToRole="MR_USER" />
+          <Property Type="String" Name="ACTION_EXPAND" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MR_DEPT">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+          </Key>
+          <Property Type="String" Name="DEPT_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_TYPE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARENT_CODE" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_DEPT_SUB" Relationship="Model.FK_MR_DEPT_PARENT" FromRole="MR_DEPT" ToRole="MR_DEPT1" />
+          <NavigationProperty Name="MR_DEPT_PARENT" Relationship="Model.FK_MR_DEPT_PARENT" FromRole="MR_DEPT1" ToRole="MR_DEPT" />
+          <NavigationProperty Name="MR_DEPT_TYPE" Relationship="Model.FK_MR_DEPT_T" FromRole="MR_DEPT" ToRole="MR_DEPT_TYPE" />
+          <NavigationProperty Name="MR_USER" Relationship="Model.MR_DEPT_USER" FromRole="MR_DEPT" ToRole="MR_USER" />
+        </EntityType>
+        <EntityType Name="MR_DEPT_TYPE">
+          <Key>
+            <PropertyRef Name="DEPT_TYPE" />
+          </Key>
+          <Property Type="String" Name="DEPT_TYPE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_TYPE_DESC" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_DEPT" Relationship="Model.FK_MR_DEPT_T" FromRole="MR_DEPT_TYPE" ToRole="MR_DEPT" />
+        </EntityType>
+        <EntityType Name="MR_MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARENT_CODE" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODULE_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_ACTION" Relationship="Model.FK_MR_ACTION_M" FromRole="MR_MODULE" ToRole="MR_ACTION" />
+          <NavigationProperty Name="MR_MODULE_SUB" Relationship="Model.FK_MR_MODULE_PARENT" FromRole="MR_MODULE" ToRole="MR_MODULE1" />
+          <NavigationProperty Name="MR_MODULE_PARENT" Relationship="Model.FK_MR_MODULE_PARENT" FromRole="MR_MODULE1" ToRole="MR_MODULE" />
+          <NavigationProperty Name="MR_ROLE" Relationship="Model.MR_ROLE_MODULE" FromRole="MR_MODULE" ToRole="MR_ROLE" />
+          <NavigationProperty Name="MR_USER" Relationship="Model.MR_USER_MODULE" FromRole="MR_MODULE" ToRole="MR_USER" />
+          <Property Type="String" Name="MODULE_EXPAND" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MR_ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Type="String" Name="ROLE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROLE_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_ACTION" Relationship="Model.MR_ROLE_ACTION" FromRole="MR_ROLE" ToRole="MR_ACTION" />
+          <NavigationProperty Name="MR_MODULE" Relationship="Model.MR_ROLE_MODULE" FromRole="MR_ROLE" ToRole="MR_MODULE" />
+          <NavigationProperty Name="MR_USER" Relationship="Model.MR_USER_ROLE" FromRole="MR_ROLE" ToRole="MR_USER" />
+        </EntityType>
+        <EntityType Name="MR_USER">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USER_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MR_DEPT" Relationship="Model.MR_DEPT_USER" FromRole="MR_USER" ToRole="MR_DEPT" />
+          <NavigationProperty Name="MR_ACTION" Relationship="Model.MR_USER_ACTION" FromRole="MR_USER" ToRole="MR_ACTION" />
+          <NavigationProperty Name="MR_MODULE" Relationship="Model.MR_USER_MODULE" FromRole="MR_USER" ToRole="MR_MODULE" />
+          <NavigationProperty Name="MR_ROLE" Relationship="Model.MR_USER_ROLE" FromRole="MR_USER" ToRole="MR_ROLE" />
+        </EntityType>
+        <Association Name="FK_MR_ACTION_M">
+          <End Type="Model.MR_MODULE" Role="MR_MODULE" Multiplicity="1" />
+          <End Type="Model.MR_ACTION" Role="MR_ACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_ACTION">
+              <PropertyRef Name="MODULE_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_PARENT">
+          <End Type="Model.MR_DEPT" Role="MR_DEPT" Multiplicity="0..1" />
+          <End Type="Model.MR_DEPT" Role="MR_DEPT1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_DEPT">
+              <PropertyRef Name="DEPT_CODE" />
+            </Principal>
+            <Dependent Role="MR_DEPT1">
+              <PropertyRef Name="PARENT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_DEPT_T">
+          <End Type="Model.MR_DEPT_TYPE" Role="MR_DEPT_TYPE" Multiplicity="1" />
+          <End Type="Model.MR_DEPT" Role="MR_DEPT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_DEPT_TYPE">
+              <PropertyRef Name="DEPT_TYPE" />
+            </Principal>
+            <Dependent Role="MR_DEPT">
+              <PropertyRef Name="DEPT_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MR_MODULE_PARENT">
+          <End Type="Model.MR_MODULE" Role="MR_MODULE" Multiplicity="0..1" />
+          <End Type="Model.MR_MODULE" Role="MR_MODULE1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MR_MODULE">
+              <PropertyRef Name="MODULE_CODE" />
+            </Principal>
+            <Dependent Role="MR_MODULE1">
+              <PropertyRef Name="PARENT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MR_DEPT_USER">
+          <End Type="Model.MR_DEPT" Role="MR_DEPT" Multiplicity="*" />
+          <End Type="Model.MR_USER" Role="MR_USER" Multiplicity="*" />
+        </Association>
+        <Association Name="MR_ROLE_ACTION">
+          <End Type="Model.MR_ACTION" Role="MR_ACTION" Multiplicity="*" />
+          <End Type="Model.MR_ROLE" Role="MR_ROLE" Multiplicity="*" />
+        </Association>
+        <Association Name="MR_ROLE_MODULE">
+          <End Type="Model.MR_MODULE" Role="MR_MODULE" Multiplicity="*" />
+          <End Type="Model.MR_ROLE" Role="MR_ROLE" Multiplicity="*" />
+        </Association>
+        <Association Name="MR_USER_ACTION">
+          <End Type="Model.MR_ACTION" Role="MR_ACTION" Multiplicity="*" />
+          <End Type="Model.MR_USER" Role="MR_USER" Multiplicity="*" />
+        </Association>
+        <Association Name="MR_USER_MODULE">
+          <End Type="Model.MR_MODULE" Role="MR_MODULE" Multiplicity="*" />
+          <End Type="Model.MR_USER" Role="MR_USER" Multiplicity="*" />
+        </Association>
+        <Association Name="MR_USER_ROLE">
+          <End Type="Model.MR_ROLE" Role="MR_ROLE" Multiplicity="*" />
+          <End Type="Model.MR_USER" Role="MR_USER" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BIN_54r_Y_BPRDGKx_nl9Kutiw___0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROLE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BIN_BuwYlxusSSaOICpwVVx_VQ___0">
+          <Key>
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Type="String" Name="ACTION_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACTION_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="DEFAULT_RULE" Nullable="false" Precision="38" Scale="0" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="BIN_FLx3irbvQZCBfRMDhXlXEw___0">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARENT_CODE" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODULE_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="BIN_JqhJdr_3QxK5bUV25bNhSw___0">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Type="String" Name="DEPT_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BIN_nutpFEwnRDO3U2cyZnhRgw___0">
+          <Key>
+            <PropertyRef Name="DEPT_TYPE" />
+          </Key>
+          <Property Type="String" Name="DEPT_TYPE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_TYPE_DESC" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="BIN_OGQg08yeTP6tunQdU8C5EQ___0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="MODULE_CODE" />
+          </Key>
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BIN_OvDPPsHmQuaZ4JuS3EKpgw___0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="ACTION_CODE" />
+          </Key>
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ACTION_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BIN_rN0l9Ta_RxO7okkNiPr3mQ___0">
+          <Key>
+            <PropertyRef Name="DEPT_CODE" />
+          </Key>
+          <Property Type="String" Name="DEPT_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_TYPE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARENT_CODE" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DEPT_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="BIN_VqVSubLdQVWcTG0PDUFuZQ___0">
+          <Key>
+            <PropertyRef Name="USER_CODE" />
+          </Key>
+          <Property Type="String" Name="USER_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USER_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0">
+          <Key>
+            <PropertyRef Name="MODULE_CODE" />
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Type="String" Name="MODULE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROLE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BIN_ZMKj1PapRjKXYzT0goxciQ___0">
+          <Key>
+            <PropertyRef Name="ROLE_CODE" />
+          </Key>
+          <Property Type="String" Name="ROLE_CODE" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ROLE_NAME" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="STATUS" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="MyRuleEntities">
+          <EntitySetMapping Name="MR_ACTION">
+            <EntityTypeMapping TypeName="Model.MR_ACTION">
+              <MappingFragment StoreEntitySet="MR_ACTION">
+                <ScalarProperty Name="ACTION_EXPAND" ColumnName="ACTION_EXPAND" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEFAULT_RULE" ColumnName="DEFAULT_RULE" />
+                <ScalarProperty Name="ACTION_NAME" ColumnName="ACTION_NAME" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+                <ScalarProperty Name="ACTION_CODE" ColumnName="ACTION_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MR_DEPT">
+            <EntityTypeMapping TypeName="Model.MR_DEPT">
+              <MappingFragment StoreEntitySet="MR_DEPT">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEPT_NAME" ColumnName="DEPT_NAME" />
+                <ScalarProperty Name="PARENT_CODE" ColumnName="PARENT_CODE" />
+                <ScalarProperty Name="DEPT_TYPE" ColumnName="DEPT_TYPE" />
+                <ScalarProperty Name="DEPT_CODE" ColumnName="DEPT_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MR_DEPT_TYPE">
+            <EntityTypeMapping TypeName="Model.MR_DEPT_TYPE">
+              <MappingFragment StoreEntitySet="MR_DEPT_TYPE">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEPT_TYPE_DESC" ColumnName="DEPT_TYPE_DESC" />
+                <ScalarProperty Name="DEPT_TYPE" ColumnName="DEPT_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MR_MODULE">
+            <EntityTypeMapping TypeName="Model.MR_MODULE">
+              <MappingFragment StoreEntitySet="MR_MODULE">
+                <ScalarProperty Name="MODULE_EXPAND" ColumnName="MODULE_EXPAND" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MODULE_NAME" ColumnName="MODULE_NAME" />
+                <ScalarProperty Name="PARENT_CODE" ColumnName="PARENT_CODE" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MR_ROLE">
+            <EntityTypeMapping TypeName="Model.MR_ROLE">
+              <MappingFragment StoreEntitySet="MR_ROLE">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MR_USER">
+            <EntityTypeMapping TypeName="Model.MR_USER">
+              <MappingFragment StoreEntitySet="MR_USER">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MR_DEPT_USER" TypeName="Model.MR_DEPT_USER" StoreEntitySet="MR_DEPT_USER">
+            <EndProperty Name="MR_USER">
+              <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_DEPT">
+              <ScalarProperty Name="DEPT_CODE" ColumnName="DEPT_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MR_ROLE_ACTION" TypeName="Model.MR_ROLE_ACTION" StoreEntitySet="MR_ROLE_ACTION">
+            <EndProperty Name="MR_ROLE">
+              <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_ACTION">
+              <ScalarProperty Name="ACTION_CODE" ColumnName="ACTION_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MR_ROLE_MODULE" TypeName="Model.MR_ROLE_MODULE" StoreEntitySet="MR_ROLE_MODULE">
+            <EndProperty Name="MR_ROLE">
+              <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_MODULE">
+              <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MR_USER_ACTION" TypeName="Model.MR_USER_ACTION" StoreEntitySet="MR_USER_ACTION">
+            <EndProperty Name="MR_USER">
+              <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_ACTION">
+              <ScalarProperty Name="ACTION_CODE" ColumnName="ACTION_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MR_USER_MODULE" TypeName="Model.MR_USER_MODULE" StoreEntitySet="MR_USER_MODULE">
+            <EndProperty Name="MR_USER">
+              <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_MODULE">
+              <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="MR_USER_ROLE" TypeName="Model.MR_USER_ROLE" StoreEntitySet="MR_USER_ROLE">
+            <EndProperty Name="MR_USER">
+              <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+            </EndProperty>
+            <EndProperty Name="MR_ROLE">
+              <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="BIN_54r_Y_BPRDGKx_nl9Kutiw___0">
+            <EntityTypeMapping TypeName="Model.BIN_54r_Y_BPRDGKx_nl9Kutiw___0">
+              <MappingFragment StoreEntitySet="BIN$54r+Y+BPRDGKx/nl9Kutiw==$0">
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_BuwYlxusSSaOICpwVVx_VQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_BuwYlxusSSaOICpwVVx_VQ___0">
+              <MappingFragment StoreEntitySet="BIN$BuwYlxusSSaOICpwVVx/VQ==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEFAULT_RULE" ColumnName="DEFAULT_RULE" />
+                <ScalarProperty Name="ACTION_NAME" ColumnName="ACTION_NAME" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+                <ScalarProperty Name="ACTION_CODE" ColumnName="ACTION_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_FLx3irbvQZCBfRMDhXlXEw___0">
+            <EntityTypeMapping TypeName="Model.BIN_FLx3irbvQZCBfRMDhXlXEw___0">
+              <MappingFragment StoreEntitySet="BIN$FLx3irbvQZCBfRMDhXlXEw==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MODULE_NAME" ColumnName="MODULE_NAME" />
+                <ScalarProperty Name="PARENT_CODE" ColumnName="PARENT_CODE" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_JqhJdr_3QxK5bUV25bNhSw___0">
+            <EntityTypeMapping TypeName="Model.BIN_JqhJdr_3QxK5bUV25bNhSw___0">
+              <MappingFragment StoreEntitySet="BIN$JqhJdr/3QxK5bUV25bNhSw==$0">
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="DEPT_CODE" ColumnName="DEPT_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_nutpFEwnRDO3U2cyZnhRgw___0">
+            <EntityTypeMapping TypeName="Model.BIN_nutpFEwnRDO3U2cyZnhRgw___0">
+              <MappingFragment StoreEntitySet="BIN$nutpFEwnRDO3U2cyZnhRgw==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEPT_TYPE_DESC" ColumnName="DEPT_TYPE_DESC" />
+                <ScalarProperty Name="DEPT_TYPE" ColumnName="DEPT_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_OGQg08yeTP6tunQdU8C5EQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_OGQg08yeTP6tunQdU8C5EQ___0">
+              <MappingFragment StoreEntitySet="BIN$OGQg08yeTP6tunQdU8C5EQ==$0">
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_OvDPPsHmQuaZ4JuS3EKpgw___0">
+            <EntityTypeMapping TypeName="Model.BIN_OvDPPsHmQuaZ4JuS3EKpgw___0">
+              <MappingFragment StoreEntitySet="BIN$OvDPPsHmQuaZ4JuS3EKpgw==$0">
+                <ScalarProperty Name="ACTION_CODE" ColumnName="ACTION_CODE" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_rN0l9Ta_RxO7okkNiPr3mQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_rN0l9Ta_RxO7okkNiPr3mQ___0">
+              <MappingFragment StoreEntitySet="BIN$rN0l9Ta+RxO7okkNiPr3mQ==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="DEPT_NAME" ColumnName="DEPT_NAME" />
+                <ScalarProperty Name="PARENT_CODE" ColumnName="PARENT_CODE" />
+                <ScalarProperty Name="DEPT_TYPE" ColumnName="DEPT_TYPE" />
+                <ScalarProperty Name="DEPT_CODE" ColumnName="DEPT_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_VqVSubLdQVWcTG0PDUFuZQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_VqVSubLdQVWcTG0PDUFuZQ___0">
+              <MappingFragment StoreEntitySet="BIN$VqVSubLdQVWcTG0PDUFuZQ==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0">
+              <MappingFragment StoreEntitySet="BIN$z3NXAVT3SVm8QG9Tuwt+lQ==$0">
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+                <ScalarProperty Name="MODULE_CODE" ColumnName="MODULE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BIN_ZMKj1PapRjKXYzT0goxciQ___0">
+            <EntityTypeMapping TypeName="Model.BIN_ZMKj1PapRjKXYzT0goxciQ___0">
+              <MappingFragment StoreEntitySet="BIN$ZMKj1PapRjKXYzT0goxciQ==$0">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="ROLE_CODE" ColumnName="ROLE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MyRuleModel">
+        <EntityTypeShape EntityType="Model.MR_ACTION" Width="1.5" PointX="3.125" PointY="2" Height="2.2966927083333317" />
+        <EntityTypeShape EntityType="Model.MR_DEPT" Width="1.5" PointX="3.75" PointY="5.125" Height="2.4653124999999996" />
+        <EntityTypeShape EntityType="Model.MR_DEPT_TYPE" Width="1.5" PointX="0.75" PointY="4.75" Height="1.6222135416666674" />
+        <EntityTypeShape EntityType="Model.MR_MODULE" Width="1.5" PointX="0.625" PointY="0.5" Height="2.4653124999999996" />
+        <EntityTypeShape EntityType="Model.MR_ROLE" Width="1.5" PointX="5.125" PointY="0.75" Height="1.9594531250000031" />
+        <EntityTypeShape EntityType="Model.MR_USER" Width="1.5" PointX="7.375" PointY="0.625" Height="2.1280729166666745" />
+        <AssociationConnector Association="Model.FK_MR_ACTION_M" >
+          <ConnectorPoint PointX="2.125" PointY="2.5669661458333333" />
+          <ConnectorPoint PointX="3.125" PointY="2.5669661458333333" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_MR_DEPT_PARENT" >
+          <ConnectorPoint PointX="4.2819230769230767" PointY="7.5903125" />
+          <ConnectorPoint PointX="4.2819230769230767" PointY="7.8403125" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="7.8403125" />
+          <ConnectorPoint PointX="4.7284615384615378" PointY="7.5903125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_MR_DEPT_T" >
+          <ConnectorPoint PointX="2.25" PointY="5.7486067708333337" />
+          <ConnectorPoint PointX="3.75" PointY="5.7486067708333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_MR_MODULE_PARENT" >
+          <ConnectorPoint PointX="1.1569230769230767" PointY="3.1339322916666665" />
+          <ConnectorPoint PointX="1.1569230769230767" PointY="3.3839322916666665" />
+          <ConnectorPoint PointX="1.6034615384615383" PointY="3.3839322916666665" />
+          <ConnectorPoint PointX="1.6034615384615383" PointY="3.1339322916666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_DEPT_USER" >
+          <ConnectorPoint PointX="4.875" PointY="5.125" />
+          <ConnectorPoint PointX="4.875" PointY="0.671875" />
+          <ConnectorPoint PointX="7.375" PointY="0.671875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_ROLE_ACTION" >
+          <ConnectorPoint PointX="4.625" PointY="2.3547265625000016" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="2.3547265625000011" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="2.3547265625000016" />
+          <ConnectorPoint PointX="5.125" PointY="2.3547265625000016" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_ROLE_MODULE" >
+          <ConnectorPoint PointX="2.125" PointY="1.3750050000000016" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="1.3750050000000009" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="1.3750050000000016" />
+          <ConnectorPoint PointX="5.125" PointY="1.3750050000000016" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_USER_ACTION" >
+          <ConnectorPoint PointX="4.625" PointY="3.2827869583333373" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="3.2827869583333369" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="3.2827869583333373" />
+          <ConnectorPoint PointX="8.5" PointY="3.2827869583333373" />
+          <ConnectorPoint PointX="8.5" PointY="2.7530729166666745" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_USER_MODULE" >
+          <ConnectorPoint PointX="2.125" PointY="0.50115284615384614" />
+          <ConnectorPoint PointX="2.5" PointY="0.12615284615384592" />
+          <ConnectorPoint PointX="2.5" PointY="0.25" />
+          <ConnectorPoint PointX="7.0011528461538459" PointY="0.25" />
+          <ConnectorPoint PointX="7.3761528461538459" PointY="0.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MR_USER_ROLE" >
+          <ConnectorPoint PointX="6.625" PointY="1.7297265625000016" />
+          <ConnectorPoint PointX="7.375" PointY="1.7297265625000016" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.BIN_54r_Y_BPRDGKx_nl9Kutiw___0" Width="1.5" PointX="6.75" PointY="3.875" Height="1.2849739583333317" />
+        <EntityTypeShape EntityType="Model.BIN_BuwYlxusSSaOICpwVVx_VQ___0" Width="1.5" PointX="6.75" PointY="6.875" Height="1.7908333333333326" />
+        <EntityTypeShape EntityType="Model.BIN_FLx3irbvQZCBfRMDhXlXEw___0" Width="1.5" PointX="0.75" PointY="7.875" Height="1.6222135416666683" />
+        <EntityTypeShape EntityType="Model.BIN_JqhJdr_3QxK5bUV25bNhSw___0" Width="1.5" PointX="2.75" PointY="8.875" Height="1.2849739583333317" />
+        <EntityTypeShape EntityType="Model.BIN_nutpFEwnRDO3U2cyZnhRgw___0" Width="1.5" PointX="8.75" PointY="3.875" Height="1.4535937500000031" />
+        <EntityTypeShape EntityType="Model.BIN_OGQg08yeTP6tunQdU8C5EQ___0" Width="1.5" PointX="8.75" PointY="6.875" Height="1.2849739583333397" />
+        <EntityTypeShape EntityType="Model.BIN_OvDPPsHmQuaZ4JuS3EKpgw___0" Width="1.5" PointX="9.75" PointY="0.875" Height="1.2849739583333388" />
+        <EntityTypeShape EntityType="Model.BIN_rN0l9Ta_RxO7okkNiPr3mQ___0" Width="1.5" PointX="4.75" PointY="9.875" Height="1.7908333333333388" />
+        <EntityTypeShape EntityType="Model.BIN_VqVSubLdQVWcTG0PDUFuZQ___0" Width="1.5" PointX="6.75" PointY="9.875" Height="1.4535937500000031" />
+        <EntityTypeShape EntityType="Model.BIN_z3NXAVT3SVm8QG9Tuwt_lQ___0" Width="1.5" PointX="8.75" PointY="9.875" Height="1.2849739583333388" />
+        <EntityTypeShape EntityType="Model.BIN_ZMKj1PapRjKXYzT0goxciQ___0" Width="1.5" PointX="10.75" PointY="3.875" Height="1.4535937500000031" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

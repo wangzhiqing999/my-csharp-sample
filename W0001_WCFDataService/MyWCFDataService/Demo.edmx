@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TestModelStoreContainer">
+          <EntitySet Name="mr_demo_data" EntityType="TestModel.Store.mr_demo_data" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="mr_demo_data">
+          <Key>
+            <PropertyRef Name="demo_id" />
+          </Key>
+          <Property Name="demo_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="dept_id" Type="int" Nullable="false" />
+          <Property Name="demo_info" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mr_demo_data" EntityType="TestModel.mr_demo_data" />
+        </EntityContainer>
+        <EntityType Name="mr_demo_data">
+          <Key>
+            <PropertyRef Name="demo_id" />
+          </Key>
+          <Property Name="demo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="dept_id" Type="Int32" Nullable="false" />
+          <Property Name="demo_info" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+          <EntitySetMapping Name="mr_demo_data"><EntityTypeMapping TypeName="TestModel.mr_demo_data"><MappingFragment StoreEntitySet="mr_demo_data">
+            <ScalarProperty Name="demo_id" ColumnName="demo_id" />
+            <ScalarProperty Name="city_id" ColumnName="city_id" />
+            <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+            <ScalarProperty Name="demo_info" ColumnName="demo_info" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Demo">
+        <EntityTypeShape EntityType="TestModel.mr_demo_data" Width="1.5" PointX="0.75" PointY="0.75" Height="1.622213541666667" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

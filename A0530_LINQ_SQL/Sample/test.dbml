@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TestLinq2Sql" EntityNamespace="A0530_LINQ_SQL.Sample" ContextNamespace="A0530_LINQ_SQL.Sample" Class="Test" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=TestLinq2Sql;Integrated Security=True" SettingsObjectName="A0530_LINQ_SQL.Properties.Settings" SettingsPropertyName="TestLinq2SqlConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.test_Identity_tab" Member="test_Identity_tab">
+    <Type Name="test_Identity_tab">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="test_Identity_tab_test_Identity_tab_Sub" Member="test_Identity_tab_Sub" ThisKey="id" OtherKey="Main_id" Type="test_Identity_tab_Sub" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestSub" Member="TestSub">
+    <Type Name="TestSub">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Main_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="TestMain_TestSub" Member="TestMain" ThisKey="Main_id" OtherKey="Id" Type="TestMain" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TestMain" Member="TestMain">
+    <Type Name="TestMain">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="TestMain_TestSub" Member="TestSub" ThisKey="Id" OtherKey="Main_id" Type="TestSub" />
+    </Type>
+  </Table>
+  <Table Name="dbo.test_Identity_tab_Sub" Member="test_Identity_tab_Sub">
+    <Type Name="test_Identity_tab_Sub">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Main_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="test_Identity_tab_test_Identity_tab_Sub" Member="test_Identity_tab" ThisKey="Main_id" OtherKey="id" Type="test_Identity_tab" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.HelloWorld2" Method="HelloWorld2">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="OutVal" Parameter="outVal" Type="System.String" DbType="VarChar(10)" Direction="InOut" />
+    <Parameter Name="InoutVal" Parameter="inoutVal" Type="System.String" DbType="VarChar(20)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.testProc" Method="testProc">
+    <ElementType Name="testProcResult">
+      <Column Name="A" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="B" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getHelloWorld" Method="getHelloWorld" IsComposable="true">
+    <ElementType Name="getHelloWorldResult">
+      <Column Name="A" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="B" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HelloWorldFunc" Method="HelloWorldFunc" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+</Database>

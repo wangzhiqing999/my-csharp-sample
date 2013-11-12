@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 10.625" name="RosterDataClasses">
+  <DataContextMoniker Name="/RosterDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="360f44dc-d1e6-473c-a707-50e27b045903" absoluteBounds="0.75, 4.75, 2, 1.6169661458333327">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_BRANCH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="656e3fdf-68d4-41bd-860b-e7d92f4b27fe" absoluteBounds="0.765, 5.21, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5c9450f-27d2-45a0-947d-881565317fb3" absoluteBounds="3.5, 3.75, 2, 1.6169661458333327">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_STAFFSHIFTSHOP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9dd2ba9c-350d-473d-adb8-08bb3c0f4168" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f689234-60a1-4ada-8ed7-5d8f977815a2" absoluteBounds="3.5, 7, 2, 1.9542057291666675">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_BRANCHSHIFT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55f77c04-ced5-48c6-84d5-7278cdf4bfde" absoluteBounds="3.515, 7.46, 1.9700000000000002, 1.3942057291666665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c13a6d13-c04e-450e-a4b2-41ef3b1669f4" absoluteBounds="6.5, 8.875, 2, 1.4483463541666666">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_PUBLICHOLIDAY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28c48772-deeb-433e-9940-abec2530a0c3" absoluteBounds="6.515, 9.335, 1.9700000000000002, 0.88834635416666674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e43a605e-c2b7-4b5f-ac14-946a1a338c82" absoluteBounds="9.25, 2.75, 2, 1.6169661458333327">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_PUBLICHOLIDAYSTAFF" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f57eaba-a8b1-4105-b4b0-b1844ea197c8" absoluteBounds="9.265, 3.21, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48b21e41-ce3b-4512-b73e-dc328691647d" absoluteBounds="6.25, 5.875, 2, 1.9542057291666666">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_ROSTERS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8638c804-c037-4f69-adfe-cba842a57d47" absoluteBounds="6.265, 6.335, 1.9700000000000002, 1.3942057291666665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97242614-5b8e-4af0-a4d8-4d27639506dc" absoluteBounds="6.5, 2.5, 2, 2.1228255208333335">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_STAFF" />
+      <nestedChildShapes>
+        <elementListCompartment Id="135d516f-f35a-4a90-aaab-9c6b013985f7" absoluteBounds="6.515, 2.96, 1.9700000000000002, 1.5628255208333335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34a02609-d8bd-4e79-bf3e-402c72f06e7d" absoluteBounds="3.75, 0.75, 2, 1.6169661458333331">
+      <DataClassMoniker Name="/RosterDataClassesDataContext/HR_STAFF_TITLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8ac59cf-290d-464c-8275-f73174742e3d" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.05848307291667); (3.5 : 5.05848307291667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_BRANCH/HR_BRANCH_HR_STAFFSHIFTSHOP" />
+      <nodes>
+        <classShapeMoniker Id="360f44dc-d1e6-473c-a707-50e27b045903" />
+        <classShapeMoniker Id="e5c9450f-27d2-45a0-947d-881565317fb3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 6.36696614583333); (1.75 : 7.97710286458333); (3.5 : 7.97710286458333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_BRANCH/HR_BRANCH_HR_BRANCHSHIFT" />
+      <nodes>
+        <classShapeMoniker Id="360f44dc-d1e6-473c-a707-50e27b045903" />
+        <classShapeMoniker Id="2f689234-60a1-4ada-8ed7-5d8f977815a2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 9.59917317708333); (10.25 : 9.59917317708333); (10.25 : 4.36696614583333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_PUBLICHOLIDAY/HR_PUBLICHOLIDAY_HR_PUBLICHOLIDAYSTAFF" />
+      <nodes>
+        <classShapeMoniker Id="c13a6d13-c04e-450e-a4b2-41ef3b1669f4" />
+        <classShapeMoniker Id="e43a605e-c2b7-4b5f-ac14-946a1a338c82" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.12098307291667); (6.25 : 6.12098307291667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_BRANCH/HR_BRANCH_HR_ROSTERS" />
+      <nodes>
+        <classShapeMoniker Id="360f44dc-d1e6-473c-a707-50e27b045903" />
+        <classShapeMoniker Id="48b21e41-ce3b-4512-b73e-dc328691647d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.41460286458333); (6.25 : 7.41460286458333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_BRANCHSHIFT/HR_BRANCHSHIFT_HR_ROSTERS" />
+      <nodes>
+        <classShapeMoniker Id="2f689234-60a1-4ada-8ed7-5d8f977815a2" />
+        <classShapeMoniker Id="48b21e41-ce3b-4512-b73e-dc328691647d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.5 : 4.18641276041667); (5.5 : 4.18641276041667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_STAFF/HR_STAFF_HR_STAFFSHIFTSHOP" />
+      <nodes>
+        <classShapeMoniker Id="97242614-5b8e-4af0-a4d8-4d27639506dc" />
+        <classShapeMoniker Id="e5c9450f-27d2-45a0-947d-881565317fb3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.55848307291667); (9.25 : 3.55848307291667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_STAFF/HR_STAFF_HR_PUBLICHOLIDAYSTAFF" />
+      <nodes>
+        <classShapeMoniker Id="97242614-5b8e-4af0-a4d8-4d27639506dc" />
+        <classShapeMoniker Id="e43a605e-c2b7-4b5f-ac14-946a1a338c82" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.375 : 4.62282552083333); (7.375 : 5.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_STAFF/HR_STAFF_HR_ROSTERS" />
+      <nodes>
+        <classShapeMoniker Id="97242614-5b8e-4af0-a4d8-4d27639506dc" />
+        <classShapeMoniker Id="48b21e41-ce3b-4512-b73e-dc328691647d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.62098307291667); (7.29166666666667 : 5.62098307291667 : JumpStart); (7.45833333333333 : 5.62098307291667 : JumpEnd); (8.40625 : 5.62098307291667); (8.40625 : 4.62282552083333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_BRANCH/HR_BRANCH_HR_STAFF" />
+      <nodes>
+        <classShapeMoniker Id="360f44dc-d1e6-473c-a707-50e27b045903" />
+        <classShapeMoniker Id="97242614-5b8e-4af0-a4d8-4d27639506dc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 1.55848307291667); (7.5 : 1.55848307291667); (7.5 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RosterDataClassesDataContext/HR_STAFF_TITLE/HR_STAFF_TITLE_HR_STAFF" />
+      <nodes>
+        <classShapeMoniker Id="34a02609-d8bd-4e79-bf3e-402c72f06e7d" />
+        <classShapeMoniker Id="97242614-5b8e-4af0-a4d8-4d27639506dc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

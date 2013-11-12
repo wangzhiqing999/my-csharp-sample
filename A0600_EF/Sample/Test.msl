@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="A0600_EFSampleStoreContainer" CdmEntityContainer="TestContext">
+    <EntitySetMapping Name="test_main" StoreEntitySet="test_main" TypeName="A0600_EF.Sample.test_main">
+      <ScalarProperty Name="id" ColumnName="id" />
+      <ScalarProperty Name="value" ColumnName="value" />
+    </EntitySetMapping>
+    <EntitySetMapping Name="test_sub" StoreEntitySet="test_sub" TypeName="A0600_EF.Sample.test_sub">
+      <ScalarProperty Name="id" ColumnName="id" />
+      <ScalarProperty Name="value" ColumnName="value" />
+    </EntitySetMapping>
+    <AssociationSetMapping Name="main_id_cons" TypeName="A0600_EF.Sample.main_id_cons" StoreEntitySet="test_sub">
+      <EndProperty Name="test_main">
+        <ScalarProperty Name="id" ColumnName="main_id" />
+      </EndProperty>
+      <EndProperty Name="test_sub">
+        <ScalarProperty Name="id" ColumnName="id" />
+      </EndProperty>
+      <Condition ColumnName="main_id" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

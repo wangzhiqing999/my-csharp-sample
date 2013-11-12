@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MySerialNumber">
+  <DataContextMoniker Name="/MySerialNumberDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2c9a81a5-18c5-43fb-9d94-7bf80f8286b3" absoluteBounds="0.5, 0.5, 2, 2.6286848958333331">
+      <DataClassMoniker Name="/MySerialNumberDataContext/my_serial_number" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22e76c54-fdb3-4ff7-b4f0-01ecf2150ff4" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.068684895833333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

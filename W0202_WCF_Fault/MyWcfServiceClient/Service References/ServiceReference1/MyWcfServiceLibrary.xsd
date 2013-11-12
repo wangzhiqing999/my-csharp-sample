@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MyWcfServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyWcfServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="SystemFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystemMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemOperation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemReason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemFault" nillable="true" type="tns:SystemFault" />
+  <xs:complexType name="DatabaseFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DbMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbOperation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbReason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatabaseFault" nillable="true" type="tns:DatabaseFault" />
+</xs:schema>

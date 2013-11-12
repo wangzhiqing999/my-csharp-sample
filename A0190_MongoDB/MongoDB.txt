@@ -1,0 +1,57 @@
+虚拟机中安装Mongo数据库：
+
+第一步：http://www.mongodb.org/ 下载安装包： mongodb-win32-i386-2.4.6.zip
+
+### 注: 
+由于是测试环境，因此仅仅安装一个 32位的。
+可以通过下面这样的指令， 来查询当前操作系统，应该安装什么版本的。
+命令行下运行：
+wmic os get osarchitecture
+
+
+
+
+第二步：解压缩到 C:\    解压缩以后的目录名为：mongodb-win32-i386-2.4.6
+
+第三步：将接压缩后的目录名， 更名为 mongodb
+
+第四步：创建一个目录，用于存储 数据  C:\data\db. 
+命令行下运行：
+md data
+md data\db
+
+### 注：
+C:\data\db  是默认的 数据库文件存储路径。
+可以通过在运行的时候， 指定参数来修改：
+例如：
+C:\mongodb\bin\mongod.exe --dbpath d:\test\mongodb\data
+
+
+第五步：运行 MongoDB 服务端.
+C:\mongodb\bin\mongod.exe
+
+
+第六步：运行 MongoDB 客户端.
+C:\mongodb\bin\mongo.exe
+
+运行下面的命令， 尝试插入一行数据到 test, 然后再检索出来。
+db.test.save( { a: 1 } )
+db.test.find()
+
+
+如果出现下面的信息，说明安装基本成功。
+
+> db.test.save( { a: 1 } )
+> db.test.find()
+{ "_id" : ObjectId("5233ef5fc3fad877a2b85a08"), "a" : 1 }
+>
+
+
+
+--------------------------------------------------------------------------------
+
+C# 访问 mongodb
+
+http://www.mongodb.org/ 下载安装包：CSharpDriver-1.8.2.zip
+
+接压缩以后， 测试项目中， 增加目录中的 2个 DLL 文件的引用.

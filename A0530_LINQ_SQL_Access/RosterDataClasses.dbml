@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HR_Roster" Class="RosterDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLExpress;Initial Catalog=HR_Roster;Integrated Security=True" SettingsObjectName="A0530_LINQ_SQL_Access.Properties.Settings" SettingsPropertyName="HR_RosterConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="HR_BRANCH" Member="HR_BRANCH">
+    <Type Name="HR_BRANCH">
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BRANCH_NAME_CHI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCH_NAME_ENG" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BRANCH_CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BRANCH_STATUS" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="HR_BRANCH_HR_STAFFSHIFTSHOP" Member="HR_STAFFSHIFTSHOP" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_STAFFSHIFTSHOP" />
+      <Association Name="HR_BRANCH_HR_BRANCHSHIFT" Member="HR_BRANCHSHIFT" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_BRANCHSHIFT" />
+      <Association Name="HR_BRANCH_HR_ROSTERS" Member="HR_ROSTERS" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_ROSTERS" />
+      <Association Name="HR_BRANCH_HR_STAFF" Member="HR_STAFF" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_STAFF" />
+    </Type>
+  </Table>
+  <Table Name="HR_STAFFSHIFTSHOP" Member="HR_STAFFSHIFTSHOP">
+    <Type Name="HR_STAFFSHIFTSHOP">
+      <Column Name="STAFFSHIFTSHOP_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="STAFF_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="START_SHIFT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="END_SHIFT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="HR_BRANCH_HR_STAFFSHIFTSHOP" Member="HR_BRANCH" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_BRANCH" IsForeignKey="true" />
+      <Association Name="HR_STAFF_HR_STAFFSHIFTSHOP" Member="HR_STAFF" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="HR_BRANCHSHIFT" Member="HR_BRANCHSHIFT">
+    <Type Name="HR_BRANCHSHIFT">
+      <Column Name="BRANCHSHIFT_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_SHIFTNAME" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_STARTTIME" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_ENDTIME" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_STARTDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_ENDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="HR_BRANCHSHIFT_HR_ROSTERS" Member="HR_ROSTERS" ThisKey="BRANCHSHIFT_CODE" OtherKey="BRANCHSHIFT_CODE" Type="HR_ROSTERS" />
+      <Association Name="HR_BRANCH_HR_BRANCHSHIFT" Member="HR_BRANCH" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_BRANCH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="HR_PUBLICHOLIDAY" Member="HR_PUBLICHOLIDAY">
+    <Type Name="HR_PUBLICHOLIDAY">
+      <Column Name="PUBLICHOLIDAY_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PUBLICHOLIDAY_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PUBLICHOLIDAY_NAME_CHI" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PUBLICHOLIDAY_NAME_ENG" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="HR_PUBLICHOLIDAY_HR_PUBLICHOLIDAYSTAFF" Member="HR_PUBLICHOLIDAYSTAFF" ThisKey="PUBLICHOLIDAY_CODE" OtherKey="PUBLICHOLIDAY_CODE" Type="HR_PUBLICHOLIDAYSTAFF" />
+    </Type>
+  </Table>
+  <Table Name="HR_PUBLICHOLIDAYSTAFF" Member="HR_PUBLICHOLIDAYSTAFF">
+    <Type Name="HR_PUBLICHOLIDAYSTAFF">
+      <Column Name="STAFF_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PUBLICHOLIDAY_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PUBLICHOLIDAY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAFF_USE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="REQUEST_FLAG" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="HR_PUBLICHOLIDAY_HR_PUBLICHOLIDAYSTAFF" Member="HR_PUBLICHOLIDAY" ThisKey="PUBLICHOLIDAY_CODE" OtherKey="PUBLICHOLIDAY_CODE" Type="HR_PUBLICHOLIDAY" IsForeignKey="true" />
+      <Association Name="HR_STAFF_HR_PUBLICHOLIDAYSTAFF" Member="HR_STAFF" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="HR_ROSTERS" Member="HR_ROSTERS">
+    <Type Name="HR_ROSTERS">
+      <Column Name="ROSTER_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="STAFF_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ROSTER_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BRANCHSHIFT_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ROSTER_QUEUEPOS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ROSTER_SHIFTLOCK" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="HR_BRANCH_HR_ROSTERS" Member="HR_BRANCH" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_BRANCH" IsForeignKey="true" />
+      <Association Name="HR_BRANCHSHIFT_HR_ROSTERS" Member="HR_BRANCHSHIFT" ThisKey="BRANCHSHIFT_CODE" OtherKey="BRANCHSHIFT_CODE" Type="HR_BRANCHSHIFT" IsForeignKey="true" />
+      <Association Name="HR_STAFF_HR_ROSTERS" Member="HR_STAFF" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_STAFF" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="HR_STAFF" Member="HR_STAFF">
+    <Type Name="HR_STAFF">
+      <Column Name="STAFF_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BRANCH_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TITLE_CODE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="STAFF_NAME_CHI" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="STAFF_NAME_ENG" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="STAFF_EMAILADDRESS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="STAFF_DATECREATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAFF_DATELEAVE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="HR_STAFF_HR_STAFFSHIFTSHOP" Member="HR_STAFFSHIFTSHOP" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_STAFFSHIFTSHOP" />
+      <Association Name="HR_STAFF_HR_PUBLICHOLIDAYSTAFF" Member="HR_PUBLICHOLIDAYSTAFF" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_PUBLICHOLIDAYSTAFF" />
+      <Association Name="HR_STAFF_HR_ROSTERS" Member="HR_ROSTERS" ThisKey="STAFF_CODE" OtherKey="STAFF_CODE" Type="HR_ROSTERS" />
+      <Association Name="HR_BRANCH_HR_STAFF" Member="HR_BRANCH" ThisKey="BRANCH_CODE" OtherKey="BRANCH_CODE" Type="HR_BRANCH" IsForeignKey="true" />
+      <Association Name="HR_STAFF_TITLE_HR_STAFF" Member="HR_STAFF_TITLE" ThisKey="TITLE_CODE" OtherKey="TITLE_CODE" Type="HR_STAFF_TITLE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="HR_STAFF_TITLE" Member="HR_STAFF_TITLE">
+    <Type Name="HR_STAFF_TITLE">
+      <Column Name="TITLE_CODE" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TITLE_NAME_CHI" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE_NAME_ENG" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TITLE_PRIORITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TITLE_EXP_DATA" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="HR_STAFF_TITLE_HR_STAFF" Member="HR_STAFF" ThisKey="TITLE_CODE" OtherKey="TITLE_CODE" Type="HR_STAFF" />
+    </Type>
+  </Table>
+</Database>

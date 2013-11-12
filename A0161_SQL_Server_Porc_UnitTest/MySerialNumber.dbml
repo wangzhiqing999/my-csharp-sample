@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UnitTest" Class="MySerialNumberDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=UnitTest;Integrated Security=True" SettingsObjectName="MySerialNumberTest.Properties.Settings" SettingsPropertyName="UnitTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.my_serial_number" Member="my_serial_number">
+    <Type Name="my_serial_number">
+      <Column Name="sn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sn_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="sn_desc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sn_howto" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="sn_format" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sn_seq_max" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sn_seq_min" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sn_seq_curr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sn_date_curr" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sn_curr_val" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="sn_auto_close_date" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.MySerialNumber_CurrVal" Method="MySerialNumber_CurrVal">
+    <Parameter Name="snName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="snResult" Type="System.String" DbType="NVarChar(50)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MySerialNumber_NextVal" Method="MySerialNumber_NextVal">
+    <Parameter Name="snName" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="snResult" Type="System.String" DbType="NVarChar(50)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MySerialNumber_FormatVal" Method="MySerialNumber_FormatVal" IsComposable="true">
+    <Parameter Name="sn_format" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="sn_date_curr" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="sn_seq_curr" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+</Database>

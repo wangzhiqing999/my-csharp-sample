@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="A0600_EF.Sample" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="TestContext">
+    <EntitySet Name="test_main" EntityType="A0600_EF.Sample.test_main" />
+    <EntitySet Name="test_sub" EntityType="A0600_EF.Sample.test_sub" />
+    <AssociationSet Name="main_id_cons" Association="A0600_EF.Sample.main_id_cons">
+      <End Role="test_main" EntitySet="test_main" />
+      <End Role="test_sub" EntitySet="test_sub" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="test_main">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="test_sub" Relationship="A0600_EF.Sample.main_id_cons" FromRole="test_main" ToRole="test_sub" />
+  </EntityType>
+  <EntityType Name="test_sub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="test_main" Relationship="A0600_EF.Sample.main_id_cons" FromRole="test_sub" ToRole="test_main" />
+  </EntityType>
+  <Association Name="main_id_cons">
+    <End Role="test_main" Type="A0600_EF.Sample.test_main" Multiplicity="0..1" />
+    <End Role="test_sub" Type="A0600_EF.Sample.test_sub" Multiplicity="*" />
+  </Association>
+</Schema>

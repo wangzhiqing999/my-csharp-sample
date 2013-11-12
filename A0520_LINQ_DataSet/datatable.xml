@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <team_member_type>
+    <member_type_code>BACK</member_type_code>
+    <member_type_name>后台支持</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>FRONT</member_type_code>
+    <member_type_name>前台支持</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>NORMAL</member_type_code>
+    <member_type_name>正常班1</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST1</member_type_code>
+    <member_type_name>测试123</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST3</member_type_code>
+    <member_type_name>CE SHI 3</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST4</member_type_code>
+    <member_type_name>CE SHI 4</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST5</member_type_code>
+    <member_type_name>T5</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST6</member_type_code>
+    <member_type_name>T6</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST7</member_type_code>
+    <member_type_name>T7</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST8</member_type_code>
+    <member_type_name>T8</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST9</member_type_code>
+    <member_type_name>T9</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST0</member_type_code>
+    <member_type_name>T0</member_type_name>
+  </team_member_type>
+  <team_member_type>
+    <member_type_code>TEST2</member_type_code>
+    <member_type_name>测试2</member_type_name>
+  </team_member_type>
+</NewDataSet>

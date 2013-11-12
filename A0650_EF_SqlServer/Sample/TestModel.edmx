@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TestModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TestModelStoreContainer">
+          <EntitySet Name="test_course" EntityType="TestModel.Store.test_course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_Identity_tab" EntityType="TestModel.Store.test_Identity_tab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_main" EntityType="TestModel.Store.test_main" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_score" EntityType="TestModel.Store.test_score" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_sequence" EntityType="TestModel.Store.test_sequence" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_student" EntityType="TestModel.Store.test_student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_sub" EntityType="TestModel.Store.test_sub" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_sub_of_sub" EntityType="TestModel.Store.test_sub_of_sub" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test_sub_s" EntityType="TestModel.Store.test_sub_s" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_test_score_course" Association="TestModel.Store.fk_test_score_course">
+            <End Role="test_course" EntitySet="test_course" />
+            <End Role="test_score" EntitySet="test_score" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_score_student" Association="TestModel.Store.fk_test_score_student">
+            <End Role="test_student" EntitySet="test_student" />
+            <End Role="test_score" EntitySet="test_score" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_sub" Association="TestModel.Store.fk_test_sub">
+            <End Role="test_main" EntitySet="test_main" />
+            <End Role="test_sub" EntitySet="test_sub" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_sub_of_sub" Association="TestModel.Store.fk_test_sub_of_sub">
+            <End Role="test_sub_s" EntitySet="test_sub_s" />
+            <End Role="test_sub_of_sub" EntitySet="test_sub_of_sub" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_sub_s" Association="TestModel.Store.fk_test_sub_s">
+            <End Role="test_main" EntitySet="test_main" />
+            <End Role="test_sub_s" EntitySet="test_sub_s" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="test_course">
+          <Key>
+            <PropertyRef Name="course_code" />
+          </Key>
+          <Property Name="course_code" Type="int" Nullable="false" />
+          <Property Name="course_name" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_Identity_tab">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_main">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_score">
+          <Key>
+            <PropertyRef Name="student_code" />
+            <PropertyRef Name="course_code" />
+          </Key>
+          <Property Name="student_code" Type="int" Nullable="false" />
+          <Property Name="course_code" Type="int" Nullable="false" />
+          <Property Name="score_value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test_sequence">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Name="table_name" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="sequence_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test_student">
+          <Key>
+            <PropertyRef Name="student_code" />
+          </Key>
+          <Property Name="student_code" Type="int" Nullable="false" />
+          <Property Name="student_name" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_sub">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="main_id" Type="int" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_sub_of_sub">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="sub_main_id" Type="int" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test_sub_s">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="main_id" Type="int" />
+          <Property Name="value" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="fk_test_score_course">
+          <End Role="test_course" Type="TestModel.Store.test_course" Multiplicity="1" />
+          <End Role="test_score" Type="TestModel.Store.test_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_course">
+              <PropertyRef Name="course_code" />
+            </Principal>
+            <Dependent Role="test_score">
+              <PropertyRef Name="course_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_score_student">
+          <End Role="test_student" Type="TestModel.Store.test_student" Multiplicity="1" />
+          <End Role="test_score" Type="TestModel.Store.test_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_student">
+              <PropertyRef Name="student_code" />
+            </Principal>
+            <Dependent Role="test_score">
+              <PropertyRef Name="student_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_sub">
+          <End Role="test_main" Type="TestModel.Store.test_main" Multiplicity="0..1" />
+          <End Role="test_sub" Type="TestModel.Store.test_sub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_main">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub">
+              <PropertyRef Name="main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_sub_of_sub">
+          <End Role="test_sub_s" Type="TestModel.Store.test_sub_s" Multiplicity="0..1" />
+          <End Role="test_sub_of_sub" Type="TestModel.Store.test_sub_of_sub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_sub_s">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub_of_sub">
+              <PropertyRef Name="sub_main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_sub_s">
+          <End Role="test_main" Type="TestModel.Store.test_main" Multiplicity="0..1" />
+          <End Role="test_sub_s" Type="TestModel.Store.test_sub_s" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_main">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub_s">
+              <PropertyRef Name="main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="test_insert_main_sub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="main_val" Type="varchar" Mode="In" />
+          <Parameter Name="sub_val" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="test_remove_main_sub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="main_id" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="test_main" EntityType="TestModel.test_main" />
+          <EntitySet Name="test_sub" EntityType="TestModel.test_sub" />
+          <AssociationSet Name="main_id_cons" Association="TestModel.main_id_cons">
+            <End Role="test_main" EntitySet="test_main" />
+            <End Role="test_sub" EntitySet="test_sub" />
+          </AssociationSet>
+          <EntitySet Name="test_sequence" EntityType="TestModel.test_sequence" />
+          <EntitySet Name="test_course" EntityType="TestModel.test_course" />
+          <EntitySet Name="test_score" EntityType="TestModel.test_score" />
+          <EntitySet Name="test_student" EntityType="TestModel.test_student" />
+          <AssociationSet Name="fk_test_score_course" Association="TestModel.fk_test_score_course">
+            <End Role="test_course" EntitySet="test_course" />
+            <End Role="test_score" EntitySet="test_score" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_score_student" Association="TestModel.fk_test_score_student">
+            <End Role="test_student" EntitySet="test_student" />
+            <End Role="test_score" EntitySet="test_score" />
+          </AssociationSet>
+          <FunctionImport Name="TestInsertMainSub">
+            <Parameter Name="main_val" Mode="In" Type="String" />
+            <Parameter Name="sub_val" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TestRemoveMainSub">
+          <Parameter Name="main_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="test_Identity_tab" EntityType="TestModel.test_Identity_tab" />
+          <EntitySet Name="test_sub_of_sub" EntityType="TestModel.test_sub_of_sub" />
+          <EntitySet Name="test_sub_s" EntityType="TestModel.test_sub_s" />
+          <AssociationSet Name="fk_test_sub_s" Association="TestModel.fk_test_sub_s">
+            <End Role="test_main" EntitySet="test_main" />
+            <End Role="test_sub_s" EntitySet="test_sub_s" />
+          </AssociationSet>
+          <AssociationSet Name="fk_test_sub_of_sub" Association="TestModel.fk_test_sub_of_sub">
+            <End Role="test_sub_s" EntitySet="test_sub_s" />
+            <End Role="test_sub_of_sub" EntitySet="test_sub_of_sub" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="test_main">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="test_sub" Relationship="TestModel.main_id_cons" FromRole="test_main" ToRole="test_sub" />
+          <NavigationProperty Name="test_sub_s" Relationship="TestModel.fk_test_sub_s" FromRole="test_main" ToRole="test_sub_s" />
+        </EntityType>
+        <EntityType Name="test_sub">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="main_id" Type="Int32" />
+          <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="test_main" Relationship="TestModel.main_id_cons" FromRole="test_sub" ToRole="test_main" />
+        </EntityType>
+        <Association Name="main_id_cons">
+          <End Role="test_main" Type="TestModel.test_main" Multiplicity="0..1" />
+          <End Role="test_sub" Type="TestModel.test_sub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_main">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub">
+              <PropertyRef Name="main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="test_sequence">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Type="String" Name="table_name" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="sequence_number" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test_course">
+          <Key>
+            <PropertyRef Name="course_code" />
+          </Key>
+          <Property Type="Int32" Name="course_code" Nullable="false" />
+          <Property Type="String" Name="course_name" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="test_score" Relationship="TestModel.fk_test_score_course" FromRole="test_course" ToRole="test_score" />
+        </EntityType>
+        <EntityType Name="test_score">
+          <Key>
+            <PropertyRef Name="student_code" />
+            <PropertyRef Name="course_code" />
+          </Key>
+          <Property Type="Int32" Name="student_code" Nullable="false" />
+          <Property Type="Int32" Name="course_code" Nullable="false" />
+          <Property Type="Int32" Name="score_value" Nullable="false" />
+          <NavigationProperty Name="test_course" Relationship="TestModel.fk_test_score_course" FromRole="test_score" ToRole="test_course" />
+          <NavigationProperty Name="test_student" Relationship="TestModel.fk_test_score_student" FromRole="test_score" ToRole="test_student" />
+        </EntityType>
+        <EntityType Name="test_student">
+          <Key>
+            <PropertyRef Name="student_code" />
+          </Key>
+          <Property Type="Int32" Name="student_code" Nullable="false" />
+          <Property Type="String" Name="student_name" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="test_score" Relationship="TestModel.fk_test_score_student" FromRole="test_student" ToRole="test_score" />
+        </EntityType>
+        <Association Name="fk_test_score_course">
+          <End Type="TestModel.test_course" Role="test_course" Multiplicity="1" />
+          <End Type="TestModel.test_score" Role="test_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_course">
+              <PropertyRef Name="course_code" />
+            </Principal>
+            <Dependent Role="test_score">
+              <PropertyRef Name="course_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_score_student">
+          <End Type="TestModel.test_student" Role="test_student" Multiplicity="1" />
+          <End Type="TestModel.test_score" Role="test_score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_student">
+              <PropertyRef Name="student_code" />
+            </Principal>
+            <Dependent Role="test_score">
+              <PropertyRef Name="student_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="test_Identity_tab">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="value" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="test_sub_of_sub">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="sub_main_id" />
+          <Property Type="String" Name="value" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="test_sub_s" Relationship="TestModel.fk_test_sub_of_sub" FromRole="test_sub_of_sub" ToRole="test_sub_s" />
+        </EntityType>
+        <EntityType Name="test_sub_s">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="main_id" />
+          <Property Type="String" Name="value" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="test_main" Relationship="TestModel.fk_test_sub_s" FromRole="test_sub_s" ToRole="test_main" />
+          <NavigationProperty Name="test_sub_of_sub" Relationship="TestModel.fk_test_sub_of_sub" FromRole="test_sub_s" ToRole="test_sub_of_sub" />
+        </EntityType>
+        <Association Name="fk_test_sub_s">
+          <End Type="TestModel.test_main" Role="test_main" Multiplicity="0..1" />
+          <End Type="TestModel.test_sub_s" Role="test_sub_s" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_main">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub_s">
+              <PropertyRef Name="main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_test_sub_of_sub">
+          <End Type="TestModel.test_sub_s" Role="test_sub_s" Multiplicity="0..1" />
+          <End Type="TestModel.test_sub_of_sub" Role="test_sub_of_sub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test_sub_s">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="test_sub_of_sub">
+              <PropertyRef Name="sub_main_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+          <EntitySetMapping Name="test_main"><EntityTypeMapping TypeName="TestModel.test_main"><MappingFragment StoreEntitySet="test_main">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="value" ColumnName="value" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="test_sub"><EntityTypeMapping TypeName="TestModel.test_sub"><MappingFragment StoreEntitySet="test_sub">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="main_id" ColumnName="main_id" />
+            <ScalarProperty Name="value" ColumnName="value" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="test_sequence">
+            <EntityTypeMapping TypeName="TestModel.test_sequence">
+              <MappingFragment StoreEntitySet="test_sequence">
+                <ScalarProperty Name="sequence_number" ColumnName="sequence_number" />
+                <ScalarProperty Name="table_name" ColumnName="table_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_course">
+            <EntityTypeMapping TypeName="TestModel.test_course">
+              <MappingFragment StoreEntitySet="test_course">
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+                <ScalarProperty Name="course_code" ColumnName="course_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_score">
+            <EntityTypeMapping TypeName="TestModel.test_score">
+              <MappingFragment StoreEntitySet="test_score">
+                <ScalarProperty Name="score_value" ColumnName="score_value" />
+                <ScalarProperty Name="course_code" ColumnName="course_code" />
+                <ScalarProperty Name="student_code" ColumnName="student_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_student">
+            <EntityTypeMapping TypeName="TestModel.test_student">
+              <MappingFragment StoreEntitySet="test_student">
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="student_code" ColumnName="student_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TestInsertMainSub" FunctionName="TestModel.Store.test_insert_main_sub" />
+          <FunctionImportMapping FunctionImportName="TestRemoveMainSub" FunctionName="TestModel.Store.test_remove_main_sub" />
+          <EntitySetMapping Name="test_Identity_tab">
+            <EntityTypeMapping TypeName="TestModel.test_Identity_tab">
+              <MappingFragment StoreEntitySet="test_Identity_tab">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_sub_of_sub">
+            <EntityTypeMapping TypeName="TestModel.test_sub_of_sub">
+              <MappingFragment StoreEntitySet="test_sub_of_sub">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="sub_main_id" ColumnName="sub_main_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="test_sub_s">
+            <EntityTypeMapping TypeName="TestModel.test_sub_s">
+              <MappingFragment StoreEntitySet="test_sub_s">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="main_id" ColumnName="main_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TestModel">
+        <EntityTypeShape EntityType="TestModel.test_main" Width="1.5" PointX="0.5" PointY="0.5" Height="1.45359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestModel.test_sub" Width="1.5" PointX="3.25" PointY="0.5" Height="1.7908333333333335" IsExpanded="true" />
+        <AssociationConnector Association="TestModel.main_id_cons" ManuallyRouted="false">
+          <ConnectorPoint PointX="2" PointY="1.3111067708333333" />
+          <ConnectorPoint PointX="3.25" PointY="1.3111067708333333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TestModel.test_sequence" Width="1.5" PointX="8.875" PointY="3.375" Height="1.2849739583333335" />
+        <EntityTypeShape EntityType="TestModel.test_course" Width="1.5" PointX="0.5" PointY="5.25" Height="1.4535937499999996" />
+        <EntityTypeShape EntityType="TestModel.test_score" Width="1.5" PointX="3.5" PointY="5" Height="1.7908333333333317" />
+        <EntityTypeShape EntityType="TestModel.test_student" Width="1.5" PointX="6.375" PointY="5.375" Height="1.4535937499999996" />
+        <AssociationConnector Association="TestModel.fk_test_score_course" >
+          <ConnectorPoint PointX="2" PointY="5.976796875" />
+          <ConnectorPoint PointX="3.5" PointY="5.976796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="TestModel.fk_test_score_student" >
+          <ConnectorPoint PointX="6.375" PointY="6.0829166666666659" />
+          <ConnectorPoint PointX="5" PointY="6.0829166666666659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TestModel.test_Identity_tab" Width="1.5" PointX="8.75" PointY="1.75" Height="1.2849739583333317" />
+        <EntityTypeShape EntityType="TestModel.test_sub_of_sub" Width="1.5" PointX="5.5" PointY="2.625" Height="1.6222135416666674" />
+        <EntityTypeShape EntityType="TestModel.test_sub_s" Width="1.5" PointX="3.25" PointY="2.5" Height="1.7908333333333353" />
+        <AssociationConnector Association="TestModel.fk_test_sub_s" >
+          <ConnectorPoint PointX="1.25" PointY="2.1222135416666665" />
+          <ConnectorPoint PointX="1.25" PointY="3.3954166666666676" />
+          <ConnectorPoint PointX="3.25" PointY="3.3954166666666676" />
+        </AssociationConnector>
+        <AssociationConnector Association="TestModel.fk_test_sub_of_sub" >
+          <ConnectorPoint PointX="4.75" PointY="3.4361067708333337" />
+          <ConnectorPoint PointX="5.5" PointY="3.4361067708333337" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

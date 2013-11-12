@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UnitTest" Class="MyRuleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=UnitTest;Integrated Security=True" SettingsObjectName="A0162_SQL_Server_Func_MyRule_UnitTest.Properties.Settings" SettingsPropertyName="UnitTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.mr_action" Member="mr_action">
+    <Type Name="mr_action">
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="action_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="default_rule" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="mr_action_mr_role_action" Member="mr_role_action" ThisKey="action_id" OtherKey="action_id" Type="mr_role_action" />
+      <Association Name="mr_action_mr_user_action" Member="mr_user_action" ThisKey="action_id" OtherKey="action_id" Type="mr_user_action" />
+      <Association Name="mr_module_mr_action" Member="mr_module" ThisKey="module_id" OtherKey="module_id" Type="mr_module" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_user_role" Member="mr_user_role">
+    <Type Name="mr_user_role">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="mr_role_mr_user_role" Member="mr_role" ThisKey="role_id" OtherKey="role_id" Type="mr_role" IsForeignKey="true" />
+      <Association Name="mr_user_mr_user_role" Member="mr_user" ThisKey="user_id" OtherKey="user_id" Type="mr_user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_demo_data" Member="mr_demo_data">
+    <Type Name="mr_demo_data">
+      <Column Name="demo_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="city_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dept_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="demo_info" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_dept" Member="mr_dept">
+    <Type Name="mr_dept">
+      <Column Name="dept_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dept_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="dept_type" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="mr_dept_mr_dept" Member="mr_dept2" ThisKey="dept_id" OtherKey="parent_id" Type="mr_dept" />
+      <Association Name="mr_dept_mr_dept_user" Member="mr_dept_user" ThisKey="dept_id" OtherKey="dept_id" Type="mr_dept_user" />
+      <Association Name="mr_dept_mr_dept" Member="mr_dept1" ThisKey="parent_id" OtherKey="dept_id" Type="mr_dept" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_dept_user" Member="mr_dept_user">
+    <Type Name="mr_dept_user">
+      <Column Name="dept_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="permission_data" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="mr_dept_mr_dept_user" Member="mr_dept" ThisKey="dept_id" OtherKey="dept_id" Type="mr_dept" IsForeignKey="true" />
+      <Association Name="mr_user_mr_dept_user" Member="mr_user" ThisKey="user_id" OtherKey="user_id" Type="mr_user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_module" Member="mr_module">
+    <Type Name="mr_module">
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="mr_module_mr_action" Member="mr_action" ThisKey="module_id" OtherKey="module_id" Type="mr_action" />
+      <Association Name="mr_module_mr_module" Member="mr_module2" ThisKey="module_id" OtherKey="parent_id" Type="mr_module" />
+      <Association Name="mr_module_mr_role_module" Member="mr_role_module" ThisKey="module_id" OtherKey="module_id" Type="mr_role_module" />
+      <Association Name="mr_module_mr_user_module" Member="mr_user_module" ThisKey="module_id" OtherKey="module_id" Type="mr_user_module" />
+      <Association Name="mr_module_mr_module" Member="mr_module1" ThisKey="parent_id" OtherKey="module_id" Type="mr_module" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_permission" Member="mr_permission">
+    <Type Name="mr_permission">
+      <Column Name="permission_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="permission_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="permission_desc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_role" Member="mr_role">
+    <Type Name="mr_role">
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="role_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="mr_role_mr_user_role" Member="mr_user_role" ThisKey="role_id" OtherKey="role_id" Type="mr_user_role" />
+      <Association Name="mr_role_mr_role_action" Member="mr_role_action" ThisKey="role_id" OtherKey="role_id" Type="mr_role_action" />
+      <Association Name="mr_role_mr_role_module" Member="mr_role_module" ThisKey="role_id" OtherKey="role_id" Type="mr_role_module" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_role_action" Member="mr_role_action">
+    <Type Name="mr_role_action">
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="mr_action_mr_role_action" Member="mr_action" ThisKey="action_id" OtherKey="action_id" Type="mr_action" IsForeignKey="true" />
+      <Association Name="mr_role_mr_role_action" Member="mr_role" ThisKey="role_id" OtherKey="role_id" Type="mr_role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_role_module" Member="mr_role_module">
+    <Type Name="mr_role_module">
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="mr_module_mr_role_module" Member="mr_module" ThisKey="module_id" OtherKey="module_id" Type="mr_module" IsForeignKey="true" />
+      <Association Name="mr_role_mr_role_module" Member="mr_role" ThisKey="role_id" OtherKey="role_id" Type="mr_role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_user" Member="mr_user">
+    <Type Name="mr_user">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="mr_user_mr_user_role" Member="mr_user_role" ThisKey="user_id" OtherKey="user_id" Type="mr_user_role" />
+      <Association Name="mr_user_mr_dept_user" Member="mr_dept_user" ThisKey="user_id" OtherKey="user_id" Type="mr_dept_user" />
+      <Association Name="mr_user_mr_user_action" Member="mr_user_action" ThisKey="user_id" OtherKey="user_id" Type="mr_user_action" />
+      <Association Name="mr_user_mr_user_module" Member="mr_user_module" ThisKey="user_id" OtherKey="user_id" Type="mr_user_module" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_user_action" Member="mr_user_action">
+    <Type Name="mr_user_action">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="mr_action_mr_user_action" Member="mr_action" ThisKey="action_id" OtherKey="action_id" Type="mr_action" IsForeignKey="true" />
+      <Association Name="mr_user_mr_user_action" Member="mr_user" ThisKey="user_id" OtherKey="user_id" Type="mr_user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mr_user_module" Member="mr_user_module">
+    <Type Name="mr_user_module">
+      <Column Name="user_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="mr_module_mr_user_module" Member="mr_module" ThisKey="module_id" OtherKey="module_id" Type="mr_module" IsForeignKey="true" />
+      <Association Name="mr_user_mr_user_module" Member="mr_user" ThisKey="user_id" OtherKey="user_id" Type="mr_user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.MyRule_RoleAccessAbleAction" Method="MyRule_RoleAccessAbleAction" IsComposable="true">
+    <Parameter Name="roleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="moduleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_RoleAccessAbleActionResult">
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="action_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="default_rule" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_UserAccessAbleAction" Method="MyRule_UserAccessAbleAction" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="moduleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_UserAccessAbleActionResult">
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="action_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="default_rule" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_UserOwnRole" Method="MyRule_UserOwnRole" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_UserOwnRoleResult">
+      <Column Name="role_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="role_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_UserAccessAbleDept" Method="MyRule_UserAccessAbleDept" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="deptType" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="MyRule_UserAccessAbleDeptResult">
+      <Column Name="dept_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dept_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="permission_data" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_AllUserAccessAbleAction" Method="MyRule_AllUserAccessAbleAction" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="moduleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_AllUserAccessAbleActionResult">
+      <Column Name="action_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="module_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="action_name" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="default_rule" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_AllUserAccessAbleModule" Method="MyRule_AllUserAccessAbleModule" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_AllUserAccessAbleModuleResult">
+      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_RoleAccessAbleModule" Method="MyRule_RoleAccessAbleModule" IsComposable="true">
+    <Parameter Name="roleID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_RoleAccessAbleModuleResult">
+      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MyRule_UserAccessAbleModule" Method="MyRule_UserAccessAbleModule" IsComposable="true">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MyRule_UserAccessAbleModuleResult">
+      <Column Name="module_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="module_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

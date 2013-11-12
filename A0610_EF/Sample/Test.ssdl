@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="A0610_EF.Sample.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="A0610_EFSampleStoreContainer">
+    <EntitySet Name="goods" EntityType="A0610_EF.Sample.Store.goods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="goods_type" EntityType="A0610_EF.Sample.Store.goods_type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="onhand" EntityType="A0610_EF.Sample.Store.onhand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="store" EntityType="A0610_EF.Sample.Store.store" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test_main" EntityType="A0610_EF.Sample.Store.test_main" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test_sub" EntityType="A0610_EF.Sample.Store.test_sub" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__goods__type_id__1273C1CD" Association="A0610_EF.Sample.Store.FK__goods__type_id__1273C1CD">
+      <End Role="goods_type" EntitySet="goods_type" />
+      <End Role="goods" EntitySet="goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__onhand__goodsid__117F9D94" Association="A0610_EF.Sample.Store.FK__onhand__goodsid__117F9D94">
+      <End Role="goods" EntitySet="goods" />
+      <End Role="onhand" EntitySet="onhand" />
+    </AssociationSet>
+    <AssociationSet Name="FK__onhand__store_id__1367E606" Association="A0610_EF.Sample.Store.FK__onhand__store_id__1367E606">
+      <End Role="store" EntitySet="store" />
+      <End Role="onhand" EntitySet="onhand" />
+    </AssociationSet>
+    <AssociationSet Name="main_id_cons" Association="A0610_EF.Sample.Store.main_id_cons">
+      <End Role="test_main" EntitySet="test_main" />
+      <End Role="test_sub" EntitySet="test_sub" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="goods">
+    <Key>
+      <PropertyRef Name="goodsid" />
+    </Key>
+    <Property Name="goodsid" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="type_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="unit" Type="varchar" MaxLength="10" />
+    <Property Name="in_price" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="out_price" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="maxqty" Type="decimal" Precision="5" />
+    <Property Name="minqty" Type="decimal" Precision="5" />
+  </EntityType>
+  <EntityType Name="goods_type">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Name="type_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="type_code" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="type_name" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="onhand">
+    <Key>
+      <PropertyRef Name="store_id" />
+      <PropertyRef Name="goodsid" />
+    </Key>
+    <Property Name="store_id" Type="int" Nullable="false" />
+    <Property Name="goodsid" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="onhand" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="store">
+    <Key>
+      <PropertyRef Name="store_id" />
+    </Key>
+    <Property Name="store_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="store_code" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="store_name" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="test_main">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="test_sub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="main_id" Type="int" />
+    <Property Name="value" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__goods__type_id__1273C1CD">
+    <End Role="goods_type" Type="A0610_EF.Sample.Store.goods_type" Multiplicity="1" />
+    <End Role="goods" Type="A0610_EF.Sample.Store.goods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="goods_type">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="goods">
+        <PropertyRef Name="type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__onhand__goodsid__117F9D94">
+    <End Role="goods" Type="A0610_EF.Sample.Store.goods" Multiplicity="1" />
+    <End Role="onhand" Type="A0610_EF.Sample.Store.onhand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="goods">
+        <PropertyRef Name="goodsid" />
+      </Principal>
+      <Dependent Role="onhand">
+        <PropertyRef Name="goodsid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__onhand__store_id__1367E606">
+    <End Role="store" Type="A0610_EF.Sample.Store.store" Multiplicity="1" />
+    <End Role="onhand" Type="A0610_EF.Sample.Store.onhand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="store">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="onhand">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="main_id_cons">
+    <End Role="test_main" Type="A0610_EF.Sample.Store.test_main" Multiplicity="0..1" />
+    <End Role="test_sub" Type="A0610_EF.Sample.Store.test_sub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="test_main">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="test_sub">
+        <PropertyRef Name="main_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,1652 @@
+﻿<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>代码例子</title>
+</head>
+
+<body>
+  <table border="1">
+    <tr>
+      <td>A0000_BaseFunction</td>
+      <td> System.Collections 下 ArrayList、Hashtable、Queue、SortedList、Stack 操作的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0001_Partial</td>
+      <td> partial 关键字的使用例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0002_Assert</td>
+      <td> Debug.Assert  实现 断言 处理的使用例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0003_TraceLog</td>
+      <td> Trace 方法  实现 跟踪配置 处理的使用例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0005_Reflection</td>
+      <td> 反射 操作的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0006_Reflection2</td>
+      <td> 反射 操作的例子 II </td>
+    </tr>
+
+
+    <tr>
+      <td>A0007_Reflection_ModelCopyer</td>
+      <td>  通过反射, 复制两个类的属性的例子  ( 用于 系统生成类 -- 自定义类 直接的数据复制 )  </td>
+    </tr>
+
+
+
+    <tr>
+      <td>A0010_OO</td>
+      <td> 接口、抽象类、实现类 以及在方法上 abstract、virtual、override、new 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0011_OO_Mul_Interface</td>
+      <td> 一个类实现多接口，且接口有同名方法，要求不同实现的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0012_OO_AutoProp</td>
+      <td> 自动实现的属性的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0013_OO_Constructor </td>
+      <td> 构造函数 与 析构函数 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0015_OverloadOperator </td>
+      <td> 重载运算符 的例子 
+	  
+	  这里通过一个  长度3位，范围 000 - Z99，其中低位为十进制 范围 00 - 99，高位为 36进制 范围 0-9 A-Z 的 序列号类来做 重载运算符 的操作。
+	  </td>
+    </tr>
+
+    <tr>
+      <td> A0016_ExtensionMethods </td>
+      <td> 扩展方法给我们提供了一种很便捷的方式，
+	      通过这种方式我可以给那些不是我们自己创建的类(如第三方组件里面的)
+		  或是我们不能直接修改的类添加方法。 </td>
+    </tr>
+
+
+
+	<tr>
+      <td>A0016_IMPLICIT_EXPLICIT</td>
+      <td> implicit 与 explicit 关键字的例子. 用于实现 类与类之间转换处理.
+也就是对于
+B b = new B();
+显式的 A a = (A) b; 与隐式 的  A a = b;
+	  </td>
+    </tr>
+
+
+
+	<tr>
+      <td>A0017_RandomCode</td>
+      <td> 随机码生成器例子 </td>
+    </tr>
+
+
+
+
+
+
+    <tr>
+      <td>A0020_Function</td>
+      <td> 函数中、参数数量可变、REF、OUT 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0030_Event</td>
+      <td> 事件处理的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0031_delegate </td>
+      <td> 委派 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0032_MulEvent </td>
+      <td> 链接事件 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0033_MulDelegate </td>
+      <td> 多重委派 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0040_Indexer</td>
+      <td> 索引器 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0050_TryCatchFinally</td>
+      <td> Try / Catch/ Finally 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0055_GenericMethod</td>
+      <td> 泛型方法的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0060_Enum</td>
+      <td> 枚举 的例子 </td>
+    </tr>
+
+
+	<tr>
+      <td>A0065_Switch</td>
+      <td> Switch 语句， goto 处理的例子 </td>
+    </tr>
+
+	
+	
+    <tr>
+      <td>A0070_CustomAttributes</td>
+      <td> 类特性 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0071_Deprecated</td>
+      <td> 过期（Deprecated / Obsolete） 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0075_AOPAttributes</td>
+      <td> 通过 Attributes 实现 AOP 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td>A0076_AOPDynamicObject</td>
+      <td> 通过 DynamicObject 实现 AOP 的例子 </td>
+    </tr>
+
+
+
+    <tr>
+      <td>A0080_checked</td>
+      <td> 溢出检测 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0090_Resource</td>
+      <td> 读写资源文件 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0100_File </td>
+      <td> 读写文本文件 与 二进制文件 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0101_Serializable </td>
+      <td> 序列化 / 反序列化 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td>A0102_Path </td>
+      <td> 获取应用程序 当前路径 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0103_FileEncoding </td>
+      <td> 文件编码格式转换 的例子 </td>
+    </tr>
+
+	<tr>
+      <td>A0104_ConvertHtmlToUTF8</td>
+      <td> 
+	  某个小工具代码，用于将 普通编码的 html 文件， 转换为 utf-8 的 html 文件 
+	  （本工具会覆盖掉原有的代码，使用前需做好备份）
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td>A0110_DateTime</td>
+      <td>日期/时间间隔 使用 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0120_Schedule</td>
+      <td> 定时执行任务的例子,  以及定时执行任务时,遇到超时,先停止再执行的例子. </td>
+    </tr>
+
+    <tr>
+      <td>A0130_SocketServer </td>
+      <td> Socket 服务端处理的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0140_SocketClient </td>
+      <td> Socket 客户端处理 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0150_Access </td>
+      <td>访问 Access 数据库的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0151_Excel </td>
+      <td>以数据库方式访问 Excel 的例子 (使用 OleDB) </td>
+    </tr>
+
+
+    <tr>
+      <td> A0160_SQL_Server </td>
+      <td>访问 SQL Server 数据库的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0161_SQL_Server_Porc_UnitTest </td>
+      <td> SQL Server 数据库存储过程／函数　单元测试的例子　
+        <p> 本存储过程，为 SQL Server 下，创建 流水号的 的处理.
+        支持
+        [固定前缀]+年月日+序号 、
+        [固定前缀]+年月+序号 、
+        [固定前缀]+年+序号
+        等的 生成方式。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0162_SQL_Server_Func_MyRule_UnitTest </td>
+      <td> SQL Server 数据库 函数　单元测试的例子　
+        <p> 本次测试的函数，为 SQL Server 下， 组织结构、用户、角色、模块、模块动作的 一套体系结构。
+        其中、组织结构 与 模块结构 为 树型体系结构.
+        角色为独立结构（非树型）
+
+        <ol>
+          <li>用户  多对多  组织结构     </li>
+          <li>用户  多对多  角色         </li>
+          <li>用户  多对多  模块         </li>
+          <li>用户  多对多  模块动作     </li>
+          <li>角色  多对多  模块         </li>
+          <li>角色  多对多  模块动作     </li>
+        </ol>
+
+        对于一个用户
+        <ul>
+          <li>
+            最终可访问的模块 =
+                用户直接可访问模块（包含模块的子模块）
+                + 用户角色直接可访问模块（包含模块的子模块）
+          </li>
+          <li>
+            最终可访问的模块动作 =
+                用户最终可访问的模块下的“默认可访问模块动作”
+                + 针对用户设置的可访问模块动作
+                + 针对用户角色设置的可访问模块动作
+          </li>
+          <li>
+            最终可访问的数据 =
+                用户所属部门(以及下属部门)的数据.
+          </li>
+        </ul>
+
+        </p>
+      </td>
+    </tr>
+
+	
+	
+
+	<tr>
+      <td>A0165_SQL_Server_Oracle</td>
+      <td>
+		用于测试  System.Transactions.TransactionScope 跨数据库的事务处理的例子。
+		SQL Server 中有一个存储过程  test_SqlServer_Proc。  Oracle 中有一个存储过程  test_Oracle_Proc 。
+		先执行 SQL Server 的存储过程，  后执行 Oracle 的存储过程。
+		只要这2个存储过程中，任意一个失败了， 那么全部回滚掉。
+	  </td>
+    </tr>	
+	
+	
+    <tr>
+      <td> A0170_Oracle </td>
+      <td>访问 Oracle 数据库的例子
+	      （使用 微软的类库来访问。  命名空间为  System.Data.OracleClient ）
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td> A0171_Oracle_ODAC </td>
+      <td>访问 Oracle 数据库的例子
+	      ( 使用 Oracle 的 ODAC 来访问。 命名空间为  Oracle.DataAccess.Client )
+	  </td>
+    </tr>
+
+	<tr>
+      <td> A0172_Oracle_MyRule </td>
+      <td>
+	    使用 Oracle 来 实现  A0162_SQL_Server_Func_MyRule_UnitTest 的 处理 。
+	    因为 Oracle 中， 没有 SQL Server 那种 “表值函数” 的东西。
+		因此，具体业务处理逻辑， 是以 C# 代码的方式实现的。
+		( 本项目 使用 Entity Framework 进行处理 )
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td> A0175_PostgreSQL </td>
+      <td>访问 PostgreSQL 数据库的例子
+	      （使用 Npgsql.dll 来访问。  命名空间为  Npgsql， C# 端不用安装 PostgreSQL 相关软件 ）
+	  </td>
+    </tr>
+
+
+
+    <tr>
+      <td> A0180_MySQL_ODBC </td>
+      <td>访问 MySQL 数据库的例子 (使用 ODBC) </td>
+    </tr>
+
+    <tr>
+      <td> A0185_MySQL_MySqlClient </td>
+      <td>访问 MySQL 数据库的例子 (使用 MySqlClient) </td>
+    </tr>
+
+    <tr>
+      <td> A0188_SQLite_SQLiteClient </td>
+      <td>访问 SQLite 数据库的例子  </td>
+    </tr>
+
+	<tr>
+      <td> A0190_A0190_MongoDB </td>
+      <td> 访问 MongoDB 数据库的例子 </td>
+    </tr>
+	
+	
+	
+    <tr>
+      <td>A0200_XML </td>
+      <td> XML 读取/写入 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0205_XmlSerializer </td>
+      <td> 通过 XmlSerializer 读取/写入 XML 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0210_DataSetXML </td>
+      <td> 通过 DataSet 读取 XML 文件的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0211_DataTableCompute </td>
+      <td> 通过 DataTable 进行数据计算的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td>A0300_Thread </td>
+      <td> 最简单的 线程 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0301_ThreadAbort </td>
+      <td> 如何中止线程执行 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0302_ThreadPriority </td>
+      <td> 线程优先级 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0303_ThreadSafe </td>
+      <td> 线程安全/同步 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0320_ThreadPool </td>
+      <td> 线程池 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0330_ThreadAsyncInvoke </td>
+      <td> 主线程 与 子线程 异步处理 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0340_ThreadReadWrite </td>
+      <td> 生产者 / 消费者 多线程处理 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0350_WinFormThread </td>
+      <td> WinForm 下，多线程处理 的例子 （用于避免长时间操作，画面卡住） </td>
+    </tr>
+
+    <tr>
+      <td> A0351_WinFormThreadTwoPart </td>
+      <td> WinForm 下，多线程处理 的例子
+      （几种 串行/并行 处理方式的对比，）
+      某些 Case 使用了 .NET 4.0 的新特性. </td>
+    </tr>
+
+	<tr>
+      <td> A0352_WinFormThreadInvokeParam </td>
+      <td> WinForm 下， Control.Invoke 方法， 获取返回值的处理例子。
+	  因为某些情况下， 多线程的处理过程中， 需要先从画面上， 获取部分数据，然后再针对获取到的数据，执行相应的处理。
+	  </td>
+    </tr>
+
+	<tr>
+      <td> A0360_Timers </td>
+      <td> 定时器处理的例子代码。 </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td>A0400_String  </td>
+      <td>字符串处理 与 正则表达式 的例子 </td>
+    </tr>
+
+    <tr>
+      <td>A0410_Globalization  </td>
+      <td> 本地化 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td>A0411_ChinesePinyin  </td>
+      <td> 汉语拼音 的例子 
+	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
+	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+	  </td>
+    </tr>
+
+	
+	<tr>
+      <td>A0412_ChinesePinyin </td>
+      <td>汉语拼音 的例子 
+	  (注:  此项目需要  安装  Visual Studio International Pack 1.0 SR1 中的   
+	  [Simplified Chinese Pin-Yin Conversion Library - 支持获取简体中文字符的常用属性比如拼音，多音字，同音字，笔画数。] )
+	  </td>
+    </tr>	
+	
+	<tr>
+      <td>A0415_NumericFormatting</td>
+      <td>
+	  数字 格式化为 汉字的处理， 例如 456789 处理成  
+简体中文: 四十五万六千七百八十九
+繁体中文: 肆拾伍萬陸仟柒佰捌拾玖
+日文: 四拾伍萬六阡七百八拾九	  
+
+(注:  此项目需要  安装  Visual Studio International Pack 2.0   )
+	  </td>
+    </tr>	
+	
+
+    <tr>
+      <td>A0420_Log  </td>
+      <td> 使用 System.IO.Log 实现日志记录 的例子 </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td> A0500_LINQ_Base1 </td>
+      <td> 最基本的 LINQ 的例子 使用 int 数组作为数据源 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0501_LINQ_Base2  </td>
+      <td> 基本的 LINQ 的例子 使用 自己创建的类 的集合作为数据源 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0500_LINQ_Base3 </td>
+      <td> 以 Nunit 的方式，
+           测试 All、Any、
+           Count、
+           First、FirstOrDefault、
+           Last、LastOrDefault、
+           Max、Min、
+           OrderBy、OrderByDescending、
+           Reverse、
+           Select、SelectMany、
+           Single、SingleOrDefault、
+           Skip、SkipWhile、
+           Sum、
+           Take、TakeWhile、
+           Where 方法的例子。
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> A0510_LINQ_XML </td>
+      <td> LINQ to XML 关于 XML 文件读取 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0511_LINQ_XML_Query </td>
+      <td> LINQ to XML 关于 XML 的 LINQ 查询 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0520_LINQ_DataSet </td>
+      <td> LINQ to DataSet 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0530_LINQ_SQL </td>
+      <td> LINQ to SQL 的例子 - 使用 dbml 文件 </td>
+    </tr>
+
+	<tr>
+      <td>A0530_LINQ_SQL_Access</td>
+      <td> LINQ to SQL  访问  Access  数据库的例子   </td>
+    </tr>	
+	
+
+    <tr>
+      <td> A0540_LINQ_SQL </td>
+      <td> LINQ to SQL 的例子 - 使用 map 文件 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0550_PLINQ_Base1 </td>
+      <td> 最简单的 并行 LINQ 查询 的例子  *要求 .NET Framework 4.0 </td>
+    </tr>
+
+    <tr>
+      <td> A0551_PLINQ_Base2 </td>
+      <td> 并行 LINQ 查询的 ForAll 的例子，等价于普通LINQ的 foreach
+           *要求 .NET Framework 4.0 </td>
+    </tr>
+
+    <tr>
+      <td> A0552_PLINQ_Base3 </td>
+      <td> 并行 LINQ 查询 ParallelEnumerable.Max/Min/Average/Sum/Count 操作的例子  *要求 .NET Framework 4.0 </td>
+    </tr>
+
+    <tr>
+      <td> A0553_PLINQ_Base4 </td>
+      <td> 并行 LINQ 查询的操作，是否影响排列顺序的例子  *要求 .NET Framework 4.0 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0600_EF </td>
+      <td> Entity Framework 的例子 </td>
+    </tr>
+
+	<tr>
+      <td> A0620_EFv4 </td>
+      <td> Entity Framework v4.1 的例子 (需要 .NET 4.0)
+      <p>
+      本例子中，没有以前的那种 命令行下 执行 EdmGen 产生源代码的处理。
+
+      本例子在 C# 中定义了一个 mr_demo_data 类。
+      在 SQL Server 中，定义一个 mr_demo_data 表
+      类中的属性，与表中的字段，一一对应。
+      </p>
+
+      <p>
+      通过定义一个 DbContext 类。
+      在 DbContext 中， 为表定义 DbSet。
+
+      Business 类 将直接使用 DbContext ，来对特定的表，进行 更新、删除、查询的处理。
+      </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> A0621_EF_CodeFirst </td>
+      <td> Entity Framework CodeFirst 的例子  (需要 .NET 4.0)
+        <p>
+          CodeFirst 意味着，不是先设计表、或者数据库模型。
+          而是先从设计 C# 的类开始。
+          定义具体的业务需求。
+          最后，通过 C# 中的定义， 来创建数据库与表。
+          此功能需要 Entity Framework 4.x 支持。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0622_EF_OneToMany </td>
+      <td> Entity Framework 的 One To Many 例子 (需要 .NET 4.0)
+        <p>
+Code First在处理多重性关系时应用了一系列规则。
+规则使用导航属性确定多重性关系。
+即可以是一对导航属性互相指定（双向关系），也可以是单个导航属性（单向关系）。
+
+如果你的类中包含一个引用和一个集合导航属性，Code First视为一对多关系；
+如果你的类中仅在单边包含导航属性（即要么是集合要么是引用，只有一种），Code First也将其视为一对多关系；
+
+如果你的类包含两个集合属性，Code First默认会使用多对多关系；
+
+如果你的类包含两个引用属性，Code First会视为一对一关系；
+在一对一关系中，你需要提供附加信息以使Code First获知何为主何为辅。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0623_EF_ManyToMany </td>
+      <td> Entity Framework 的 Many To Many 例子 (需要 .NET 4.0)
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0624_EF_OneToOne </td>
+      <td> Entity Framework 的 One To One 例子 (需要 .NET 4.0)
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0630_EF_Inherit_TPH </td>
+      <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
+        <p>
+          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+          这里使用的是 默认的 TPH 方式。
+          也就是 所有的子类，使用同一张表。
+          该表有一个 Discriminator 列，用于区分各个子类。
+          这个表的列，包含了各个子类的属性。
+        </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> A0631_EF_Inherit_TPT </td>
+      <td> Entity Framework 的 继承处理的例子 (需要 .NET 4.0)
+        <p>
+          本例子用于演示 Entity Framework CodeFirst 中 继承 的处理方式。
+          这里使用的是 TPT 的方式。
+          也就是 基类使用一张表。
+          各个子类的使用各自单独的表。
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0640_EF_Enum </td>
+      <td> Entity Framework 枚举使用的例子 (需要 .NET 4.0)
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td> A0650_EF_Oracle </td>
+      <td> Entity Framework  处理  Oracle 的例子代码
+	    <p>
+		主要测试项目包含：
+			使用/不使用 延迟加载的对比；
+			序列号的处理；
+			存储过程的处理；
+			事务处理；
+			并发处理失败的情况
+	    </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0650_EF_SqlServer </td>
+      <td> Entity Framework  处理  SqlServer 的例子代码
+	    <p>
+		主要测试项目包含：
+			使用/不使用 延迟加载的对比；
+			Identity 的处理；
+			存储过程的处理；
+			事务处理；
+			并发处理失败的情况；
+			Model First 的处理。
+		</p>
+      </td>
+    </tr>
+
+
+	<tr>
+      <td> A0650_EF_Document </td>
+      <td>  通过修改 Edmx 文件， 实现为 代码增加注释的功能
+		因为使用的是 通过 数据库 产生的 edmx 文件。
+		在数据库中，  表 与 字段，是有备注信息的。
+		但是将表导入到 开发环境中， 这个 备注信息没有被带过来。
+		这里写一个程序， 从数据库 读取 表/字段 的备注信息， 然后再去 更新  那个  edmx 文件.
+	  </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td> A0700_Main/A0701_AutoUpdate/A0702_CommonFunc </td>
+      <td> 多项目之间 代码引用 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A0710_Merge </td>
+      <td> 泛型处理 数据合并 的例子 （要求用户继承 Merge 类） </td>
+    </tr>
+
+    <tr>
+      <td> A0711_Merge </td>
+      <td> 泛型处理 的例子 （要求用户数据类实现 MergeAble 接口） </td>
+    </tr>
+
+
+    <tr>
+      <td> A0720_MultiTime </td>
+      <td>
+	  存在有指定行数的数据，才做处理 的处理例子。
+	  例如 一个月内，消费 2次以上（含2次）的顾客， 享受双倍积分，
+	  <p>
+	  为什么写这个类，而不用 SQL 语句直接查询的处理的原因有2点：
+	  <br/>
+	  1、存在 退货的情况。 一个退货要取消掉 一个消费。
+	  <br/>
+	  2、需要避免重复计算。
+	  例如 本月15号的时候，已经把上半月 满足 消费 2次以上（含2次）条件的， 都赠送了 双倍的积分了。
+	  月末再次计算的时候，单纯用 SQL 语句处理， 较为麻烦。
+	  </p>
+	  </td>
+    </tr>
+
+
+
+	<tr>
+      <td>A0730_TimeRange</td>
+      <td> 时间范围 重叠检查处理类. </td>
+    </tr>
+
+
+
+	<tr>
+      <td>A0740_AutoMatch</td>
+      <td> 自动匹配处理类.
+<br/>
+用于 顾客 VIP 积分自动兑换礼品处理的算法。
+两种算法：
+<br/>
+一种是  大数字优先， 也就是  贪婪算法。
+优先兑换掉  大积分的商品。
+最大积分商品不能兑换时， 尝试兑换 积分第二大的商品。
+直到没有商品可兑换了， 结束处理。
+
+<br/>
+一种是  最小剩余，也就是 尽可能把所有的积分使用完毕，不留下多余的部分出来。
+<br/>
+
+例如 礼品有 500；400；300 三个积分档次。
+<br/>
+对于 一个有 1200 积分的顾客。
+<br/>
+大数字优先算法， 将为该顾客优先兑换 2个 500分的礼品， 然后剩余 200分。
+<br/>
+最小剩余算法， 将为该顾客兑换 500；400；300  各一个，  然后剩余 0 分。
+
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>A0750_MainSub</td>
+      <td>
+主账户-子帐户拆分处理.
+
+用于 将一个大的金额， 拆分处理成多个 固定大小的金额。
+消耗的时候，从前向后消耗， 补充的时候，从后向前补充（补充数值不能大于初始值）。
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>A0760_PageToken</td>
+      <td>
+页面令牌管理.
+
+用于避免画面重复提交的处理。
+每个画面初始化的时候， 系统产生一个令牌。
+如果画面处理完毕，那么结束。
+
+如果发生一个画面， 多次提交了，由于令牌是唯一的。
+那么后续的提交，将失败。
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td> A0800_Excel </td>
+      <td> 数据导入/导出 Excel 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A0801_Excel </td>
+      <td> 数据导入/导出 Excel 的例子 (A0800_Excel 的重构)
+           <p>
+           目的为了支持 1个数据类，能够创建多种结构的 Excel 表格。
+           </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> A0802_Excel </td>
+      <td> 数据导入/导出 Excel 的例子
+           (A0800_Excel / A0801_Excel 的重构)
+           <p>
+           将 Excel 数据导出的结构代码定义， 独立出来。
+           与 Model 数据类分离.
+           用户数据类不实现任何接口，仅仅存储基础数据。
+           Excel 格式的处理，由单独的类进行处理。
+           </p>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td> A0803_Excel </td>
+      <td> 数据导入/导出 Excel 的例子
+           (A0802_Excel 的 异步处理版本)
+           <p>
+           关于导出：
+           本例子代码是 结合 A0340_ThreadReadWrite  与  A0802_Excel 的综合处理.
+           通过多线程处理
+           Excel 导出作为  消费者线程来处理数据。
+           主线程产生数据， 提供给 Excel 导出处理。
+           </p>
+
+           <p>
+           关于导入：
+           本例子代码是结合 A0030_Event 与   A0802_Excel 的综合处理.
+           通过事件处理
+           当 Excel 读取到一定行数以后，触发事件给主线程处理。
+           </p>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td> A0900_DllImport_StrCmpLogicalW </td>
+      <td> 使用 DllImport 引用 shlwapi.dll 中 StrCmpLogicalW 方法的例子 </td>
+    </tr>
+
+
+
+    <tr>
+      <td> A1010_Print </td>
+      <td> WinForm 环境下，页面设置/打印预览/打印 的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td> A1020_Hardware </td>
+      <td> 使用 System.Management 获取硬件信息的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A1021_CPU_Info </td>
+      <td> 使用 PerformanceCounter 获取 CPU 使用率的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A1030_SMS </td>
+      <td> 使用 System.IO.Ports.SerialPort  通过 手机 或者 GSM 模块， 发送短消息的例子  </td>
+    </tr>
+
+
+	<tr>
+      <td> A1040_Password </td>
+      <td> 用于检查密码复杂度的一些处理代码。</td>
+    </tr>
+
+
+	<tr>
+      <td>A1050_Email</td>
+      <td> 通过  System.Net.Mail.MailMessage  构造电子邮件信息.
+	       通过  SmtpClient  发送电子邮件的例子.
+	  </td>
+    </tr>
+
+	<tr>
+      <td>A1055_log4net_Email</td>
+      <td> 通过配置  Log4Net， 通过电子邮件，发送日志信息的例子。 </td>
+    </tr>
+
+
+
+
+
+
+    <tr>
+      <td> A3001_Office_Excel </td>
+      <td> 使用 Microsoft.Office.Interop.Excel 来 读写 Excel 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A3002_Office_Outlook </td>
+      <td> 使用 Microsoft.Office.Interop.Outlook 来 读写地址簿, 发送邮件 的例子 </td>
+    </tr>
+
+
+
+
+	<tr>
+      <td> A4001_DebugRelease </td>
+      <td>  Vs2010 中， 通过 “生成事件” 管理 app.Debug.config / app.Release.config 的例子。   </td>
+    </tr>
+
+    <tr>
+      <td> A4001_PathAna </td>
+      <td> Dijkstra算法 最短路径处理的例子代码 </td>
+    </tr>
+
+    <tr>
+      <td> A4002_PI </td>
+      <td> 圆周率的计算 （用于实现一个比较耗 CPU 的处理） </td>
+    </tr>
+
+    <tr>
+      <td> A5010_WinPopForm </td>
+      <td> WinForm 环境下， 弹出消息窗口 的例子 </td>
+    </tr>
+
+    <tr>
+      <td> A5020_InputLanguage </td>
+      <td> WinForm 环境下， 输入法切换 与  Caps Lock 检测的例子 </td>
+    </tr>
+
+
+
+    <tr>
+      <td>A5030_Mouse_Event</td>
+      <td> 模拟鼠标移动、点击的处理逻辑  （相当于按键精灵的处理逻辑）  </td>
+    </tr>
+
+
+
+    <tr>
+      <td>A5040_MDI_SubForm</td>
+      <td>MDI 应用程序中，子窗口唯一性的控制处理 </td>
+    </tr>
+
+
+    <tr>
+      <td>A5050_UCbo</td>
+      <td>WinForm 环境下， 模糊匹配下拉列表的例子 </td>
+    </tr>
+
+
+    <tr>
+      <td>A5060_TwoScreen</td>
+      <td>
+	  当计算机有2个屏幕的情况下， 程序自动把主窗口，定位在主屏幕上， 把子窗口，定位在第二个屏幕上的处理例子。
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td>A5070_CheckAbleComboBox</td>
+      <td> WinForm 下面的 自定义控件， 用于显示 可 Check 的 ComboBox </td>
+    </tr>
+	
+	
+    <tr>
+      <td>A5080_ComboBoxWithImage</td>
+      <td> WinForm 下面的 自定义控件， 用于显示 带图片显示 的 ComboBox 
+	  本项目涉及到的知识点, 还包含  根据大图片,  制作缩略图的处理.
+	  以及 自定义控件中, 如何设置 自定义属性的 扩展的备注信息.
+	  </td>
+    </tr>
+
+	
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+
+    <tr>
+      <td> B0010_NVelocity </td>
+      <td> NVelocity 使用的例子
+          <p>
+            NVelocity 是 java 的 Velocity 的 .NET 版本
+            主要是一套模板的引擎。
+            用于实现  数据 + 模板 = 结果.
+
+            可以用于 Web 开发。
+            本人一般用它来做 代码生成器。
+            也就是 读取 DB的信息， + 模板文件 =  代码.
+          </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> B0020_Log4Net </td>
+      <td> Log4Net 使用的例子
+        <p>
+            Log4Net  是 java 的 Log4J 的 .NET 版本
+            主要是一套 日志处理系统。
+        </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> B0030_Ninject </td>
+      <td> Ninject 使用的例子  (简单的 HelloWorld 例子)
+        <p>
+            Ninject 是一套 轻量级的 IOC 依赖注入的框架.
+        </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> B0031_Ninject </td>
+      <td> Ninject 使用的例子
+        <p>
+            本例子用于演示 多种 Bind 方式。
+            例如： To、ToConstant、ToMethod、ToProvider
+
+            以及 IEnumerable 类型的 [Inject] 处理。
+        </p>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td> B0032_Ninject </td>
+      <td> Ninject 使用的例子
+        <p>
+            本例子用于演示 Object Scopes 演示例子.。
+            也就是  普通的范围、 单例的范围、 线程的范围。
+        </p>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td> B0033_Ninject </td>
+      <td> Ninject 使用的例子
+        <p>
+            本例子用于演示 Ninject  中的  Contextual Binding。
+
+            包含 Named bindings  attribute bindings
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td> B0035_Ninject </td>
+      <td> Ninject 综合使用的例子
+        <p>
+            本例子用于演示 Ninject 处理一个略为复杂的例子.
+
+            本例子包含多个接口,多个实现, 实现中包含依赖注入.
+        </p>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td>B0040_MOQ</td>
+      <td> MOQ 使用的基本例子。 </td>
+    </tr>
+
+    <tr>
+      <td>B0045_MOQ_Ninject</td>
+      <td> MOQ 与 Ninject 结合使用的例子。 </td>
+    </tr>
+
+
+	<tr>
+      <td> B0100_NAnt </td>
+      <td> Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报表的例子。  </td>
+    </tr>
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+	<tr>
+      <td>G0001_Sudoku</td>
+      <td>
+	    一个数独计算的项目。
+	    通过 递归， 来实现 回朔 的计算处理。
+
+		算法是
+		1、首先根据现有的数据， 计算出每一个单元格   可能选择 的数据。
+		2、按照 可能选择 的数据 最少的单元格，  尝试设置数据。 然后再次更新 剩余的 未设置的单元格的 可能选择 的数据。
+		3、如果全部设置完毕的情况下，返回 true。
+		4、如果设置后，导致 存在有 还没有设置数据的单元格， 没有 可能选择 的数据 了， 那么意味着本次处理失败， 继续处理 本单元格的 下一个可选数字.
+		5、如果设置后，当前数据表格中， 所有的未设置数据，都至少存在一个可能选择 的数据，  那么首先将本次处理的数据， 保存到 ”todoList“
+		6、递归处理 （相当于 继续到 2 的处理步骤去）
+		7、如果 递归处理 的结果失败了，那么 将本次处理的数据， 从 "todoList" 列表中删除，然后继续处理 本单元格的 下一个可选数字.
+		8、如果本节点的全部  可能选择 的数据， 都处理失败了， 那么返回 fasle. 回朔到上一个节点去进行判断.
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td>G0011_Elevator</td>
+      <td>一个 模拟电梯 上下运行的例子
+	  主要涉及到的知识点：
+
+	  状态模式.
+	  多线程处理.
+
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td>G0021_Calculate.App / G0021_Calculate.Service</td>
+      <td> 模拟出一道计算题，由操作者选择正确答案的情况。
+	  （基本无技术含量）
+	  </td>
+    </tr>
+
+
+
+    <tr>
+      <td>G0031_QueuingMachine.Machine</td>
+      <td> 排队机的  服务窗口客户端. （Socket 客户端，发送一个请求，针对一个排队号进行处理， 处理完毕后，获取下一个排队号继续处理。） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Machine</td>
+      <td> 排队机的  排队机客户端. （Socket 客户端，发送一个请求，获取一个排队号） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Protocol</td>
+      <td> 排队机的   网络消息协议. （也就是 数据对象，以什么样的方式 编码解码，通过Socket传送） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Server</td>
+      <td> 排队机的   服务器端.  （开始 Socket 服务端，接收请求消息， 处理，然后反馈消息） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Service</td>
+      <td> 排队机的   对号管理与消息处理逻辑. （消息流水的管理） </td>
+    </tr>
+    <tr>
+      <td>G0031_QueuingMachine.Test</td>
+      <td> 排队机的   单元测试. </td>
+    </tr>
+
+
+
+    <tr>
+      <td>G0051_Jigsaw.App</td>
+      <td>拼图游戏的客户端</td>
+    </tr>
+    <tr>
+      <td>G0051_Jigsaw.Service</td>
+      <td>拼图游戏的业务逻辑代码</td>
+    </tr>
+    <tr>
+      <td>G0051_Jigsaw.Test</td>
+      <td>拼图游戏得业务逻辑单元测试代码</td>
+    </tr>
+
+
+    <tr>
+      <td>G0061_Pic_Mov</td>
+      <td> 使用多个图片,实现动画处理的效果.  </td>
+    </tr>
+
+
+    <tr>
+      <td>G0071_BlackJack.App</td>
+      <td>21点客户端</td>
+    </tr>
+    <tr>
+      <td>G0071_BlackJack.Service</td>
+      <td>21点服务逻辑</td>
+    </tr>
+    <tr>
+      <td>G0071_BlackJack.Test</td>
+      <td>21点服务逻辑测试</td>
+    </tr>
+
+
+    <tr>
+      <td>G0081_ImageSwitch</td>
+      <td> 两个图片切换效果的处理.
+	  包含左右、上下旋转  与 左右、上下移动。
+	  </td>
+    </tr>
+
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+
+
+
+
+    <tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+
+	<tr>
+      <td>P0101_SimpleFactory</td>
+      <td> 设计模式 [创建模式]中，简单工厂的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0102_FactoryMethod</td>
+      <td> 设计模式 [创建模式]中，工厂方法的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0103_AbstractFactory</td>
+      <td> 设计模式 [创建模式]中，抽象工厂的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0104_Singleton</td>
+      <td> 设计模式 [创建模式]中，单例的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0105_Multiton</td>
+      <td> 设计模式 [创建模式]中，多例的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0106_Builder</td>
+      <td> 设计模式 [创建模式]中，建造者的例子 </td>
+    </tr>
+
+    <tr>
+      <td>P0107_Prototype</td>
+      <td> 设计模式 [创建模式]中，原型的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0201_Adapter</td>
+      <td>设计模式 [结构模式]中，适配器 的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0202_DefaultAdapter</td>
+      <td>设计模式 [结构模式]中，缺省适配 的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0203_Composite</td>
+      <td>设计模式 [结构模式]中，合成模式 的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0204_Decorator</td>
+      <td> 设计模式 [结构模式]中，装饰的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0205_Proxy</td>
+      <td> 设计模式 [结构模式]中，代理的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0206_Flyweight</td>
+      <td> 设计模式 [结构模式]中，享元的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0207_Facade</td>
+      <td> 设计模式 [结构模式]中， 门面 / 外观 的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0208_Bridge</td>
+      <td> 设计模式 [结构模式]中， 桥梁 的例子</td>
+    </tr>
+
+
+	<tr>
+      <td>P0301_Immutable</td>
+      <td> 设计模式 [行为模式]中，不变 的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0302_Strategy</td>
+      <td> 设计模式 [行为模式]中， 策略 的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0303_TemplateMethod</td>
+      <td> 设计模式 [行为模式]中， 模板方法 的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0304_Observer</td>
+      <td> 设计模式 [行为模式]中， 观察者 的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0305_Iterator</td>
+      <td>设计模式 [行为模式]中， 迭代器 的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0306_ChainOfResponsibility</td>
+      <td> 设计模式 [行为模式]中，责任链的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0307_Command</td>
+      <td> 设计模式 [行为模式]中，命令的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0308_Memento</td>
+      <td> 设计模式 [行为模式]中，备忘录的例子 </td>
+    </tr>
+
+	<tr>
+      <td>P0309_State</td>
+      <td> 设计模式 [行为模式]中，状态的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0310_Visitor</td>
+      <td> 设计模式 [行为模式]中，访问者的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0311_Interpreter</td>
+      <td> 设计模式 [行为模式]中，解释器的例子</td>
+    </tr>
+
+	<tr>
+      <td>P0312_Mediator</td>
+      <td> 设计模式 [行为模式]中，调停者/中介者 的例子</td>
+    </tr>
+
+	<tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+
+	<tr>
+      <td>S0001_GROUP_CONCAT</td>
+      <td>
+	  在 SQL Server 下，实现 MySQL 的 GROUP_CONCAT 函数的功能.
+	  </td>
+    </tr>
+
+	<tr>
+      <td>S0011_MEDIAN</td>
+      <td>
+	  在 SQL Server 下， 实现 Oracle 的 Median （中位数）函数的功能.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>S0021_GetPinYin</td>
+      <td>
+	  在 SQL Server 下， 获取汉字拼音首字母的函数的处理.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>S0031_IsTableExists</td>
+      <td>
+	  在 SQL Server 下， 函数中执行动态 SQL 的一个例子.
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+	<tr>
+      <td>W0001_WCFDataService</td>
+      <td> WCF 数据服务的例子
+        <p> 本例子仅仅包含最简单的
+        控制台程序  ---WCF---  ADO.NET实体数据模型 --- 数据库的  LINQ 查询的例子
+
+        需要自己建表、造测试数据。
+        </p>
+      </td>
+    </tr>
+
+	<tr>
+      <td>W0100_WebService</td>
+      <td>
+		<p> Web Service 的简单例子代码.  </p>
+
+		包含 普通客户端调用。
+		与使用 SoapHeader 安全验证的调用。
+	  </td>
+    </tr>
+
+	<tr>
+      <td>W0200_WCF</td>
+      <td>
+		<p>  WCF 的简单例子代码.  </p>
+
+		包含在VS2010中，添加服务引用的方式，产生客户端代码的调用方式。
+		与手动编写客户端代码与配置文件的调用方式。
+	  </td>
+    </tr>
+
+	<tr>
+      <td>W0201_WCF_Detail</td>
+      <td>
+		<p>  WCF 的略微复杂的例子代码.  </p>
+
+		解决方案包含 5个项目， 分别为 ：
+		Contract (基本的接口定义与数据类定义) 、
+		Service (接口服务的具体实现) 、
+		Hosting (控制台程序方式的 WCF 服务端代码) 、
+		Web (Web方式的 WCF 服务端代码) 、
+		Client (调用 WCF 服务的代码 具体调用 控制台的服务端，还是 Web服务端， 通过配置文件定义。)
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>W0202_WCF_Fault</td>
+      <td>
+		<p>  WCF 异常处理的例子代码.  </p>
+
+		解决方案包含 2个项目， 分别为 ：
+		MyWcfServiceLibrary ( WCF 服务库) 、
+		MyWcfServiceClient ( WCF 客户端 控制台应用程序)
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>W0203_WCF_Scurity_NetTcp</td>
+      <td>
+		<p>  WCF 在使用NetTcpBinding绑定的服务上启动消息加密.  </p>
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>W0204_WCF_Scurity_BaseHttp</td>
+      <td>
+		<p>  WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p>
+
+		解决方案包含 5个项目， 分别为 ：
+		Contract (基本的接口定义与数据类定义) 、
+		Service (接口服务的具体实现) 、
+
+
+		Web (Web方式的 WCF 服务端代码)  需要服务器配置好 SSL   、
+		Client (调用 WCF 服务的代码  手动编写调用的处理)
+
+		Client_ByAuto (调用 WCF 服务的代码  通过 VS 添加服务引用的方式， 产生客户端代码的处理。)
+
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td>W0205_WCF_Scurity_BaseHttp</td>
+      <td>
+	    <p> WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.  </p>
+
+		此项目结构与  W0204_WCF_Scurity_BaseHttp  基本一致
+
+		区别在于  W0204_WCF_Scurity_BaseHttp  只做了 传输加密.
+
+		W0205_WCF_Scurity_BaseHttp 在 传输加密的基础之上， 还做了 Windows 操作系统认证的处理。
+		(主要工作是 修改配置文件，  以及客户端增加  用户名/密码的 代码 )
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+
+	<tr>
+      <td> W0240_WCF_Transaction </td>
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
+		此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
+		代码中没有直接使用 SqlTransaction 来进行事务管理。
+		而是让 WCF 进行事务的管理。
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td> W0241_WCF_Trans_Linq2sql </td>
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
+		此项目在 WCF 服务处理代码中， 使用 LINQ2SQL 包进行 数据更新处理操作。
+		让 WCF 进行事务的管理。
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td> W0242_WCF_Trans_EF </td>
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
+		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。
+		让 WCF 进行事务的管理。
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+	<tr>
+      <td> W0242_WCF_Trans_EF_Ora </td>
+      <td>
+		<p> WCF 事务处理的简单例子 </p>
+		此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。  ( 访问 Oracle 数据库 )
+		让 WCF 进行事务的管理。
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+
+
+
+	<tr>
+      <td>W0250_WCF_EF</td>
+      <td>
+		<p>  WCF 与 Entity Framework 配合使用的例子  </p>
+
+		此项目主要用于解决 默认的 “Entity Framework” 代码生成器， 不能生成带有 [DataContract] 与 [DataMember]  标记的类的问题。
+		以及 Context 使用 代理类，导致 WCF 序列化出错的问题。
+
+		具体步骤见该目录下的  readme.txt
+	  </td>
+    </tr>
+
+
+
+
+
+	<tr>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+
+  </table>
+</body>
+</html>

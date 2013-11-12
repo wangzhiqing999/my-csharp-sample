@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="A0610_EF.Sample" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="TestContext">
+    <EntitySet Name="goods" EntityType="A0610_EF.Sample.goods" />
+    <EntitySet Name="goods_type" EntityType="A0610_EF.Sample.goods_type" />
+    <EntitySet Name="onhand" EntityType="A0610_EF.Sample.onhand" />
+    <EntitySet Name="store" EntityType="A0610_EF.Sample.store" />
+    <EntitySet Name="test_main" EntityType="A0610_EF.Sample.test_main" />
+    <EntitySet Name="test_sub" EntityType="A0610_EF.Sample.test_sub" />
+    <AssociationSet Name="FK__goods__type_id__1273C1CD" Association="A0610_EF.Sample.FK__goods__type_id__1273C1CD">
+      <End Role="goods_type" EntitySet="goods_type" />
+      <End Role="goods" EntitySet="goods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__onhand__goodsid__117F9D94" Association="A0610_EF.Sample.FK__onhand__goodsid__117F9D94">
+      <End Role="goods" EntitySet="goods" />
+      <End Role="onhand" EntitySet="onhand" />
+    </AssociationSet>
+    <AssociationSet Name="FK__onhand__store_id__1367E606" Association="A0610_EF.Sample.FK__onhand__store_id__1367E606">
+      <End Role="store" EntitySet="store" />
+      <End Role="onhand" EntitySet="onhand" />
+    </AssociationSet>
+    <AssociationSet Name="main_id_cons" Association="A0610_EF.Sample.main_id_cons">
+      <End Role="test_main" EntitySet="test_main" />
+      <End Role="test_sub" EntitySet="test_sub" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="goods">
+    <Key>
+      <PropertyRef Name="goodsid" />
+    </Key>
+    <Property Name="goodsid" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="unit" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="in_price" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="out_price" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="maxqty" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="minqty" Type="Decimal" Precision="5" Scale="0" />
+    <NavigationProperty Name="goods_type" Relationship="A0610_EF.Sample.FK__goods__type_id__1273C1CD" FromRole="goods" ToRole="goods_type" />
+    <NavigationProperty Name="onhand" Relationship="A0610_EF.Sample.FK__onhand__goodsid__117F9D94" FromRole="goods" ToRole="onhand" />
+  </EntityType>
+  <EntityType Name="goods_type">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Name="type_id" Type="Int32" Nullable="false" />
+    <Property Name="type_code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="type_name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="goods" Relationship="A0610_EF.Sample.FK__goods__type_id__1273C1CD" FromRole="goods_type" ToRole="goods" />
+  </EntityType>
+  <EntityType Name="onhand">
+    <Key>
+      <PropertyRef Name="store_id" />
+      <PropertyRef Name="goodsid" />
+    </Key>
+    <Property Name="store_id" Type="Int32" Nullable="false" />
+    <Property Name="goodsid" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="onhand1" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="goods" Relationship="A0610_EF.Sample.FK__onhand__goodsid__117F9D94" FromRole="onhand" ToRole="goods" />
+    <NavigationProperty Name="store" Relationship="A0610_EF.Sample.FK__onhand__store_id__1367E606" FromRole="onhand" ToRole="store" />
+  </EntityType>
+  <EntityType Name="store">
+    <Key>
+      <PropertyRef Name="store_id" />
+    </Key>
+    <Property Name="store_id" Type="Int32" Nullable="false" />
+    <Property Name="store_code" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="store_name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="onhand" Relationship="A0610_EF.Sample.FK__onhand__store_id__1367E606" FromRole="store" ToRole="onhand" />
+  </EntityType>
+  <EntityType Name="test_main">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="test_sub" Relationship="A0610_EF.Sample.main_id_cons" FromRole="test_main" ToRole="test_sub" />
+  </EntityType>
+  <EntityType Name="test_sub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="test_main" Relationship="A0610_EF.Sample.main_id_cons" FromRole="test_sub" ToRole="test_main" />
+  </EntityType>
+  <Association Name="FK__goods__type_id__1273C1CD">
+    <End Role="goods_type" Type="A0610_EF.Sample.goods_type" Multiplicity="1" />
+    <End Role="goods" Type="A0610_EF.Sample.goods" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__onhand__goodsid__117F9D94">
+    <End Role="goods" Type="A0610_EF.Sample.goods" Multiplicity="1" />
+    <End Role="onhand" Type="A0610_EF.Sample.onhand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="goods">
+        <PropertyRef Name="goodsid" />
+      </Principal>
+      <Dependent Role="onhand">
+        <PropertyRef Name="goodsid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__onhand__store_id__1367E606">
+    <End Role="store" Type="A0610_EF.Sample.store" Multiplicity="1" />
+    <End Role="onhand" Type="A0610_EF.Sample.onhand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="store">
+        <PropertyRef Name="store_id" />
+      </Principal>
+      <Dependent Role="onhand">
+        <PropertyRef Name="store_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="main_id_cons">
+    <End Role="test_main" Type="A0610_EF.Sample.test_main" Multiplicity="0..1" />
+    <End Role="test_sub" Type="A0610_EF.Sample.test_sub" Multiplicity="*" />
+  </Association>
+</Schema>

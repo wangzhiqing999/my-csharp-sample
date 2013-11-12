@@ -1,0 +1,51 @@
+一、数据库设计工具, 以 SQL Server 的方式，设计好表结构。
+
+
+二、生成 SQL 语句， 在  SQL Server 中创建表。
+
+
+三、VS 开发工具下， 将 SQL Server 中的 表， 拖到 设计面板上， 生成 LINQ to SQL 类。
+
+
+四、编写相关业务逻辑代码。
+
+
+五、编辑  .designer.cs  文件， 查找  dbo.   全部删除掉.
+
+
+在
+public partial class RosterDataClassesDataContext : System.Data.Linq.DataContext
+上面， 增加：
+[Provider(typeof(System.Data.Linq.SqlClient.Sql2000Provider))]
+
+
+
+六、数据库设计工具, 将以 SQL Server 的方式，设计好表结构。  迁移到   Access  数据库结构。
+
+
+七、生成 语句， 在 Access 中创建表。
+
+
+八、运行过程中， 传递 OleDbConnection 来初始化 DataClassesDataContext
+
+
+
+
+
+潜在问题：
+
+一、
+DateTime 列的 更新处理过程中， 存在问题。
+因为 Access 中， 日期是  #2013-01-01#  这么处理的。  而 SQL Server 肯定不会这么干的。 所以执行过程中， 会抛异常。
+
+解决办法： 
+数据库设计过程中， 日期类型的， 修改为 字符型或者数字型进行处理。
+或者使用  context.ExecuteCommand 手工更新数据。
+
+
+二、
+LINQ 查询数据以后， 修改对象属性， 然后 context.SubmitChanges();
+将报 “找不到行或行已更改。” 的错误。
+
+解决办法： 
+使用 context.ExecuteCommand 手工更新数据。

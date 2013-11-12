@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/MyWcfServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MyWcfServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="ArrayOftest_main">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="test_main" nillable="true" type="tns:test_main" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftest_main" nillable="true" type="tns:ArrayOftest_main" />
+  <xs:complexType name="test_main">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="test_sub" nillable="true" type="tns:ArrayOftest_sub" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="test_main" nillable="true" type="tns:test_main" />
+  <xs:complexType name="ArrayOftest_sub">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="test_sub" nillable="true" type="tns:test_sub" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftest_sub" nillable="true" type="tns:ArrayOftest_sub" />
+  <xs:complexType name="test_sub">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="main_id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="test_main" nillable="true" type="tns:test_main" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="test_sub" nillable="true" type="tns:test_sub" />
+</xs:schema>
