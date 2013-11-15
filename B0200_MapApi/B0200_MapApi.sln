@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0200_MapApi", "B0200_MapApi.csproj", "{B69EDFA1-1DD7-45F3-A866-0DC256BBEC14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B69EDFA1-1DD7-45F3-A866-0DC256BBEC14}.Debug|x86.ActiveCfg = Debug|x86
+		{B69EDFA1-1DD7-45F3-A866-0DC256BBEC14}.Debug|x86.Build.0 = Debug|x86
+		{B69EDFA1-1DD7-45F3-A866-0DC256BBEC14}.Release|x86.ActiveCfg = Release|x86
+		{B69EDFA1-1DD7-45F3-A866-0DC256BBEC14}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

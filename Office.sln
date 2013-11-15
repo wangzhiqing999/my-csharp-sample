@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3001_Office_Excel", "A3001
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3002_Office_Outlook", "A3002_Office_Outlook\A3002_Office_Outlook.csproj", "{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A3003_Office_Word", "A3003_Office_Word\A3003_Office_Word.csproj", "{B622D0F0-59C0-42A7-AB4F-54BB8B9FF199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Debug|x86.Build.0 = Debug|x86
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Release|x86.ActiveCfg = Release|x86
 		{660F89E0-7EB9-4EC6-B2B4-E3B2AE9E2D19}.Release|x86.Build.0 = Release|x86
+		{B622D0F0-59C0-42A7-AB4F-54BB8B9FF199}.Debug|x86.ActiveCfg = Debug|x86
+		{B622D0F0-59C0-42A7-AB4F-54BB8B9FF199}.Debug|x86.Build.0 = Debug|x86
+		{B622D0F0-59C0-42A7-AB4F-54BB8B9FF199}.Release|x86.ActiveCfg = Release|x86
+		{B622D0F0-59C0-42A7-AB4F-54BB8B9FF199}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -237,6 +237,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0190_MongoDB", "A0190_Mong
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0105_ConvertUtf8ToDefault", "A0105_ConvertUtf8ToDefault\A0105_ConvertUtf8ToDefault.csproj", "{F2114F51-55CD-491B-A8C2-AB530D5AE93E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0145_WebRequest_WebClient", "A0145_WebRequest_WebClient\A0145_WebRequest_WebClient.csproj", "{D4200DB9-21E1-492B-926B-8157FA5C6437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1427,6 +1429,16 @@ Global
 		{F2114F51-55CD-491B-A8C2-AB530D5AE93E}.Release|Mixed Platforms.Build.0 = Release|x86
 		{F2114F51-55CD-491B-A8C2-AB530D5AE93E}.Release|x86.ActiveCfg = Release|x86
 		{F2114F51-55CD-491B-A8C2-AB530D5AE93E}.Release|x86.Build.0 = Release|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Debug|x86.ActiveCfg = Debug|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Debug|x86.Build.0 = Debug|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|Any CPU.ActiveCfg = Release|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|x86.ActiveCfg = Release|x86
+		{D4200DB9-21E1-492B-926B-8157FA5C6437}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
