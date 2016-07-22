@@ -24,6 +24,10 @@ namespace A0005_Reflection
             // 测试 调用方法.
             sample.TestCall();
 
+
+            // 测试创建 泛型的 对象.
+            sample.TestNewGeneric();
+
             Console.ReadLine();
         }
     }

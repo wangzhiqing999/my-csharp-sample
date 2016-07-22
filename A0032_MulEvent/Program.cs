@@ -19,7 +19,6 @@ namespace A0032_MulEvent
         private static void MyAgeChangeHandler1(int age, object obj, ref bool cancel)
         {
             Console.WriteLine("事件被触发！不能小于零！");
-
             if (age < 0)
             {
                 Console.WriteLine("年龄小于0，不允许修改！");
@@ -35,6 +34,11 @@ namespace A0032_MulEvent
         /// <param name="cancel"></param>
         private static void MyAgeChangeHandler2(int age, object obj, ref bool cancel)
         {
+            if (cancel)
+            {
+                Console.WriteLine("### 前一个步骤的数据检查，没有通过，这里不需要做进一步的检查了！");
+                return;
+            }
             Console.WriteLine("事件被触发！不能大于150！");
 
             if (age > 150)
@@ -69,9 +73,12 @@ namespace A0032_MulEvent
             p1.AgeChange += new AgeChangeHandler(MyAgeChangeHandler2);
             p1.AgeChange += new AgeChangeHandler(MyAgeChangeHandler3);
 
+
             Console.WriteLine("准备调用 Age = 250");
             p1.Age = 250;
             Console.WriteLine("调用后Age = {0}", p1.Age);
+            Console.WriteLine();
+
 
             Console.WriteLine("准备调用 Age = -1");
             p1.Age = -1;

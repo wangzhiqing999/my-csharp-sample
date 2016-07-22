@@ -94,6 +94,34 @@ namespace A0005_Reflection.Sample
 		}
 
 
+
+
+
+        /// <summary>
+        /// 测试 创建 泛型的 对象.
+        /// </summary>
+        public void TestNewGeneric()
+        {
+            // 获取当前程序集
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            // 如果需要使用  CreateInstance，  创建  泛型  的类。
+            // 开发阶段，需要先通过 typeof，获取 泛型类 的基本定义。 那个 FullName 属性.
+            Type testType = typeof(RandomOrder<ObjectClass>);
+            Console.WriteLine("泛型类的完整类名：{0}", testType.FullName);
+
+            // 拿到 泛型类 的定义字符串之后， 就可以创建 泛型  的类了。
+            // 这里删除了  , Version=1.0.0.0, Culture=neutral, PublicKeyToken=null  的信息.
+            RandomOrder<ObjectClass> obj =
+                (RandomOrder<ObjectClass>)assembly.CreateInstance("A0005_Reflection.Sample.RandomOrder`1[[A0005_Reflection.Sample.ObjectClass, A0005_Reflection]]");
+
+            Console.WriteLine("测试是否成功的获取了实例");
+
+            Console.WriteLine("生成的结果:{0}", obj);
+
+        }
+
+
 	}
 
 }
