@@ -16,6 +16,8 @@ namespace A0205_XmlSerializer.Sample
 
 		private const string FILE_NAME = "OrangeStorage.xml";
 
+        private const string FILE_NAME_GB2312 = "OrangeStorage_GB2312.xml";
+
 		/// <summary>
 		/// 测试写入数据.
 		/// </summary>
@@ -44,10 +46,19 @@ namespace A0205_XmlSerializer.Sample
 			storage.OrangeList.Add(o2);
 
 
+
+            // 输出 UTF-8 的 XML 文件.
 			XmlSerializer xs = new XmlSerializer(typeof(OrangeStorage));
 			StreamWriter sw = new StreamWriter(FILE_NAME);
 			xs.Serialize(sw, storage);
 			sw.Close();
+
+
+
+            // 输出 GB2312 的 XML 文件.
+            string xml = XmlUtility.XmlSerialize<OrangeStorage>(storage);
+            File.WriteAllText(FILE_NAME_GB2312, xml, Encoding.GetEncoding("GB2312"));
+
 		}
 
 
@@ -56,6 +67,8 @@ namespace A0205_XmlSerializer.Sample
 		/// </summary>
 		public void TestRead()
 		{
+
+            Console.WriteLine("读取 UTF-8 格式 XML 文件.");
 			XmlSerializer xs = new XmlSerializer(typeof(OrangeStorage));
 			StreamReader sr = new StreamReader(FILE_NAME);
 			OrangeStorage storage = xs.Deserialize(sr) as OrangeStorage;
@@ -74,6 +87,26 @@ namespace A0205_XmlSerializer.Sample
 			{
 				Console.WriteLine(o.ToString());
 			}
+
+
+
+            Console.WriteLine("读取 GB2312 格式 XML 文件.");
+            string xml = File.ReadAllText(FILE_NAME_GB2312, Encoding.GetEncoding("GB2312"));
+            storage = XmlUtility.XmlDeserialize<OrangeStorage>(xml);
+
+
+            Console.WriteLine(storage.StorageName);
+            Console.WriteLine(storage.OneOrange);
+
+            foreach (Orange o in storage.OrangeArray)
+            {
+                Console.WriteLine(o.ToString());
+            }
+
+            foreach (Orange o in storage.OrangeList)
+            {
+                Console.WriteLine(o.ToString());
+            }
 		}
 
 	}

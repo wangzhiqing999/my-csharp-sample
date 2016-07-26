@@ -18,7 +18,7 @@ namespace A0100_File.Sample
         /// 用于 保存二进制文件名的变量
         /// 不指定全路径的情况下，该文件将被创建在 运行时的 “当前目录”下
         /// </summary>
-        private const String BIN_FILE_NAME = "BinSample.dat";
+        public const String BIN_FILE_NAME = "BinSample.dat";
 
         /// <summary>
         /// 测试向创建二进制文件，并向其中写入二进制信息.

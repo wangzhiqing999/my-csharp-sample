@@ -30,6 +30,9 @@ namespace A0650_EF_SqlServer.Sample
 
                 // 这里用于 模拟2个 Context ， 执行同样的操作。
                 // 导致 异常， 最后 回滚数据修改的处理.
+				
+				// 构造一个事务的相关参数,参考下面的文档.
+				// http://msdn.microsoft.com/zh-cn/library/vstudio/ms172152(v=vs.90).aspx
                 using (TransactionScope scope = new TransactionScope())
                 {
 

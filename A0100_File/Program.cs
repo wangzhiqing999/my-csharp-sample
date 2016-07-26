@@ -28,6 +28,13 @@ namespace A0100_File
             // 读取文件.
             binFile.TestRead();
 
+
+            // 测试 FileInfo.
+
+            TestFileInfo.DoTest(TextFile.TEXT_FILE_NAME);
+            TestFileInfo.DoTest(BinFile.BIN_FILE_NAME);
+
+
             Console.ReadLine();
 
         }

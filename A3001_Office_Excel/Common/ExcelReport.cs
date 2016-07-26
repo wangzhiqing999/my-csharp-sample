@@ -27,6 +27,46 @@ namespace A3001_Office_Excel.Common
     }
 
 
+    /// <summary>
+    /// Excel 边框位置.
+    /// </summary>
+    public enum ExcelBorders
+    {
+        xlEdgeLeft = 7,
+        xlEdgeTop = 8,
+        xlEdgeBottom = 9,
+        xlEdgeRight = 10,
+        xlInsideVertical = 11,
+        xlInsideHorizontal = 12,
+    }
+
+
+    /// <summary>
+    /// Excel 边框线样式.
+    /// </summary>
+    public enum ExcelLineStyle
+    {
+        xlContinuous = 1,
+    }
+
+    /// <summary>
+    /// Excel 边框线宽度.
+    /// </summary>
+    public enum ExcelLineWeight
+    {
+        xlThin = 2,
+    }
+
+
+    /// <summary>
+    /// Excel 横向对齐.
+    /// </summary>
+    public enum ExcelHorizontalAlignment
+    {
+        xlCenter = -4108,
+    }
+
+
 
     /// <summary>
     /// Excel 报表处理类.
@@ -333,6 +373,45 @@ namespace A3001_Office_Excel.Common
         }
 
 
+
+
+        /// <summary>
+        /// 指定单元格数据， 是否为空.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public bool IsNoDataValue(int row, int col)
+        {
+            // 取得单元格.
+            var cell = xlSheet.Cells[row, col];
+
+            if (cell.MergeCells == true)
+            {
+                // 本单元格是 “合并单元格”
+                if (cell.MergeArea.Row == row
+                    && cell.MergeArea.Column == col)
+                {
+                    // 当前单元格 就是 合并单元格的 左上角 内容.
+
+                    return cell.Value == null ;
+                }
+                else
+                {
+                    // 返回 合并单元格的 左上角 内容.
+                    return xlSheet.Cells[cell.MergeArea.Row, cell.MergeArea.Column].Value == null;
+                }
+            }
+            else
+            {
+                // 本单元格是 “普通单元格”
+                // 获取文本信息.
+                return cell.Value == null;
+            }
+        }
+
+
+
         #endregion
 
 
@@ -474,6 +553,28 @@ namespace A3001_Office_Excel.Common
             }
         }
 
+
+        /// <summary>
+        /// 取得 列的字符表示形式.
+        /// </summary>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public string GetStringColIndex(int col)
+        {
+            if (col <= 26)
+            {
+                // 列数小于等于 26。 字母是 A-Z
+                char topChar = (char)('A' + (col - 1));
+                return topChar.ToString();
+            }
+            else
+            {
+                // 大于 26， 意味着要有 AA-- ZZ了
+                char topChar = (char)('A' + (col / 26) - 1);
+                char secondChar = (char)('A' + (col % 26) - 1);
+                return topChar.ToString() + secondChar.ToString();
+            }
+        }
 
 
 
@@ -770,6 +871,112 @@ namespace A3001_Office_Excel.Common
 
 
         #endregion
+
+
+
+
+
+        #region  表格样式代码.
+
+
+        /// <summary>
+        /// 自动列宽.
+        /// </summary>
+        public void SetColumnWidthAutoFit()
+        {
+            this.xlSheet.Columns.AutoFit();
+        }
+
+
+
+        /// <summary>
+        /// 修改 指定列的 列宽.
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="width"></param>
+        public void SetColumnWidth(int column, float width) {
+            this.xlSheet.Columns[column].ColumnWidth = width;
+        }
+
+
+
+        /// <summary>
+        /// 设置单元格颜色.
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="color"></param>
+        public void SetColor(string fromAddr, string toAddr, int color)
+        {
+            var range = xlSheet.Range[fromAddr, toAddr];
+            range.Select();
+            xlApp.Selection.Interior.Color = color;
+        }
+
+
+
+        /// <summary>
+        /// 设置边框.
+        /// </summary>
+        /// <param name="fromAddr"></param>
+        /// <param name="toAddr"></param>
+        public void SetBorder(string fromAddr, string toAddr)
+        {
+            var range = xlSheet.Range[fromAddr, toAddr];
+            range.Select();
+
+
+            // xlEdgeLeft -- xlInsideHorizontal == 7-12
+            // 这里简单 for 7 to 12
+            for(int i = 7; i <=12; i ++) {
+
+                var item = xlApp.Selection.Borders(i);
+
+                // 线样式.
+                item.LineStyle = ExcelLineStyle.xlContinuous;
+                // 线宽.
+                item.Weight = ExcelLineWeight.xlThin;
+
+                item.TintAndShade = 0;
+            }
+            
+        }
+
+
+
+        /// <summary>
+        /// 设置 字体 加粗.
+        /// </summary>
+        /// <param name="fromAddr"></param>
+        /// <param name="toAddr"></param>
+        public void SetFontBold(string fromAddr, string toAddr)
+        {
+            var range = xlSheet.Range[fromAddr, toAddr];
+            range.Select();
+
+            xlApp.Selection.Font.Bold = true;
+
+        }
+
+
+        /// <summary>
+        /// 设置文字居中对齐.
+        /// </summary>
+        /// <param name="fromAddr"></param>
+        /// <param name="toAddr"></param>
+        public void SetTextHorizontalAlignmentCenter(string fromAddr, string toAddr)
+        {
+            var range = xlSheet.Range[fromAddr, toAddr];
+            range.Select();
+
+            xlApp.Selection.HorizontalAlignment = ExcelHorizontalAlignment.xlCenter;
+
+        }
+
+
+        #endregion
+
+
 
     }
 

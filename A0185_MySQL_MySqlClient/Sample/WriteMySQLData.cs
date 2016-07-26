@@ -17,7 +17,11 @@ namespace A0185_MySQL_MySqlClient.Sample
         /// MySQL 的数据库连接字符串.
         /// </summary>
         private const String connString =
-            @"Server=192.168.56.101;Database=Test;Uid=root;Pwd=mysql123";
+             @"Server=192.168.56.101;Port=3306;Database=Test;Uid=root;Pwd=mysql123";
+
+
+        // 注意：如果端口不是默认端口的话， 连接字符串中，需要使用  Port=端口号  来定义
+        // @"Server=localhost;Port=3306;Database=Test;Uid=root;Pwd=mysql123";
 
 
 

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtHtml.Text" xml:space="preserve">
+    <value>&lt;br /&gt;
+&lt;br /&gt;
+　室内は衛兵の格好をした集団の乱戦になっていて、どこに注意を向ければいいのかわからない。&lt;br /&gt;
+　おまけに窓からの狙撃も警戒しないといけないので、ここでじっとしているのは危険だ。&lt;br /&gt;
+　どうせ刺客の狙いは、アイリアとシャティナだろう。&lt;br /&gt;
+　特にシャティナを殺してしまえば、元老院にとっては大変都合がいいはずだ。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　おそらく元老院の最初の狙いは、次のような感じだったのだろう。&lt;br /&gt;
+　まず、魔王軍に接近しつつあったザリア太守を暗殺する。&lt;br /&gt;
+　殺害犯の汚名を俺に着せる。&lt;br /&gt;
+　太守の娘シャティナが魔王軍に復讐を誓う。&lt;br /&gt;
+　ザリア軍がリューンハイトを攻撃する。&lt;br /&gt;
+　だがこれはシャティナが真実に気づいてしまったため、失敗に終わった。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　そこで元老院はプランＢに切り替える。&lt;br /&gt;
+　ザリア太守の家系を根絶やしにして、それも全部俺のせいにする。&lt;br /&gt;
+　ザリアには元老院が選んだ新しい太守を送り込み、全権を掌握する。&lt;br /&gt;
+　再編成されたザリア軍がリューンハイトを攻撃する。&lt;br /&gt;
+　どちらかといえば、こっちのほうが元老院としては嬉しいはずだ。&lt;br /&gt;
+　しかし本当にろくでもないことばかり考えるな、こいつら。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　この世界にはニュースもなければネットもない。何か事件が起きても、広まるのは不確かな噂だけだ。&lt;br /&gt;
+　元老院はミラルディアの各都市に対して強い権限を持っていて、情報を統制する力もある。魔王軍に濡れ衣を着せるぐらい、訳もない話だ。&lt;br /&gt;
+　俺にできる唯一の対抗手段は、ザリア太守の家系を魔王軍の味方にすることだろう。&lt;br /&gt;
+　シャティナが俺の潔白を証明してくれれば、魔王軍に不名誉な噂がつきまとうこともない。&lt;br /&gt;
+　だから俺はアイリアとシャティナ、両方を死守しなくてはいけないのだ。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　そうなると、今この部屋で戦っている忠実なザリア衛兵たちを助けている余裕はない。&lt;br /&gt;
+　俺はこういうのが一番苦手なのだが、結局命の選別をするしかないようだ。&lt;br /&gt;
+　すまん、何とか自力で生き延びてくれ。&lt;br /&gt;
+「アイリア殿、シャティナ、ここを脱出するぞ。俺につかまれ」&lt;br /&gt;
+　アイリアはすぐに俺にしがみついてきたが、シャティナは躊躇う。&lt;br /&gt;
+「しかし父上の……それに衛兵たちが」&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　父親の死体や、忠実で頼もしい衛兵たちを残していくのは、彼女の歳だとつらいだろう。&lt;br /&gt;
+　だが今の俺には、シャティナの気持ちに整理をつけている時間はない。&lt;br /&gt;
+「お前が死ねば、ザリアはどうなる？　お前を愛する人々を悲しませ、民衆を不幸にするだけだぞ」&lt;br /&gt;
+「う……」&lt;br /&gt;
+　唇をかむシャティナ。&lt;br /&gt;
+　しかし迷ったのも、ほんの一瞬だけだ。&lt;br /&gt;
+　彼女は顔を上げて、俺に強い眼差しを向けた。&lt;br /&gt;
+「ヴァイト殿、お願いします。私を安全な場所に！」&lt;br /&gt;
+「よし、それでこそ太守の器だ」&lt;br /&gt;
+　俺は彼女を抱き抱えると、窓に駆け寄った。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　窓から飛び出す一瞬、味方らしい衛兵が一人倒されるのが見える。腹を真っ赤に血で染めて、床に崩れ落ちていた。&lt;br /&gt;
+　守れなくてすまない。&lt;br /&gt;
+　だがお前たちの主は、俺が絶対に守ってみせるぞ。&lt;br /&gt;
+　そして俺はアイリアとシャティナを抱き抱えたまま、窓から飛び出した。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+「ひゃっ!?」&lt;br /&gt;
+　シャティナが小さく悲鳴をあげる。&lt;br /&gt;
+　ここは四階だからな。落ちればまず助からない高さだ。&lt;br /&gt;
+　アイリアはさすがに声をあげなかったが、俺にギュッとしがみついてきている。&lt;br /&gt;
+　三メートルほどある路地の上空を飛び越え、俺は隣の建物の窓に飛び込んだ。民家の一室だ。&lt;br /&gt;
+　ジャンプ中に狙撃されるのが一番の心配だったが、人狼隊が奮闘してくれたようだな。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　だが俺たちが脱出したのは、すぐに刺客に気づかれてしまったようだ。&lt;br /&gt;
+　壁に耳を近づけると、階段を駆け上がってくる足音がいくつも聞こえる。&lt;br /&gt;
+　俺は念のため、シャティナに言った。&lt;br /&gt;
+「俺はこれから出会う人間を全て敵だと判断し、武器を持っているヤツを攻撃する。もし味方だったら、すぐに言ってくれ」&lt;br /&gt;
+「わ、わかった」&lt;br /&gt;
+　胸を押さえたまま顔を真っ赤にしているシャティナが、こくこくと何度もうなずく。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　そう言っている間に、ドアを蹴破って二人の男が飛び込んできた。手には毒を塗った短刀を持っている。&lt;br /&gt;
+　シャティナは何も言わない。敵だな。&lt;br /&gt;
+　男たちは俺を完全に無視して、シャティナとアイリアに分散して襲いかかってきた。&lt;br /&gt;
+　どうやら俺を倒すのは、最初から諦めているらしい。&lt;br /&gt;
+　俺も殺せば死ぬんだけどな……。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+「無礼者！」&lt;br /&gt;
+　アイリアがサーベルを抜き、敵と切り結ぶ。&lt;br /&gt;
+　アイリアは人狼と一騎討ちで戦おうとしたこともあるから、人間の刺客ぐらいでいちいちうろたえたりはしない。&lt;br /&gt;
+　シャティナも短刀を抜いたが、さすがにアイリアほど修羅場慣れはしていないようだ。&lt;br /&gt;
+　アイリアがシャティナを守ろうとしている。&lt;br /&gt;
+　とはいえ、アイリアもアマチュアの剣士だ。プロの刺客相手には分が悪い。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　俺は即座に敵を殲滅する。&lt;br /&gt;
+　爪で刺客の胸を貫き、別の刺客を壁ごと蹴り込む。壁と一緒に背骨を砕かれた刺客は、血反吐を吐いて絶命した。&lt;br /&gt;
+　軽装なこともあり、こいつらはそんなに怖くない。短刀だと爪の間合いだから、俺にとってはたやすい相手だ。&lt;br /&gt;
+　問題はアイリアとシャティナを守らなければならないということか。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　転がっている短刀に毒が塗られているのを確認し、俺は二人に言う。&lt;br /&gt;
+「解毒の魔法をあらかじめかけておく。右の脇腹の少し上を触らせてくれ」&lt;br /&gt;
+「わかりました」&lt;br /&gt;
+　アイリアがすぐにうなずき、上着の裾を払う。&lt;br /&gt;
+　俺はシャツ越しにアイリアの脇腹に触れ、彼女の肝臓に温かな魔力を注ぐイメージで魔法を解放した。&lt;br /&gt;
+　これでしばらくの間、アイリアは毒に高い耐性を持つ。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+「シャティナもだ」&lt;br /&gt;
+　すると彼女はビクッとして、俺を見上げる。&lt;br /&gt;
+「さ、触るのか？」&lt;br /&gt;
+「右の脇腹には、毒から身を守る臓物がある。そこに魔力を直接送ると効果が高まる」&lt;br /&gt;
+「そ……そうか。わかった。ちょっと待って」&lt;br /&gt;
+　俺の説明を聞いたシャティナは、なぜか大きく深呼吸をする。&lt;br /&gt;
+　それからぎゅっと目を閉じて、服の裾をつかんだ。&lt;br /&gt;
+「えいっ！」&lt;br /&gt;
+　思い切りよく素肌を晒すシャティナ。&lt;br /&gt;
+　いや、上着をめくるだけで良かったんだけどな。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　俺は恥ずかしがりの少女に少し和まされつつ、彼女の脇腹に手を当てて魔法を使う。&lt;br /&gt;
+「よし、もういいぞ」&lt;br /&gt;
+「う……うん」&lt;br /&gt;
+　シャティナはボーッとした顔をしていたが、すぐに首を振って立ち上がる。&lt;br /&gt;
+「い、行こう！　私が案内する！」&lt;br /&gt;
+「ああ、頼む。街の外に人狼隊を待機させてる。南側に抜けられるといいが、無理なら迂回しよう」&lt;br /&gt;
+「わかった、任せて！」&lt;br /&gt;
+　急に元気になったな、この子。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　俺たちはシャティナの案内で、迷宮のような街の中を走り始めた。&lt;br /&gt;
+　ザリアは防衛のために存在する下層の迷路と、生活のために存在する上層の迷路がある。何軒かのベランダがつながって空中回廊になっていたり、隣接する建物の間に渡り廊下があったりするのだ。&lt;br /&gt;
+　上層の迷路は住人たちが増改築を繰り返した結果なので、下手をすると下層よりもややこしい。&lt;br /&gt;
+「ええと、スモモ屋根を抜けて……赤ネズミ階段を上に……いや途中で錆鉈通りに……」&lt;br /&gt;
+　シャティナもだいぶ混乱しているようだ。&lt;br /&gt;
+　ザリアの法律で通りや階段には目印や名前を書いてはいけないことになっているので、俺には全く見分けがつかない。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　俺たちが移動していることは、刺客たちも気づいているようだ。ハマームたちの遠吠えが「敵が逃げた」ことを告げている。&lt;br /&gt;
+　たぶん刺客の集団は俺たちを執拗に追尾しているのだろう。どうやら土地勘もあるようで、巧妙に先回りしてくる。&lt;br /&gt;
+　俺は周囲の物音を用心深く探って、怪しい気配があるとその度にシャティナに教えて進路を変更させた。&lt;br /&gt;
+　だがそれでも、襲撃者は後から後から湧いてくる。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+　建物の外の通路を歩いていたとき、隣の建物の屋根から矢が一斉に飛んでくる。&lt;br /&gt;
+　矢は全て俺が叩き落としたが、アイリアとシャテイナだけを狙っていた。&lt;br /&gt;
+　俺は壁を蹴って飛び上がり、屋上にいた射手たちを始末する。卑劣な殺し屋たちが四人、血を撒き散らしながら地上に墜落していく。&lt;br /&gt;
+　これで二十三人……いや二十四人ぐらいか。倒した数が多すぎて、もう覚えきれない。&lt;br /&gt;
+　いったいどれぐらいの刺客が街に潜伏しているんだろう。&lt;/div&gt;
+</value>
+  </data>
+</root>

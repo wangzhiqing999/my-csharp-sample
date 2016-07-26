@@ -33,6 +33,86 @@ BEGIN
 END;
 /
 
+
+
+
+
+
+CREATE TABLE test_update_func (
+	Code  	VARCHAR2(10)	PRIMARY KEY,
+	Val		INT
+);
+
+-- 测试函数
+-- 该函数会更新数据, 无法使用  SELECT  HelloWorldFuncWithUpdate('a')  FROM  dual  来查询.
+CREATE OR REPLACE FUNCTION HelloWorldFuncWithUpdate (
+	p_Code  VARCHAR2
+)
+RETURN INT
+AS
+	v_result INT;
+BEGIN
+	SELECT 
+		COUNT( 1 ) INTO v_result
+	FROM
+		test_update_func
+	WHERE
+		Code = p_Code;
+
+	IF v_result = 1 THEN
+		UPDATE 
+			test_update_func
+		SET
+			Val = Val + 1
+		WHERE
+			Code = p_Code;
+	ELSE
+		INSERT INTO test_update_func (
+			Code, Val
+		) VALUES( 
+			p_Code,  1 
+		);	
+	END IF;
+	
+	
+	SELECT 
+		Val INTO v_result
+	FROM
+		test_update_func
+	WHERE
+		Code = p_Code;
+		
+	RETURN v_result;
+END;
+/
+
+/*
+
+SQL> SELECT  HelloWorldFuncWithUpdate('a')  FROM  dual ;
+SELECT  HelloWorldFuncWithUpdate('a')  FROM  dual
+        *
+第 1 行出现错误:
+ORA-14551: 无法在查询中执行 DML 操作
+ORA-06512: 在 "TEST.HELLOWORLDFUNCWITHUPDATE", line 23
+
+
+*/
+
+
+
+
+-- 测试返回值类型为 CLOB 的函数
+CREATE OR REPLACE FUNCTION HelloWorldFuncReturnClob
+RETURN CLOB
+AS
+BEGIN
+  RETURN 'Hello World! 中文测试！';
+END;
+/
+
+
+
+
 -- 测试存储过程
 CREATE OR REPLACE PROCEDURE HelloWorld2 (
   p_user_name IN     VARCHAR2,

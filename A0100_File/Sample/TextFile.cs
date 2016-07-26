@@ -18,7 +18,7 @@ namespace A0100_File.Sample
         /// 用于 保存文本文件名的变量
         /// 不指定全路径的情况下，该文件将被创建在 运行时的 “当前目录”下
         /// </summary>
-        private const String TEXT_FILE_NAME = "TextSample.txt";
+        public const String TEXT_FILE_NAME = "TextSample.txt";
 
         /// <summary>
         /// 测试向创建文本文件，并向其中写入文本信息.

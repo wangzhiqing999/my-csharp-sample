@@ -14,6 +14,35 @@ namespace A1020_Hardware
         static void Main(string[] args)
         {
 
+            // cpu序列号
+            Console.WriteLine("cpu序列号:" + Test.GetHardwareInfoValue("Win32_Processor", "ProcessorId"));
+
+            // 硬盘型号
+            Console.WriteLine("硬盘型号:" + Test.GetHardwareInfoValue("Win32_DiskDrive", "Model"));
+
+            // 硬盘序列号
+            Console.WriteLine("硬盘序列号:" + Test.GetHardwareInfoValue("Win32_DiskDrive", "SerialNumber"));
+            
+
+            // 取第一块硬盘编号
+            Console.WriteLine("第一块硬盘编号:" + TestDisk.GetHardDiskID());
+
+
+            // 网卡.
+            TestGetNetwork.DoTest();
+           
+
+
+            // 操作系统+Clr
+            TestOsClr.DoTest();
+
+
+            // CPU + 内存.
+            TestCpuMemory.DoTest();
+
+
+
+
             // 进程信息.
             //Test.ShowHardwareInfo("Win32_Process");
 
@@ -27,8 +56,11 @@ namespace A1020_Hardware
 
 
             // 当前计算机的基本信息.
-            // Test.ShowHardwareInfo("Win32_ComputerSystem");
+            //Test.ShowHardwareInfo("Win32_ComputerSystem");
 
+
+            // 查询计算机是 32位 还是  64位
+            // Console.WriteLine(Test.GetHardwareInfoValue("Win32_ComputerSystem", "SystemType"));
 
 
             // 操作系统基本信息.
@@ -79,13 +111,13 @@ namespace A1020_Hardware
 
 
 
-
-
+            // 网络
+            // Test.ShowHardwareInfo("Win32_NetworkAdapterConfiguration");
 
 
 
             // 查询操作系统的 语言.
-            Console.WriteLine (Test.GetHardwareInfoValue("Win32_OperatingSystem", "OSLanguage"));
+            // Console.WriteLine (Test.GetHardwareInfoValue("Win32_OperatingSystem", "OSLanguage"));
 
 
 
@@ -227,6 +259,7 @@ namespace A1020_Hardware
 
             /*  
              * 可用参数：
+			 
  
             Win32_1394Controller
             Win32_1394ControllerDevice
@@ -574,6 +607,12 @@ namespace A1020_Hardware
              */
 
 
+			/*
+			
+			其他参考:
+			http://msdn.microsoft.com/zh-cn/library/aa392727(v=vs.85).aspx
+			
+			*/
 
             Console.ReadLine();
         }

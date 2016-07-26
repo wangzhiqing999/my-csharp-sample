@@ -15,7 +15,7 @@ namespace A0170_Oracle
     {
         static void Main(string[] args)
         {
-
+/*
             for (int i = 0; i < 3; i++)
             {
                 GetSequence gTest = new GetSequence()
@@ -46,7 +46,7 @@ namespace A0170_Oracle
             // 写
             WriteOracleData writer = new WriteOracleData();
             writer.TestInsertUpdateDelete();
-
+*/
 
             // 函数/存储过程.
             CallOracleFuncProc caller = new CallOracleFuncProc();

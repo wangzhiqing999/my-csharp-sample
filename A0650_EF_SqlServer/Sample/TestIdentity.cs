@@ -14,7 +14,7 @@ namespace A0650_EF_SqlServer.Sample
     {
 
         /// <summary>
-        /// 测试 序列号+触发器 在系统中，是否会影响 EF 的运作。
+        /// 测试 identity 在系统中，是否会影响 EF 的运作。
         /// </summary>
         public static void DoTest()
         {
@@ -23,7 +23,7 @@ namespace A0650_EF_SqlServer.Sample
             using (TestEntities context = new TestEntities())
             {
                 Console.WriteLine();
-                Console.WriteLine("测试 触发器 + 序列号 Start!");
+                Console.WriteLine("测试 identity Start!");
 
 
 
@@ -67,15 +67,6 @@ namespace A0650_EF_SqlServer.Sample
 
                     Console.WriteLine(ex.Message);
                 }
-
-
-                // 对数据库所做的更改已成功提交，但在更新对象上下文时出错。此 ObjectContext 可能处
-                //于不一致状态。内部异常消息: AcceptChanges 无法继续，因为该对象的键值与 ObjectSta
-                //teManager 中的另一个对象冲突。请在调用 AcceptChanges 之前，确保键值是唯一的。
-
-
-
-
 
                 Console.WriteLine("测试 identity Finish!");
                 Console.WriteLine();

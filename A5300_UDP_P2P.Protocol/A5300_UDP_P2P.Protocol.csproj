@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51B40161-0794-40EB-93ED-0517C0B28296}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>A5300_UDP_P2P</RootNamespace>
+    <AssemblyName>A5300_UDP_P2P.Protocol</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageCoding\AbstractMessageCoding.cs" />
+    <Compile Include="MessageCoding\LoginRequestCoding.cs" />
+    <Compile Include="MessageCoding\LoginRespondCoding.cs" />
+    <Compile Include="MessageCoding\LogoutRequestCoding.cs" />
+    <Compile Include="MessageCoding\LogoutRespondCoding.cs" />
+    <Compile Include="MessageCoding\MessageHeaderCoding.cs" />
+    <Compile Include="MessageCoding\SystemMessageCoding.cs" />
+    <Compile Include="MessageCoding\KeepAliveRequestCoding.cs" />
+    <Compile Include="MessageCoding\KeepAliveRespondCoding.cs" />
+    <Compile Include="MessageCoding\UserListRequestCoding.cs" />
+    <Compile Include="MessageCoding\UserListRespondCoding.cs" />
+    <Compile Include="MessageCoding\AskRequestCoding.cs" />
+    <Compile Include="MessageCoding\AskRespondCoding.cs" />
+    <Compile Include="MessageCoding\TalkRequestCoding.cs" />
+    <Compile Include="MessageCoding\TalkRespondCoding.cs" />
+    <Compile Include="Message\AskRequest.cs" />
+    <Compile Include="Message\AskRespond.cs" />
+    <Compile Include="Message\KeepAliveRequest.cs" />
+    <Compile Include="Message\KeepAliveRespond.cs" />
+    <Compile Include="Message\LoginRequest.cs" />
+    <Compile Include="Message\LoginRespond.cs" />
+    <Compile Include="Message\LogoutRequest.cs" />
+    <Compile Include="Message\LogoutRespond.cs" />
+    <Compile Include="Message\MessageBody.cs" />
+    <Compile Include="Message\MessageHeader.cs" />
+    <Compile Include="Message\SystemMessage.cs" />
+    <Compile Include="Message\TalkRequest.cs" />
+    <Compile Include="Message\TalkRespond.cs" />
+    <Compile Include="Message\UserListRequest.cs" />
+    <Compile Include="Message\UserListRespond.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceImpl\MemoryMessageReceiver.cs" />
+    <Compile Include="ServiceImpl\MemoryMessageSender.cs" />
+    <Compile Include="ServiceImpl\SocketMessageReceiver.cs" />
+    <Compile Include="ServiceImpl\SocketMessageSender.cs" />
+    <Compile Include="ServiceImpl\UdpClientMessageReceiver.cs" />
+    <Compile Include="ServiceImpl\UdpClientMessageSender.cs" />
+    <Compile Include="Service\IMessageReceiver.cs" />
+    <Compile Include="Service\IMessageSender.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -21,7 +21,7 @@ namespace A0170_Oracle.Sample
         /// Oracle 的数据库连接字符串.
         /// </summary>
         private const String connString =
-            @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.210)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=ORCL)));User Id=TEST;Password=TEST123";
+            @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.56.102)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=TEST;Password=TEST";
 
 
         public void TestCallFuncProc()
@@ -34,6 +34,12 @@ namespace A0170_Oracle.Sample
 
             // 调用 Oracle 函数.
             CallFunc(conn);
+
+            // 调用 会更新数据的  Oracle 函数.
+            CallUpdateAbleFunc(conn);
+
+            // 调用返回  Clob 的   Oracle 函数.
+            CallFuncReturnClob(conn);
 
             // 调用 Oracle 返回结果集的函数
             CallFuncWithTable(conn);
@@ -73,6 +79,90 @@ namespace A0170_Oracle.Sample
             // 关闭Reader.
             testReader.Close();
         }
+
+
+
+        /// <summary>
+        /// 测试, 调用 会更新数据的 Oracle 函数.
+        /// 该函数无法通过  SELECT  函数名()  FROM  dual  来查询.
+        /// </summary>
+        /// <param name="conn"></param>
+        private void CallUpdateAbleFunc(OracleConnection conn)
+        {
+            // 创建一个 Command.
+            OracleCommand testCommand = conn.CreateCommand();
+
+            // 定义需要执行的SQL语句.
+            testCommand.CommandText = "HelloWorldFuncWithUpdate";
+
+
+            // 定义好，本次执行的类型，是存储过程.
+            testCommand.CommandType = CommandType.StoredProcedure;
+
+
+            // 定义参数.
+            testCommand.Parameters.Add(new OracleParameter("p_Code", "ABC"));
+
+            // 定义好，  返回值.
+            OracleParameter para = new OracleParameter("c", OracleType.Int32);
+            para.Direction = ParameterDirection.ReturnValue;
+            testCommand.Parameters.Add(para);
+
+
+            // 注意:  如果返回值是  varchar 类型的， 定义的时候， 要注意多传递一个  长度的参数。
+            // 例如：  OracleParameter para = new OracleParameter("c", OracleType.VarChar, 256);
+
+
+            // 执行函数.
+            testCommand.ExecuteNonQuery();
+
+
+            Console.WriteLine("调用 HelloWorldFuncWithUpdate('ABC'), 参数返回值：{0}", para.Value);
+        }
+
+
+
+
+        /// <summary>
+        /// 测试， 返回值为 Clob 数据类型的函数。
+        /// </summary>
+        /// <param name="conn"></param>
+        private void CallFuncReturnClob(OracleConnection conn)
+        {
+            // 创建一个 Command.
+            OracleCommand testCommand = conn.CreateCommand();
+
+            // 定义需要执行的SQL语句.
+            testCommand.CommandText = "HelloWorldFuncReturnClob";
+
+
+            // 定义好，本次执行的类型，是存储过程.
+            testCommand.CommandType = CommandType.StoredProcedure;
+
+            // 定义好，  返回值.
+            OracleParameter para = new OracleParameter("c", OracleType.Clob);
+            para.Direction = ParameterDirection.ReturnValue;
+            testCommand.Parameters.Add(para);
+
+
+            // 执行函数.
+            testCommand.ExecuteNonQuery();
+
+
+            Console.WriteLine("调用 HelloWorldFuncReturnClob(), 参数返回值：{0}", para.Value);
+
+
+            OracleLob myOracleClob = para.Value as OracleLob;
+
+            System.IO.StreamReader streamreader = new System.IO.StreamReader(myOracleClob, Encoding.Unicode);
+            string textData = streamreader.ReadToEnd();
+
+            Console.WriteLine("Clob 读取到 String , 结果为: {0}", textData);
+
+        }
+
+
+
 
 
         /// <summary>

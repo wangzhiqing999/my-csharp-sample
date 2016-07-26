@@ -83,6 +83,12 @@ namespace A0711_Merge.Sample
     /// WHEN NOT MATCHED THEN INSERT VALUES(test_from.id, test_from.val) -- 源表有，目标表没有，插入
     /// WHEN NOT MATCHED BY SOURCE THEN DELETE; -- 目标表有，源表没有，目标表该数据删除.
     ///
+    /// 
+    /// 
+    /// 
+    /// 注意： 下面的  where T : MergeAble
+    /// 这里的 where 是  泛型类型约束 的关键字.
+    /// 
     /// </summary>
     public class Merge<T> where T : MergeAble
     {

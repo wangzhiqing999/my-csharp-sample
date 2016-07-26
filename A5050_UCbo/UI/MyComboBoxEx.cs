@@ -80,6 +80,13 @@ namespace A5050_UCbo.UI
 
             while (topParent.Parent != null)
             {
+				
+                if (topParent.Parent is MdiClient)
+                {                    
+                    // 当 父节点是 MDI 容器的时候， 结束循环.
+                    break;                    
+                }				
+				
                 // 相对递增 Left.
                 topLeft += topParent.Left + 1;
 

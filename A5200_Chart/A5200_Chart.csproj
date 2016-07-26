@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1E59A83-ACB2-4AA7-868B-44552A9CB19D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>A5200_Chart</RootNamespace>
+    <AssemblyName>A5200_Chart</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area\FormArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Area\FormArea.Designer.cs">
+      <DependentUpon>FormArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarColumn\FormBarColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarColumn\FormBarColumn.Designer.cs">
+      <DependentUpon>FormBarColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circular\FormPolar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circular\FormPolar.Designer.cs">
+      <DependentUpon>FormPolar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Circular\FormRadar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Circular\FormRadar.Designer.cs">
+      <DependentUpon>FormRadar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FormStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FormStock.Designer.cs">
+      <DependentUpon>FormStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FormStockPlus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FormStockPlus.Designer.cs">
+      <DependentUpon>FormStockPlus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Line\FormChartLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Line\FormChartLine.Designer.cs">
+      <DependentUpon>FormChartLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieDoughnut\FormPie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieDoughnut\FormPie.Designer.cs">
+      <DependentUpon>FormPie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Point\FormPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Point\FormPoint.Designer.cs">
+      <DependentUpon>FormPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PyramidFunnel\FormPyramidFunnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PyramidFunnel\FormPyramidFunnel.Designer.cs">
+      <DependentUpon>FormPyramidFunnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Range\FormRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Range\FormRange.Designer.cs">
+      <DependentUpon>FormRange.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Area\FormArea.resx">
+      <DependentUpon>FormArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarColumn\FormBarColumn.resx">
+      <DependentUpon>FormBarColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circular\FormPolar.resx">
+      <DependentUpon>FormPolar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Circular\FormRadar.resx">
+      <DependentUpon>FormRadar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FormStock.resx">
+      <DependentUpon>FormStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FormStockPlus.resx">
+      <DependentUpon>FormStockPlus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Line\FormChartLine.resx">
+      <DependentUpon>FormChartLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieDoughnut\FormPie.resx">
+      <DependentUpon>FormPie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Point\FormPoint.resx">
+      <DependentUpon>FormPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PyramidFunnel\FormPyramidFunnel.resx">
+      <DependentUpon>FormPyramidFunnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Range\FormRange.resx">
+      <DependentUpon>FormRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -11,6 +11,11 @@ namespace A0160_SQL_Server
     {
         static void Main(string[] args)
         {
+
+            ReadSqlServerDataIn testIn = new ReadSqlServerDataIn ();
+            testIn.ReadDataByReader();
+
+
             // 使用 DataSet 来对数据库进行 更新操作.
             // 比较古老的技术
             // 可用是可用

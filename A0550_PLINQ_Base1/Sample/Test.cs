@@ -31,16 +31,21 @@ namespace A0550_PLINQ_Base1.Sample
 		public void	TestNormal()
 		{
 			Console.WriteLine("普通LINQ处理开始："	+ DateTime.Now.ToString());
-			// 临时结果存储.
-			List<int> result;
-			// 一个1开始， 长度为 1000 的序列.
-			var	source = Enumerable.Range(1, 1000);
-			// 普通 LINQ。
-			var	query =	from num in	source
-						   where Compute(num) >	0
-						   select num;
-			// 取得列表.
-			result = query.ToList();
+
+            using (new AutoStopwatch())
+            {
+                // 临时结果存储.
+                List<int> result;
+                // 一个1开始， 长度为 1000 的序列.
+                var source = Enumerable.Range(1, 1000);
+                // 普通 LINQ。
+                var query = from num in source
+                            where Compute(num) > 0
+                            select num;
+                // 取得列表.
+                result = query.ToList();
+            }
+
 			Console.WriteLine("普通LINQ处理结束："	+ DateTime.Now.ToString());
 		}
 
@@ -51,16 +56,23 @@ namespace A0550_PLINQ_Base1.Sample
 		public void	TestParallel()
 		{
 			Console.WriteLine("并行LINQ处理开始："	+ DateTime.Now.ToString());
-			// 临时结果存储.
-			List<int> result;
-			// 一个1开始， 长度为 1000 的序列.
-			var	source = Enumerable.Range(1, 1000);
-			// 并行 LINQ。
-			var	query =	from num in	source.AsParallel()
-						where Compute(num) > 0
-						select num;
-			// 取得列表.
-			result = query.ToList();
+
+            using (new AutoStopwatch())
+            {
+
+                // 临时结果存储.
+                List<int> result;
+                // 一个1开始， 长度为 1000 的序列.
+                var source = Enumerable.Range(1, 1000);
+                // 并行 LINQ。
+                var query = from num in source.AsParallel()
+                            where Compute(num) > 0
+                            select num;
+                // 取得列表.
+                result = query.ToList();
+
+            }
+
 			Console.WriteLine("并行LINQ处理结束："	+ DateTime.Now.ToString());
 		}
 	}

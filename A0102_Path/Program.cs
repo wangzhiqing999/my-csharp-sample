@@ -63,6 +63,45 @@ namespace A0102_Path
 
 
 
+
+            Console.WriteLine("桌面的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            Console.WriteLine("桌面的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+
+            Console.WriteLine("“我的音乐” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+            Console.WriteLine("“我的图片” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+            Console.WriteLine("“我的文档” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            Console.WriteLine("“我的视频” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.MyVideos));
+
+
+            Console.WriteLine("“发送” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.SendTo));
+            Console.WriteLine("“开始” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.StartMenu));
+            Console.WriteLine("“启动” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.Startup));            
+
+            Console.WriteLine("“字体” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.Fonts));
+
+            Console.WriteLine("“Windows” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.Windows));
+
+            Console.WriteLine("“System” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.System));
+            Console.WriteLine("“System X86” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.SystemX86));
+
+            Console.WriteLine("“Program files” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles));
+            Console.WriteLine("“Program files X86” 的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
+
+
+
+
+
+            // 很多 所有用户 公用的， 是以 Common 开头的.
+            Console.WriteLine("所有用户桌面的路径：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory));
+            Console.WriteLine("所有用户的“Documents”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments));
+            Console.WriteLine("所有用户的“Music”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonMusic));
+            Console.WriteLine("所有用户的“Pictures”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures));
+            Console.WriteLine("所有用户的“Videos”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonVideos));
+            Console.WriteLine("所有用户的“StartMenu”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu));
+            Console.WriteLine("所有用户的“Programs”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms));
+            Console.WriteLine("所有用户的“Startup”：" + System.Environment.GetFolderPath(Environment.SpecialFolder.CommonStartup));
+
+
             Console.ReadLine();
         }
 

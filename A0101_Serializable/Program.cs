@@ -23,6 +23,7 @@ namespace A0101_Serializable
             DataObject testData = new DataObject();
             testData.UserName = "测试 序列化 / 反序列化";
             testData.Password = "123456";
+            testData.UserType = DataObjectType.TestUser;
 
             testData.FirendList = new List<string>();
             testData.FirendList.Add("XMLDataObjectSerialization");
@@ -48,6 +49,17 @@ namespace A0101_Serializable
             // 读取文件.
             Console.WriteLine(iService.ReadFromFile("test.xml"));
 
+
+
+            Console.WriteLine("测试使用 XML - gb2312 进行 序列化与反序列化！");
+
+            iService = new Gb2312XMLDataObjectSerialization();
+
+            // 写入文件.
+            iService.WriteToFile(testData, "test_gb2312.xml");
+
+            // 读取文件.
+            Console.WriteLine(iService.ReadFromFile("test_gb2312.xml"));
 
 
 
@@ -91,6 +103,20 @@ namespace A0101_Serializable
 
             // 读取文件.
             Console.WriteLine(iService.ReadFromFile("test.js"));
+
+
+
+
+
+            Console.WriteLine("测试使用 ProtoBuf.Serializer 进行 序列化与反序列化！");
+
+            iService = new ProtoBufDataObjectSerialization();
+
+            // 写入文件.
+            iService.WriteToFile(testData, "test.bin");
+
+            // 读取文件.
+            Console.WriteLine(iService.ReadFromFile("test.bin"));
 
 
 
