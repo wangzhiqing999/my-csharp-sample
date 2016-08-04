@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.0.0.15\lib\net40\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject-3.0.0.15-release-net-4.0\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,9 +52,6 @@
     <Compile Include="Sample\HelloWorldScopes.cs" />
     <Compile Include="MyModulesInTransientScope.cs" />
     <Compile Include="MyModulesInThreadScope.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\B0030_Ninject\B0030_Ninject.csproj">
