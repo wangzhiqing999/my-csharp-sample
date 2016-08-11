@@ -106,6 +106,13 @@ namespace G0031_QueuingMachine.ServiceImpl
             {
                 throw new ArgumentException("无法识别的号码前缀！");
             }
+
+            if (!workNumberQueueDictionary.ContainsKey(prefix))
+            {
+                // 队列尚未初始化.
+                return 0;
+            }
+
             // 取得队列.
             Queue<string> workNumberQueue = workNumberQueueDictionary[prefix];
 

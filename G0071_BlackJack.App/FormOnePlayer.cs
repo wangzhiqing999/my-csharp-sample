@@ -119,6 +119,10 @@ namespace G0071_BlackJack.App
 
 
             lblResult.Text = String.Empty;
+
+
+            // 初始情况下， 始终要求拿牌.
+            player.IsStand = false;
         }
 
 

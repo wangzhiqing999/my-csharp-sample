@@ -1,0 +1,135 @@
+
+
+前置准备工作
+
+1. 下载 CRforVS_13_0_1.exe  安装 SAP Crystal Report, version for Visual Studio 2010
+
+2. 本机 SQL Server 2008 Express 下
+test 数据库中，创建一个 测试表.
+
+CREATE TABLE TEST_CRYSTALREPORT (
+	ID			INT				IDENTITY(1,1),
+	SALE_DATE  	DATE 			NOT NULL ,
+    SALE_ITEM  	VARCHAR(2) 		NOT NULL ,
+    SALE_MONEY 	INT 			NOT NULL
+	CONSTRAINT pk_test_CrystalReport PRIMARY KEY  (ID)
+);
+GO
+
+
+-- 测试数据.
+DECLARE
+  @v_begin_day DATETIME, @v_end_day DATETIME;
+BEGIN
+  SET @v_begin_day = '2009-01-01';
+  SET @v_end_day = '2010-01-01';
+
+  WHILE @v_begin_day <  @v_end_day
+  BEGIN
+    INSERT INTO TEST_CRYSTALREPORT VALUES(@v_begin_day,  'A',   CONVERT(INT,  RAND() * 1000000) );
+    INSERT INTO TEST_CRYSTALREPORT VALUES(@v_begin_day,  'B',   CONVERT(INT,  RAND() * 2000000) );
+    INSERT INTO TEST_CRYSTALREPORT VALUES(@v_begin_day,  'C',   CONVERT(INT,  RAND() * 3000000) );
+    SET @v_begin_day = @v_begin_day + 1;
+  END;
+END;
+go
+
+
+3. 控制面板--管理工具-- ODBC 
+创建一个  系统DSN  
+类型选择 SQL Server.
+名称为 TEST_CRYSTALREPORT
+服务器设置为  localhost\SQLEXPRESS
+按 “下一步” 按钮。
+
+由于本机测试，因此这里直接使用 默认的 “使用网络登录 ID 的 Windows NT 验证(W)”
+如果是用于 Web 网站的， 注意这里要选择 “使用用户输入登录ID和密码的 SQL Server 验证(S)”
+按 “下一步” 按钮。
+
+选择 “更改默认的数据库为”
+test 
+数据库.
+按 “下一步” 按钮。
+
+按 “完成” 按钮。
+
+
+
+-------------------------------------------------
+-------------------------------------------------
+启动 VS2010.
+创建一个 Win Form 项目.
+鼠标选择项目，然后右键，选择属性。
+在 应用程序的 Tab 中， 目标框架那里， 选择  .NET Framework 4
+(注意， 是 .NET Framework 4，   不是   .NET Framework 4 Client Profile )
+
+
+1.创建一个 水晶报表.
+项目中，添加--新建项。
+选择 Reporting 里面的 CrystalReports
+命名为 TestCrystalReport.rpt
+
+弹出窗口中，
+上面选择默认的 “使用报表向导(R)”
+下面选择默认的 “标准”
+
+在 “标准报表创建向导”窗口中，
+可用数据源(A): 的地方
+打开
+创建数据源--ODBC(RDO)
+
+弹出窗口中选择 前面创建的那个 ODBC 的名字  TEST_CRYSTALREPORT  
+按 “下一步” 按钮。
+
+选择 “受信任的连接”
+按 “完成” 按钮。
+
+
+返回到  “标准报表创建向导”窗口，
+选择
+创建数据源--ODBC(RDO)--TEST_CRYSTALREPORT--dbo--表--TEST_CRYSTALREPORT
+按 “>” 按钮。
+按 “完成” 按钮。
+
+
+进入到 水晶报表设计画面
+“字段资源管理器” 子窗口那里
+点开 “数据库字段”
+
+依次鼠标选择 
+SALE_DATE  
+SALE_ITEM  
+SALE_MONEY 
+这几列
+
+拖到  Section3(详细资料) 下面， 放手。
+
+然后保存水晶报表文件。
+
+然后关闭设计窗口。
+
+
+
+2.创建一个 窗口.
+项目中，添加--新建项。
+选择 Windows Forms 里面的 Windows 窗体
+命名为 FormTestCrystalReport.cs
+
+从 “工具箱” 窗口的，  报表设计 Tab 里面， 拖一个 CrystalReportViewer 到画面上。
+
+选择这个默认名字是 “crystalReportViewer1” 的控件。
+属性窗口那里， 找到 ReportSource 属性， 点开列表。
+选择 “通过类型化的 Report 类 创建一个新的 ReportDocument 实例”  下面的那个  TestCrystalReport.
+选择以后， 设计画面， 将能够看到报表的效果。
+
+
+
+
+3.测试运行.
+修改 Program.cs
+启动项目修改为 
+Application.Run(new FormTestCrystalReport());
+
+
+然后运行项目， 观察执行结果.
+
