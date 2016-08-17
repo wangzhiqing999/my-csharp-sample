@@ -1445,6 +1445,14 @@ WebBrowser 调用 js 方法的方式， 来获取画面上面的数据。
 
 
 
+# 调用其他工具部分.
+
+
+
+
+
+
+
 
 ### B0010_NVelocity
 
@@ -1590,6 +1598,13 @@ Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报�
 
 
 
+
+
+
+
+
+
+# 加密/解密 部分.
 
 
 
@@ -1767,17 +1782,17 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 
 
 
-	
-	
-### CR_HelloWorld 
-
-水晶报表 Hello World 程序  
-    
 
 
-	
-### D0001_Matrix.Service 
-      
+### CR_HelloWorld
+
+水晶报表 Hello World 程序
+
+
+
+
+### D0001_Matrix.Service
+
 矩阵的 加法、减法、乘法 的处理
 涉及到的 C# 技术知识点：
 1.面向对象 (父类 virtual, 子类 override)
@@ -1787,12 +1802,10 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 5.System.Dynamic (dynamic 来处理泛型的加减处理)
 6.代码协定 (Contract.Requires)
 
-    
-### D0001_Matrix.Test 
 
-矩阵处理的单元测试 
+### D0001_Matrix.Test
 
-
+矩阵处理的单元测试
 
 
 
@@ -1803,10 +1816,16 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 
 
 
+# 游戏杂项 部分.
 
 
-### G0001_Sudoku 
-      
+
+
+
+
+
+### G0001_Sudoku
+
 一个数独计算的项目。
 通过 递归， 来实现 回朔 的计算处理。
 
@@ -1819,13 +1838,13 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 6、递归处理 （相当于 继续到 2 的处理步骤去）
 7、如果 递归处理 的结果失败了，那么 将本次处理的数据， 从 "todoList" 列表中删除，然后继续处理 本单元格的 下一个可选数字.
 8、如果本节点的全部  可能选择 的数据， 都处理失败了， 那么返回 fasle. 回朔到上一个节点去进行判断.
-	   
-    
 
 
 
-    
-### G0011_Elevator 
+
+
+
+### G0011_Elevator
 
 一个 模拟电梯 上下运行的例子
 主要涉及到的知识点：
@@ -1837,7 +1856,7 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 
 
 
-### G0021_Calculate.App / G0021_Calculate.Service 
+### G0021_Calculate.App / G0021_Calculate.Service
 
 模拟出一道计算题，由操作者选择正确答案的情况。（基本无技术含量）
 
@@ -1847,94 +1866,348 @@ Alice 通过非安全公共通道向 Bob 发送纯文本消息，并将哈希消
 
 
 
-### G0031_QueuingMachine.Machine 
-排队机的  服务窗口客户端. （Socket 客户端，发送一个请求，针对一个排队号进行处理， 处理完毕后，获取下一个排队号继续处理。）  
+### G0031_QueuingMachine.Machine
+排队机的  服务窗口客户端. （Socket 客户端，发送一个请求，针对一个排队号进行处理， 处理完毕后，获取下一个排队号继续处理。）
 
-### G0031_QueuingMachine.Machine 
-排队机的  排队机客户端. （Socket 客户端，发送一个请求，获取一个排队号）  
+### G0031_QueuingMachine.Machine
+排队机的  排队机客户端. （Socket 客户端，发送一个请求，获取一个排队号）
 
-### G0031_QueuingMachine.Protocol 
-排队机的   网络消息协议. （也就是 数据对象，以什么样的方式 编码解码，通过Socket传送）  
+### G0031_QueuingMachine.Protocol
+排队机的   网络消息协议. （也就是 数据对象，以什么样的方式 编码解码，通过Socket传送）
 
-### G0031_QueuingMachine.Server 
-排队机的   服务器端.  （开始 Socket 服务端，接收请求消息， 处理，然后反馈消息）  
+### G0031_QueuingMachine.Server
+排队机的   服务器端.  （开始 Socket 服务端，接收请求消息， 处理，然后反馈消息）
 
-### G0031_QueuingMachine.Service 
-排队机的   对号管理与消息处理逻辑. （消息流水的管理）  
+### G0031_QueuingMachine.Service
+排队机的   对号管理与消息处理逻辑. （消息流水的管理）
 
-### G0031_QueuingMachine.Test 
-排队机的   单元测试.  
-
-
+### G0031_QueuingMachine.Test
+排队机的   单元测试.
 
 
 
 
-### G0051_Jigsaw.App 
-拼图游戏的客户端 
-
-### G0051_Jigsaw.Service 
-拼图游戏的业务逻辑代码 
-
-### G0051_Jigsaw.Test 
-拼图游戏得业务逻辑单元测试代码 
 
 
+### G0051_Jigsaw.App
+拼图游戏的客户端
 
-### G0061_Pic_Mov 
-使用多个图片,实现动画处理的效果.   
+### G0051_Jigsaw.Service
+拼图游戏的业务逻辑代码
+
+### G0051_Jigsaw.Test
+拼图游戏得业务逻辑单元测试代码
 
 
 
-### G0071_BlackJack.App 
-21点客户端 
-
-### G0071_BlackJack.Service 
-21点服务逻辑 
-
-### G0071_BlackJack.Test 
-21点服务逻辑测试 
+### G0061_Pic_Mov
+使用多个图片,实现动画处理的效果.
 
 
 
-### G0081_ImageSwitch 
+### G0071_BlackJack.App
+21点客户端
+
+### G0071_BlackJack.Service
+21点服务逻辑
+
+### G0071_BlackJack.Test
+21点服务逻辑测试
+
+
+
+### G0081_ImageSwitch
 两个图片切换效果的处理. 包含左右、上下旋转  与 左右、上下移动。
 
 
 
 
-### G0091_LianLianKan.Service 
-连连看后台代码 
+### G0091_LianLianKan.Service
+连连看后台代码
 
-### G0091_LianLianKan.WinForm 
-连连看 WinForm 代码 
-
-
+### G0091_LianLianKan.WinForm
+连连看 WinForm 代码
 
 
 
 
-### I0001_Test.App 
-无功能的 WinForm 应用程序，用于测试 Visual Studio Installer 安装程序的安装过程  
+
+
+
+# Visual Studio Installer 部分.
+
+
+
+### I0001_Test.App
+无功能的 WinForm 应用程序，用于测试 Visual Studio Installer 安装程序的安装过程
+
+
+
+### I0001_Test.Setup
+Visual Studio Installer 安装程序
 
 
 
 
-### I0001_Test.Setup 
-Visual Studio Installer 安装程序 
+### I0002_Test.WindowsService
+简单的 Windows 服务， 用于测试 Visual Studio Installer 安装程序的安装过程
 
 
-
-
-### I0002_Test.WindowsService 
-简单的 Windows 服务， 用于测试 Visual Studio Installer 安装程序的安装过程   
-
-
-
-
-### I0002_Test.Setup 
+### I0002_Test.Setup
 
 Visual Studio Installer 安装程序
 在安装完 Windows 服务以后，将自动启动服务.
+
+
+
+
+
+
+
+
+
+
+### IIS0010_URLrewriting
+IIS URL Rewrite Module 使用的例子.
+
+
+
+
+
+
+### L0001_Huffman
+哈夫曼编码例子
+
+
+
+
+
+
+
+
+
+# MEF 部分.
+
+
+
+
+### MEF_0001_Service
+MEF 的服务接口定义
+
+
+### MEF_0001_Client
+MEF 的客户端  (客户端 项目， 只引用了 MEF 的服务接口定义的项目，  没有引用实现的项目)
+
+
+### MEF_0001_ServiceImpl
+MEF 的服务接口的实现 （仅仅实现 接口， 不被其他项目直接引用）
+编译的时候， 生成到 客户端项目的 Addin 目录下。
+客户端运行的时候， 动态判断，加载实现。
+这样，当业务逻辑发生变化，需要变更实现的时候，可以创建新的项目，来替换到当前的项目的 Dll， 而不用客户端重新编译一次。
+
+
+
+
+
+
+
+# 调用其他语言部分.
+
+
+
+### O0101_DotNetCallPython
+C# 代码， 调用 Python 的例子.
+
+
+
+
+### O0111_PythonCallDotNet
+Python脚本，调用 C# 类库的例子.
+
+
+
+
+
+### O0201_DotNetCallJavaScript
+C# 代码， 调用 Js 的例子.
+
+
+
+
+
+### O0301_DotNetCallJava
+C# 代码， 调用 Java 类的例子.
+
+
+
+
+
+
+
+
+
+# 设计模式部分.
+
+
+### P0101_SimpleFactory
+设计模式 [创建模式]中，简单工厂的例子
+
+
+
+
+### P0102_FactoryMethod
+设计模式 [创建模式]中，工厂方法的例子
+
+
+
+
+### P0103_AbstractFactory
+设计模式 [创建模式]中，抽象工厂的例子
+
+
+
+
+### P0104_Singleton
+设计模式 [创建模式]中，单例的例子
+
+
+
+
+### P0105_Multiton
+设计模式 [创建模式]中，多例的例子
+
+
+
+
+### P0106_Builder
+设计模式 [创建模式]中，建造者的例子
+
+
+
+
+### P0107_Prototype
+设计模式 [创建模式]中，原型的例子
+
+
+
+
+### P0201_Adapter
+设计模式 [结构模式]中，适配器 的例子
+
+
+
+
+### P0202_DefaultAdapter
+设计模式 [结构模式]中，缺省适配 的例子
+
+
+
+
+### P0203_Composite
+设计模式 [结构模式]中，合成模式 的例子
+
+
+
+
+### P0204_Decorator
+设计模式 [结构模式]中，装饰的例子
+
+
+
+
+### P0205_Proxy
+设计模式 [结构模式]中，代理的例子
+
+
+
+
+### P0206_Flyweight
+设计模式 [结构模式]中，享元的例子
+
+
+
+
+### P0207_Facade
+设计模式 [结构模式]中， 门面 / 外观 的例子
+
+
+
+
+### P0208_Bridge
+设计模式 [结构模式]中， 桥梁 的例子
+
+
+
+
+
+### P0301_Immutable
+设计模式 [行为模式]中，不变 的例子
+
+
+
+
+### P0302_Strategy
+设计模式 [行为模式]中， 策略 的例子
+
+
+
+
+### P0303_TemplateMethod
+设计模式 [行为模式]中， 模板方法 的例子
+
+
+
+
+### P0304_Observer
+设计模式 [行为模式]中， 观察者 的例子
+
+
+
+
+### P0305_Iterator
+设计模式 [行为模式]中， 迭代器 的例子
+
+
+
+
+### P0306_ChainOfResponsibility
+设计模式 [行为模式]中，责任链的例子
+
+
+
+
+### P0307_Command
+设计模式 [行为模式]中，命令的例子
+
+
+
+
+### P0308_Memento
+设计模式 [行为模式]中，备忘录的例子
+
+
+
+
+### P0309_State
+设计模式 [行为模式]中，状态的例子
+
+
+
+
+### P0310_Visitor
+设计模式 [行为模式]中，访问者的例子
+
+
+
+
+### P0311_Interpreter
+设计模式 [行为模式]中，解释器的例子
+
+
+
+
+### P0312_Mediator
+设计模式 [行为模式]中，调停者/中介者 的例子
+
 
 

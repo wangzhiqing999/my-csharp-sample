@@ -1,0 +1,104 @@
+
+
+步骤一:
+
+http://www.iis.net/learn/extensions/installing-application-request-routing-(arr)/install-application-request-routing-version-2
+
+下载 ARRv2_setup_x64.exe
+
+运行并安装。
+
+
+安装完毕后的初始建议配置.
+
+IIS 中
+在 Application Pools 中， 设置 Idle Time-out = 0
+取消 Regular time intervals (in minutes) 上面打的勾.
+
+
+
+
+
+
+
+
+步骤二：
+
+http://www.iis.net/learn/extensions/configuring-application-request-routing-(arr)/define-and-configure-an-application-request-routing-server-farm
+
+这里需要 另外2台虚拟机做测试。
+这里用2台 CentOS 的虚拟机做测试。  也就是先在一台 CentOS 上面， 安装 httpd, 然后 关机， 复制一份。
+然后，分别启动这2台 CentOS 虚拟机
+
+这2台机器的 ip 地址为： 
+10.16.12.68
+10.16.12.90
+
+
+然后在测试机的 /var/www/html 目录下， 输入
+echo Hello World! >index.html
+(为了测试 数据来自不同的服务器， 可以2个 虚拟机上，输入不同的文字信息，以确认数据来源。)
+
+
+IIS 中
+在 Server Farms 中， 创建一个 Server Farm， 名称为  “myServerFarm”
+将上面2台机器的 ip 加入列表
+
+然后浏览器中，输入 http://localhost  后， 将显示  echo Hello World!
+
+
+
+##### 负载均衡配置 #####
+选择 “myServerFarm”， 选择  Load Balance, 将出现 负载均衡的选择。
+这个配置，是不同业务， 需要不同设置的了。这里简单测试一下， 是否可以修改。
+
+
+
+##### 服务器健康状况 #####
+选择 “myServerFarm”， 选择 Health Test
+URL 的地方， 输入 http://localhost/index.html 
+然后按  Verify URL Test
+显示结果为 2台测试机， 均为 Pass
+
+
+
+
+步骤三：
+
+http://www.iis.net/learn/extensions/configuring-application-request-routing-(arr)/http-load-balancing-using-application-request-routing
+
+##### 关闭 SSL 设置.  #####
+选择 “myServerFarm”， 选择 Routing Rules
+在 Enable SSL on offloading 的地方打勾.
+然后 应用.
+
+
+
+##### 查看 各个服务器负载均衡情况 ###
+选择 “myServerFarm”， 选择 Monitoring and Management.
+
+
+
+
+
+步骤四：
+
+http://www.iis.net/learn/extensions/configuring-application-request-routing-(arr)/configure-3-tier-deployment-architecture-using-application-request-routing
+
+
+由于本机的 默认网站， 指向的是  C:\inetpub\wwwroot
+这个目录下， 有个 welcome.png
+这里就用这个文件做测试。
+
+
+选择 “myServerFarm”， 选择 Routing Rules
+
+在 Requests with the following extensions are not forwarded 的地方， 输入 *.png
+然后应用.
+
+然后浏览器中，输入 http://localhost/index.html   显示正常。
+输入 http://localhost/welcome.png  将显示本机上面的 png 图片。
+
+
+
+

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p>
+    本页面用于测试， 当外部传递   /TestPath/about:blank 的时候， 能够成功迁移到   /TestPath/
+    </p>
+
+    <p>
+    原因：因为 最近在服务器上， 看到这样的错误日志， 应该是 Nokia 设备上面的 MQQBrowser 浏览器， 在访问网站的时候，传递了  /Wap/about:blank  这样的地址。
+    </p>
+
+<pre>
+<code>
+URL:/Wap/about:blank; Message:A potentially dangerous Request.Path value was detected from the client (:).;
+Headers:Connection=close;
+Accept=application/vnd.wap.xhtml+xml, text/vnd.wap.wml, application/xhtml+xml, text/html, image/png, image/jpeg, image/gif, */*;q=0.1;
+Accept-Charset=iso-8859-1,utf-8,utf-16,*;q=0.1;
+Accept-Encoding=gzip, identity;
+User-Agent=MQQBrowser/2.7 (Nokia603;SymbianOS/9.1 Series60/3.0);
+x-huawei-apn=3gwap;
+Q-UA=SQB27_GA/27716&SMTT_3/020100&S3&224014&Nokia603&-1&6300&V3;
+</code>
+</pre>
+
+
+
+</body>
+</html>
