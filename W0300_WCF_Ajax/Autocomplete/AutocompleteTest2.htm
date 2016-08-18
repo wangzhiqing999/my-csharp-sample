@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>  autocomplete 测试  </title>
+
+
+    <link href="../css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.bgiframe.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.ajaxQueue.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.autocomplete.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#txtQuery").autocomplete("search.ashx", {
+                width: 260,
+                selectFirst: false
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+<h3> autocomplete 测试 </h3>
+
+
+<p>
+这里主要测试输入 sh, shanghai, 上海,  都能在下列列表中， 显示出 上海这个信息.
+</p>
+
+
+    <input id="txtQuery" type="text"  style="width:500px" placeholder="请输入一个城市 " />
+
+
+
+
+</body>
+</html>

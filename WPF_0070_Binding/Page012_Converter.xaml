@@ -1,0 +1,35 @@
+﻿<Page x:Class="WPF_0070_Binding.Page012_Converter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      xmlns:local="clr-namespace:WPF_0070_Binding.Converter"
+	Title="Page012_Converter">
+
+    
+    <Page.Resources>
+        <local:CategoryToSourceConverter x:Key="cts" />
+        <local:StateToNullableBoolConverter x:Key="stnb" />
+    </Page.Resources>
+    
+    
+    <StackPanel Background="LightBlue">
+        <ListBox x:Name="listBoxPlane" Margin="5" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20" Source="{Binding Path=Category, Converter={StaticResource cts}}" />
+                        <TextBlock Text="{Binding Path=Name}" Width="60" Margin="80,0" />
+                        <CheckBox IsThreeState="True" IsChecked="{Binding Path=State, Converter={StaticResource stnb}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button x:Name="btnLoad" Content="读取" Margin="5" Click="btnLoad_Click" />
+
+        <Button x:Name="btnSave" Content="保存" Margin="5" Click="btnSave_Click" />
+    </StackPanel>
+</Page>

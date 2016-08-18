@@ -1,0 +1,24 @@
+﻿<Page x:Class="WPF_0070_Binding.Page013_MultiBinding"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page013_MultiBinding">
+
+    <StackPanel Background="LightBlue">
+        
+        <Label Content="下面两个输入相同的数据." />
+        <TextBox x:Name="txtName1" Height="23" Margin="5" />
+        <TextBox x:Name="txtName2" Height="23" Margin="5" />
+
+
+        <Label Content="下面两个输入相同的数据." />
+        <TextBox x:Name="txtEmail1" Height="23" Margin="5" />
+        <TextBox x:Name="txtEmail2" Height="23" Margin="5" />
+        
+        <Button x:Name="btnSubmit" Content="提交" Width="80" Margin="5" Click="btnSubmit_Click" />
+        
+    </StackPanel>
+</Page>

@@ -1,0 +1,95 @@
+﻿<Activity mc:Ignorable="sads sap" x:Class="F0070_Control.Workflow1" sap:VirtualizedContainerService.HintSize="546,1805" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:local="clr-namespace:F0070_Control"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Xml"
+ xmlns:s3="clr-namespace:System;assembly=System.Core"
+ xmlns:s4="clr-namespace:System;assembly=System.ServiceModel"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+ xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+ xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+ xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sad:XamlDebuggerXmlReader.FileName="E:\my-csharp-sample\F0070_Control\Workflow1.xaml" sap:VirtualizedContainerService.HintSize="506,1765">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="i" />
+      <Variable x:TypeArguments="scg3:List(x:String)" Name="testList" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[i = 1]" sap:VirtualizedContainerService.HintSize="484,213">
+      <If.Then>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="i=1" />
+      </If.Then>
+      <If.Else>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="i != 1" />
+      </If.Else>
+    </If>
+    <Switch x:TypeArguments="x:Int32" Expression="[i]" sap:VirtualizedContainerService.HintSize="484,169">
+      <Switch.Default>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="Default" />
+      </Switch.Default>
+      <WriteLine x:Key="0" sap:VirtualizedContainerService.HintSize="213,63" Text="Case 0" />
+      <WriteLine x:Key="1" sap:VirtualizedContainerService.HintSize="213,63" Text="Case 1" />
+    </Switch>
+    <While sap:VirtualizedContainerService.HintSize="484,411" Condition="[i &lt; 5]">
+      <Sequence sap:VirtualizedContainerService.HintSize="265,288">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign sap:VirtualizedContainerService.HintSize="243,61">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <WriteLine sap:VirtualizedContainerService.HintSize="243,63" Text="[CStr(i)]" />
+      </Sequence>
+    </While>
+    <DoWhile sap:VirtualizedContainerService.HintSize="484,415" Condition="[i &gt; 0]">
+      <Sequence sap:VirtualizedContainerService.HintSize="265,288">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <WriteLine sap:VirtualizedContainerService.HintSize="243,63" Text="[CStr(i)]" />
+        <Assign sap:VirtualizedContainerService.HintSize="243,61">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[i - 1]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </DoWhile>
+    <local:CollectionActivity sap:VirtualizedContainerService.HintSize="484,22" myOutCollection="[testList]" />
+    <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="484,211" Values="[testList]">
+      <ActivityAction x:TypeArguments="x:String">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+        </ActivityAction.Argument>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="[item]" />
+      </ActivityAction>
+    </ForEach>
+  </Sequence>
+</Activity>

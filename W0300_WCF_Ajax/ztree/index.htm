@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ZTree 菜单测试.</title>
+
+    <link href="../css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../js/jquery.ztree.core-3.5.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+
+    // 这里定义的菜单节点变量.
+    var zTree;
+    var demoIframe;
+    var zNodes = null;
+
+    // 菜单基本设置.
+    var setting = {
+        view: {
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "MODULE_CODE",
+                pIdKey: "PARENT_CODE",
+                rootPId: ""
+            }
+        },
+        callback: {
+            beforeClick: function (treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("tree");
+                if (treeNode.isParent) {
+                    zTree.expandNode(treeNode);
+                    return false;
+                } else {
+                    demoIframe.attr("src", treeNode.MODULE_EXPAND);
+                    return true;
+                }
+            }
+        }
+    };
+
+
+
+
+
+    // 菜单初始化代码.
+    $(document).ready(function () {
+
+        loadSystemMenu();
+
+        // 数型菜单.
+        var t = $("#tree");
+        t = $.fn.zTree.init(t, setting, zNodes);
+
+        demoIframe = $("#testIframe");
+        demoIframe.bind("load", loadReady);
+
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        // zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+    });
+
+
+
+    function loadReady() {
+        var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+		htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+		maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+		h = demoIframe.height() >= maxH ? minH : maxH;
+        if (h < 530) h = 530;
+        demoIframe.height(h);
+    }
+
+
+
+    function loadSystemMenu() {
+        // 调用 ajax 
+        $.ajax({
+            url: "/ZtreeMenuWebService.asmx/GetMrModuleList",
+            type: "post",
+            contentType: "application/json;utf-8",
+            dataType: 'json',
+            data: "{}",
+            async: false,
+            success: function (data) {
+                showSystemMenu(data.d);
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        })
+    }
+
+    function showSystemMenu(pJsonData) {
+        zNodes = pJsonData;
+    }
+
+
+
+</script>
+
+
+</head>
+<body>
+
+
+  <form id="form1" runat="server">
+  <div>
+
+    
+    <table style="width:95%">
+      <tr>
+        <td colspan="2" style="text-align:center">
+        Ztree 菜单测试
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" style="text-align:right">
+        
+            
+        
+        </td>
+      </tr>
+
+
+	  <tr>
+		<td width="200px" align="left" valign="top" style="BORDER-RIGHT: #999999 1px dashed">
+			<ul id="tree" class="ztree" style="width:200px; overflow:auto;"></ul>
+		</td>
+
+		<td align="left" valign="top">
+            <iframe id="testIframe" name="testIframe" frameborder="0" scrolling="auto" width="100%"  height="600px" src="Blank.htm">
+            </iframe>
+        </td>
+	  </tr>
+    
+    </table>
+
+    
+  </div>
+  </form>
+
+
+</body>
+</html>

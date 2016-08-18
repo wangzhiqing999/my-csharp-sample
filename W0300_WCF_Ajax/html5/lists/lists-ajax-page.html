@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        动态加载列表
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>    
+    
+    <script src="../../Scripts/MyPageInfo.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 动态加载列表  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+
+        <h2> 动态加载列表 </h2>
+
+        <p> 
+          动态加载列表的情况下， 需要在数据加载完毕以后， 再调用一个   
+          <code> $('#').listview('refresh'); </code> 的方法。
+          以刷新画面显示.
+        </p>
+
+
+        <p>
+          翻页的处理， 通过  <code> $(window).bind("scroll", function () </code> 事件来进行处理.
+        </p>
+
+
+        <div class="content-primary">
+	        <ul id="testList"  data-role="listview">
+	        </ul>
+	    </div><!--/content-primary -->
+
+
+
+        <p id="pLoading">
+            
+        </p>
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3 id="footer">
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+
+
+
+
+<script type="text/javascript">
+
+    
+    // 翻页处理类.
+    var vMyPageInfo = new MyPageInfo();
+
+
+
+    $(document).ready(function () {
+        // 初始化 100行数据，每页10行，第一页
+        vMyPageInfo.RowCount = 100;
+        vMyPageInfo.PageSize = 10;
+        vMyPageInfo.PageIndex = 1;
+
+        // 模拟数据加载.
+        LoadData();
+
+
+
+        $(window).bind("scroll", function () {
+            //当滚动条滚动时
+            showload();
+        });
+
+    });
+
+
+
+    function showload() {
+
+        $("#footer").html("w.h=" + $(window).height() + ";w.s=" + $(window).scrollTop() + ";d.h=" + $(document).height());
+
+        var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
+
+
+        // 注意： 这里的 - 120
+        // 原因在于， 在 itouch 上面，存在有这样的情况：
+        // 首次加载的时候，$(window).height() = 306   $(window).scrollTop() = 0  $(document).height() = 782
+        // 拉滚动条的时候，$(window).scrollTop() 最大为 366
+        // 导致 无法触发 加载数据.
+        // (在 PC 上面， 是正常的，不需要 - 120， 否则看不到  footer 了.)
+        if ($(document).height() - 120 <= lazyheight) {
+
+            if (vMyPageInfo.PageIndex < vMyPageInfo.RowCount / vMyPageInfo.PageSize) {
+                // 翻页.
+                vMyPageInfo.PageIndex++;
+                // 模拟数据加载.
+                LoadData();
+            }
+
+        }
+    }
+
+
+    // 模拟数据加载.
+    function LoadData() {
+
+        // 显示 “加载过程中的动画”
+        $.mobile.loading('show');
+
+        $("#pLoading").html("正在加载后续数据...");
+
+
+        // 3秒钟以后， 再去显示数据
+        // 以模拟网络后台处理的延迟.
+        setTimeout("DoRealLoadData()", 3000);
+
+
+    }
+
+
+
+    function DoRealLoadData() {
+
+        // 这里主要是为了模拟动态加载， 就不去 ajax 了， 简单 for 循环一下.
+        for (var i = 1; i <= vMyPageInfo.PageSize; i++) {
+            var iData = (vMyPageInfo.PageIndex - 1) * vMyPageInfo.PageSize + i;
+            $("#testList").append("<li class='UserData'><a href='#'> Test" + iData + "</a></li>");
+        }
+
+        // 刷新
+        $('#testList').listview('refresh');
+
+
+        $("#pLoading").html("");
+
+        // 隐藏 “加载过程中的动画”
+        $.mobile.loading('hide');
+
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>
+

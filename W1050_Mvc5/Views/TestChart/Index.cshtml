@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<ul>
+
+    <li>
+        <img src='@Url.Action(actionName: "Column", controllerName: "TestChart")' alt="测试柱状图" />
+    </li>
+
+    
+    <li>
+        <img src='@Url.Action(actionName: "Pie", controllerName: "TestChart")' alt="测试饼图" />
+    </li>
+
+
+
+
+</ul>
+
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+<script>
+
+
+</script>
+
+
+}

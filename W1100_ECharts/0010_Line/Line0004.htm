@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>  Line 0004 </title>
+</head>
+<body>
+
+
+    <h3>  Line 0004  </h3>
+
+    <p>
+    标准折线图 - 横轴纵轴交换.
+    </p>
+
+    
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用折线图就加载line模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    legend: {
+                        data: ['高度(km)与气温(°C)变化关系']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            magicType: { show: true, type: ['line', 'bar'] },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    calculable: true,
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: "Temperature : <br/>{b}km : {c}°C"
+                    },
+                    xAxis: [
+                        {
+                            type: 'value',
+                            axisLabel: {
+                                formatter: '{value} °C'
+                            }
+                        }
+                    ],
+                                    yAxis: [
+                        {
+                            type: 'category',
+                            axisLine: { onZero: false },
+                            axisLabel: {
+                                formatter: '{value} km'
+                            },
+                            boundaryGap: false,
+                            data: ['0', '10', '20', '30', '40', '50', '60', '70', '80']
+                        }
+                    ],
+                                    series: [
+                        {
+                            name: '高度(km)与气温(°C)变化关系',
+                            type: 'line',
+                            smooth: true,
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        shadowColor: 'rgba(0,0,0,0.4)'
+                                    }
+                                }
+                            },
+                            data: [15, -50, -56.5, -46.5, -22.1, -2.5, -27.7, -55.7, -76.5]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+        );
+
+    </script>
+
+</body>
+</html>

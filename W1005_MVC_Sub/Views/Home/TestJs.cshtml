@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "TestJs";
+}
+
+<h2>TestJs</h2>
+
+
+<p>
+测试 js 引用是否正常.
+
+（BundleConfig 里面定义的， 基本都正常， 这里仅仅测试  自己手动添加的）
+
+<b> 注意：需要考虑直接在开发环境下测试，以及在 iis 的虚拟目录下测试的情况。 </b>
+
+</p>
+
+
+
+
+
+在 Visual Studio 里面，直接拖过来， 不修改的效果：
+<script src="../../script/Test.js" type="text/javascript"></script>
+
+
+<hr />
+
+
+
+使用  /  的效果
+<script src="/script/Test.js" type="text/javascript"></script>
+
+<hr />
+
+
+
+使用  ~/  的效果
+<script src="~/script/Test.js" type="text/javascript"></script>
+
+<hr />

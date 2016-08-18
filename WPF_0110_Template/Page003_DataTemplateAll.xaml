@@ -1,0 +1,52 @@
+﻿<Page x:Class="WPF_0110_Template.Page003_DataTemplateAll"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      
+      
+      xmlns:local="clr-namespace:WPF_0110_Template.Model"
+      xmlns:c="clr-namespace:System.Collections;assembly=mscorlib"
+      
+	Title="Page003_DataTemplateAll">
+
+    <Page.Resources>
+
+        <!-- DataTemplate -->
+        <DataTemplate DataType="{x:Type local:Unit}">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Rectangle Stroke="Yellow" Fill="Orange" Width="{Binding Price}" />
+                        <TextBlock Text="{Binding Year}" />
+                    </Grid>
+                    <TextBlock Text="{Binding Price}" Margin="5,0" />
+                </StackPanel>
+            </Grid>    
+        </DataTemplate>
+        
+        
+        <!-- 数据源. -->
+        <c:ArrayList x:Key="ds">
+            <local:Unit Year="2001年" Price="100" />
+            <local:Unit Year="2002年" Price="120" />
+            <local:Unit Year="2003年" Price="140" />
+            <local:Unit Year="2004年" Price="160" />
+            <local:Unit Year="2005年" Price="180" />
+            <local:Unit Year="2006年" Price="200" />
+        </c:ArrayList>
+        
+    </Page.Resources>
+    
+    
+    
+    
+    <StackPanel>
+        
+        <ListBox ItemsSource="{StaticResource ds}" />
+        <ComboBox ItemsSource="{StaticResource ds}"  Margin="5"/>
+        
+    </StackPanel>
+</Page>

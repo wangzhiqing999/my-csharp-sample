@@ -1,0 +1,14 @@
+
+详细文章：
+http://www.cnblogs.com/foundation/category/215023.html
+
+
+
+F0010_HelloWorld			简单 Hello World .
+F0020_SayHello				修改默认的工作流文件名 Workflow1.xaml 的注意事项.
+F0030_CodeActivity			测试 “代码活动”
+F0040_Sequence				测试 Sequence 控制流
+F0050_Variable				测试 数据的传递 Variable变量， Assign 基元
+F0060_Arguments				测试 活动的 In/Out/InOut 参数.
+F0070_Control				测试 控制流  If / While / DoWhile
+F0080_Collection			测试 基本的集合操作.

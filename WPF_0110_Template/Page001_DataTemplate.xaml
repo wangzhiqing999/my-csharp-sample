@@ -1,0 +1,66 @@
+﻿<Page x:Class="WPF_0110_Template.Page001_DataTemplate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      
+      xmlns:local="clr-namespace:WPF_0110_Template.Converter"
+      
+	Title="Page001_DataTemplate">
+
+
+    <Page.Resources>
+        <!-- 定义好 转换的处理. -->
+        <local:CategoryToSourceConverter x:Key="cts" />
+        <local:StateToNullableBoolConverter x:Key="stnb" />
+        
+        
+        <!-- 列表的模板. -->
+        <DataTemplate x:Key="testListTemplate">
+            <Grid Margin="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{Binding Path=Category, Converter={StaticResource cts}}" />
+                    <TextBlock Text="{Binding Path=Name}" FontSize="20" Margin="5" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        
+        <!-- 明细的模板. -->
+        <DataTemplate x:Key="testDetailTemplate">
+            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="6">
+                <StackPanel Margin="5">
+                    <Image Source="{Binding Path=Category, Converter={StaticResource cts}}" />
+                    
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Name:" FontWeight="Bold" FontSize="20" />
+                        <TextBlock Text="{Binding Path=Name}" FontSize="20" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <!-- 
+        模板中定义了 Binding， 但是没有数据源.
+        实际运行过程中， 会向父节点依次找数据源， 最终就是在 使用模板的地方， 定义数据源即可.
+        -->
+        
+    </Page.Resources>
+
+
+
+
+    <StackPanel Orientation="Horizontal" Margin="5">
+
+        <!-- 列表: 使用 前面定义的 testListTemplate 来显示数据. -->
+        <ListBox x:Name="listBoxTest" Width="180" Margin="5" ItemTemplate="{StaticResource testListTemplate}" />
+
+
+        <!-- 详细： 
+            使用前面定义的 testDetailTemplate  来显示数据. 
+            数据的来源， 是 listBoxTest 控件的  SelectedItem  属性所对应的数据.
+        -->
+        <UserControl ContentTemplate="{StaticResource testDetailTemplate}" Content="{Binding Path=SelectedItem, ElementName=listBoxTest}" />
+    </StackPanel>
+</Page>

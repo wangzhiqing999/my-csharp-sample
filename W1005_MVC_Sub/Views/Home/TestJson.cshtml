@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "TestJson";
+}
+
+<h2>TestJson</h2>
+
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+
+<script type="text/javascript">
+
+function CallAjax() {
+    
+    $.ajax({
+        url: '@(W1005_MVC_Sub.Common.AppPath.GetAppPath(Request, "Home/TestAjaxFunc"))',
+        type: "POST",
+        data: {"id":"1"},
+        success: function (data) {
+            $("#TestAjaxFuncResult").html(data.Message);
+        },
+        error: function (msg) {
+            alert(msg.responseText);
+        }
+    });
+}
+
+
+
+
+function CallAjaxPlus() {
+
+    $.ajax({
+        url: '@Url.Action(actionName:"TestAjaxFunc", controllerName:"Home") ',
+        type: "POST",
+        data: { "id": "2" },
+        success: function (data) {
+            $("#TestAjaxFuncResult").html(data.Message);
+        },
+        error: function (msg) {
+            alert(msg.responseText);
+        }
+    });
+}
+
+
+</script>
+
+}
+
+
+
+
+
+<p>
+    <input id="Button1" type="button" value="测试调用 Ajax (自己判断 Path) "  onclick="CallAjax()" />
+    <br />
+    <input id="Button2" type="button" value="测试调用 Ajax (使用 Url.Action )"  onclick="CallAjaxPlus()" />
+</p>
+
+
+<p >
+
+来自 ajax 的结果：
+<span id="TestAjaxFuncResult"></span>
+
+</p>
+
+
+
+<p>
+使用 Url.Action 来设置 ajax 的路径. 更好一些.
+</p>

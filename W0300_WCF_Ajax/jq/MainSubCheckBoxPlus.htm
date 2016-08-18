@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery  CheckBox 联动 处理机制  </title>
+    
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 首先，初始化 市的数据.
+            $.ajax({
+                url: "/WcfMyDemoService.svc/GetAllCityPlus",
+                type: "get",
+                success: function (data) {
+                    // 遍历返回的数据结果.
+                    for (var i = 0; i < data.d.length; i++) {
+                        // 追加 Option 选项.
+                        $("#ddlCity").append("<option value='" +
+                        data.d[i].OptionValue + "'>" +
+                        data.d[i].OptionText + "</option>");
+                    }
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+
+
+
+
+            // 市 下拉列表发生变化的时候， 联动更新 区县.
+            $("#ddlCity").change(function () {
+
+                // 获取 本次选择的  市-区县  的  Value
+                var selectedRefCityID = $(this).val();
+                // 获取 本次选择的  市-区县  的  Text
+                var selectedRefCityText = $(this).find('option:selected').text();
+
+                // 按 - 进行分割.
+                var vIDArray = selectedRefCityID.split("-");
+                var vTextArray = selectedRefCityText.split("-");
+
+
+                var vResultMessage = "";
+
+                if (vIDArray.length == 1) {
+                    vResultMessage = "本次只选择了城市， 没有选取区！";
+                    vResultMessage = vResultMessage + "城市：" + vTextArray[0] + "(" + vIDArray[0] + ")";
+
+                } else if (vIDArray.length == 2) {
+                    vResultMessage = "本次同时选择了城市和区！";
+                    vResultMessage = vResultMessage + "城市：" + vTextArray[0] + "(" + vIDArray[0] + ")";
+                    vResultMessage = vResultMessage + " -- 区：" + vTextArray[1] + "(" + vIDArray[1] + ")";
+                }
+
+                $("#lblResult").html(vResultMessage);
+            });
+
+        })
+
+
+    </script>
+
+</head>
+<body>
+
+
+<table>
+
+  <tr>
+
+    <td> 市: </td>
+    <td style="width:200px">
+        <select id="ddlCity" name="ddlCity" style="width:85%">
+            <option></option>
+        </select>  
+    </td>
+
+  </tr>
+
+  
+
+  <tr>
+    <td colspan="4"> 
+    <label id="lblResult"></label>
+    </td>
+  </tr>
+
+</table>
+
+
+
+</body>
+</html>

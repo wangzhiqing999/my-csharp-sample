@@ -1,0 +1,37 @@
+﻿<Page x:Class="WPF_0070_Binding.Page002_ControlBinding"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page002_ControlBinding">
+
+
+    <Page.Resources>
+        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
+        </Style>
+    </Page.Resources>
+
+
+    <StackPanel>
+        <Label Content="TextBox 控件的Text， 与 Slider 控件的 Value 绑定 " />
+        <Label Content="绑定是双向的，TextBox 中输入数字后，按 Tab 键，将修改 Slider 控件的 Value 属性 " />
+        <Label Content="拖动 Slider 控件， 将修改 TextBox 控件的 Text 属性 " />
+        <TextBox x:Name="txtValue" Text="{Binding Path=Value, ElementName=sliValue}" BorderBrush="Black"/>
+                
+        <Slider x:Name="sliValue" Maximum="100" Minimum="0" Margin="5"/>
+
+        <Label Content="Path 可以是属性的属性， Mode=OneWay 意味着单向处理。" />
+        <TextBox x:Name="txtTextLength" Text="{Binding Path=Text.Length,ElementName=txtValue,Mode=OneWay}" />
+
+        <Label Content="Path 的属性可以是 索引器" />
+        <TextBox x:Name="txtTop" Text="{Binding Path=Text[0],ElementName=txtValue,Mode=OneWay}" />
+
+
+
+    </StackPanel>
+
+</Page>

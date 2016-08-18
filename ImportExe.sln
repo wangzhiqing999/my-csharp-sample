@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A6000_ImportExe_Main", "A6000_ImportExe_Main\A6000_ImportExe_Main.csproj", "{973AEE97-E5A2-475D-809F-F8F3B4C0C545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A6010_ImportExe_Sub", "A6010_ImportExe_Sub\A6010_ImportExe_Sub.csproj", "{D6487A10-B7BE-4550-B2B1-37285CA1AA57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{973AEE97-E5A2-475D-809F-F8F3B4C0C545}.Debug|x86.ActiveCfg = Debug|x86
+		{973AEE97-E5A2-475D-809F-F8F3B4C0C545}.Debug|x86.Build.0 = Debug|x86
+		{973AEE97-E5A2-475D-809F-F8F3B4C0C545}.Release|x86.ActiveCfg = Release|x86
+		{973AEE97-E5A2-475D-809F-F8F3B4C0C545}.Release|x86.Build.0 = Release|x86
+		{D6487A10-B7BE-4550-B2B1-37285CA1AA57}.Debug|x86.ActiveCfg = Debug|x86
+		{D6487A10-B7BE-4550-B2B1-37285CA1AA57}.Debug|x86.Build.0 = Debug|x86
+		{D6487A10-B7BE-4550-B2B1-37285CA1AA57}.Release|x86.ActiveCfg = Release|x86
+		{D6487A10-B7BE-4550-B2B1-37285CA1AA57}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

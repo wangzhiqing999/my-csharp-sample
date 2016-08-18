@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Checkbox 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Checkbox 输入  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+
+
+        <h2> 基本 </h2>
+
+		<pre><code>	
+&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;checkbox-0&quot; /&gt; I agree &lt;/label&gt;
+			
+&lt;input type=&quot;checkbox&quot; name=&quot;checkbox-1&quot; id=&quot;checkbox-1&quot; class=&quot;custom&quot; /&gt;
+&lt;label for=&quot;checkbox-1&quot;&gt;I agree&lt;/label&gt;
+		</code></pre>
+        
+
+        <p> 显示结果 </p>
+
+
+        <label> <input type="checkbox" name="checkbox-0 "/> I agree</label>
+		<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+		<label for="checkbox-1">I agree</label>
+
+
+
+
+        <h2> Mini 版本 </h2>
+
+<pre><code>	
+&lt;input type=&quot;checkbox&quot; name=&quot;checkbox-0&quot; id=&quot;checkbox-mini-0&quot; class=&quot;custom&quot; <strong>data-mini=&quot;true&quot;</strong> /&gt;
+&lt;label for=&quot;checkbox-mini-0&quot;&gt;I agree&lt;/label&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+        <input type="checkbox" name="checkbox-mini-0" id="checkbox-mini-0" class="custom" data-mini="true" />
+		<label for="checkbox-mini-0">I agree</label>
+
+
+
+
+        <h2>Field containers</h2>
+
+<pre><code>	
+&lt;div data-role=&quot;fieldcontain&quot;&gt;
+    <strong>&lt;fieldset data-role=&quot;controlgroup&quot;&gt;
+	   &lt;legend&gt;Agree to the terms:&lt;/legend&gt;</strong>
+	   &lt;input type=&quot;checkbox&quot; name=&quot;checkbox-2&quot; id=&quot;checkbox-2&quot; class=&quot;custom&quot; /&gt;
+	   &lt;label for=&quot;checkbox-2&quot;&gt;I agree&lt;/label&gt;
+    <strong>&lt;/fieldset&gt;</strong>
+&lt;/div&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+	    <div data-role="fieldcontain">
+	 	    <fieldset data-role="controlgroup">
+			    <legend>Agree to the terms:</legend>
+			    <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+			    <label for="checkbox-2">I agree</label>
+	        </fieldset>
+	    </div>
+
+
+
+        <h2> 分组显示 </h2>
+
+
+		<div  data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<legend>Choose as many snacks as you'd like:</legend>
+				<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom" />
+				<label for="checkbox-1a">Cheetos</label>
+
+				<input type="checkbox" name="checkbox-2a" id="checkbox-2a" class="custom" />
+				<label for="checkbox-2a">Doritos</label>
+					
+				<input type="checkbox" name="checkbox-3a" id="checkbox-3a" class="custom" />
+				<label for="checkbox-3a">Fritos</label>
+
+				<input type="checkbox" name="checkbox-4a" id="checkbox-4a" class="custom" />
+				<label for="checkbox-4a">Sun Chips</label>
+			</fieldset>
+		</div>
+
+
+
+
+        <h2> 横向显示  </h2>
+
+		<div data-role="fieldcontain">
+		    <fieldset data-role="controlgroup" data-type="horizontal">
+		    	<legend>Font styling:</legend>
+		    	<input type="checkbox" name="checkbox-6" id="checkbox-6" class="custom" />
+				<label for="checkbox-6">b</label>
+
+				<input type="checkbox" name="checkbox-7" id="checkbox-7" class="custom" />
+				<label for="checkbox-7"><em>i</em></label>
+
+				<input type="checkbox" name="checkbox-8" id="checkbox-8" class="custom" />
+				<label for="checkbox-8">u</label>    
+		    </fieldset>
+		</div>
+
+
+
+
+
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+
+
+
+
+
+</body>
+
+</html>

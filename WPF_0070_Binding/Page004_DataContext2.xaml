@@ -1,0 +1,17 @@
+﻿<Page x:Class="WPF_0070_Binding.Page004_DataContext2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page004_DataContext2">
+
+    <Grid DataContext="123456">
+        <Grid>
+            <Grid>
+                <Button Content="Test Context"  x:Name="btnTest" Click="btnTest_Click" Margin="10" Background="#FF1D9E5E"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

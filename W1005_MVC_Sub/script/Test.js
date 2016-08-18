@@ -1,0 +1,1 @@
+﻿document.writeln("##### test.js #####");

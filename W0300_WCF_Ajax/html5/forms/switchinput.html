@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        switch 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1>switch 输入  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+        
+
+        <h2> 基本 </h2>
+
+<pre><code>	
+&lt;label for=&quot;flip-1&quot;&gt;Flip switch:&lt;/label&gt;
+&lt;select name=&quot;flip-1&quot; id=&quot;flip-1&quot; data-role=&quot;slider&quot;&gt;
+	&lt;option value=&quot;off&quot;&gt;Off&lt;/option&gt;
+	&lt;option value=&quot;on&quot;&gt;On&lt;/option&gt;
+&lt;/select&gt; 
+</code></pre>	
+
+
+        <p> 显示结果 </p>
+
+
+		<label for="flip-1">Flip switch:</label>
+		<select name="flip-1" id="flip-1" data-role="slider">
+			<option value="off">Off</option>
+			<option value="on">On</option>
+		</select> 
+
+
+
+        <h2> 长文本信息 </h2>
+
+<pre><code>
+&lt;div class="containing-element"&gt;
+	&lt;label for="flip-min">Flip switch:&lt;/label&gt;
+	&lt;select name="flip-min" id="flip-min" data-role="slider"&gt;
+		&lt;option value="off">Switch Off&lt;/option&gt;
+		&lt;option value="on">Switch On&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/div&gt;
+</code></pre>
+
+        <p><code>.containing-element .ui-slider-switch { width: 9em }</code> will produce:</p>
+
+        <p> 显示结果 </p>
+
+		<style type="text/css" media="screen">
+		.containing-element .ui-slider-switch { width: 9em; }
+		</style>
+			
+		<div class="containing-element">
+			<label for="flip-min">Flip switch:</label>
+			<select name="flip-min" id="flip-min" data-role="slider">
+				<option value="off">Switch Off</option>
+				<option value="on">Switch On</option>
+			</select> 
+		</div>
+
+
+
+
+
+        <h2> Mini版本 </h2>
+<pre><code>	
+&lt;label for=&quot;flip-mini&quot;&gt;Flip switch:&lt;/label&gt;
+&lt;select name=&quot;flip-mini&quot; id=&quot;flip-mini&quot; data-role=&quot;slider&quot; <strong>data-mini=&quot;true&quot;</strong>&gt;
+	&lt;option value=&quot;off&quot;&gt;Off&lt;/option&gt;
+	&lt;option value=&quot;on&quot;&gt;On&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+			<label for="flip-mini">Flip switch:</label>
+			<select name="flip-mini" id="flip-mini" data-role="slider" data-mini="true">
+				<option value="off">Off</option>
+				<option value="on">On</option>
+			</select>
+
+
+        <h2>Field containers</h2>
+
+<pre><code>	
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>&lt;label for=&quot;flip-2&quot;&gt;Flip switch:&lt;/label&gt;
+	&lt;select name=&quot;flip-2&quot; id=&quot;flip-2&quot; data-role=&quot;slider&quot;&gt;
+		&lt;option value=&quot;nope&quot;&gt;Nope&lt;/option&gt;
+		&lt;option value=&quot;yep&quot;&gt;Yep&lt;/option&gt;
+	&lt;/select&gt; 
+<strong>&lt;/div&gt;
+</strong></code></pre>	
+
+
+        <p> 显示结果 </p>
+
+		<div data-role="fieldcontain">
+			<label for="flip-2">Flip switch:</label>
+			<select name="flip-2" id="flip-2" data-role="slider">
+				<option value="nope">Nope</option>
+				<option value="yep">Yep</option>
+			</select> 
+		</div>
+
+
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>

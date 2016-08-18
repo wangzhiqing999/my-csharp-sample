@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>用于测试 App 服务端的代码.</title>
+</head>
+<body>
+
+
+
+ <h3> 测试 App 用户今天是否打卡的 处理. </h3>
+
+<a href="/AppDemo/DailyCheckHandler.ashx?phone=13900000000"> 测试一个没打卡的</a>
+<br/>
+<a href="/AppDemo/DailyCheckHandler.ashx?phone=13800000000"> 测试一个已打卡的</a>
+
+
+ <h3> 测试 App 用户 最近几天打卡的 处理. </h3>
+
+<a href="/AppDemo/WeekReportHandler.ashx?phone=13900000000"> 测试9楼员工</a>
+<br/>
+<a href="/AppDemo/WeekReportHandler.ashx?phone=13800000000"> 测试10楼员工</a>
+
+
+
+<h3> 测试 App 查询 客户端最新版本. </h3>
+
+<a href="/AppDemo/LastVersion.htm"> 查询客户端最新版本</a>
+
+
+<p>
+
+IIS 中需要设置MIME
+
+打开IIS，选中服务器，点右键，属性里有MIME类型
+添加扩展名：.apk
+类型：application/octet-stream
+
+</p>
+
+
+
+<p>
+本代码，主要为 手机 App 调用， 因此这里不写 jQuery 代码测试了.
+</p>
+
+
+
+
+
+</body>
+</html>

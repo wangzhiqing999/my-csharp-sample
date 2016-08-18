@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>  页面迁移例子 </title>
+
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>  
+
+</head>
+
+
+<body>
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 页面迁移例子  </h1>
+    </div>  <!-- /header -->
+
+
+
+
+    <div data-role="content">
+		<div class="content-primary">	
+		    <h2> 默认情况下使用 Ajax </h2>
+            <p>
+             使用 Ajax ， 如果 页面加载失败， 将保持当前画面不变， 弹出 提示的错误信息。
+             而不是像普通电脑的浏览器那样， 如果页面不存在， 弹个空白的 404 错误窗口。
+             <a href="NotExistsPage.html"> 一个不存在的页面  </a>
+            </p>
+
+
+
+            
+            <h2> 手动禁用 Ajax </h2>
+            <p>
+             
+             访问其他域名的页面， 也 不会使用 Ajax. (  例如访问 http://www.jquery.com  )
+
+             通过  rel="external" data-ajax="false"   标记， 来 禁用 Ajax 的加载.
+
+             一般 rel="external" 使用在  同一个域名下， 其他目录下的页面。
+
+             data-ajax="false"  用于同域名， 同级目录下的页面。
+             
+
+             <a rel="external" data-ajax="false" href="NotExistsPage.html"> 一个不存在的页面  </a>
+            </p>
+
+
+
+
+            <p>
+            
+            在实际开发过程中， 我遇到这样的情况
+
+            从主菜单画面  ，  迁移向具体业务功能画面的时候。
+
+            如果那个功能画面 定义了 初始化的 
+
+            <code> $(document).ready(function () { </code> 代码。
+
+            那么使用 ajax 迁移过去了， 初始化代码没有被执行。
+
+            通过在主菜单的链接上， 增加  <code> data-ajax="false" </code> 可以使 初始化代码能够被执行！
+
+
+            </p>
+
+
+
+
+            <h2> 返回上一页 </h2>
+            <p>
+            
+            如果 使用了  data-rel="back"， 那么 将返回上一页， 并忽略 href 中所填写的内容.
+
+            
+            <a data-rel="back"  href="NotExistsPage.html"> 返回上一页 ( 忽略 href )  </a>
+            </p>
+
+
+
+
+
+            <h2> 弹出对话框 </h2>
+
+            <p>
+
+            作为一个 对话框 画面， 不希望被加入到 浏览的历史列表中
+            也就是在 浏览器的  前进/后退的时候， 不希望看到这个  对话框的画面。
+            处理办法： 增加 data-rel="dialog" 的属性。
+
+            <a href="../dialog/dialog.html" data-rel="dialog"> 对话框 </a>
+            </p>
+
+
+
+
+            <h2> 使用/禁用  Ajax 效果对比  </h2>
+            <p>
+                使用 Ajax 的
+                <a href="RunLongTimePage.aspx"> 长时间加载的页面</a>
+
+                不使用 Ajax 的
+                <a data-ajax="false" href="RunLongTimePage.aspx"> 长时间加载的页面 </a>
+            </p>
+
+
+
+
+            <h2> 电子邮件的例子  </h2>
+            <p>
+
+                简单发送给一个人的：
+                <a href="mailto:jdoe@foo.com">Basic email: mailto:jdoe@foo.com</a>
+
+
+                发送/抄送给多人的：
+                <a href="mailto:jdoe@foo.com?cc=bill@bar.com&bcc=mark@abc.com&subject=Happy%20Birthday&body=Best%20wishes!">Mailto with a cc:, bcc:, subject and body pre-filled</a>
+            </p>
+
+
+
+            <h2> 电话的例子  </h2>
+            <p>
+                <a href="tel:15555555555">Phone: tel:15555555555</a>
+            </p>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+
+
+</body>
+</html>

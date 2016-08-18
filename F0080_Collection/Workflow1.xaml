@@ -1,0 +1,55 @@
+﻿<Activity mc:Ignorable="sads sap" x:Class="F0080_Collection.Workflow1" sap:VirtualizedContainerService.HintSize="353,1101" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Xml"
+ xmlns:s3="clr-namespace:System;assembly=System.Core"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System"
+ xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel"
+ xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core"
+ xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:st="clr-namespace:System.Text;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence sad:XamlDebuggerXmlReader.FileName="E:\my-csharp-sample\F0080_Collection\Workflow1.xaml" sap:VirtualizedContainerService.HintSize="313,1061">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg3:List(x:String)" Default="[New List(Of String)]" Name="dataList" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <AddToCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="AddToCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" Item="ABC" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="AddToCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" Item="DEF" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="AddToCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" Item="XYZ" />
+    <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,211" Values="[dataList]">
+      <ActivityAction x:TypeArguments="x:String">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+        </ActivityAction.Argument>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="[item]" />
+      </ActivityAction>
+    </ForEach>
+    <WriteLine sap:VirtualizedContainerService.HintSize="291,63" Text="Try Remove ......" />
+    <RemoveFromCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="RemoveFromCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" Item="ABC" />
+    <RemoveFromCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="RemoveFromCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" Item="XYZ" />
+    <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,211" Values="[dataList]">
+      <ActivityAction x:TypeArguments="x:String">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+        </ActivityAction.Argument>
+        <WriteLine sap:VirtualizedContainerService.HintSize="213,63" Text="[item]" />
+      </ActivityAction>
+    </ForEach>
+    <ClearCollection x:TypeArguments="x:String" Collection="[dataList]" DisplayName="ClearCollection&lt;String&gt;" sap:VirtualizedContainerService.HintSize="291,22" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 上传/裁剪 照片 </title>
+    <link href="../css/imgareaselect/imgareaselect-default.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+
+    <!--  从 http://plugins.jquery.com/form/  下载  -->
+    <script src="../Scripts/jquery.form.js" type="text/javascript"></script>
+
+    <!--  从 http://plugins.jquery.com/imgareaselect/  下载  -->
+    <script src="../Scripts/jquery.imgareaselect.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+    var ajaxOptionsUpload = {
+        beforeSubmit: function () {
+            // alert("OK0");
+        },
+        success: function (responseText) {
+            $("#photoSource").attr("src", responseText);
+            DoStartCut();
+            $("#hfImgSelectAble").val("1");
+        },
+        url: "/Upload/ImgUploadHandler.ashx",
+        error: function (response) {
+            alert('操作失败！');
+        }
+    }; 
+
+
+    function DoStartCut() {
+        if ($("#hfImgSelectAble").val() == "") {
+            // 图片已加载.
+            $('#photoSource').imgAreaSelect({
+                fadeSpeed: 500,
+                autoHide: false,
+                handles: true,
+                persistent: false,
+                onSelectEnd: function (img, selection) {
+                    var x1, y1, xwidth, yheight, spath;
+                    x1 = selection.x1;
+                    y1 = selection.y1;
+                    xwidth = selection.width;
+                    yheight = selection.height;
+                    picpath = $("#photoSource").attr("src");
+                    $.post("/Upload/ImgCutHandler.ashx", { x1: x1, y1: y1, width: xwidth, height: yheight, picpath: picpath }, function (url) {
+                        $("#hfResultFileName").val(url);
+                        $("#photoResult").attr("src", url + "?" + Math.random());
+                    })
+
+
+                    // 裁减完毕后，可以保存.
+                    $("#btnSave").removeAttr("disabled");
+                }
+            });
+        }
+    }
+
+
+
+    $(document).ready(function () {
+
+        $("#btnUpload").click(function () {
+            $("#submitform").ajaxSubmit(ajaxOptionsUpload);
+        });
+
+        // 没选文件的时候， 不能保存.
+        $("#btnSave").attr("disabled", "disabled");
+
+
+        // 保存
+        $("#btnSave").click(function () {
+
+            picpath = $("#hfResultFileName").val();
+
+            $.post("/Upload/ImgThumbHandler.ashx", { picpath: picpath }, function (url) {
+                $("#photoThumb").attr("src", url + "?" + Math.random());
+            });
+
+
+            $.post("/Upload/ImgWaterHandler.ashx", { picpath: picpath }, function (url) {
+                $("#photoWater").attr("src", url + "?" + Math.random());
+            })
+
+        });
+
+    });
+
+
+</script>
+
+</head>
+<body>
+
+<form id="submitform" method="post" action="/Upload/ImgUploadHandler.ashx" enctype="multipart/form-data">    
+    <input type="file" name="pic"/>
+    <input id="btnUpload" type="button" value="上传图片"/>
+</form>
+
+
+<input id="hfImgSelectAble" type="hidden" />
+
+
+<table style="width:80%">  
+  <tr>
+    <th style="width:50%"> 原始图片 </th>
+    <th style="width:50%"> 裁减后图片 </th>
+  </tr>
+  <tr>
+    <td> <img src="" id="photoSource" alt="" style=" cursor:move"/> </td>
+    <td> <img src="" id="photoResult" alt=""/>  </td>
+  </tr>
+</table>
+
+
+<input id="hfResultFileName" type="hidden" />
+
+
+<input id="btnSave" type="button" value="选择完成后，缩略图与水印" disabled="disabled" />
+
+
+<table style="width:80%">  
+  <tr>
+    <th style="width:50%"> 缩略图 </th>
+    <th style="width:50%"> 水印 </th>
+  </tr>
+  <tr>
+    <td> <img src="" id="photoThumb" alt=""/> </td>
+    <td> <img src="" id="photoWater" alt=""/>  </td>
+  </tr>
+</table>
+
+
+</body>
+</html>

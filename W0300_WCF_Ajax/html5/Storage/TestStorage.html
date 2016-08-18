@@ -1,0 +1,115 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        HTML5 Web 存储
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> HTML5 Web 存储 例子  </h1>
+
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+
+    </div>  <!-- /header -->
+
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+        <p>
+        刷新本画面，查看数据变化.
+        </p>
+
+
+		<div class="content-primary">	
+			<ul data-role="listview" data-filter="true" data-filter-placeholder="Search people..." data-filter-theme="d" data-theme="d" data-divider-theme="d">
+				<li data-role="list-divider"> localStorage - 没有时间限制的数据存储   </li>
+				<li id="liLocalStorage"> </li>
+				
+
+				<li data-role="list-divider"> sessionStorage - 针对一个 session 的数据存储 （关闭浏览器后丢失） </li>
+				<li id="liSessionStorage"> </li>
+            </ul>
+        </div>
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if (localStorage.pagecount) {
+            localStorage.pagecount = Number(localStorage.pagecount) + 1;
+        }
+        else {
+            localStorage.pagecount = 1;
+        }
+
+
+        if (sessionStorage.pagecount) {
+            sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+        }
+        else {
+            sessionStorage.pagecount = 1;
+        }
+
+
+
+        $("#liLocalStorage").html(localStorage.pagecount);
+
+        $("#liSessionStorage").html(sessionStorage.pagecount);
+
+    });
+    
+</script>
+
+
+</body>
+</html>

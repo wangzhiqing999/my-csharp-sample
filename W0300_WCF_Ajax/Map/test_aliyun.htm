@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title> 阿里云地图测试 </title>
+</head>
+<body>
+
+
+
+<script src='http://api.ditu.aliyun.com/map.js' charset='utf-8'></script> 
+<script charset='utf-8'>
+    var data = {
+        "children": [
+            
+            { 
+            "nodeName": "Placemark",
+            "Point": { "coordinates": "121.46177307841,31.233992060233" },
+            "type": "Point",
+            "name": "金融广场",
+            "description": "九江路333号"
+        }
+
+
+
+            /*
+            { 
+            "nodeName": "Placemark",
+            "Point": { "coordinates": "121.48548597091674,31.23650793350881" },
+            "type": "Point",
+            "name": "金融广场",
+            "description": "九江路333号"
+            }
+            */
+        ]
+    };
+
+    Jla.require(
+        'Ali.Map.Utils.Groupon', 3, null,
+        [data,
+            {
+                div: AliUtils.writeElement('div'),
+                mapSize: { x: 200, y: 200 },
+                defaultIcon: new AliIcon('|Icon4:blue.png', { x: 31, y: 31 }, { x: 12, y: 31 }),
+                labelOffset: { x: -3, y: -26 },
+                fieldList: 'Map,ViewLarge,Overview,Basic,BusGuide,QuickRoute'
+            }
+        ]); 
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        按钮
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 按钮图标  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+        
+        <h2> 基本的图标设置方式 </h2>
+
+        <p>
+<code>
+&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; <strong> data-icon=&quot;delete&quot;</strong>&gt;Delete&lt;/a&gt;
+</code>
+
+
+<p>显示为:</p>
+<a href="#" data-role="button" data-icon="delete">Delete</a>
+
+
+<p> Mini 版本的:</p>
+<a href="#" data-role="button" data-icon="delete" data-mini="true">Delete</a>
+
+
+        </p>
+
+
+
+        <h2>图标 列表</h2>
+
+		<p><strong>Left arrow</strong> - data-icon="arrow-l"</p>
+		<a href="#" data-role="button" data-icon="arrow-l">My button</a>
+		<p><strong>Right arrow</strong> - data-icon="arrow-r"</p>
+		<a href="#" data-role="button" data-icon="arrow-r">My button</a>
+		<p><strong>Up arrow</strong> - data-icon="arrow-u"</p>
+		<a href="#" data-role="button" data-icon="arrow-u">My button</a>
+		<p><strong>Down arrow</strong> - data-icon="arrow-d"</p>
+		<a href="#" data-role="button" data-icon="arrow-d">My button</a>
+		<p><strong>Delete</strong> - data-icon="delete"</p>
+		<a href="#" data-role="button" data-icon="delete">My button</a>
+		<p><strong>Plus</strong> - data-icon="plus"</p>
+		<a href="#" data-role="button" data-icon="plus">My button</a>
+		<p><strong>Minus</strong> - data-icon="minus"</p>
+		<a href="#" data-role="button" data-icon="minus">My button</a>
+		<p><strong>Check</strong> - data-icon="check"</p>
+		<a href="#" data-role="button" data-icon="check">My button</a>
+		<p><strong>Gear</strong> - data-icon="gear"</p>
+		<a href="#" data-role="button" data-icon="gear">My button</a>
+		<p><strong>Refresh</strong> - data-icon="refresh"</p>
+		<a href="#" data-role="button" data-icon="refresh">My button</a>
+		<p><strong>Forward</strong> - data-icon="forward"</p>
+		<a href="#" data-role="button" data-icon="forward">My button</a>
+		<p><strong>Back</strong> - data-icon="back"</p>
+		<a href="#" data-role="button" data-icon="back">My button</a>
+		<p><strong>Grid</strong> - data-icon="grid"</p>
+		<a href="#" data-role="button" data-icon="grid">My button</a>
+		<p><strong>Star</strong> - data-icon="star"</p>
+		<a href="#" data-role="button" data-icon="star">My button</a>
+		<p><strong>Alert</strong> - data-icon="alert"</p>
+		<a href="#" data-role="button" data-icon="alert">My button</a>
+		<p><strong>Info</strong> - data-icon="info"</p>
+		<a href="#" data-role="button" data-icon="info">My button</a>
+		<p><strong>Home</strong> - data-icon="home"</p>
+		<a href="#" data-role="button" data-icon="home">My button</a>
+		<p><strong>Search</strong> - data-icon="search"</p>
+		<a href="#" data-role="button" data-icon="search">My button</a>
+			
+
+        
+
+        <h2>图标位置</h2>
+        <p> 默认情况下， 图标显示在 按钮的左侧 </p>
+
+		<a href="#" data-role="button" data-icon="delete" data-iconpos="left">Delete</a>
+		
+        <p> 在右侧的情况 </p>
+<code>
+&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;<strong> data-iconpos=&quot;right&quot;</strong>&gt;Delete&lt;/a&gt;
+</code>
+
+		<a href="#" data-role="button" data-icon="delete" data-iconpos="right">Delete</a>
+
+
+		<p> 在顶部的情况  <code> data-iconpos="top"</code></p>
+		<a href="#" data-role="button" data-icon="delete" data-iconpos="top">Delete</a>
+		
+		<p> 在底部的情况 <code> data-iconpos="bottom"</code></p>
+		<a href="#" data-role="button" data-icon="delete" data-iconpos="bottom">Delete</a>
+
+
+
+        <p> 仅仅显示 图标， 不显示文字的情况 </p>
+<code>
+&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;<strong> data-iconpos=&quot;notext&quot;</strong>&gt;Delete&lt;/a&gt;
+</code>
+        <a href="#" data-role="button" data-icon="delete" data-iconpos="notext">Delete</a>
+
+
+
+
+
+
+
+    </div> <!-- /content -->
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+</body>
+</html>

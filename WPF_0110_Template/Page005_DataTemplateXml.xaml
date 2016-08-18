@@ -1,0 +1,53 @@
+﻿<Page x:Class="WPF_0110_Template.Page005_DataTemplateXml"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page005_DataTemplateXml">
+
+
+
+    <Page.Resources>
+
+        <!-- DataTemplate -->
+        <DataTemplate DataType="Unit">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Rectangle Stroke="Yellow" Fill="Orange" Width="{Binding XPath=@Price}" />
+                        <TextBlock Text="{Binding XPath=@Year}" />
+                    </Grid>
+                    <TextBlock Text="{Binding XPath=@Price}" Margin="5,0" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+
+        <!-- 数据源. -->
+        <XmlDataProvider x:Key="ds" XPath="Units/Unit">
+            <x:XData>
+                <Units xmlns="">
+                    <Unit Year="2001" Price="100" />
+                    <Unit Year="2002" Price="120" />
+                    <Unit Year="2003" Price="140" />
+                    <Unit Year="2004" Price="160" />
+                    <Unit Year="2005" Price="180" />
+                    <Unit Year="2006" Price="200" />
+                </Units>
+            </x:XData>
+        </XmlDataProvider>
+
+    </Page.Resources>
+
+
+
+    <StackPanel>
+
+        <ListBox ItemsSource="{Binding Source={StaticResource ds}}" />
+        <ComboBox ItemsSource="{Binding Source={StaticResource ds}}"  Margin="5"/>
+
+    </StackPanel>
+    
+</Page>

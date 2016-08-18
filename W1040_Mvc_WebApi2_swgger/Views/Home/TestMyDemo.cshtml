@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = "TestMyDemo";
+}
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+<script>
+
+    function getAll() {
+        $.ajax({
+            url: '/api/mydemo/',
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = "";
+
+                $.each(data, function (key, val) {
+                    var str = val.UserName + ': ' + val.Password;
+                    $('<li/>', { html: str }).appendTo($('#pnlResult'));
+                });
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+    }
+
+
+
+    function add() {
+
+        $.ajax({
+            url: "/api/mydemo/",
+            type: "POST",
+            dataType: "json",
+            data: { "UserName": document.getElementById("txtNewUserName").value, "Password": document.getElementById("txtNewPassword").value },
+            success: function (data) {
+                getAll();
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+
+    }
+
+    function find() {
+
+        $.ajax({
+            url: "/api/mydemo/" + document.getElementById("txtSearchUserName").value,
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = "";
+                $.each(data, function (key, val) {
+                    var str = val.UserName + ': ' + val.Password;
+                    $('<li/>', { html: str }).appendTo($('#pnlResult'));
+                });
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+    }
+
+
+
+    function removeAll() {
+        $.ajax({
+            url: "/api/mydemo/",
+            type: 'DELETE',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+    }
+
+    function remove() {
+        $.ajax({
+            url: "/api/mydemo/" + document.getElementById("txtDelUserName").value,
+            type: 'DELETE',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+    }
+
+    function update() {
+        $.ajax({
+            url: "/api/mydemo/" + document.getElementById("txtUpdateUserName").value,
+            type: 'PUT',
+            dataType: "json",
+            data: { "UserName": document.getElementById("txtUpdateUserName").value, "Password": document.getElementById("txtUpdatePassword").value },
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = "";
+                getAll();
+            }
+        }).fail(
+            function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+    }
+
+</script>
+
+
+}
+
+
+<a href="/swagger/ui/index.html#!/MyDemo">
+文档
+</a>
+
+
+<h2> 查询 </h2>
+
+<input id="btnTestGet" type="button" value="查询全部数据" onclick="getAll()" />
+
+<hr />
+
+
+<h2> 条件查询 </h2>
+
+<table>
+  <tr>
+    <td> 用户名 </td>
+    <td> <input id="txtSearchUserName" type="text" /> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="btnTestGetSome" type="button" value="查询" onclick="find()" />
+    </td>
+  </tr>
+</table>
+
+<hr />
+
+
+<h2> 新增 </h2>
+
+<table>
+  <tr>
+    <td> 用户名 </td>
+    <td> <input id="txtNewUserName" type="text" /> </td>
+  </tr>
+  <tr>
+    <td> 密码 </td>
+    <td> <input id="txtNewPassword" type="text" /> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="btnAddNew" type="button" value="新增数据" onclick="add()" />
+    </td>
+  </tr>
+</table>
+
+
+<hr />
+
+<h2> 编辑 </h2>
+
+<table>
+  <tr>
+    <td> 用户名 </td>
+    <td> <input id="txtUpdateUserName" type="text" /> </td>
+  </tr>
+  <tr>
+    <td> 密码 </td>
+    <td> <input id="txtUpdatePassword" type="text" /> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="btnUpdate" type="button" value="更新数据" onclick="update()" />
+    </td>
+  </tr>
+</table>
+
+
+<hr />
+
+
+<h2> 删除 </h2>
+
+<table>
+  <tr>
+    <td> 用户名 </td>
+    <td> <input id="txtDelUserName" type="text" /> </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <input id="btnRemove" type="button" value="删除数据" onclick="remove()" />
+    </td>
+  </tr>
+</table>
+
+<hr />
+
+
+<h2> 全部删除 </h2>
+
+<input id="btnRemoveAll" type="button" value="删除全部数据" onclick="removeAll()" />
+
+<hr />
+
+
+
+
+<ul id="pnlResult">
+
+</ul>
+
+
+

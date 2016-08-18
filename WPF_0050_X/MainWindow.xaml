@@ -1,0 +1,62 @@
+﻿<Window x:Class="WPF_0050_X.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WPF_0050_X"
+        
+        Title="MainWindow" Height="407" Width="936">
+
+    <Window.Resources>
+        <sys:String x:Key="Class">x:Class 用于定义顶级节点所关联的类。</sys:String>
+        <sys:String x:Key="Name">x:Name 用于定义控件的名称。</sys:String>
+        <sys:String x:Key="FieldModifier">x:FieldModifier 用于定义控件的可访问性。</sys:String>
+        <sys:String x:Key="Key">x:Key 用于定义 Key-Value 组合 （注：需要定义 xmlns:sys）</sys:String>
+
+
+        <sys:String x:Key="Type">x:Type 用于定义数据类型</sys:String>
+        <sys:String x:Key="Null">x:Null 用于对属性赋空值</sys:String>
+
+        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel Background="Gray">
+        <TextBox Text="{StaticResource ResourceKey=Class}" >
+
+        </TextBox>
+        <TextBox Text="{StaticResource ResourceKey=Name}"  />
+        <TextBox Text="{StaticResource ResourceKey=FieldModifier}"  />
+        <TextBox Text="{StaticResource ResourceKey=Key}"  />
+
+
+        <Button x:Name="btnTest"  Content="C# 代码中读取 Window.Resources " Margin="5" Click="btnTest_Click" />
+        <TextBox x:Name="txtTest" />
+
+
+        <TextBox Text="{StaticResource ResourceKey=Type}"  />
+        <TextBox Text="{StaticResource ResourceKey=Null}" Style="{x:Null}" />
+
+
+        <TextBox Text="{x:Static local:MainWindow.StaticValue}"  />
+        <TextBox Text="{x:Static local:MainWindow.StaticProp}"  />
+
+        <Button x:Name="btnTextXcode" Content="测试 x:Code" Margin="5" Click="btnTextXcode_Click" />
+        
+        
+    </StackPanel>
+
+    
+    
+    <x:Code>
+        <![CDATA[
+                private void btnTextXcode_Click(object sender, RoutedEventArgs e)
+                {
+                    MessageBox.Show("按钮被按下了！但是不建议这么写代码！", "测试");
+                }
+        ]]>
+    </x:Code>
+    
+</Window>

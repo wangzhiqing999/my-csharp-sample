@@ -1,0 +1,60 @@
+﻿<Page x:Class="WPF_0070_Binding.Page003_DataContext"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      
+      xmlns:local="clr-namespace:WPF_0070_Binding.Model"
+      
+	Title="Page003_DataContext">
+
+
+    <Page.Resources>
+        <Style x:Key="{x:Type TextBox}" TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"/>
+        </Style>
+    </Page.Resources>
+
+
+
+    <StackPanel Background="LightBlue">
+        
+        <StackPanel.DataContext>
+            <local:NormalUser Id="1" Age="10" Name="Test1"/>
+        </StackPanel.DataContext>
+        
+        <Grid>
+            
+            <StackPanel>
+
+                <StackPanel.DataContext>
+                    <local:NormalUser Id="2" Age="20" Name="Test2"/>
+                </StackPanel.DataContext>
+                
+                <Label Content="当一个 Binding 只知道自己的 Path 而不知道自己的 Source 时。" />
+                <Label Content="它会沿着 UI 元素树一路向树根部找去。" />
+                <Label Content="找到了，就把这个对象作为自己的 Source" />
+                <Label Content="找不到就向上一层找，一直找到根节点。" />
+                
+                
+                <TextBox Text="{Binding Path=Id}" />
+                <TextBox Text="{Binding Path=Name}" />
+                <TextBox Text="{Binding Path=Age}" />
+                
+                <Label Content="如果找不到，那么就没有源，那么就没有数据。" />
+                <TextBox Text="{Binding Path=Test}" />
+            </StackPanel>
+        </Grid>
+
+
+
+        <TextBox Text="{Binding Path=Id}" />
+        <TextBox Text="{Binding Path=Name}" />
+        <TextBox Text="{Binding Path=Age}" />
+
+    </StackPanel>
+    
+</Page>

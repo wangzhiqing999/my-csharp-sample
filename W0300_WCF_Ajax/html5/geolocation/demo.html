@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Geolocation 对象  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Geolocation 对象 </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+        <input type="button" id="getPos" value="获取我的位置" />
+
+
+        <div id="info" class="">
+            您所在的位置： 
+            经度 <span class="tip">unknown</span>
+            纬度 <span class="tip">unknown</span>
+        </div>
+
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+
+
+</div><!-- /page -->
+
+
+
+<script type="text/javascript">
+
+
+    var t = 0;
+    var dom = {
+        btn: document.getElementById('getPos'),
+        info: document.getElementById('info')
+    };
+
+
+    dom.btn.onclick = function () {
+        if (navigator.geolocation) {
+            dom.info.innerHTML = "请等待查询结果返回";
+            dom.info.className = "warn";
+            navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, {
+                // 指示浏览器获取高精度的位置，默认为false 
+                enableHighAcuracy: true,
+                // 指定获取地理位置的超时时间，默认不限时，单位为毫秒 
+                timeout: 5000,
+                // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。 
+                maximumAge: 3000
+            });
+        } else {
+            dom.info.innerHTML = "抱歉，您所使用的浏览器不支持 Geolocation 接口";
+            dom.info.className = "warn";
+        }
+    }
+
+
+
+
+    function getPositionSuccess(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        dom.info.innerHTML = "您所在的位置： 经度" + lat + "，纬度" + lng;
+
+        if (typeof position.address === "undefined") {
+            dom.info.innerHTML += "<br /><span class='tip'>您的浏览器目前仅提供坐标查询，使用 Firefox 3.5+ 可获得更多信息</span>";
+        } else {
+            dom.info.innerHTML += "<br /><span class='tip'>" + position.address.country + " , " + position.address.region + " , " + position.address.city + "</span>";
+        }
+    }
+
+
+
+    function getPositionError(error) {
+        switch (error.code) {
+            case error.TIMEOUT:
+                dom.info.innerHTML = "连接超时，请重试";
+                break;
+
+            case error.PERMISSION_DENIED:
+                dom.info.innerHTML = "您拒绝了使用位置共享服务，查询已取消";
+                break;
+
+            case error.POSITION_UNAVAILABLE:
+                dom.info.innerHTML = "亲爱的火星网友，非常抱歉<br />我们暂时无法为您所在的星球提供位置服务";
+                break;
+        }
+    }
+
+</script>
+
+
+
+</body>
+</html>

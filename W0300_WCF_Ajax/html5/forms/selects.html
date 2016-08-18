@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Select 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Select 输入  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+        
+
+        <h2> 基本 </h2>
+
+<pre><code>
+&lt;label for=&quot;select-choice-0&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
+&lt;select name=&quot;select-choice-0&quot; id=&quot;select-choice-0&quot;&gt;
+   &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+   &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+   &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+   &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+
+<p> 显示结果 </p>
+
+			<label for="select-choice-0" class="select">Shipping method:</label>
+			<select name="select-choice-0" id="select-choice-0">
+				<option value="standard">Standard: 7 day</option>
+				<option value="rush">Rush: 3 days</option>
+				<option value="express">Express: next day</option>
+				<option value="overnight">Overnight</option>
+			</select>
+
+
+
+
+
+            <h2> Mini 版本 </h2>
+
+<pre><code>	
+&lt;label for=&quot;select-choice-min&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
+&lt;select name=&quot;select-choice-min&quot; id=&quot;select-choice-min&quot; <strong>data-mini=&quot;true&quot;</strong>&gt;
+   &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+   &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+   &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+   &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+&lt;/select&gt; 
+</code></pre>
+
+
+            <p> 显示结果 </p>
+
+			<label for="select-choice-min" class="select">Shipping method:</label>
+			<select name="select-choice-min" id="select-choice-min" data-mini="true">
+				<option value="standard">Standard: 7 day</option>
+				<option value="rush">Rush: 3 days</option>
+				<option value="express">Express: next day</option>
+				<option value="overnight">Overnight</option>
+			</select>
+
+
+
+
+            <h2>Field containers</h2>
+
+<pre><code>
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>   &lt;label for=&quot;select-choice-1&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
+   &lt;select name=&quot;select-choice-1&quot; id=&quot;select-choice-1&quot;&gt;
+      &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+      &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+      &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+      &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+   &lt;/select&gt;
+<strong>&lt;/div&gt;
+</strong></code></pre>
+
+
+
+            <p> 显示结果 </p>
+
+
+<div data-role="fieldcontain">
+	<label for="select-choice-1" class="select">Shipping method:</label>
+	<select name="select-choice-1" id="select-choice-1">
+		<option value="standard">Standard: 7 day</option>
+		<option value="rush">Rush: 3 days</option>
+		<option value="express">Express: next day</option>
+		<option value="overnight">Overnight</option>
+	</select>
+</div>
+
+
+        
+        
+        <h2>选项分组</h2>
+
+<div data-role="fieldcontain">
+	<label for="select-choice-nc" class="select">Preferred delivery:</label>
+	<select name="select-choice-8" id="select-choice-nc">
+		<optgroup label="FedEx">
+			<option value="firstOvernight">First Overnight</option>
+			<option value="expressSaver">Express Saver</option>
+			<option value="ground">Ground</option>
+		</optgroup>
+		<optgroup label="UPS">
+			<option value="firstOvernight">First Overnight</option>
+			<option value="expressSaver">Express Saver</option>
+			<option value="ground">Ground</option>
+		</optgroup>
+		<optgroup label="US Mail">
+			<option value="standard">Standard: 7 day</option>
+			<option value="rush">Rush: 3 days</option>
+			<option value="express">Express: next day (disabled)</option>
+			<option value="overnight">Overnight</option>
+		</optgroup>
+	</select>
+</div>
+
+
+
+
+        <h2>Vertically grouped select inputs</h2>
+
+<pre><code>	
+&lt;div data-role=&quot;fieldcontain&quot;&gt;
+    &lt;fieldset data-role=&quot;controlgroup&quot;&gt;
+        &lt;legend&gt;Date of Birth:&lt;/legend&gt;
+    
+        &lt;label for="select-choice-month">Month&lt;/label&gt;
+        &lt;select name="select-choice-month" id="select-choice-month"&gt;
+            &lt;option&gt;Month&lt;/option&gt;
+            &lt;option value="jan"&gt;January&lt;/option&gt;
+            &lt;!-- etc. --&gt;
+        &lt;/select&gt;
+    
+        &lt;label for="select-choice-day">Day&lt;/label&gt;
+        &lt;select name="select-choice-day" id="select-choice-day"&gt;
+            &lt;option&gt;Day&lt;/option&gt;
+            &lt;option value="1"&gt;1&lt;/option&gt;
+            &lt;!-- etc. --&gt;
+        &lt;/select&gt;
+    
+        &lt;label for="select-choice-year">Year&lt;/label&gt;
+        &lt;select name="select-choice-year" id="select-choice-year"&gt;
+            &lt;option&gt;Year&lt;/option&gt;
+            &lt;option value="2011"&gt;2011&lt;/option&gt;
+            &lt;!-- etc. --&gt;
+        &lt;/select&gt;
+        
+    &lt;/fieldset&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+    <p> 显示结果 </p>
+
+	<div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+            <legend>Date of Birth:</legend>
+            
+            <label for="select-choice-month">Month</label>
+            <select name="select-choice-month" id="select-choice-month">
+                <option>Month</option>
+                <option value="jan">January</option>
+                <option value="dec">December</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+    
+            <label for="select-choice-day">Day</label>
+            <select name="select-choice-day" id="select-choice-day">
+                <option>Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+    
+            <label for="select-choice-year">Year</label>
+            <select name="select-choice-year" id="select-choice-year">
+                <option>Year</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+            </select>
+        </fieldset>
+	</div>
+
+
+
+
+
+
+
+    <h2> 横向显示  </h2>
+
+<code>
+&lt;fieldset data-role="controlgroup" <strong>data-type="horizontal"</strong>&gt;
+</code>
+
+        <p> 显示结果 </p>
+
+	<fieldset data-role="controlgroup" data-type="horizontal">
+		<legend>Date of Birth:</legend>
+		
+		<label for="select-choice-month">Month</label>
+		<select name="select-choice-month" id="select1">
+			<option value="jan">Jan</option>
+			<option value="dec">Dec</option>
+			<option value="feb">Feb</option>
+			<option value="mar">Mar</option>
+			<option value="apr">Apr</option>
+			<option value="may">May</option>
+			<option value="jun">Jun</option>
+			<option value="jul">Jul</option>
+			<option value="aug">Aug</option>
+			<option value="sep">Sep</option>
+			<option value="oct">Oct</option>
+			<option value="nov">Nov</option>
+			<option value="dec">Dec</option>
+		</select>
+
+		<label for="select-choice-day">Day</label>
+		<select name="select-choice-day" id="select2">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">13</option>
+			<option value="13">14</option>
+			<option value="15">15</option>
+		</select>
+
+		<label for="select-choice-year">Year</label>
+		<select name="select-choice-year" id="select3">
+			<option value="2011">2012</option>
+			<option value="2011">2011</option>
+			<option value="2010">2010</option>
+			<option value="2009">2009</option>
+			<option value="2008">2008</option>
+			<option value="2007">2007</option>
+			<option value="2006">2006</option>
+			<option value="2005">2005</option>
+			<option value="2004">2004</option>
+		</select>
+	</fieldset>
+
+
+
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>

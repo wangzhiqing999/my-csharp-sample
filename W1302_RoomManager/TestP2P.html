@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>点对点聊天</title>
+
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.js"></script>
+
+    <!--这里要注意,这是虚拟目录,也就是你在OWIN Startup中注册的地址-->
+    <script src="signalr/hubs"></script>
+
+
+    <script type="text/javascript">
+    var Clients = [];
+    $(function () {
+        chat = $.connection.ptopHub;
+        //注册提示信息方法
+        chat.client.showMessage = function (Message) {
+            alert(Message);
+        }
+        //注册显示信息的方法
+        chat.client.addMessage = function (Message, contextID) {
+            if ($.inArray(contextID, Clients) == -1) {
+                AddRoom(contextID);
+            }
+            $("#" + contextID).find("ul").each(function () {
+                $(this).append('<li>' + Message + '</li>')
+            })
+        }
+        //注册查询房间列表的方法
+        chat.client.getUserlist = function (data) {
+            if (data) {
+                var jsondata = $.parseJSON(data);
+                $("#roomlist").html(" ");
+                for (var i = 0; i < jsondata.length; i++) {
+                    var html = ' <li>用户名:' + jsondata[i].Name + '<button roomname="' + jsondata[i].ContextID + '" onclick="PtoPSendStart(this)">与他聊天</button></li>';
+                    $("#roomlist").append(html);
+                }
+            }
+        }
+        //注册显示个人信息的方法
+        chat.client.showID = function (data) {
+            $("#ConID").html(data);
+            Clients.push(data);
+        }
+        // 获取用户名称。
+        $('#username').html(prompt('请输入您的名称:', ''));
+        //连接成功后获取自己的信息
+        $.connection.hub.start().done(function () {
+            chat.server.getName($('#username').html());
+        });
+    });
+    //开始聊天
+    function PtoPSendStart(data) {
+        var val = $(data).attr('roomname');
+        AddRoom(val);
+    }
+    //显示聊天窗口
+    function AddRoom(val) {
+        Clients.push(val)
+        var html = '<div style="float:left; margin-left:30px; border:double" id="' + val + '" roomname="' + val + '"><button onclick="RemoveRoom(this)">退出</button>\
+                  ' + val + '房间\
+                        聊天记录如下:<ul>\
+                        </ul>\
+                  <input type="text" /> <button onclick="SendMessage(this)">发送</button>\
+                  </div>'
+        $("#RoomList").append(html);
+    }
+    //发送消息
+    function SendMessage(data) {
+        var message = $(data).prev().val();
+        var room = $(data).parent();
+        var username = $("#username").html();
+        message = username + ":" + message;
+        var roomname = $(room).attr("roomname");
+        chat.server.sendMessage(roomname, message);
+    }
+    </script>
+
+
+</head>
+
+
+<body>
+
+    <div>
+        <div>名称:<p id="username"></p></div>
+        <div>用户唯一编码:<p id="ConID"></p></div>
+    </div>
+    <div style="float:left;border:double">
+        <div>在线用户列表</div>
+        <ul id="roomlist"></ul>
+    </div>
+    <div id="RoomList">
+    </div>
+
+
+</body>
+</html>

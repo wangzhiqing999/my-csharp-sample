@@ -1,0 +1,117 @@
+"2016-06-20 18:04:21.730","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.730","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.750","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.729","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.750","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.732","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:04:21.760","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.068","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.093","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.102","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.104","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.114","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.114","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.117","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.124","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.126","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.128","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.137","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:05:02.139","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 51
+"2016-06-20 18:07:41.041","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.042","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.047","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.042","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.042","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.041","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.045","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.063","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.064","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.063","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:41.118","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:49.884","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:49.884","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:49.885","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:49.900","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:50.352","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:52.165","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:52.185","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:52.187","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61
+"2016-06-20 18:07:52.194","ERROR","W0300_WCF_Ajax.Upload.BigFileUploadHandler","未将对象引用设置到对象的实例。"
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 W0300_WCF_Ajax.Upload.BigFileUploadHandler.ProcessRequest(HttpContext context) 位置 F:\my-csharp-sample\W0300_WCF_Ajax\Upload\BigFileUploadHandler.ashx.cs:行号 61

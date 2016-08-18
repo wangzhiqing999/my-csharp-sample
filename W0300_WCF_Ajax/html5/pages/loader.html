@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        jQuery Mobile 例子  (  页面加载效果 )
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+	<script>
+	    $(document).on("click", ".show-page-loading-msg", function () {
+	        var $this = $(this),
+				theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+				msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+				textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+				textonly = !!$this.jqmData("textonly");
+	        html = $this.jqmData("html") || "";
+	        $.mobile.loading('show', {
+	            text: msgText,
+	            textVisible: textVisible,
+	            theme: theme,
+	            textonly: textonly,
+	            html: html
+	        });
+	    })
+		.on("click", ".hide-page-loading-msg", function () {
+		    $.mobile.loading('hide');
+		});
+	</script>
+
+
+
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 页面加载效果  </h1>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+        <p>
+
+
+        默认情况下， ajax 的加载过程中的显示效果， 是使用下面的代码：
+
+        <pre>
+          <code>
+$( document ).bind( 'mobileinit', function(){
+  $.mobile.loader.prototype.options.text = "loading";
+  $.mobile.loader.prototype.options.textVisible = false;
+  $.mobile.loader.prototype.options.theme = "a";
+  $.mobile.loader.prototype.options.html = "";
+});
+          </code>
+        </pre>
+
+
+
+          如果需要手动自定义 加载显示的方法，使用下面这样的代码来显示：
+
+
+        <pre>
+          <code>
+$.mobile.loading( 'show', {
+	text: 'foo',
+	textVisible: true,
+	theme: 'z',
+	html: ""
+});
+          </code>
+        </pre>
+
+
+        使用下面的代码， 来隐藏
+        <pre>
+          <code>
+$.mobile.loading( 'hide' );
+          </code>
+        </pre>
+        </p>
+
+
+
+	<h2> 加载的例子 </h2>
+	<div data-role="controlgroup">
+		<button class="show-page-loading-msg" data-theme="a" data-textonly="false" data-textvisible="false" data-msgtext="" data-icon="arrow-r" data-iconpos="right">Default loader</button>
+		<button class="show-page-loading-msg" data-theme="a" data-textonly="true" data-textvisible="true" data-msgtext="Text only loader" data-icon="arrow-r" data-iconpos="right">Text only</button>
+		<button class="show-page-loading-msg" data-theme="a" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme a" data-icon="arrow-r" data-iconpos="right">Theme a</button>
+		<button class="show-page-loading-msg" data-theme="b" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme b" data-icon="arrow-r" data-iconpos="right">Theme b</button>
+		<button class="show-page-loading-msg" data-theme="c" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme c" data-icon="arrow-r" data-iconpos="right">Theme c</button>
+		<button class="show-page-loading-msg" data-theme="d" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme d" data-icon="arrow-r" data-iconpos="right">Theme d</button>
+		<button class="show-page-loading-msg" data-theme="e" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme e" data-icon="arrow-r" data-iconpos="right">Theme e</button>
+		<button class="show-page-loading-msg" data-theme="a" data-textonly="true" data-textvisible="true" data-msgtext="Custom Loader" data-icon="arrow-r" data-html="<span class='ui-bar ui-overlay-c ui-corner-all'><img src='../../Content/images/jquery-logo.png' /><h2>is loading for you ...</h2></span>" data-iconpos="right">Custom HTML</button>
+		<button class="hide-page-loading-msg" data-icon="delete" data-iconpos="right">Hide</button>
+	</div>
+
+
+
+
+    </div> <!-- /content -->
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+
+
+
+
+
+</body>
+</html>

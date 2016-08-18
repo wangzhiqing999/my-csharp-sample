@@ -1,0 +1,71 @@
+﻿
+
+<td data-bind="text: FirstName"></td>
+<td data-bind="text: LastName"></td>
+<td data-bind="text: EmailAddress"></td>
+<td data-bind="text: PhoneNo"></td>
+
+@section Script
+{
+    <script type="text/javascript">
+        var options = {
+            title: "Maintain Contacts",
+            searchCriteria: [
+                { displayText: "First Name", value: ko.observable() },
+                { displayText: "Last Name", value: ko.observable() }
+            ],
+            headers: [
+                { displayText: "First Name", value: "FirstName", width: "auto" },
+                { displayText: "Last Name", value: "LastName", width: "auto" },
+                { displayText: "Email Address", value: "EmailAddress", width: "auto" },
+                { displayText: "Phone No.", value: "PhoneNo", width: "auto" },
+                { displayText: "", value: "", width: "auto" }
+            ],
+            defaultOrderBy: "FirstName",
+
+            dataQueryUrlAccessor: function (viewModel) {
+                return appendQueryString('@Url.Action("GetContacts")', {
+                    firstName   : viewModel.searchCriteria()[0].value(),
+                    lastName    : viewModel.searchCriteria()[1].value(),
+                    pageIndex   : viewModel.pageIndex(),
+                    orderBy     : viewModel.orderBy(),
+                    isAsc       : viewModel.isAsc()
+                });
+            },
+
+            dataAddUrlAccessor: function () { return '@Url.Action("Add")'; },
+            dataUpdateAccessor: function (data) { return appendQueryString('@Url.Action("Update")', { id: data.Id }); },
+            dataDeleteAccessor: function (data) { return appendQueryString('@Url.Action("Delete")', { id: data.Id }); },
+
+            replaceData: function (data, viewModel) {
+                for (var i = 0; i < viewModel.recordSet().length; i++) {
+                    var existing = viewModel.recordSet()[i];
+                    if (existing.Id == data.Id) {
+                        viewModel.recordSet.replace(existing, data);
+                        break;
+                    }
+                }
+            },
+
+            removeData: function (data, viewModel) {
+                viewModel.recordSet.remove(function (c) {
+                    return c.Id == data.Id;
+                });
+            }
+        };
+
+        var viewModel = new ViewModel(options);
+        ko.applyBindings(viewModel);
+
+        function appendQueryString(url, parameters) {
+            url += "?"
+            for (var key in parameters) {
+                if (parameters[key] === null || parameters[key] === undefined || parameters[key] === "") {
+                    continue;
+                }
+                url += key + "=" + encodeURIComponent(parameters[key]) + "&";
+            }
+            return url;
+        }
+    </script>
+}

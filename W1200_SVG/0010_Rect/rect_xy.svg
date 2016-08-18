@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+	<!--
+	x 属性定义矩形的左侧位置（例如，x="0" 定义矩形到浏览器窗口左侧的距离是 0px）
+	y 属性定义矩形的顶端位置（例如，y="0" 定义矩形到浏览器窗口顶端的距离是 0px）
+	
+	width 和 height 属性可定义矩形的高度和宽度
+	
+	
+	style 属性用来定义 CSS 属性
+	CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）
+	CSS 的 stroke-width 属性定义矩形边框的宽度
+	CSS 的 stroke 属性定义矩形边框的颜色
+
+	CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）
+	CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）
+
+	-->
+	
+	<rect 
+		x="20" y="20" 
+		width="250" height="250"
+		style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"/>
+
+
+</svg>

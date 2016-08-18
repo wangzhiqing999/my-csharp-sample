@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> 线性渐变 </title>
+</head>
+<body>
+
+ 
+
+<h2>线性渐变</h2>
+<p>&lt;linearGradient&gt; 可用来定义 SVG 的线性渐变。</p>
+<p>&lt;linearGradient&gt; 标签必须嵌套在 &lt;defs&gt; 的内部。&lt;defs&gt; 标签是 definitions 的缩写，它可对诸如渐变之类的特殊元素进行定义。</p>
+<p>线性渐变可被定义为水平、垂直或角形的渐变：</p>
+<ul>
+<li>当 y1 和 y2 相等，而 x1 和 x2 不同时，可创建水平渐变</li>
+<li>当 x1 和 x2 相等，而 y1 和 y2 不同时，可创建垂直渐变</li>
+<li>当 x1 和 x2 不同，且 y1 和 y2 不同时，可创建角形渐变</li>
+</ul>
+
+
+
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+    <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:rgb(255,255,0); stop-opacity:1"/>
+        <stop offset="100%" style="stop-color:rgb(255,0,0); stop-opacity:1"/>
+    </linearGradient>
+
+
+    <linearGradient id="orange_red2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:rgb(255,255,0); stop-opacity:1"/>
+        <stop offset="100%" style="stop-color:rgb(255,0,0); stop-opacity:1"/>
+    </linearGradient>
+</defs>
+
+
+<ellipse cx="150" cy="190" rx="85" ry="55" style="fill:url(#orange_red)"/>
+
+<ellipse cx="350" cy="190" rx="85" ry="55" style="fill:url(#orange_red2)"/>
+
+</svg>
+
+
+
+
+</body>
+</html>

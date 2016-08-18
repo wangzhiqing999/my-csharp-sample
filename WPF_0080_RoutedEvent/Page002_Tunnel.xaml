@@ -1,0 +1,27 @@
+﻿<Page x:Class="WPF_0080_RoutedEvent.Page002_Tunnel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      
+      xmlns:local="clr-namespace:WPF_0080_RoutedEvent"  
+      local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler"
+      x:Name="myPage002_Tunnel"
+	Title="Page002_Tunnel">
+
+
+    <Grid x:Name="grid_1" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler">
+        <Grid x:Name="grid_2" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler">
+            <Grid x:Name="grid_3" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler">
+                <StackPanel x:Name="stackPanel_1" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler" >
+                    <ListBox x:Name="listBox" />
+                    <local:TunnelTimeButton x:Name="timeButton1" Content="报时1" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler"  Width="80" Height="80" />
+                    <local:TunnelTimeButton x:Name="timeButton2" Content="报时2" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler"  Width="80" Height="80" />
+                    <local:TunnelTimeButton x:Name="timeButton3" Content="报时3" local:TunnelTimeButton.TunnelReportTime="ReportTimeHandler"  Width="80" Height="80" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

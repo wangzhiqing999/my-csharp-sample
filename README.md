@@ -1428,6 +1428,18 @@ WebBrowser 调用 js 方法的方式， 来获取画面上面的数据。
 
 
 
+
+### A5300_UDP_P2P.Protocol / A5300_UDP_P2P.Service / A5300_UDP_P2P.Test
+UDP 发送消息的 协议/服务处理/单元测试
+
+
+### A5300_UDP_P2P.Server / A5300_UDP_P2P.WinFormClient
+UDP 发送消息的服务器 / 客户端.
+此项目仅仅在局域网中测试过，未在公网上做过测试。
+
+
+
+
 ### A6000_ImportExe_Main / A6010_ImportExe_Sub
 
 将一个 外部的 Exe, 嵌入到本程序的一个 Panel 里面。
@@ -2208,6 +2220,538 @@ C# 代码， 调用 Java 类的例子.
 
 ### P0312_Mediator
 设计模式 [行为模式]中，调停者/中介者 的例子
+
+
+
+
+
+
+
+
+# SQL Server 相关
+
+
+### S0001_GROUP_CONCAT 
+在 SQL Server 下，实现 MySQL 的 GROUP_CONCAT 函数的功能.   
+
+### S0011_MEDIAN 
+在 SQL Server 下， 实现 Oracle 的 Median （中位数）函数的功能.  
+
+### S0021_GetPinYin 
+在 SQL Server 下， 获取汉字拼音首字母的函数的处理.   
+
+### S0031_IsTableExists 
+在 SQL Server 下， 函数中执行动态 SQL 的一个例子.   
+
+
+
+
+
+# Silverlight 相关
+
+### SL_0010_HelloWorld 
+Silverlight Hello World 例子 
+
+### SL_0020_Thread 
+Silverlight 线程简单例子 
+
+
+
+
+
+# Microsoft Sync Framework 相关
+
+
+### SYNC001_ProvisionServer 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是服务端 （SQL Server 标准版） 初始化的代码， 只需要执行一次.
+来源:http://msdn.microsoft.com/en-us/library/ff928700(v=sql.110).aspx
+
+
+
+
+
+### SYNC002_ProvisionClient 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是客户端 （SQL Server Express 版）初始化的代码， 只需要执行一次.
+来源:http://msdn.microsoft.com/en-us/library/ff928700(v=sql.110).aspx
+
+
+
+
+
+### SYNC003_ExecuteExpressSync 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是 执行一次， 同步一次。
+来源:http://msdn.microsoft.com/en-us/library/ff928700(v=sql.110).aspx
+
+
+
+
+
+### SYNC011_ProvisionServerWithFilteredScope 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是服务端 （SQL Server 标准版） 初始化的代码， 只需要执行一次.
+
+本项目与 SYNC001_ProvisionServer 区别在于  ： SYNC001_ProvisionServer 同步整个表， 本项目同步部分数据.
+
+
+
+
+
+### SYNC012_ProvisionFilteredScopeClient 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是客户端 （SQL Server Express 版）初始化的代码， 只需要执行一次.
+
+本项目与 SYNC002_ProvisionClient 区别在于  ： SYNC002_ProvisionClient 同步整个表， 本项目同步部分数据.
+
+
+
+
+
+### SYNC013_ExecuteExpressFilteredSync 
+
+使用 Microsoft Sync Framework 2.1 ， 在 SQL Server 标准版 与 SQL Server Express 版之间， 进行数据同步的例子
+本项目是 执行一次， 同步一次。
+
+本项目与 SYNC003_ExecuteExpressSync 区别在于  ： SYNC003_ExecuteExpressSync 同步整个表， 本项目同步部分数据.
+
+
+
+
+
+
+
+
+# Web 相关
+
+
+
+### W0001_WCFDataService 
+WCF 数据服务的例子
+本例子仅仅包含最简单的
+控制台程序  ---WCF---  ADO.NET实体数据模型 --- 数据库的  LINQ 查询的例子
+需要自己建表、造测试数据。
+
+
+
+
+
+### W0100_WebService 
+Web Service 的简单例子代码.
+包含 普通客户端调用。
+与使用 SoapHeader 安全验证的调用。
+
+
+
+
+
+### W0200_WCF 
+WCF 的简单例子代码.
+包含在VS2010中，添加服务引用的方式，产生客户端代码的调用方式。
+与手动编写客户端代码与配置文件的调用方式。
+
+
+
+
+
+### W0201_WCF_Detail 
+WCF 的略微复杂的例子代码.
+解决方案包含 5个项目， 分别为 ：
+Contract (基本的接口定义与数据类定义) 、
+Service (接口服务的具体实现) 、
+Hosting (控制台程序方式的 WCF 服务端代码) 、
+Web (Web方式的 WCF 服务端代码) 、
+Client (调用 WCF 服务的代码 具体调用 控制台的服务端，还是 Web服务端， 通过配置文件定义。)
+
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0202_WCF_Fault 
+WCF 异常处理的例子代码.
+解决方案包含 2个项目， 分别为 ：
+MyWcfServiceLibrary ( WCF 服务库) 、
+MyWcfServiceClient ( WCF 客户端 控制台应用程序)
+
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0203_WCF_Scurity_NetTcp 
+WCF 在使用NetTcpBinding绑定的服务上启动消息加密.
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0204_WCF_Scurity_BaseHttp 
+WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.
+
+解决方案包含 5个项目， 分别为 ：
+Contract (基本的接口定义与数据类定义) 、
+Service (接口服务的具体实现) 、
+Web (Web方式的 WCF 服务端代码)  需要服务器配置好 SSL   、
+Client (调用 WCF 服务的代码  手动编写调用的处理)
+Client_ByAuto (调用 WCF 服务的代码  通过 VS 添加服务引用的方式， 产生客户端代码的处理。)
+
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0205_WCF_Scurity_BaseHttp 
+WCF 在使用 BasicHttpBing 绑定的服务上启动传输加密.
+此项目结构与  W0204_WCF_Scurity_BaseHttp  基本一致
+区别在于  W0204_WCF_Scurity_BaseHttp  只做了 传输加密.
+W0205_WCF_Scurity_BaseHttp 在 传输加密的基础之上， 还做了 Windows 操作系统认证的处理。
+(主要工作是 修改配置文件，  以及客户端增加  用户名/密码的 代码 )
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+
+### W0240_WCF_Transaction  
+WCF 事务处理的简单例子
+此项目在 WCF 服务处理代码中， 简单使用 System.Data.SqlClient 包进行 数据更新处理操作。
+代码中没有直接使用 SqlTransaction 来进行事务管理。
+而是让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0241_WCF_Trans_Linq2sql  
+WCF 事务处理的简单例子
+此项目在 WCF 服务处理代码中， 使用 LINQ2SQL 包进行 数据更新处理操作。
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0242_WCF_Trans_EF  
+WCF 事务处理的简单例子
+此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0242_WCF_Trans_EF_Ora  
+WCF 事务处理的简单例子
+此项目在 WCF 服务处理代码中， 使用 Entity Framework 包进行数据更新处理操作。  ( 访问 Oracle 数据库 )
+让 WCF 进行事务的管理。
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+
+
+
+### W0250_WCF_EF 
+WCF 与 Entity Framework 配合使用的例子
+
+此项目主要用于解决 默认的 “Entity Framework” 代码生成器， 不能生成带有 [DataContract] 与 [DataMember]  标记的类的问题。
+以及 Context 使用 代理类，导致 WCF 序列化出错的问题。
+
+具体步骤见该目录下的  readme.txt
+
+
+
+
+
+
+### W0400_Ueditor 
+
+百度的 Ueditor 使用的例子. (使用 WebForm)
+
+
+http://ueditor.baidu.com/website/index.html?qq-pf-to=pcqq.c2c
+
+
+
+
+
+
+### W0400_Ueditor.MVC 
+
+百度的 Ueditor 使用的例子. (使用 MVC4)
+
+
+http://ueditor.baidu.com/website/index.html?qq-pf-to=pcqq.c2c
+
+
+
+
+
+
+
+### W0450_WebRSA 
+
+浏览器一端， 使用 RSA 加密。
+C# ASP.NET Web 服务端 使用 RSA 解密的处理例子。
+
+
+
+
+
+
+
+
+
+
+### W0500_MySqlSession 
+
+ASP.NET 网站中， 使用 MySQL 数据库来存储 Session 的例子.
+
+
+
+
+
+### W0550_ResponseCache 
+
+ASP.NET 页面缓存的例子.
+
+
+
+
+
+### W0600_Weixin 
+微信 发送 / 接受  文本信息的例子.  
+
+
+
+
+### W0700_FileUpload 
+
+客户端 Http Post 上传 数据到 Web 服务器的例子.
+
+
+
+
+
+### W0800_MVVM_Knockout 
+使用 Knockout.js 来实现 MVVM 的简单的例子  
+
+
+
+
+### W0900_Rss 
+使用 XmlSerializer 来实现 RSS 的 XML 文件生成的例子. 
+
+
+
+
+### W1000_MVC 
+测试用.
+
+
+
+
+
+### W1005_MVC_Sub 
+MVC 项目, 在 IIS 中发布为某个网站下面的“应用程序”时候， 相关路径的注意事项。   
+
+
+
+
+### W1010_Mvc_Session 
+Mvc 项目， Session的监控， 以及 Log4Net + SQLite 数据库的使用 
+
+
+
+
+
+### W1020_Mvc_WebApi 
+MVC 项目, 简单创建 Web Api 项目的例子  
+
+
+
+
+
+### W1030_MVC_ActionFilter 
+MVC ActionFilter 的例子.  
+
+
+
+
+
+### W1030_Mvc_WebApi2 
+
+MVC 项目, 简单创建 Web Api 项目的例子
+与 W1020_Mvc_WebApi 区别在于， W1030_Mvc_WebApi2 是在 VS2013 下面创建的 .NET 4.5 的项目， 使用的是 Web Api 2.1 版本。
+
+
+
+
+
+
+
+### W1040_Mvc_WebApi2_swgger 
+MVC 项目, 简单创建 Web Api 项目的例子
+与 W1030_Mvc_WebApi2 区别在于，  W1040_Mvc_WebApi2_swgger 这个项目使用第三方提供的swgger ui 帮助提高 web api 接口列表的阅读性，并且可以在页面中测试服务接口。
+
+
+
+
+
+
+### W1050_Mvc5 
+.Net 4.5， MVC 5 例子，  主要用于测试  MVC 中的  async 与 await   
+
+
+
+
+
+
+
+
+### W1100_ECharts 
+ECharts 图表使用的例子 (基本上直接从网站例子上面 复制粘贴的)  
+
+
+
+
+### W1200_SVG 
+SVG 绘图的相关例子 ( 包含自己手写 svg  与  js 调用生成 svg)  
+
+
+
+
+
+
+
+
+
+
+### W1300_SignalR 
+使用 SignalR 实现的一个 聊天室的例子。  
+
+### W1310_SignalRClient 
+SignalR 客户端。  本项目为一个 C# 控制台程序， 调用 W1300_SignalR 项目的例子。  
+
+### W1301_MoveShapeDemo 
+使用 SignalR 实现的一个 拖动 矩形的例子。 
+
+### W1302_RoomManager 
+使用 SignalR 实现一个网站，多个聊天室的例子。 
+
+
+
+
+
+
+### W2001_WebSocket_Fleck 
+Fleck 实现 Web Socket 处理的例子。 
+
+
+### W2002_WebSocket4Net_Client 
+使用 WebSocket4Net 的 WebSocket 的 C# 客户端。 
+
+
+
+
+### W5001_Nancy 
+Nancy 的一个简单的例子。 
+当项目，需要提供一个简单的 Web 管理页面， 而用户 不能/不想  安装配置 IIS 的情况下， 可以用这个来实现。
+
+
+### W5002_Nancy_Razor 
+Nancy 使用 Razor 引擎的例子。  
+
+
+### W8001_Less 
+Less 的使用的例子.  
+
+
+
+
+
+# WPF 相关.
+
+### WPF_0010_MVVM 
+WPF 使用 MVVM 的简单的例子  
+
+### WPF_0020_HelloWorld 
+WPF 的 Hello World 
+
+### WPF_0030_XAML 
+简单的 XAML 说明的例子 
+
+### WPF_0040_Event 
+WPF 按钮事件处理的例子 
+
+### WPF_0050_X 
+XAML 中  x: 的相关例子 
+
+### WPF_0060_Page 
+WPF页面的例子 
+
+### WPF_0070_Binding 
+WPF 关于 Binding 的例子  
+
+### WPF_0080_RoutedEvent 
+WPT RoutedEvent 
+
+### WPF_0090_Command 
+WPF Command 
+
+### WPF_0100_Resource 
+WPF Resource 
+
+### WPF_0110_Template 
+WPF Template 
+
+
+
+# Web 服务相关.
+
+### WS001_HelloWorld 
+Windows Service 的简单例子 
+
+### WS002_Schedule 
+Windows Service 的简单例子，用于测试在指定的时间,定时执行某个业务处理。 
+
+### WS010_AdminAble 
+
+Windows Service 的简单例子
+该例子的启动类型为 自动。
+没有复杂的业务逻辑。
+主要是为了让 另外一个 自己写的客户端，能够管理这个 Windows 服务.
+
+
+### WS010_AdminAble.UI 
+
+管理 那个 WS010_AdminAble Windows 服务的客户端.
 
 
 

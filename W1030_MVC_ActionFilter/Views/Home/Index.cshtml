@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+
+本项目， 是一个用于测试 ActionFilter 的项目。 
+
+</p>
+
+
+
+<div>
+
+    <ul>
+        <li>
+            @Html.ActionLink(linkText: "测试用于压缩的 Filter", actionName: "TestCompress")
+        </li>
+
+        <li>
+            @Html.ActionLink(linkText: "测试去掉空格的 Filter", actionName: "TestWhitespace")
+        </li>
+
+        <li>
+            @Html.ActionLink(linkText: "测试 ETag Filter", actionName: "TestETag")
+        </li>
+        
+        <li>
+            @Html.ActionLink(linkText: "测试 TidyHtml Filter", actionName: "TestTidyHtml")
+        </li>
+    </ul>
+
+
+</div>

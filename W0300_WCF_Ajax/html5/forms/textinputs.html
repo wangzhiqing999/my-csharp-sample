@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Text 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1>Text 输入框  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+
+
+
+        <h2> 基本例子  </h2>
+
+<pre><code>	
+    &lt;label for=&quot;basic&quot;&gt;Text Input:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;basic&quot; value=&quot;&quot;  /&gt;
+</code></pre>	
+
+        
+        <p> 显示效果 </p>
+<label for="basic">Text Input:</label>
+<input type="text" name="name" id="basic" value="" />
+
+
+
+
+
+
+
+        <h2> Mini 版本  </h2>
+
+<pre><code>	
+&lt;label for=&quot;basic&quot;&gt;Text Input:&lt;/label&gt;
+&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;basic&quot; value=&quot;&quot; <strong>data-mini=&quot;true&quot;</strong> /&gt;
+</code></pre>
+		
+
+        <p> 显示效果 </p>
+<label for="mini">Text Input:</label>
+<input type="text" name="name" id="mini" value="" data-mini="true" />
+
+
+
+
+
+        <h2> Field containers </h2>
+
+<pre><code>	
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>    &lt;label for=&quot;name&quot;&gt;Text Input:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; value=&quot;&quot;  /&gt;
+<strong>&lt;/div&gt;	
+</strong></code></pre>	
+
+
+        <p> 显示效果 </p>
+
+<div data-role="fieldcontain">
+	<label for="name">Text Input:</label>
+	<input type="text" name="name" id="name" value="" />
+</div>
+
+
+
+
+        <h2> 多种 text 输入类型 </h2>
+
+			
+			<div data-role="fieldcontain">
+	         <label for="password">Password:</label>
+	         <input type="password" name="password" id="password" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="number">Number:</label>
+	         <input type="number" name="number" id="number" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="number-pattern">Number + pattern:</label>
+	         <input type="number" name="number" pattern="[0-9]*" id="number-pattern" value="" placeholder="Pattern attribute [0-9]* for a numeric keypad" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="email">Email:</label>
+	         <input type="email" name="email" id="email" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="url">Url:</label>
+	         <input type="url" name="url" id="url" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="tel">Tel:</label>
+	         <input type="tel" name="tel" id="tel" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="time">Time:</label>
+	         <input type="time" name="time" id="time" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="date">Date:</label>
+	         <input type="date" name="date" id="date" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="month">Month:</label>
+	         <input type="month" name="month" id="month" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="week">Week:</label>
+	         <input type="week" name="week" id="week" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="datetime">Datetime:</label>
+	         <input type="datetime" name="datetime" id="datetime" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="datetime-l">Datetime local:</label>
+	         <input type="datetime-local" name="datetime-l" id="datetime-l" value="" />
+			</div>
+			
+			<div data-role="fieldcontain">
+	         <label for="color">Color:</label>
+	         <input type="color" name="color" id="color" value="" />
+			</div>
+
+
+        
+        
+        <h2> 多行文本  Textareas </h2>
+
+<pre><code>	
+<strong>&lt;label for=&quot;textarea-a&quot;&gt;Textarea:&lt;/label&gt;
+&lt;textarea name=&quot;textarea&quot; id=&quot;textarea-a&quot;&gt;</strong>
+I&#x27;m a basic textarea. If this is pre-populated with content, the height will be automatically adjusted to fit without needing to scroll. That is a pretty handy usability feature.
+<strong>&lt;/textarea&gt;</strong>
+</code></pre>	
+
+
+        <p> 显示效果 </p>
+
+			<label for="textarea-a">Textarea:</label>
+			<textarea name="textarea" id="textarea-a">
+I'm a basic textarea. If this is pre-populated with content, the height will be automatically adjusted to fit without needing to scroll. That is a pretty handy usability feature.
+			</textarea>
+
+
+
+<pre><code>	
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>&lt;label for=&quot;textarea&quot;&gt;Textarea:&lt;/label&gt;
+	&lt;textarea name=&quot;textarea&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
+<strong>&lt;/div&gt;</strong>
+</code></pre>	
+
+        <p> 显示效果 </p>
+
+			<div data-role="fieldcontain">
+			<label for="textarea">Textarea:</label>
+			<textarea name="textarea" id="textarea"></textarea>
+			</div>
+
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+
+
+
+
+
+
+</body>
+</html>

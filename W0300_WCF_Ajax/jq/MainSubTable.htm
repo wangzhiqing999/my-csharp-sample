@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery  父表/子表 处理机制  </title>
+
+
+
+<style type="text/css">
+
+.CitySelect, .DistrictSelect 
+{
+    /* 颜色 */
+    color: Blue;
+    /* 光标 */
+    cursor:pointer;
+    /* 强制不换行 */
+    white-space:nowrap;
+}
+
+
+</style>
+
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 初始化  城市表格.
+            InitCityTable();
+
+            // 注册画面事件.
+            RegistEvent();
+
+        });
+
+
+
+        // 初始化  城市表格.
+        function InitCityTable() {
+
+            // 首先，初始化 市的数据.
+            $.ajax({
+                url: "/WcfMyDemoService.svc/GetAllCity",
+                type: "get",
+                success: function (data) {
+                    // 先清除表格旧有数据.
+                    $("TR.CityData").remove();
+
+                    // 遍历返回的数据结果.
+                    for (var i = 0; i < data.d.length; i++) {
+                        // 查询结果加入表格.
+                        // 追加 <tr> 选项.
+                        $("#gvMain").append(
+                            "<tr class='CityData'><td class='CitySelect' CityID='" + data.d[i].OptionValue + "'> 选择 </td> <td>" +
+                            data.d[i].OptionText + "</td> </tr>");
+                    }
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+        }
+
+
+
+        // 初始化  区县表格.
+        function InitDistricTable(pCity) {
+
+            // 执行 ajax 查询.
+            $.ajax({
+                url: "/WcfMyDemoService.svc/GetCityDistrict",
+                type: "get",
+                async: false,
+                data: "cityid=" + pCity,
+                success: function (data) {
+                    // 先清除表格旧有数据.
+                    $("TR.DistrictData").remove();
+
+                    // 遍历返回的数据结果.
+                    for (var i = 0; i < data.d.length; i++) {
+                        // 查询结果加入表格.
+                        // 追加 <tr> 选项.
+                        $("#gvSub").append(
+                            "<tr class='DistrictData'><td class='DistrictSelect' DistrictID='" + data.d[i].OptionValue + "'> 选择 </td> <td>" +
+                            data.d[i].OptionText + "</td> </tr>");
+                    }
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+        }
+
+
+
+
+        // 注册事件.
+        function RegistEvent() {
+
+
+            // 通过 live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素.
+
+
+            // 请注意这里使用了  “live”
+            // 因为  目标对象，是 画面后期， 用 js 动态创建的。
+            // 画面初期加载的时候， 这个目标对象还不存在！
+
+
+
+            // 鼠标进入， 设置样式.
+            $("tr.CityData,tr.DistrictData").live("mouseover", function () {
+                oldBgColor = $(this).css("background-color");
+                $(this).css("background-color", '#00A9FF');
+            });
+            // 鼠标离开，设置样式.
+            $("tr.CityData,tr.DistrictData").live("mouseout", function () {
+                $(this).css("background-color", oldBgColor);
+            });
+
+
+
+            // 城市的选择处理.
+            $(".CitySelect").live("click", function () {
+
+                // 所有的字体变普通.
+                $("td.CitySelect").each(function () {
+                    $(this).parent().css("font-weight", "normal");
+                });
+                // 当前选择行加粗.
+                $(this).parent().css("font-weight", "bold");
+
+
+                // 取得选择的 CityID.
+                vSelectCityID = $(this).attr("CityID");
+
+                // 初始化区县表格.
+                InitDistricTable(vSelectCityID);
+            });
+
+
+
+            // 区县的选择处理.
+            $(".DistrictSelect").live("click", function () {
+
+                // 所有的字体变普通.
+                $("td.DistrictSelect").each(function () {
+                    $(this).parent().css("font-weight", "normal");
+                });
+                // 当前选择行加粗.
+                $(this).parent().css("font-weight", "bold");
+
+
+
+                // 取得选择的 DistrictID.
+                vSelectDistrictID = $(this).attr("DistrictID");
+
+                $("#ResultMessage").html("选择的区县ID=" + vSelectDistrictID + "；区县名称=" + $(this).next().html());
+            });
+
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+
+<table cellspacing="0" cellpadding="4" border="0" id="gvMain" 
+    style="color:#333333;font-size:12px;width:30%;border-collapse:collapse;">
+  <tr style="color:White;background-color:#5D7B9D;font-weight:bold;">
+    <th scope="col">&nbsp;</th>
+    <th scope="col"> 城市 </th>
+  </tr>
+</table>
+
+<hr />
+
+<table cellspacing="0" cellpadding="4" border="0" id="gvSub" 
+    style="color:#333333;font-size:12px;width:30%;border-collapse:collapse;">
+  <tr style="color:White;background-color:#5D7B9D;font-weight:bold;">
+    <th scope="col">&nbsp;</th>
+    <th scope="col"> 区县 </th>
+  </tr>
+</table>
+
+<hr />
+
+<p id="ResultMessage"></p>
+
+</body>
+</html>

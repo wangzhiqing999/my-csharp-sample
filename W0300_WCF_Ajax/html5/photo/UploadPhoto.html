@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>  
+<html> 
+<head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title> HTML5 照相的例子 </title>
+
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>  
+</head>
+
+<body>
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page" id="divMain">
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 照相的例子  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+ 
+         <h2> 拍照 </h2>
+
+        本页面使用 “ navigator.getUserMedia ” 获取用户的摄像头信息.
+
+        此画面在 Opera 12.10 下测试通过.
+        在 Google Chrome 20.0 下 需要通过 在網址列輸入chrome://flags/ 啟用Media Stream 后方能生效！
+
+
+        <div class="ui-grid-solo" id="splash">
+            <p id="errorMessage"> 设备初始化中... </p>
+        </div>
+
+
+        <div class="ui-grid-solo" id="app">
+	        <div class="ui-block-a">  
+                <video id="monitor" autoplay>
+                    您的浏览器不支持 video 标签。
+                </video> 
+            </div>
+
+            <div class="ui-block-a"> 
+                <a id="btnSnapshot" href="#" data-role="button" > 拍照 </a>
+            </div>
+
+	        <div class="ui-block-a"> 
+                <canvas id="photo"></canvas> 
+            </div>
+
+
+            <div class="ui-block-a"> 
+                <a id="btnUpload" href="#" data-role="button" > 上传拍照内容 </a>
+            </div>
+
+        </div>
+
+    </div> <!-- /content -->
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+
+
+
+<script type="text/jscript">
+
+
+    
+
+
+
+    // 本页面中的 视频对象.
+    var video = document.getElementById('monitor');
+
+    // 本画面中的 图形容器 对象.
+    var canvas = document.getElementById('photo');
+
+
+    $(document).ready(function () {
+
+        // 默认情况下， 由于不知道摄像头是否可用，因此， 先不显示 视频 与 照片区域.
+        $("#app").hide();
+
+
+        if ($.browser.webkit == true) {
+            // 用于获取用户的摄像头信息.
+            // 如果成功， 则调用 webkitGotStream 方法.
+            // 如果失败， 则调用 noStream 方法.
+
+            // Google Chrome要用webkitGetUserMedia函式 
+
+            navigator.webkitGetUserMedia({ video: true }, webkitGotStream, noStream);
+
+        } else {
+            // 用于获取用户的摄像头信息.
+            // 如果成功， 则调用 gotStream 方法.
+            // 如果失败， 则调用 noStream 方法.
+            navigator.getUserMedia({ video: true }, gotStream, noStream);
+        }
+
+        // 拍照  按钮 点击处理.
+        $("#btnSnapshot").bind("click", function (event, ui) {
+            snapshot();
+        });
+
+
+        // 上传拍照内容  按钮 点击处理.
+        $("#btnUpload").bind("click", function (event, ui) {
+            Upload();
+        });
+
+    });
+
+
+
+    // 如果获取摄像数据成功，那么在本 html 中的 视频对象中显示.
+    function gotStream(stream) {
+
+        // 设置 视频对象的数据源.
+        video.src = stream; 
+        // 原有的例子代码是下面这行， 但是运行过程中出错.
+        // URL.createObjectURL(stream);
+
+        video.onerror = function () {
+            stream.stop();
+        };
+
+        stream.onended = noStream;
+
+        video.onloadedmetadata = function () {
+             canvas.width = video.videoWidth;
+             canvas.height = video.videoHeight;
+
+            // 隐藏 加载提示信息. 显示 视频与图像信息.
+            $("#splash").hide();
+            $("#app").show();
+        };
+    }
+
+
+
+    // 如果获取摄像数据成功，那么在本 html 中的 视频对象中显示.
+    function webkitGotStream(stream) {
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.onerror = function () {
+            stream.stop();
+            streamError();
+        };
+
+        // 隐藏 加载提示信息. 显示 视频与图像信息.
+        $("#splash").hide();
+        $("#app").show();
+
+    }
+
+
+
+
+
+    // 如果获取摄像数据失败，那么在画面中提示错误信息.
+    function noStream() {
+        $("#errorMessage").html("没有可用的摄像设备...");
+    }
+
+    
+    // 拍照按钮的处理.
+    function snapshot() {
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        canvas.getContext('2d').drawImage(video, 0, 0);
+    }
+
+
+
+    function Upload() {
+
+        // 图像画板数据转换
+        var imgData = canvas.toDataURL("image/jpg");
+        // 取得base64字串  
+        var base64String = imgData.substr(22);
+
+        // 上傳，儲存圖片
+        $.ajax({
+            url: "/PhotoUploadHandler.ashx",
+            type: "post",
+            data: { data: base64String },
+            async: true,
+            success: function (htmlVal) {
+                alert("另存圖片成功！");
+            }, error: function (e) {
+                //alert錯誤訊息  
+                alert(e.responseText); 
+            }
+        });
+
+
+    }
+
+
+ </script>
+
+
+</body>  
+
+</html> 

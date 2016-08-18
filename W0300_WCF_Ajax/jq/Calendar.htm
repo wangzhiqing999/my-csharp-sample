@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 日历 </title>
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+
+
+
+    <script type="text/javascript">
+
+        // 开始日期.
+        var vStartDate;
+
+        // 当前画面模式.(日，周，月)
+        var vCurrentMode;
+
+
+        function TestData(pTestDate, pTestTitle, pTestValue) {
+            this.TestDate = pTestDate;
+            this.TestTitle = pTestTitle;
+            this.TestValue = pTestValue;
+        }
+
+
+        // 模拟测试数据.
+        function GetTestData() {
+            var vResult = new Array();
+
+            for (var i = 0; i < vCurrentMode; i++) {
+                var vTmpDay = new Date(vStartDate.getFullYear(), vStartDate.getMonth(), vStartDate.getDate() + i);
+                var vKeyword = getShortDateString(vTmpDay);
+
+                var vData = new TestData(vKeyword, "测试项目1", i);
+                vResult.push(vData);
+
+                var vData2 = new TestData(vKeyword, "测试项目2", i + 1);
+                vResult.push(vData2);
+            }
+
+            return vResult;
+        }
+
+        // ==============================================================
+
+
+
+
+
+        $(document).ready(function () {
+
+            // 开始日期 = 今天.
+            vStartDate = new Date();
+
+            $("#txtDay").val(getShortDateString(vStartDate));
+
+
+            // 天/ 周 / 月 选择发生变化.
+            $(":radio[name='rdoDayMode']").change(function () {
+                // 取得用户输入.
+                vCurrentMode = $(this).val();
+                showCalendarData();
+
+                showTestData();
+            });
+
+
+            // 上一页.
+            $("#btnPrevPage").click(function () {
+                if (vCurrentMode == 1) {
+                    vStartDate = getPrevDay(vStartDate);
+                }
+                if (vCurrentMode == 7) {
+                    vStartDate = getPrevWeek(vStartDate);
+                }
+                if (vCurrentMode == 30) {
+                    vStartDate = getPrevMonth(vStartDate);
+                }
+                showCalendarData();
+            });
+
+            // 下一页.
+            $("#btnNextPage").click(function () {
+                if (vCurrentMode == 1) {
+                    vStartDate = getNextDay(vStartDate);
+                }
+                if (vCurrentMode == 7) {
+                    vStartDate = getNextWeek(vStartDate);
+                }
+                if (vCurrentMode == 30) {
+                    vStartDate = getNextMonth(vStartDate);
+                }
+                showCalendarData();
+            });
+
+
+            // 追加数据.
+            $("#btnAddData").click(function () {
+
+                var vDay = $("#txtDay").val();
+                var vData = "<div>" + $("#txtData").val() + "</div>";
+                var vTD = $("#data_" + vDay);
+
+                if (vTD != null && vTD != undefined) {
+                    vTD.append(vData);
+                }
+
+            });
+
+        });
+
+
+        // 显示数据.(自动判断模式.)
+        function showCalendarData() {
+
+            if (vCurrentMode == 1) {
+                showDay();
+                return;
+            }
+            if (vCurrentMode == 7) {
+                showWeek();
+                return;
+            }
+            if (vCurrentMode == 30) {
+                showMonth();
+                return;
+            }
+        }
+
+
+
+
+        // 显示一天的数据.
+        function showDay() {
+            $("#resultTab tr").each(function (index) {
+                $(this).remove();
+            });
+
+            var vTr = "<tr class='Week'><td>" + getDisplayWeek(vStartDate) + "</td></tr>";
+            $("#resultTab").append(vTr);
+
+            vTr = "<tr class='Day'><td>" + getShortDateString(vStartDate) + "</td></tr>";
+            $("#resultTab").append(vTr);
+
+
+            vTr = "<tr><td id='data_" + getShortDateString(vStartDate) + "'>   </td></tr>";
+            $("#resultTab").append(vTr);
+        }
+
+
+
+        // 显示一周的数据.
+        function showWeek() {
+            $("#resultTab tr").each(function (index) {
+                $(this).remove();
+            });
+
+            // 取得本周第一天. (周日.)
+            var vFirstDay = getWeekFirstDay(vStartDate, 0);
+            // 取得本周最后一天. (周六.)
+            var vLastDay = getWeekLastDay(vStartDate, 6);
+
+            // 星期行开始.
+            var vTrWeek = "<tr  class='Week'>";
+            // 日期行开始.
+            var vTrDay = "<tr class='Day'>";
+
+            // 数据行开始.
+            var vTrData = "<tr>";
+
+            
+            for (var vProcessDate = vFirstDay; vProcessDate <= vLastDay; vProcessDate = new Date(vProcessDate.getFullYear(), vProcessDate.getMonth(), vProcessDate.getDate() + 1)) {
+                vTrWeek = vTrWeek + "<td  class='" + getDayCss(vProcessDate, false) + "'>" + getDisplayWeek(vProcessDate) + "</td>";
+                vTrDay = vTrDay + "<td  class='" + getDayCss(vProcessDate, true) + "'>" + getShortDateString(vProcessDate) + "</td>";
+                vTrData = vTrData + "<td id='data_" + getShortDateString(vProcessDate) + "'>   </td>";
+            }
+
+            // 星期行结束.
+            vTrWeek = vTrWeek + "</tr>";
+            // 日期行结束.
+            vTrDay = vTrDay + "</tr>";
+
+
+            // 数据行结束.
+            vTrData = vTrData +  "</tr>"
+
+
+            // 第一行 星期.
+            $("#resultTab").append(vTrWeek);
+            // 第二行 日期.
+            $("#resultTab").append(vTrDay);
+            // 第三行 数据.
+            $("#resultTab").append(vTrData);
+            
+        }
+
+
+
+        // 显示一月的数据.
+        function showMonth() {
+            $("#resultTab tr").each(function (index) {
+                $(this).remove();
+            });
+
+            // 取得本月第一天.
+            var vFirstDay = getMonthFirstDay(vStartDate);
+            // 取得本周最后一天.
+            var vLastDay = getMonthLastDay(vStartDate);
+
+
+            // 取得 本月第一天那一周的第一天. (周日.)
+            var vFirstDayFirstWeek = getWeekFirstDay(vFirstDay, 0);
+            // 取得 本月最后一天那一周最后一天. (周六.)
+            var vLastDayLastWeek = getWeekLastDay(vLastDay, 6);
+
+
+            // 星期行.
+            var vTrWeek = "";
+            // 日期行.
+            var vTrDay = "";
+            // 数据行.
+            var vTrData = "";
+
+            // 行索引.
+            var vRowindex = 0;
+            // 列索引.
+            var vColIndex = 0;
+
+
+            for (var vProcessDate = vFirstDayFirstWeek; vProcessDate <= vLastDayLastWeek; vProcessDate = new Date(vProcessDate.getFullYear(), vProcessDate.getMonth(), vProcessDate.getDate() + 1)) {
+
+                if (vColIndex == 0) {
+                    // 第一列.
+                    vTrWeek = "<tr  class='Week'>";
+                    vTrDay = "<tr  class='Day'>";
+                    vTrData = "<tr>";
+                }
+
+                if (vRowindex == 0) {
+                    // 第一行 星期.
+                    vTrWeek = vTrWeek + "<td class='" + getDayCss(vProcessDate, false) + "'>" + getDisplayWeek(vProcessDate) + "</td>";
+                }
+
+                if (vProcessDate >= vFirstDay && vProcessDate <= vLastDay) {
+                    vTrDay = vTrDay + "<td class='" + getDayCss(vProcessDate, true) + "'>" + getShortDateString(vProcessDate) + "</td>";
+                    vTrData = vTrData + "<td id='data_" + getShortDateString(vProcessDate) + "'>   </td>";
+                } else {
+                    vTrDay = vTrDay + "<td class='OtherMonthData'>" + getShortDateString(vProcessDate) + "</td>";
+                    vTrData = vTrData + "<td class='OtherMonthData'  id='data_" + getShortDateString(vProcessDate) + "'>   </td>";
+                }
+
+
+                vColIndex++;
+                if (vColIndex == 7) {
+                    // 第7列.
+                    vTrWeek = vTrWeek +  "</tr>";
+                    vTrDay =  vTrDay + "</tr>";
+                    vTrData = vTrData + "</tr>";
+
+                    if (vRowindex == 0) {
+                        // 第一行 星期.
+                        $("#resultTab").append(vTrWeek);
+                    }
+
+
+                    // 第二行 日期.
+                    $("#resultTab").append(vTrDay);
+                    // 第三行 数据.
+                    $("#resultTab").append(vTrData);
+
+
+                    // 换行.
+                    vRowindex++;
+                    vColIndex = 0;
+                }
+            }
+
+        }
+
+
+
+        function showTestData() {
+            var vTestData = GetTestData();
+
+            // 日， 周  显示明细.
+            if (vCurrentMode == 1 || vCurrentMode == 7) {
+
+                for (var i = 0; i < vTestData.length; i++) {
+
+                    var vDay = vTestData[i].TestDate;
+
+                    var vDiv = "<div>" + vTestData[i].TestTitle +
+                           " <br/> " + vTestData[i].TestValue +
+                           "</div>";
+
+                    $("#data_" + vDay).append(vDiv);
+                }
+                return;
+            }
+
+
+            // 月模式下仅仅显示 汇总.
+            var vMonthArray = new Array();
+
+            for (var i = 0; i < vTestData.length; i++) {
+                var vDay = vTestData[i].TestDate;
+                if(vMonthArray[vDay] == undefined 
+                    || vMonthArray[vDay] == null) {
+                    vMonthArray[vDay] = 1;
+                } else {
+                    vMonthArray[vDay] = vMonthArray[vDay]  + 1;
+                }
+            }
+
+
+            for (var vDay in vMonthArray)
+            {
+                $("#data_" + vDay).append("数据量=" + vMonthArray[vDay]  );
+                
+            }
+        }
+
+
+
+
+        function getDayCss(pDate, pNeedCheckToday) {
+
+            if (pNeedCheckToday == true) {
+                var vToday = new Date();
+                if (getShortDateString(vToday) == getShortDateString(pDate)) {
+                    return "Today";
+                }
+            }
+            
+
+            if (pDate.getDay() == 0 || pDate.getDay() == 6) {
+                // 周六周日 为假日.
+                return "Holiday";
+            }
+
+            return "Workday";
+        }
+
+
+
+
+        // 上面为画面处理.
+
+
+
+
+
+
+
+        // ==============================================================
+
+
+
+
+        // 下面为日期处理相关函数.
+        
+
+
+        // 日期格式化
+        //   效果如：2011-07-29  
+        function getShortDateString(date) {
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            month = month + 1;
+            if (month < 10) month = '0' + month;
+            if (day < 10) day = '0' + day;
+            var str = year + '-' + month + '-' + day;
+            return str;
+        }
+
+        function getYmdDateString(date) {
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            month = month + 1;
+            if (month < 10) month = '0' + month;
+            if (day < 10) day = '0' + day;
+            var str = new String(year) + new String(month) + new String(day);
+            return str;
+        }
+
+        // 返回星期几的信息.
+        function getDisplayWeek(pDate) {
+            var vWeek = pDate.getDay();
+            if (vWeek == 0) {
+                return "星期日";
+            }
+            if (vWeek == 1) {
+                return "星期一";
+            }
+            if (vWeek == 2) {
+                return "星期二";
+            }
+            if (vWeek == 3) {
+                return "星期三";
+            }
+            if (vWeek == 4) {
+                return "星期四";
+            }
+            if (vWeek == 5) {
+                return "星期五";
+            }
+            if (vWeek == 6) {
+                return "星期六";
+            }
+        }
+
+
+        // 取得 周的第一天.
+        function getWeekFirstDay(pDate, pFirstDayIndex) {
+            var vTmpFirstDate = pDate;
+            while (vTmpFirstDate.getDay() != pFirstDayIndex) {
+                vTmpFirstDate = new Date(vTmpFirstDate.getFullYear(), vTmpFirstDate.getMonth(), vTmpFirstDate.getDate() - 1);
+            }
+            return vTmpFirstDate;
+        }
+
+        // 取得 周的最后一天.
+        function getWeekLastDay(pDate, pLastDayIndex) {
+            var vTmpLastDate = pDate;
+            while (vTmpLastDate.getDay() != pLastDayIndex) {
+                vTmpLastDate = new Date(vTmpLastDate.getFullYear(), vTmpLastDate.getMonth(), vTmpLastDate.getDate() + 1);
+            }
+            return vTmpLastDate;
+        }
+
+        // 取得 月的第一天.
+        function getMonthFirstDay(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth(), 1);
+        }
+
+        // 取得 月的最后一天.
+        function getMonthLastDay(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth() + 1, 0);
+        }
+
+
+
+
+        // 取得前一天.
+        function getPrevDay(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth(), pDate.getDate() - 1);
+        }
+        // 取得后一天.
+        function getNextDay(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth(), pDate.getDate() + 1);
+        }
+
+        // 取得前一周.
+        function getPrevWeek(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth(), pDate.getDate() - 7);
+        }
+        // 取得后一周.
+        function getNextWeek(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth(), pDate.getDate() + 7);
+        }
+
+        // 取得前一月.
+        function getPrevMonth(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth() - 1, pDate.getDate());
+        }
+        // 取得后一月.
+        function getNextMonth(pDate) {
+            return new Date(pDate.getFullYear(), pDate.getMonth() + 1, pDate.getDate());
+        }
+
+    </script>
+
+
+
+    <style type="text/css">
+        
+        /* 星期行 */
+        tr.Week
+        {
+            font-weight:bold;
+            height:20px;
+        }
+        
+        /* 日期行 */
+        tr.Day
+        {
+            font-weight:bold;
+            height:20px;
+        }
+        
+        
+        
+        /* 月份模式下， 其他月的数据. */
+        td.OtherMonthData
+        {
+            color: #C0C0C0;
+        }
+        
+        /* 假日. */
+        td.Holiday
+        {
+            color: #FF3300;
+        }
+                
+        /* 工作日. */
+        td.Workday
+        {
+            color:Black;
+        }
+
+        /* 今日. */
+        td.Today
+        {
+            color:Blue;
+        }
+        
+        
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<table>
+  <tr>
+    <td>
+      <input id="btnPrevPage" type="button" value="<<" />
+    </td>
+
+    <td>
+
+<div id="radioDayMode">
+    <input id="rdoDay" name="rdoDayMode" type="radio"  value="1" title="一天" />
+    <label for="rdoDay">一天</label>
+
+    <input id="rdoWeek" name="rdoDayMode" type="radio"  value="7" title="一周"  checked="checked" />
+    <label for="rdoWeek">一周</label>
+
+    <input id="rdoMonth" name="rdoDayMode" type="radio"  value="30" title="一月" />
+    <label for="rdoMonth">一月</label>
+</div>
+
+
+    </td>
+
+    <td>
+    <input id="btnNextPage" type="button" value=">>" />
+    </td>
+
+  </tr>
+</table>
+
+
+
+
+<table id="resultTab"  border="1"  style="width:80%; height:500px; text-align: center">
+  <tr>
+    <td> Test </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+    <td> 日期 </td>
+    <td> <input id="txtDay" type="text" value="" />  </td>
+  </tr>
+
+  <tr>
+    <td> 数据 </td>
+    <td> <input id="txtData" type="text" value="测试数据" />  </td>
+  </tr>
+
+  <tr>
+    <td colspan="2"> <input id="btnAddData" type="button" value="新增日程数据" /> </td>    
+  </tr>
+</table>
+
+
+
+
+</body>
+</html>

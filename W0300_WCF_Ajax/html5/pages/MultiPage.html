@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        jQuery Mobile 例子  ( 多页面的例子)
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+<body>
+
+
+
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1> html 中的 第一个 Page </h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<h2>One</h2>
+		
+
+        <p>  本 Page 为 当前 html 中的 “第一个 Page ” </p>
+		<p>  本画面为 一个 html 中， 包含多个  page 的例子.  </p>	
+		<p>  本例子中， 一个 html 中， 包含三个页面 （其中第三个页面， 以对话框方式显示）   </p>	
+        <p>  初始情况下， 显示 html 文件中的 “第一个 Page ” </p>		
+        <h3>  显示本 html 中的其他 page  :  </h3>
+
+		<p><a href="#two" data-role="button"> 显示 "第二个 page" </a></p>	
+
+
+		<p>
+            <a href="#popup" data-role="button" data-rel="dialog" data-transition="pop">  显示一个弹出窗口 （对话框）  </a>
+        </p>
+
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-theme="d">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+
+
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<h1> html 中的 第二个 Page </h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<h2>Two</h2>
+
+        <p>  本 Page 为 当前 html 中的 “第二个 Page ” </p>
+
+        
+        <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b"> 返回 “第一个 Page” </a></p>	
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+
+
+
+
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+
+	<div data-role="header" data-theme="e">
+		<h1> 对话框 </h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d">	
+		<h2>Popup</h2>
+
+        <p>  本 Page 为 当前 html 中的 “第三个 Page ” </p>
+
+		<p>
+            由于显示的时候， 在链接的地方，增加了 <code>data-rel="dialog"</code>  的标记，
+            使得本 Page 在显示的时候， 以对话框的方式显示。
+        </p>
+		
+        <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back"> 返回 “第一个 Page”  </a></p>	
+
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+
+
+</body>
+</html>

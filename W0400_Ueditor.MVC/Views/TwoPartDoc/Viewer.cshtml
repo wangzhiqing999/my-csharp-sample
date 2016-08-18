@@ -1,0 +1,29 @@
+﻿@model W0400_Ueditor.MVC.Models.EditData
+
+@{
+    ViewBag.Title = "Viewer";
+}
+
+
+
+<h2>未登录用户， 将看到下列内容 </h2>
+
+<div>
+@Html.DisplayFor(model => model.DemoText) 
+</div>
+			
+
+<hr/>
+
+
+<h2>已登录用户， 将看到下列内容 </h2>
+
+<div>
+    @Html.DisplayFor(model => model.FullText)
+</div>
+
+
+
+<a href='@Url.Action("Index", "Home")'>
+    返回
+</a>

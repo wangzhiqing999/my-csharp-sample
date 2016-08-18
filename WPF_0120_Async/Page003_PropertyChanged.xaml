@@ -1,0 +1,23 @@
+﻿<Page x:Class="WPF_0120_Async.Page003_PropertyChanged"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page003_PropertyChanged">
+
+    <StackPanel>
+        <DataGrid  x:Name="dgPhoneList"  Grid.Column="2" Grid.Row="4"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100" Binding="{Binding Phone}" Header="手机号码" />
+                <DataGridTextColumn Width="100" Binding="{Binding Result, IsAsync=True}" Header="发送结果" />
+                <DataGridTextColumn Width="100" Binding="{Binding Msgid, IsAsync=True}" Header="消息编号" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Button x:Name="btnSend" Content="模拟发送短消息" Click="btnSend_Click" />
+        
+    </StackPanel>
+</Page>

@@ -1,0 +1,99 @@
+﻿<Window x:Class="WPF_0110_Template.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="480" Width="800">
+    <Grid>
+        <StackPanel Width="250" HorizontalAlignment="Left" OpacityMask="Black">
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTemplate" Foreground="Black" Click="LnkDataTemplate_Click" >
+                    Data Template
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkControlTemplate" Foreground="Black" Click="LnkControlTemplate_Click" >
+                    Control Template
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTemplateAll" Foreground="Black" Click="LnkDataTemplateAll_Click" >
+                    Data Template指定类型
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkControlTemplateAll" Foreground="Black" Click="LnkControlTemplateAll_Click" >
+                    Control Template指定类型
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTemplateXml" Foreground="Black" Click="LnkDataTemplateXml_Click" >
+                    Data Template Xml
+                </Hyperlink>
+            </TextBlock>
+
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTemplateXmlTreeView" Foreground="Black" Click="LnkDataTemplateXmlTreeView_Click" >
+                    Data Template Xml TreeView
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTemplateXmlMenu" Foreground="Black" Click="LnkDataTemplateXmlMenu_Click" >
+                    Data Template Xml Menu
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkStyle" Foreground="Black" Click="LnkStyle_Click" >
+                    Style
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkStyleTrigger" Foreground="Black" Click="LnkStyleTrigger_Click" >
+                    Style Trigger
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkStyleMultiTrigger" Foreground="Black" Click="LnkStyleMultiTrigger_Click" >
+                    Style MultiTrigger
+                </Hyperlink>
+            </TextBlock>
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkDataTrigger" Foreground="Black" Click="LnkDataTrigger_Click" >
+                    Style DataTrigger
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkMultiDataTrigger" Foreground="Black" Click="LnkMultiDataTrigger_Click" >
+                    Style MultiDataTrigger
+                </Hyperlink>
+            </TextBlock>
+
+
+            <TextBlock FontSize="18" TextWrapping="Wrap">
+                <Hyperlink x:Name="LnkEventTrigger" Foreground="Black" Click="LnkEventTrigger_Click" >
+                    Style EventTrigger
+                </Hyperlink>
+            </TextBlock>
+
+        </StackPanel>
+
+
+        <Frame Name="pc" HorizontalAlignment="Right" NavigationUIVisibility="Hidden" BorderBrush="Black" Width="480"/>
+    </Grid>
+</Window>

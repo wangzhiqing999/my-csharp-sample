@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>  Scatter 0008 </title>
+</head>
+<body>
+
+
+
+    <h3>  Scatter 0008  </h3>
+
+    <p>
+     散点图
+    </p>
+
+
+    
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+
+
+
+
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/scatter' // 使用散点图就加载scatter模块，按需加载
+            ],
+
+
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    tooltip : {
+                    trigger: 'item',
+                    axisPointer:{
+                        type : 'cross',
+                        lineStyle: {
+                            type : 'dashed',
+                            width : 1
+                        }
+                    }
+                },
+                legend: {
+                    data:['scatter1','scatter2']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                xAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                series : [
+                    {
+                        name:'scatter1',
+                        type:'scatter',
+                        symbol: 'emptyCircle', //'circle', 'rectangle', 'triangle', 'diamond', 'emptyCircle', 'emptyRectangle', 'emptyTriangle', 'emptyDiamond'
+                        symbolSize: function (value){
+                            if (value[0] < 2) {
+                                return 2;
+                            }
+                            else if (value[0] < 8) {
+                                return Math.round(value[2] * 3);
+                            }
+                            else {
+                                return 20;
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: 'lightblue',
+                                borderWidth: 4,
+                                label : {show: true}
+                            },
+                            emphasis: {
+                                color: 'lightgreen'
+                            }
+                        },
+                        data: (function () {
+                            var d = [];
+                            var len = 20;
+                            while (len--) {
+                                d.push([
+                                    (Math.random()*10).toFixed(2) - 0,
+                                    (Math.random()*10).toFixed(2) - 0,
+                                    (Math.random()*10).toFixed(2) - 0
+                                ]);
+                            }
+                            return d;
+                        })(),
+                        markPoint : {
+                            data : [
+                                {type : 'max', name: 'y最大值'},
+                                {type : 'min', name: 'y最小值'},
+                                {type : 'max', name: 'x最大值', valueIndex : 0, symbol:'arrow',itemStyle:{normal:{borderColor:'red'}}},
+                                {type : 'min', name: 'x最小值', valueIndex : 0, symbol:'arrow',itemStyle:{normal:{borderColor:'red'}}}
+                            ]
+                        },
+                        markLine : {
+                            data : [
+                                {type : 'average', name: 'y平均值'},
+                                {type : 'average', name: 'x平均值', valueIndex : 0, itemStyle:{normal:{borderColor:'red'}}}
+                            ]
+                        }
+                    },
+                    {
+                        name:'scatter2',
+                        type:'scatter',
+                        symbol: 'image://../asset/ico/favicon.png',     // 系列级个性化拐点图形
+                        symbolSize: function (value){
+                            return Math.round(value[2] * 3);
+                        },
+                        itemStyle: {
+                            emphasis : {
+                                label : {show: true}
+                            }
+                        },
+                        data: (function () {
+                            var d = [];
+                            var len = 20;
+                            while (len--) {
+                                d.push([
+                                    (Math.random()*10).toFixed(2) - 0,
+                                    (Math.random()*10).toFixed(2) - 0,
+                                    (Math.random()*10).toFixed(2) - 0
+                                ]);
+                            }
+                            d.push({
+                                value : [5,5,1000],
+                                itemStyle: {
+                                    normal: {
+                                        borderWidth: 8,
+                                        color: 'orange'
+                                    },
+                                    emphasis: {
+                                        borderWidth: 10,
+                                        color: '#ff4500'
+                                    }
+                                },
+                                symbol: 'emptyTriangle',
+                                symbolRotate:90,
+                                symbolSize:30
+                            })
+                            return d;
+                        })(),
+                        markPoint : {
+                            symbol: 'emptyCircle',
+                            itemStyle:{
+                                normal:{label:{position:'top'}}
+                            },
+                            data : [
+                                {name : '有个东西', value : 1000, xAxis: 5, yAxis: 5, symbolSize:80}
+                            ]
+                        }
+                    }
+                ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+        );
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

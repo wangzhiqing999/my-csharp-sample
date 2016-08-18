@@ -1,0 +1,1208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49448435-EAD7-4164-A0C6-70CB9019E035}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>W0300_WCF_Ajax</RootNamespace>
+    <AssemblyName>W0300_WCF_Ajax</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppDemo\index.htm" />
+    <Content Include="AppDemo\LastVersion.htm" />
+    <Content Include="Autocomplete\AutocompleteTest2.htm" />
+    <Content Include="Autocomplete\jqui_Autocomplete.htm" />
+    <Content Include="bootstrap-progressbar\.gitignore" />
+    <Content Include="bootstrap-progressbar\bootstrap-progressbar.js" />
+    <Content Include="bootstrap-progressbar\bootstrap-progressbar.min.js" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.3.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.3.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.4.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.0.4.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.1.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.1.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.1.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.1.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.2.2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-2.3.2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0-rc1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0-rc1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0-rc2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0-rc2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.3.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.0.3.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.1.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.1.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.1.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.1.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.2.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.2.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.0.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.0.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.1.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.1.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.2.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.2.min.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.css" />
+    <Content Include="bootstrap-progressbar\css\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="bootstrap-progressbar\Gulpfile.js" />
+    <Content Include="Button\jqui_checkboxes.htm" />
+    <Content Include="Button\jqui_Default.htm" />
+    <Content Include="ClientInfo\ClientInfo.aspx" />
+    <Content Include="ClientInfo\ip.htm" />
+    <Content Include="ClientInfo\navigator.htm" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="css\jquery.autocomplete.css" />
+    <Content Include="css\rating\delete.gif" />
+    <Content Include="css\rating\jquery.rating.css" />
+    <Content Include="css\rating\star.gif" />
+    <Content Include="css\Raty\css\application.css" />
+    <Content Include="css\Raty\css\common.css" />
+    <Content Include="css\Raty\css\demo.css" />
+    <Content Include="css\Raty\css\font-awesome.css" />
+    <Content Include="css\Raty\css\normalize.css" />
+    <Content Include="css\Raty\css\pygments.css" />
+    <Content Include="css\Raty\img\0.png" />
+    <Content Include="css\Raty\img\1.png" />
+    <Content Include="css\Raty\img\2.png" />
+    <Content Include="css\Raty\img\3.png" />
+    <Content Include="css\Raty\img\4.png" />
+    <Content Include="css\Raty\img\5.png" />
+    <Content Include="css\Raty\img\cancel-custom-off.png" />
+    <Content Include="css\Raty\img\cancel-custom-on.png" />
+    <Content Include="css\Raty\img\cancel-off-big.png" />
+    <Content Include="css\Raty\img\cancel-on-big.png" />
+    <Content Include="css\Raty\img\cookie-half.png" />
+    <Content Include="css\Raty\img\cookie-off.png" />
+    <Content Include="css\Raty\img\cookie-on.png" />
+    <Content Include="css\Raty\img\off.png" />
+    <Content Include="css\Raty\img\on.png" />
+    <Content Include="css\Raty\img\star-half-big.png" />
+    <Content Include="css\Raty\img\star-off-big.png" />
+    <Content Include="css\Raty\img\star-on-big.png" />
+    <Content Include="Dialog\DialogWithJqueryUI.htm" />
+    <Content Include="Drag\index.htm" />
+    <Content Include="Favorite\Index.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="html5\iOS-Overlay\css\bootstrap.min.css" />
+    <Content Include="html5\iOS-Overlay\css\custom.css" />
+    <Content Include="html5\iOS-Overlay\css\iosOverlay.css" />
+    <Content Include="html5\iOS-Overlay\css\prettify.css" />
+    <Content Include="html5\iOS-Overlay\img\check.png" />
+    <Content Include="html5\iOS-Overlay\img\cross.png" />
+    <Content Include="html5\iOS-Overlay\img\promo.jpg" />
+    <Content Include="html5\iOS-Overlay\index.html" />
+    <Content Include="html5\iOS-Overlay\js\custom.js" />
+    <Content Include="html5\iOS-Overlay\js\iosOverlay.js" />
+    <Content Include="html5\iOS-Overlay\js\jquery.min.js" />
+    <Content Include="html5\iOS-Overlay\js\modernizr-2.0.6.min.js" />
+    <Content Include="html5\iOS-Overlay\js\prettify.js" />
+    <Content Include="html5\iOS-Overlay\js\spin.min.js" />
+    <Content Include="html5\Swipebox\images\image-1.jpg" />
+    <Content Include="html5\Swipebox\images\image-2.jpg" />
+    <Content Include="html5\Swipebox\images\image-3.jpg" />
+    <Content Include="html5\Swipebox\images\image-4.jpg" />
+    <Content Include="html5\Swipebox\index.html" />
+    <Content Include="html5\Swipebox\lib\ios-orientationchange-fix.js" />
+    <Content Include="html5\Swipebox\lib\jquery-2.1.0.min.js" />
+    <Content Include="html5\Swipebox\src\css\swipebox.css" />
+    <Content Include="html5\Swipebox\src\css\swipebox.min.css" />
+    <Content Include="html5\Swipebox\src\img\icons.png" />
+    <Content Include="html5\Swipebox\src\img\icons.svg" />
+    <Content Include="html5\Swipebox\src\img\loader.gif" />
+    <Content Include="html5\Swipebox\src\js\jquery.swipebox.js" />
+    <Content Include="html5\Swipebox\src\js\jquery.swipebox.min.js" />
+    <Content Include="lazyload\LongTimeImage.aspx" />
+    <Content Include="lazyload\TestLazyload.htm" />
+    <Content Include="lazyload\TestNoLazyload.htm" />
+    <Content Include="lib\img\cancel-off.png" />
+    <Content Include="lib\img\cancel-on.png" />
+    <Content Include="lib\img\star-half.png" />
+    <Content Include="lib\img\star-off.png" />
+    <Content Include="lib\img\star-on.png" />
+    <Content Include="lib\jquery.raty.js" />
+    <Content Include="lib\jquery.raty.min.js" />
+    <Content Include="LoginNet\Default.aspx" />
+    <Content Include="LoginNet\Login.aspx" />
+    <Content Include="Login\Login.aspx" />
+    <Content Include="Login\LoginInfo.aspx" />
+    <Content Include="Login\LoginInfo.htm" />
+    <Content Include="Login\MyCheckCode.aspx" />
+    <Content Include="Login\Register.aspx" />
+    <Content Include="Pagination\pagenav1.1.cn.js" />
+    <Content Include="Pagination\TestPage.htm" />
+    <Content Include="Rating\TestJqueryRaty.htm" />
+    <Content Include="Rating\TestRating.htm" />
+    <Content Include="RemainTime\index.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery.ajaxQueue.js" />
+    <Content Include="Scripts\jquery.autocomplete.js" />
+    <Content Include="Scripts\jquery.bgiframe.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.jsmartdrag.js" />
+    <Content Include="Scripts\jquery.lazyload.js" />
+    <Content Include="Scripts\jquery.lazyload.min.js" />
+    <Content Include="Scripts\jquery.MetaData.js" />
+    <Content Include="Scripts\jquery.rating.js" />
+    <Content Include="Scripts\jquery.rating.pack.js" />
+    <Content Include="Scripts\jquery.ui.touch.js" />
+    <Content Include="Select\full_thumbnail_chara_100_horo.png" />
+    <Content Include="Select\full_thumbnail_chara_105_horo.png" />
+    <Content Include="Select\full_thumbnail_chara_27_horo.png" />
+    <Content Include="Select\full_thumbnail_chara_49_horo.png" />
+    <Content Include="Select\full_thumbnail_chara_56_horo.png" />
+    <Content Include="Select\full_thumbnail_chara_96_horo.png" />
+    <Content Include="Select\index.htm" />
+    <Content Include="Select\intro.png" />
+    <Content Include="Tab\jqui_Tabs.htm" />
+    <Content Include="Touch\bg.jpg" />
+    <Content Include="Touch\currentpoint.png" />
+    <Content Include="Touch\index.html" />
+    <Content Include="Touch\point.png" />
+    <Content Include="Touch\style.css" />
+    <Content Include="Upload\TestUploadBigFile.aspx" />
+    <Content Include="Upload\TestUploadMulFile.aspx" />
+    <Content Include="Upload\UploadLimit.aspx" />
+    <Content Include="Upload\UploadPreview.aspx" />
+    <Content Include="ztree\ZtreeTest.htm" />
+    <Content Include="AppDemo\CommonHandler.ashx" />
+    <Content Include="AppDemo\DailyCheckHandler.ashx" />
+    <Content Include="AppDemo\WeekReportHandler.ashx" />
+    <Content Include="AppDemo\A0200_AutoUpdate.apk" />
+    <Content Include="AppDemo\TodayReportHandler.ashx" />
+    <None Include="Autocomplete\city.json" />
+    <None Include="Autocomplete\beijing.json" />
+    <Content Include="Autocomplete\search.ashx" />
+    <Content Include="Autocomplete\JsonSearch.ashx" />
+    <None Include="Autocomplete\shanghai.json" />
+    <None Include="Autocomplete\guangzhou.json" />
+    <Content Include="Autocomplete\AutocompleteTest.htm" />
+    <Content Include="Charts\Elycharts\bar.htm" />
+    <Content Include="Charts\Elycharts\index.htm" />
+    <Content Include="Charts\Elycharts\line.htm" />
+    <Content Include="Charts\Elycharts\pie.htm" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\images\jquery-logo.png" />
+    <Content Include="Content\jquery.mobile-1.2.0.css" />
+    <Content Include="Content\jquery.mobile-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="CrossDomain\test.js" />
+    <Content Include="CrossDomain\TestGetScript.htm" />
+    <Content Include="css\imgareaselect\border-anim-h.gif" />
+    <Content Include="css\imgareaselect\border-anim-v.gif" />
+    <Content Include="css\imgareaselect\border-h.gif" />
+    <Content Include="css\imgareaselect\border-v.gif" />
+    <Content Include="css\imgareaselect\imgareaselect-animated.css" />
+    <Content Include="css\imgareaselect\imgareaselect-default.css" />
+    <Content Include="css\imgareaselect\imgareaselect-deprecated.css" />
+    <Content Include="css\megafish-vertica.css" />
+    <Content Include="css\megafish.css" />
+    <Content Include="css\superfish-navbar.css" />
+    <Content Include="css\superfish-vertical.css" />
+    <Content Include="css\superfish.css" />
+    <Content Include="css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="css\zTreeStyle\img\diy\2.png" />
+    <Content Include="css\zTreeStyle\img\diy\3.png" />
+    <Content Include="css\zTreeStyle\img\diy\4.png" />
+    <Content Include="css\zTreeStyle\img\diy\5.png" />
+    <Content Include="css\zTreeStyle\img\diy\6.png" />
+    <Content Include="css\zTreeStyle\img\diy\7.png" />
+    <Content Include="css\zTreeStyle\img\diy\8.png" />
+    <Content Include="css\zTreeStyle\img\diy\9.png" />
+    <Content Include="css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="css\zTreeStyle\img\loading.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Error\err404.jpg" />
+    <Content Include="Error\err500.jpg" />
+    <Content Include="Error\err403.jpg" />
+    <Content Include="Error\Error403.aspx" />
+    <Content Include="Error\Error404.aspx" />
+    <Content Include="Error\Error500.aspx" />
+    <Content Include="Error\ErrorPage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="html5\baidu\map\helloworld.html" />
+    <Content Include="html5\buttons\buttons-grouped.html" />
+    <Content Include="html5\buttons\buttons-icons.html" />
+    <Content Include="html5\buttons\buttons-inline.html" />
+    <Content Include="html5\buttons\buttons-types.html" />
+    <Content Include="html5\Cache\TestCache.html" />
+    <Content Include="html5\content\content-collapsible-set.html" />
+    <Content Include="html5\content\content-collapsible.html" />
+    <Content Include="html5\content\content-grids.html" />
+    <Content Include="html5\dialog\dialog.html" />
+    <Content Include="html5\dialog\LoginError.html" />
+    <Content Include="html5\dialog\LoginFail.html" />
+    <Content Include="html5\forms\checkboxes.html" />
+    <Content Include="html5\forms\radioinput.html" />
+    <Content Include="html5\forms\searchinput.html" />
+    <Content Include="html5\forms\selects.html" />
+    <Content Include="html5\forms\sliderinput.html" />
+    <Content Include="html5\forms\switchinput.html" />
+    <Content Include="html5\forms\textinputs.html" />
+    <Content Include="html5\forms\selects-ajax.html" />
+    <Content Include="html5\geolocation\demo.html" />
+    <Content Include="html5\home.html" />
+    <Content Include="html5\images\album-bb.jpg" />
+    <Content Include="html5\images\album-hc.jpg" />
+    <Content Include="html5\images\album-p.jpg" />
+    <Content Include="html5\images\de.png" />
+    <Content Include="html5\images\fi.png" />
+    <Content Include="html5\images\gb.png" />
+    <Content Include="html5\images\gf.png" />
+    <Content Include="html5\images\sj.png" />
+    <Content Include="html5\images\us.png" />
+    <Content Include="html5\index.html" />
+    <Content Include="html5\lists\lists-autodividers.html" />
+    <Content Include="html5\lists\lists-collapsible.html" />
+    <Content Include="html5\lists\lists-count.html" />
+    <Content Include="html5\lists\lists-divider.html" />
+    <Content Include="html5\lists\lists-formatting.html" />
+    <Content Include="html5\lists\lists-forms.html" />
+    <Content Include="html5\lists\lists-icons.html" />
+    <Content Include="html5\lists\lists-inset.html" />
+    <Content Include="html5\lists\lists-nested.html" />
+    <Content Include="html5\lists\lists-ol.html" />
+    <Content Include="html5\lists\lists-search-filtertext.html" />
+    <Content Include="html5\lists\lists-search-with-dividers.html" />
+    <Content Include="html5\lists\lists-search.html" />
+    <Content Include="html5\lists\lists-split.html" />
+    <Content Include="html5\lists\lists-thumbnails.html" />
+    <Content Include="html5\lists\lists-ul.html" />
+    <Content Include="html5\lists\lists-search-inset.html" />
+    <Content Include="html5\lists\lists-ajax.html" />
+    <Content Include="html5\lists\lists-ajax-page.html" />
+    <Content Include="html5\methods\changePage.html" />
+    <Content Include="html5\methods\ChangeToPage.html" />
+    <Content Include="html5\methods\loadPage.html" />
+    <Content Include="html5\my.css" />
+    <Content Include="html5\my.js" />
+    <Content Include="html5\pages\loader.html" />
+    <Content Include="html5\pages\MultiPage.html" />
+    <Content Include="html5\pages\page-links.html" />
+    <Content Include="html5\pages\page-transitions.html" />
+    <Content Include="html5\pages\RunLongTimeDialog.aspx" />
+    <Content Include="html5\pages\RunLongTimePage.aspx" />
+    <Content Include="html5\pages\SinglePage.html" />
+    <Content Include="html5\photo\TakePhoto.html" />
+    <Content Include="html5\photo\UploadPhoto.html" />
+    <Content Include="html5\Storage\TestStorage.html" />
+    <Content Include="html5\toolbars\footer-persist-a.html" />
+    <Content Include="html5\toolbars\footer-persist-b.html" />
+    <Content Include="html5\toolbars\footer-persist-c.html" />
+    <Content Include="html5\toolbars\footer-persist-d.html" />
+    <Content Include="html5\toolbars\footers.html" />
+    <Content Include="html5\toolbars\headers.html" />
+    <Content Include="html5\toolbars\navbar.html" />
+    <Content Include="html5\WebWorkers\demo_workers.js" />
+    <Content Include="html5\WebWorkers\Test.html" />
+    <Content Include="html\AsyncTest.htm" />
+    <Content Include="html\BasicTest.htm" />
+    <Content Include="html\CacheTest.htm" />
+    <Content Include="html\JsonParamTest.htm" />
+    <Content Include="html\JsonResultTest.htm" />
+    <Content Include="html\BasicPostTest.htm" />
+    <Content Include="html\JsonParamPostTest.htm" />
+    <Content Include="html\JsonResultPostTest.htm" />
+    <Content Include="html\CachePostTest.htm" />
+    <Content Include="html\AsyncPostTest.htm" />
+    <Content Include="html\SessionTest.htm" />
+    <Content Include="ImageRun\Barousel.htm" />
+    <Content Include="ImageRun\TinyCarousel.htm" />
+    <Content Include="images\barousel_link_next.gif" />
+    <Content Include="images\barousel_link_previous.gif" />
+    <Content Include="images\bg_barousel_content.png" />
+    <Content Include="index.htm" />
+    <Content Include="jq\BasicInput.aspx" />
+    <Content Include="jq\BasicInput.htm" />
+    <Content Include="jq\Calendar.htm" />
+    <Content Include="jq\MainSubCheckBox.htm" />
+    <Content Include="jq\MainSubTable.htm" />
+    <Content Include="jq\TableClick.htm" />
+    <Content Include="jq\TableResult.htm" />
+    <Content Include="jq\MainSubCheckBoxPlus.htm" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\jquery.ztree.all-3.5.js" />
+    <Content Include="js\jquery.ztree.all-3.5.min.js" />
+    <Content Include="js\jquery.ztree.core-3.5.js" />
+    <Content Include="js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="js\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="js\jquery.ztree.exedit-3.5.js" />
+    <Content Include="js\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="js\jquery.ztree.exhide-3.5.js" />
+    <Content Include="js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Charts\peity\index.htm" />
+    <Content Include="Map\test_aliyun.htm" />
+    <Content Include="Map\Test_AliyunMap.aspx" />
+    <Content Include="Map\Test_BaiduMap.aspx" />
+    <Content Include="Scripts\elycharts.js" />
+    <Content Include="Scripts\elycharts.min.js" />
+    <Content Include="Scripts\hoverIntent.js" />
+    <Content Include="Scripts\jquery.barousel.js" />
+    <Content Include="Scripts\jquery.barousel.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.imgareaselect.js" />
+    <Content Include="Scripts\jquery.imgareaselect.min.js" />
+    <Content Include="Scripts\jquery.peity.js" />
+    <Content Include="Scripts\jquery.peity.min.js" />
+    <Content Include="Scripts\jquery.placeholder.1.3.js" />
+    <Content Include="Scripts\jquery.placeholder.1.3.min.js" />
+    <Content Include="Scripts\jquery.tinycarousel.js" />
+    <Content Include="Scripts\jquery.tinycarousel.min.js" />
+    <Content Include="Scripts\MyPageInfo.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\json2.min.js" />
+    <Content Include="Scripts\raphael-min.js" />
+    <Content Include="Scripts\raphael.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\superfish.min.js" />
+    <Content Include="Scripts\supersubs.js" />
+    <Content Include="Scripts\typeahead.js" />
+    <Content Include="Scripts\typeahead.min.js" />
+    <Content Include="superfish\basic_horizontal.htm" />
+    <Content Include="superfish\basic_vertical.htm" />
+    <Content Include="superfish\index.htm" />
+    <Content Include="superfish\megamenu_horizontal.htm" />
+    <Content Include="superfish\megamenu_vertical.htm" />
+    <Content Include="superfish\megamenu_vertical_horizontal.htm" />
+    <Content Include="Tab\easytabs.js" />
+    <Content Include="Tab\EasyTabTest.htm" />
+    <Content Include="Tab\menu.css" />
+    <Content Include="TestError.aspx" />
+    <Content Include="TestJsonWebService.asmx" />
+    <Content Include="TestReWriteUrl.aspx" />
+    <Content Include="TestWebService.asmx" />
+    <Content Include="Tree\images\ajax-loader.gif" />
+    <Content Include="Tree\images\file.gif" />
+    <Content Include="Tree\images\folder-closed.gif" />
+    <Content Include="Tree\images\folder.gif" />
+    <Content Include="Tree\images\minus.gif" />
+    <Content Include="Tree\images\plus.gif" />
+    <Content Include="Tree\images\treeview-black-line.gif" />
+    <Content Include="Tree\images\treeview-black.gif" />
+    <Content Include="Tree\images\treeview-default-line.gif" />
+    <Content Include="Tree\images\treeview-default.gif" />
+    <Content Include="Tree\images\treeview-famfamfam-line.gif" />
+    <Content Include="Tree\images\treeview-famfamfam.gif" />
+    <Content Include="Tree\images\treeview-gray-line.gif" />
+    <Content Include="Tree\images\treeview-gray.gif" />
+    <Content Include="Tree\images\treeview-red-line.gif" />
+    <Content Include="Tree\images\treeview-red.gif" />
+    <Content Include="Tree\jquery.cookie.js" />
+    <Content Include="Tree\jquery.treeview.css" />
+    <Content Include="Tree\jquery.treeview.js" />
+    <Content Include="Tree\TreeviewTest.htm" />
+    <Content Include="UploadImages\dolphin32.png" />
+    <Content Include="UploadImages\dolphin48.png" />
+    <Content Include="Upload\FaceUpload.htm" />
+    <Content Include="Upload\TestUpload.aspx" />
+    <Content Include="WcfMyDemoService.svc" />
+    <Content Include="WcfTestPostService.svc" />
+    <Content Include="WcfTestService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="ZtreeMenuWebService.asmx" />
+    <Content Include="ztree\Blank.htm" />
+    <Content Include="ztree\index.htm" />
+    <Content Include="Login\CommonHandler.ashx" />
+    <Content Include="Login\CustomerLoginHandler.ashx" />
+    <Content Include="Login\CustomerLogoutHandler.ashx" />
+    <None Include="bootstrap-progressbar\bower.json" />
+    <None Include="bootstrap-progressbar\CHANGELOG.md" />
+    <None Include="bootstrap-progressbar\CONTRIBUTORS.md" />
+    <None Include="bootstrap-progressbar\less\bootstrap-progressbar-2.x.x.less" />
+    <None Include="bootstrap-progressbar\less\bootstrap-progressbar-3.0.0-3.1.x.less" />
+    <None Include="bootstrap-progressbar\less\bootstrap-progressbar-3.2.0.less" />
+    <None Include="bootstrap-progressbar\less\bootstrap-progressbar-3.3.0-3.x.x.less" />
+    <None Include="bootstrap-progressbar\LICENSE" />
+    <None Include="bootstrap-progressbar\package.json" />
+    <None Include="bootstrap-progressbar\Rakefile" />
+    <None Include="bootstrap-progressbar\README.md" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.3\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.3\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.3\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.3\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.4\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.4\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.4\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.0.4\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.1.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.2.2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-2.3.2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0-rc2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.1\LICENSE-MIT" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.2\LICENSE-MIT" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.3\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.3\LICENSE-MIT" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.3\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.3\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.0.3\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.1.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\alerts.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\background-variant.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\border-radius.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\buttons.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\center-block.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\clearfix.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\forms.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\gradients.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\grid-framework.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\grid.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\hide-text.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\image.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\labels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\list-group.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\nav-divider.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\nav-vertical-align.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\opacity.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\pagination.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\panels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\progress-bar.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\reset-filter.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\resize.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\responsive-visibility.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\size.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\tab-focus.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\table-row.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\text-emphasis.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\text-overflow.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\mixins\vendor-prefixes.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.2.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\alerts.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\background-variant.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\border-radius.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\buttons.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\center-block.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\clearfix.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\forms.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\gradients.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\grid-framework.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\grid.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\hide-text.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\image.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\labels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\list-group.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\nav-divider.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\nav-vertical-align.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\opacity.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\pagination.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\panels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\progress-bar.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\reset-filter.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\resize.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\responsive-visibility.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\size.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\tab-focus.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\table-row.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\text-emphasis.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\text-overflow.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\mixins\vendor-prefixes.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.0\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\alerts.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\background-variant.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\border-radius.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\buttons.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\center-block.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\clearfix.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\forms.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\gradients.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\grid-framework.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\grid.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\hide-text.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\image.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\labels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\list-group.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\nav-divider.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\nav-vertical-align.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\opacity.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\pagination.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\panels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\progress-bar.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\reset-filter.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\resize.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\responsive-visibility.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\size.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\tab-focus.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\table-row.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\text-emphasis.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\text-overflow.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\mixins\vendor-prefixes.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.1\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\alerts.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\background-variant.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\border-radius.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\buttons.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\center-block.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\clearfix.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\forms.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\gradients.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\grid-framework.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\grid.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\hide-text.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\image.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\labels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\list-group.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\nav-divider.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\nav-vertical-align.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\opacity.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\pagination.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\panels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\progress-bar.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\reset-filter.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\resize.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\responsive-visibility.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\size.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\tab-focus.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\table-row.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\text-emphasis.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\text-overflow.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\mixins\vendor-prefixes.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.2\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\LICENSE" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\alerts.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\background-variant.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\border-radius.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\buttons.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\center-block.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\clearfix.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\forms.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\gradients.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\grid-framework.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\grid.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\hide-text.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\image.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\labels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\list-group.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\nav-divider.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\nav-vertical-align.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\opacity.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\pagination.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\panels.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\progress-bar.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\reset-filter.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\resize.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\responsive-visibility.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\size.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\tab-focus.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\table-row.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\text-emphasis.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\text-overflow.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\mixins\vendor-prefixes.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\progress-bars.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-3.3.4\variables.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.0.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.0.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.0.2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.0.3.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.0.4.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.1.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.1.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.2.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.2.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.2.2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.3.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.3.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-2.3.2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.0-rc1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.0-rc2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.0.3.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.1.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.1.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.2.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.3.0.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.3.1.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.3.2.less" />
+    <None Include="bootstrap-progressbar\resources\bootstrap-progressbar-3.3.4.less" />
+    <None Include="bootstrap-progressbar\scss\bootstrap-progressbar-2.x.x.scss" />
+    <None Include="bootstrap-progressbar\scss\bootstrap-progressbar-3.0.0-3.1.x.scss" />
+    <None Include="bootstrap-progressbar\scss\bootstrap-progressbar-3.2.0.scss" />
+    <None Include="bootstrap-progressbar\scss\bootstrap-progressbar-3.3.0-3.x.x.scss" />
+    <None Include="bootstrap-progressbar\tasks\char_string_scanner.rb" />
+    <None Include="bootstrap-progressbar\tasks\converter.rb" />
+    <None Include="bootstrap-progressbar\tasks\less_conversion.rb" />
+    <None Include="bootstrap-progressbar\tasks\LICENSE" />
+    <None Include="bootstrap-progressbar\tasks\logger.rb" />
+    <None Include="bootstrap-progressbar\tasks\README.md" />
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap-theme.min.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <None Include="css\Raty\font\fontawesome-webfont.ttf" />
+    <Content Include="Login\DoSomethigHandler.ashx" />
+    <Content Include="Login\CustomerUserNameCheckHandler.ashx" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Upload\BigFileUploadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDemo\AbstractHandler.cs" />
+    <Compile Include="AppDemo\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemo\CommonHandleResult.cs" />
+    <Compile Include="AppDemo\DailyCheckHandler.ashx.cs">
+      <DependentUpon>DailyCheckHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemo\HandleResultConvert.cs" />
+    <Compile Include="AppDemo\TodayReportHandler.ashx.cs">
+      <DependentUpon>TodayReportHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemo\WeekReportHandler.ashx.cs">
+      <DependentUpon>WeekReportHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AppDemo\WeekReportHandleResult.cs" />
+    <Compile Include="Autocomplete\JsonSearch.ashx.cs">
+      <DependentUpon>JsonSearch.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete\search.ashx.cs">
+      <DependentUpon>search.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Autocomplete\TestCityData.cs" />
+    <Compile Include="ClientInfo\ClientInfo.aspx.cs">
+      <DependentUpon>ClientInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientInfo\ClientInfo.aspx.designer.cs">
+      <DependentUpon>ClientInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ImgClassLib\commonfun.cs" />
+    <Compile Include="Common\ImgClassLib\imgcrop.cs" />
+    <Compile Include="Common\ImgClassLib\skeletonize.cs" />
+    <Compile Include="Common\ImgClassLib\uploadfile.cs" />
+    <Compile Include="Common\ImgClassLib\watermark.cs" />
+    <Compile Include="CrossDomain\TestAjax.ashx.cs">
+      <DependentUpon>TestAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Error403.aspx.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error403.aspx.designer.cs">
+      <DependentUpon>Error403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\Error500.aspx.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\Error500.aspx.designer.cs">
+      <DependentUpon>Error500.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Favorite\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favorite\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimeDialog.aspx.cs">
+      <DependentUpon>RunLongTimeDialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimeDialog.aspx.designer.cs">
+      <DependentUpon>RunLongTimeDialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimePage.aspx.cs">
+      <DependentUpon>RunLongTimePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html5\pages\RunLongTimePage.aspx.designer.cs">
+      <DependentUpon>RunLongTimePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jq\BasicInput.aspx.cs">
+      <DependentUpon>BasicInput.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jq\BasicInput.aspx.designer.cs">
+      <DependentUpon>BasicInput.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lazyload\LongTimeImage.aspx.cs">
+      <DependentUpon>LongTimeImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lazyload\LongTimeImage.aspx.designer.cs">
+      <DependentUpon>LongTimeImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNet\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginNet\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNet\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginNet\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginNet\LoginService.cs" />
+    <Compile Include="Login\AbstractHandler.cs" />
+    <Compile Include="Login\CommonHandler.ashx.cs">
+      <DependentUpon>CommonHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\CommonHandleResult.cs" />
+    <Compile Include="Login\CustomerLoginHandler.ashx.cs">
+      <DependentUpon>CustomerLoginHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\CustomerLogoutHandler.ashx.cs">
+      <DependentUpon>CustomerLogoutHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\CustomerUserNameCheckHandler.ashx.cs">
+      <DependentUpon>CustomerUserNameCheckHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\DoSomethigHandler.ashx.cs">
+      <DependentUpon>DoSomethigHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\HandleResultConvert.cs" />
+    <Compile Include="Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginHandleResult.cs" />
+    <Compile Include="Login\LoginInfo.aspx.cs">
+      <DependentUpon>LoginInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\LoginInfo.aspx.designer.cs">
+      <DependentUpon>LoginInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\MyCheckCode.aspx.cs">
+      <DependentUpon>MyCheckCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Map\Aliyun.cs" />
+    <Compile Include="Map\Baidu.cs" />
+    <Compile Include="Map\Test_AliyunMap.aspx.cs">
+      <DependentUpon>Test_AliyunMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Map\Test_AliyunMap.aspx.designer.cs">
+      <DependentUpon>Test_AliyunMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Map\Test_BaiduMap.aspx.cs">
+      <DependentUpon>Test_BaiduMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Map\Test_BaiduMap.aspx.designer.cs">
+      <DependentUpon>Test_BaiduMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoUploadHandler.ashx.cs">
+      <DependentUpon>PhotoUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectOption.cs" />
+    <Compile Include="TestError.aspx.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestError.aspx.designer.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestJsonWebService.asmx.cs">
+      <DependentUpon>TestJsonWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestReWriteUrl.aspx.cs">
+      <DependentUpon>TestReWriteUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestReWriteUrl.aspx.designer.cs">
+      <DependentUpon>TestReWriteUrl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestWebService.asmx.cs">
+      <DependentUpon>TestWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Upload\BigFileUploadHandler.ashx.cs">
+      <DependentUpon>BigFileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\ImgCutHandler.ashx.cs">
+      <DependentUpon>ImgCutHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\ImgThumbHandler.ashx.cs">
+      <DependentUpon>ImgThumbHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\ImgUploadHandler.ashx.cs">
+      <DependentUpon>ImgUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\ImgWaterHandler.ashx.cs">
+      <DependentUpon>ImgWaterHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\TestUpload.aspx.cs">
+      <DependentUpon>TestUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\TestUpload.aspx.designer.cs">
+      <DependentUpon>TestUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\TestUploadBigFile.aspx.cs">
+      <DependentUpon>TestUploadBigFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\TestUploadBigFile.aspx.designer.cs">
+      <DependentUpon>TestUploadBigFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\TestUploadMulFile.aspx.cs">
+      <DependentUpon>TestUploadMulFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\TestUploadMulFile.aspx.designer.cs">
+      <DependentUpon>TestUploadMulFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadLimit.aspx.cs">
+      <DependentUpon>UploadLimit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\UploadLimit.aspx.designer.cs">
+      <DependentUpon>UploadLimit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadPreview.aspx.cs">
+      <DependentUpon>UploadPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\UploadPreview.aspx.designer.cs">
+      <DependentUpon>UploadPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WcfMyDemoService.svc.cs">
+      <DependentUpon>WcfMyDemoService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WcfTestPostService.svc.cs">
+      <DependentUpon>WcfTestPostService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WcfTestService.svc.cs">
+      <DependentUpon>WcfTestService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ZtreeMenuWebService.asmx.cs">
+      <DependentUpon>ZtreeMenuWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\glyphish-icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PhotoUploadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CrossDomain\TestAjax.ashx" />
+    <None Include="html5\Cache\test.appcache" />
+    <Content Include="Upload\ImgCutHandler.ashx" />
+    <Content Include="Upload\ImgUploadHandler.ashx" />
+    <Content Include="Upload\ImgThumbHandler.ashx" />
+    <Content Include="Upload\ImgWaterHandler.ashx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56762</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56762/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

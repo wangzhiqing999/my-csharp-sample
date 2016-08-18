@@ -1,0 +1,34 @@
+﻿<Page x:Class="WPF_0070_Binding.Page010_RelativeSource"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="640"
+	Title="Page010_RelativeSource">
+
+    <StackPanel>
+        
+        <Grid x:Name="g1" Background="Red" Margin="10">
+            <DockPanel x:Name="d1" Background="Orange" Margin="10">
+                <Grid x:Name="g2" Background="Yellow" Margin="10">
+                    <DockPanel x:Name="d2" Background="LawnGreen" Margin="10" >
+                        <!-- 
+                            AncestorLevel 属性指的是 以 Binding 控件为起点的层级偏移量.
+                            AncestorType 属性是告诉 Binding 寻找哪个类型的对象作为自己的源. (不是的将被跳过)
+                        -->
+                        <TextBox x:Name="txtTest1" FontSize="24" Margin="10" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}, AncestorLevel=1}, Path=Name}"/>
+                        <TextBox x:Name="txtTest2" FontSize="24" Margin="10" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Grid}, AncestorLevel=2}, Path=Name}"/>
+
+                        <TextBox x:Name="txtTest3" FontSize="24" Margin="10" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DockPanel}, AncestorLevel=1}, Path=Name}"/>
+                        <TextBox x:Name="txtTest4" FontSize="24" Margin="10" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DockPanel}, AncestorLevel=2}, Path=Name}"/>
+
+                        <!-- Self 是指向自己 -->
+                        <TextBox x:Name="txtTest5" FontSize="24" Margin="10" Text="{Binding RelativeSource={RelativeSource Self}, Path=Name}"/>
+                    </DockPanel>
+                </Grid>                
+            </DockPanel>
+        </Grid>
+        
+    </StackPanel>
+</Page>

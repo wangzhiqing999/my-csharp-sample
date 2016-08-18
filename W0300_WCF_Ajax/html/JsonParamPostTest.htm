@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 简单 Ajax 例子 </title>
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../Scripts/json2.min.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+
+        
+        // 客户端的 对象数据数组.
+        var vLocalUserInfoArray = new Array();
+
+
+        $(document).ready(function () {
+
+
+            // 传递一个对象按钮的 点击处理事件.
+            $("#btnSayHello").click(function () {
+
+                // 首先创建对象.
+                var vUserData = new UserInfo($("#txtUserName").val(), $("#txtPassword").val());
+
+                var vParam = new WcfSayHelloParam(vUserData);
+
+                // 然后，格式化为 Json .
+                var vUserJson = JSON.stringify(vParam);
+
+                alert(vUserJson);
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/SayHello",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: vUserJson,
+                    success: function (data) {
+                        ShowAjaxResult(data.d);
+                    },
+
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+            });
+
+
+
+
+            // 加入临时数组 点击处理事件.
+            $("#btnAddToTemp").click(function () {
+
+                // 首先创建对象.
+                var vUserData = new UserInfo($("#txtOneUserName").val(), $("#txtOnePassword").val());
+
+                // 对象加入临时数组.
+                vLocalUserInfoArray.push(vUserData);
+
+                // 显示临时数组中的数据.
+                ShowTempArrayData();
+            });
+
+
+
+            // 传递一个对象数组 点击处理事件.
+            $("#btnSayHelloAll").click(function () {
+
+                // 将对象数组 格式化为 Json .
+                var vParam = new WcfSayHelloParam(vLocalUserInfoArray);
+                var vUserJson = JSON.stringify(vParam);
+
+                alert(vUserJson);
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/SayHelloAll",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: vUserJson,
+                    success: function (data) {
+                        ShowAjaxResult(data.d);
+                    },
+
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+            });
+
+        });
+
+
+
+
+
+        // 显示  执行结果.
+        function ShowAjaxResult(pResult) {
+            $("#lblCallAjaxResult").html(pResult);
+        }
+
+
+
+        // 显示临时数组中的数据.
+        function ShowTempArrayData() {
+
+            var tmpResult = "";
+            for (var i = 0; i < vLocalUserInfoArray.length; i++) {
+                tmpResult = tmpResult + " Name=" + vLocalUserInfoArray[i].LoginName;
+                tmpResult = tmpResult + " Password=" + vLocalUserInfoArray[i].Password;
+                tmpResult = tmpResult + "; ";
+            }
+
+            $("#lblTempArray").html(tmpResult);
+        }
+
+
+
+
+
+        // 对应于 C# 中的 UserInfo 类
+        // 在 JavaScript 中定义的对象.
+        // 定义的时候， 看上去像是一个 有2个参数的方法。
+        // 实际使用时， 是使用  var vUserData = new UserInfo("","") 的方式来创建对象的.
+        // 请注意， “属性”必须要有  this 关键字， 且属性名称需要与 C# 中的名称一致。
+        function UserInfo(pLoginName, pPassword) {
+
+            // 用户名.
+            this.LoginName = pLoginName;
+
+            // 密码.
+            this.Password = pPassword;
+        }
+
+
+
+        // WCF 服务中， SayHello 方法的参数.
+        function WcfSayHelloParam(pUserInfo) {
+            this.userInfo = pUserInfo;
+        }
+
+
+
+
+    </script>
+
+
+</head>
+
+
+
+<body>
+
+
+<h4>
+简单调用，参数为 json 格式化的对象.
+</h4>
+
+
+  <form id="form1" action="#">
+     <table>
+       
+       <tr>
+         <td>
+           传递一个对象，作为参数.
+           用户名：<input id="txtUserName" type="text" value="admin" />
+           密码：<input id="txtPassword" type="text" value="123456" />
+         </td>
+
+         <td>
+            <input id="btnSayHello" type="button" value="传递一个对象" title="传递一个对象" />
+         </td>
+       </tr>
+
+
+
+
+       <tr>
+
+         <td>
+           传递一个对象数组，作为参数.
+
+           用户名：<input id="txtOneUserName" type="text" value="admin" />
+           密码：<input id="txtOnePassword" type="text" value="123456" />
+           <input id="btnAddToTemp" type="button" value="加入临时数组" />
+           <br/>
+
+           临时数组 : 
+
+           <label id="lblTempArray"></label>
+
+         </td>
+
+
+         <td>
+            <input id="btnSayHelloAll" type="button" value="传递一个对象数组" title="传递一个对象数组" />
+         </td>
+       </tr>
+
+
+
+
+
+
+     </table>
+
+
+
+
+<h4>
+执行结果
+</h4>
+
+     <label id="lblCallAjaxResult"></label>
+
+
+  </form>
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR MoveShape Demo</title>
+    <style>
+        #shape {
+            width: 100px;
+            height: 100px;
+            background-color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/jquery-ui-1.10.3.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script>
+        $(function () {
+
+            var moveShapeHub = $.connection.moveShapeHub,
+                $shape = $("#shape"),
+                // Send a maximum of 10 messages per second
+                // (mouse movements trigger a lot of messages)
+                messageFrequency = 10,
+                // Determine how often to send messages in
+                // time to abide by the messageFrequency
+                updateRate = 1000 / messageFrequency,
+
+                // 矩形的坐标.
+                shapeModel = {
+                    left: 0,
+                    top: 0
+                },
+
+                // 矩形是否发生了移动.
+                moved = false;
+
+
+
+
+            // 这里定义的方法， 就是 服务器将调用 客户端的方法.
+            moveShapeHub.client.updateShape = function (model) {
+                shapeModel = model;
+                // Gradually move the shape towards the new location (interpolate)
+                // The updateRate is used as the duration because by the time
+                // we get to the next location we want to be at the "last" location
+                // We also clear the animation queue so that we start a new
+                // animation and don't lag behind.
+                $shape.animate(shapeModel, { duration: updateRate, queue: false });
+            };
+
+
+            $.connection.hub.start().done(function () {
+
+                // 客户端的 用户拖动矩形的事件处理.
+                $shape.draggable({
+                    drag: function () {
+                        shapeModel = $shape.offset();
+                        moved = true;
+                    }
+                });
+
+
+                // JS的setIntrval函数来设置一个固定速度的循环方法，使用该方法以固定的频率将形状的位置信息发送到服务器。
+                // 这里是为了 避免 “由于每一次移动鼠标都会发送位置信息到服务器端并进行广播，这将大大影响网络流量及程序的性能。”
+
+                // Start the client side server update interval
+                setInterval(updateServerModel, updateRate);
+            });
+
+
+
+            // 这个是需要定时执行的方法.
+            function updateServerModel() {
+
+                // 当move标志位变动时，该函数才将信息传送给服务器。
+                // Only update server if we have a new movement
+                if (moved) {
+
+                    // 这里调用 服务器上面的 方法， 进行相关业务逻辑处理。
+                    moveShapeHub.server.updateModel(shapeModel);
+
+                    // 传递一次后， 就不传了， 除非 矩形 又发生移动了.
+                    moved = false;
+                }
+            }
+        });
+    </script>
+
+    <div id="shape" />
+</body>
+</html>

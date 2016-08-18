@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>  jQuery Mobile 例子
+        </title>
+        
+        
+        <link href="../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+
+
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+
+
+        <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+
+        
+        <script src="my.js">
+        </script>
+    </head>
+    <body>
+
+        <!-- data-role = page  用于定义  一个页面.  -->
+        <div data-role="page" id="divLogin">
+            
+            
+
+            <!--  data-role = header  用于定义一个 顶部标题.  data-theme = a  为 画面样式的定义  -->
+            <div id="divHeader" data-theme="a" data-role="header">
+                <h3>
+                    jQuery Mobile 例子
+                </h3>
+            </div>
+
+
+
+            <!--  data-role = content  用于定义一个 中间内容区域.  -->
+            <div data-role="content">
+
+                <form id="frmMain" action="#">
+
+
+                    <!-- 
+                      这里的 data-role= fieldcontain  表示一个  输入控件组 （提示信息 + 输入框）
+                    -->
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="txtUserName">
+                                用户名
+                            </label>
+
+                            <!--  
+                                placeholder  为用户还没有输入信息时， 在输入框上显示的信息 
+                                             当用户输入信息的时候， 该信息将消失.
+                             -->
+                            <input name="txtUserName" id="txtUserName" 
+                                placeholder="用户名 zhao  密码 123" 
+                                value="" 
+                                type="text" data-mini="true" />
+
+                        </fieldset>
+                    </div>
+
+
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="txtPassword">
+                                密码
+                            </label>
+                            <input name="txtPassword" id="txtPassword" placeholder="" value="" type="password" data-mini="true" />
+                        </fieldset>
+                    </div>
+
+
+
+                    <!--  这里的 fieldset 用于画面布局  两个在一行上的 按钮.   -->
+                    <fieldset class="ui-grid-a">
+	                    <div class="ui-block-a">
+                            <!-- 
+                                data-icon 为 按钮所附带的 图标信息.
+                                data-iconpos 为 按钮 图标的 对齐方向.
+                                data-inline  为 按钮显示方式： 为 false 的时候， 将整行显示
+                            -->
+                            <input id="btnLogin" type="button" data-icon="star" data-iconpos="left"  data-inline="true" value="登录" data-mini="true" />
+
+                        </div>
+
+	                    <div class="ui-block-b">
+                            <input id="btnReset" type="reset" data-icon="delete" data-iconpos="left"  data-inline="true" value="重新输入" data-mini="true" />
+                        </div>
+                    </fieldset>
+
+
+
+
+
+                    
+
+                </form>
+            </div>
+
+
+
+
+            <!--  data-role = footer  用于定义一个 底部标题.  -->
+            <div id="divFooter" data-theme="a" data-role="footer">
+                <h3>
+                    Footer
+                </h3>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $("#btnLogin").bind("click", function (event, ui) {
+
+                    // 获取用户输入信息.
+                    var vUserName = $("#txtUserName").val();
+                    var vPassword = $("#txtPassword").val();
+
+                    // 调用 ajax 
+                    $.ajax({
+                        url: "/WcfMyDemoService.svc/DoLogin",
+                        type: "POST",
+                        contentType: "text/json",
+                        dataType: "json",
+                        data: '{"name":"' + vUserName + '","password":"' + vPassword + '"}',
+                        success: function (data) {
+                            if (data.d != null) {
+                                // 登录成功.
+                                $.mobile.changePage("home.html");
+                            } else {
+                                // 登录失败.
+                                $.mobile.changePage("dialog/LoginError.html");
+                            }
+                        },
+                        error: function (msg) {
+                            // 异常.
+                            $.mobile.changePage("dialog/LoginFail.html");
+                        }
+                    });
+
+
+                });
+
+            });
+
+        </script>
+
+    </body>
+</html>
+

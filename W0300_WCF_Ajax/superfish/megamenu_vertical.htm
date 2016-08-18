@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>复杂-垂直菜单</title>
+
+    <link href="../css/megafish-vertica.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+      html, body, .wrap 
+      {
+        width: 75em;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .wrap {
+        padding: 1em;
+        height: auto;
+        min-height: 90%;
+      }
+      h1 {
+        font-size: 1.125em;
+      }
+      .sf-mega ul {
+        list-style-type: auto;
+        margin: 0;
+        padding-left: 1.2em;
+      }
+      .sf-mega li {
+        margin-left: 0;
+      }
+      .sf-mega h2 {
+        font-size: 1em;
+        margin: .5em 0;
+        color: #13a;
+      }
+      a:focus, a:hover, a:active {
+        text-decoration: none;
+      }
+    </style>
+
+
+
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Scripts/hoverIntent.js" type="text/javascript"></script>
+    <script src="../Scripts/superfish.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var exampleOptions = {
+                speed: 'fast'
+            }
+
+            var example = $('#example').superfish(exampleOptions);
+        })
+
+    </script>
+
+
+</head>
+<body>
+
+
+
+  <ul class="sf-menu" id="example">
+    <li class="current">
+      <a href="#">图书、音像、数字商品</a>
+      <div class="sf-mega">
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>电子书</h2>
+              <ul>
+                <li class="current"><a href="#">免费</a></li>
+                <li><a href="#">小说</a></li>
+                <li><a href="#">励志与成功</a></li>
+                <li><a href="#">婚恋/两性</a></li>
+                <li><a href="#">文学</a></li>
+                <li><a href="#">经营</a></li>
+                <li><a href="#">畅读VIP</a></li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>数字音乐</h2>
+              <ul>
+                <li><a href="#">通俗流行</a></li>
+                <li><a href="#">古典音乐</a></li>
+                <li><a href="#">摇滚说唱</a></li>
+                <li><a href="#">爵士蓝调</a></li>
+                <li><a href="#">乡村民谣</a></li>
+                <li><a href="#">有声读物</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>音像</h2>
+              <ul>
+                <li><a href="#">音乐</a></li>
+                <li><a href="#">影视</a></li>
+                <li><a href="#">教育音乐</a></li>
+                <li><a href="#">游戏</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>文艺</h2>
+              <ul>
+                <li><a href="#">小说</a></li>
+                <li><a href="#">文学</a></li>
+                <li><a href="#">青春文学</a></li>
+                <li><a href="#">传记</a></li>
+                <li><a href="#">艺术</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>人文社科</h2>
+              <ul>
+                <li><a href="#">历史</a></li>
+                <li><a href="#">心理学</a></li>
+                <li><a href="#">政治/军事</a></li>
+                <li><a href="#">国学/古典</a></li>
+                <li><a href="#">哲学/宗教</a></li>
+                <li><a href="#">社会科学</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>经营励志</h2>
+              <ul>
+                <li><a href="#">经济</a></li>
+                <li><a href="#">金融与投资</a></li>
+                <li><a href="#">管理</a></li>
+                <li><a href="#">励志与成功</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+        <table class="sf-mega-section">
+	      <tr>
+            <td>
+              <h2>科技</h2>
+              <ul>
+                <li><a href="#">科普</a></li>
+                <li><a href="#">IT</a></li>
+                <li><a href="#">建筑</a></li>
+                <li><a href="#">医学</a></li>
+                <li><a href="#">工业技术</a></li>
+                <li><a href="#">电子/通信</a></li>
+                <li><a href="#">农林</a></li>
+                <li><a href="#">科学与自然</a></li>
+              </ul>
+              </td>
+	      </tr>
+        </table>
+
+      </div>
+    </li>
+
+
+    <li>
+      <a href="#">家用电器</a>
+      <div class="sf-mega">
+        <div class="sf-mega-section">
+          <h2>大家电</h2>
+          <ul>
+            <li class="current"><a href="#">平板电视</a></li>
+            <li><a href="#">空调</a></li>
+            <li><a href="#">冰箱</a></li>
+            <li><a href="#">洗衣机</a></li>
+            <li><a href="#">家庭影院</a></li>
+            <li><a href="#">DVD</a></li>
+            <li><a href="#">迷你音响</a></li>
+            <li><a href="#">烟机/灶具</a></li>
+            <li><a href="#">热水器</a></li>
+            <li><a href="#">消毒柜/洗碗机</a></li>
+            <li><a href="#">酒柜/冷柜</a></li>
+            <li><a href="#">家电配件</a></li>
+          </ul>
+        </div>
+
+        <div class="sf-mega-section">
+          <h2>生活电器</h2>
+          <ul>
+            <li class="current"><a href="#">电风扇</a></li>
+            <li><a href="#">冷风扇</a></li>
+            <li><a href="#">净化器</a></li>
+            <li><a href="#">饮水机</a></li>
+            <li><a href="#">净水设备</a></li>
+            <li><a href="#">挂烫机/熨斗</a></li>
+            <li><a href="#">吸尘器</a></li>
+            <li><a href="#">除湿/干衣机</a></li>
+            <li><a href="#">加湿器</a></li>
+            <li><a href="#">电话机</a></li>
+            <li><a href="#">插座</a></li>
+            <li><a href="#">收录/音机</a></li>
+
+            <li><a href="#">清洁机</a></li>
+            <li><a href="#">取暖电器</a></li>
+            <li><a href="#">其它生活电器</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="sf-mega-section">
+          <h2>厨房电器</h2>
+          <ul>
+            <li class="current"><a href="#">料理/榨汁机</a></li>
+            <li><a href="#">豆浆机</a></li>
+            <li><a href="#">电饭煲</a></li>
+            <li><a href="#">电压力锅</a></li>
+            <li><a href="#">面包机</a></li>
+
+            <li><a href="#">咖啡机</a></li>
+            <li><a href="#">微波炉</a></li>
+            <li><a href="#">电烤箱</a></li>
+            <li><a href="#">电磁炉</a></li>
+            <li><a href="#">电饼铛/烧烤盘</a></li>
+            <li><a href="#">煮蛋器</a></li>
+            <li><a href="#">酸奶机</a></li>
+            <li><a href="#">电水壶/热水瓶</a></li>
+            <li><a href="#">电炖锅</a></li>
+            <li><a href="#">多用途锅</a></li>
+            <li><a href="#">果蔬解毒机</a></li>
+            <li><a href="#">其它厨房电器</a></li>
+
+          </ul>
+        </div>
+
+        <div class="sf-mega-section">
+          <h2>个护健康</h2>
+          <ul>
+            <li class="current"><a href="#">剃须刀</a></li>
+            <li><a href="#">剃/脱毛器</a></li>
+            <li><a href="#">口腔护理</a></li>
+            <li><a href="#">电吹风</a></li>
+            <li><a href="#">美容</a></li>
+            <li><a href="#">美发</a></li>
+
+            <li><a href="#">按摩器</a></li>
+            <li><a href="#">按摩椅</a></li>
+            <li><a href="#">足浴盆</a></li>
+
+            <li><a href="#">血压计</a></li>
+            <li><a href="#">健康秤/厨房秤</a></li>
+            <li><a href="#">血糖仪</a></li>
+
+            <li><a href="#">体温计</a></li>
+            <li><a href="#">计步器/脂肪检测仪</a></li>
+            <li><a href="#">其它健康电器</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="sf-mega-section">
+          <h2>五金家装</h2>
+          <ul>
+            <li class="current"><a href="#">电动工具</a></li>
+            <li><a href="#">手动工具</a></li>
+            <li><a href="#">仪器仪表</a></li>
+            <li><a href="#">灯具</a></li>
+            <li><a href="#">LED灯</a></li>
+          </ul>
+        </div>
+
+
+      </div>
+    </li>
+    <li>
+      <a href="index.htm">返回</a>
+    </li> 
+  </ul>
+
+
+</body>
+</html>

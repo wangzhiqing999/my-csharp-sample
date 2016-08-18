@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> JqueryUI 按钮 - Checkbox   </title>
+
+    <link href="../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-2.0.3.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.3.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+        var vTempIndex = 5000;
+
+        $(function () {
+
+
+            // 单一的控件， 简单  button()
+            $("#chkRemeber").button();
+
+
+            // 一组 CheckBox, 需要使用一个 div 包含起来，然后做 buttonset();
+            $("#format").buttonset();
+
+
+
+            $("#commentTag").buttonset();
+
+
+
+
+            HideSomeData(10);
+
+
+            // 展开/收起  链接 点击处理事件.
+            $("#aShowHide").click(function () {
+                if ($(this).html() == "展开") {
+                    ShowAllData();
+                    $(this).html("收起");
+                    return;
+                }
+
+                HideSomeData(10);
+                $(this).html("展开");
+            });
+
+
+            // 自己写那里按了回车键以后的处理.
+            $('#txtMyInput').bind('keypress', function (event) {
+                if (event.keyCode == "13" && $(this).val() != "") {
+                    // 追加数据.
+                    AddNewCheckBox($(this).val());
+                    return false;
+                }                
+            });
+
+        });
+
+
+
+        // 隐藏部分数据.
+        function HideSomeData(vTopN) {
+            $("#commentTag").children().each(function (index, element) {
+                if (index > vTopN) {
+                    $(this).hide();
+                }
+            });
+        }
+
+        // 显示全部数据.
+        function ShowAllData() {
+            $("#commentTag").children().each(function() {
+                $(this).show();
+            });
+        }
+
+        // 新增一个选项.
+        function AddNewCheckBox(pNewValue) {
+
+            // 追加数据.
+            vTempIndex = vTempIndex + 1;
+            $("#txtMyInput").before('<input type="checkbox" checked="checked"  name="chkTag" id="mychkTest' + vTempIndex + '"  value="' + pNewValue + '" /><label for="mychkTest' + vTempIndex + '">' + pNewValue + '</label>');
+
+            // 动态新增 Checkbox 之后， 需要重新调用 buttonset() 一下.
+            $("#commentTag").buttonset();
+        }
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+
+<form action="jqui_checkboxes.htm" method="get">
+
+
+<h3> 独立的 CheckBox 显示为按钮 </h3>
+
+
+<input id="chkRemeber" name="chkRemeber" type="checkbox" /><label for="chkRemeber">记住我的设置</label>
+
+
+
+
+
+
+<h3> 一组 CheckBox 显示为按钮 </h3>
+
+
+字体设置：
+<div id="format">
+  <input type="checkbox" id="check1"  name="chkFont" value="B" /><label for="check1">粗体</label>
+  <input type="checkbox" id="check2"  name="chkFont" value="I" /><label for="check2">斜体</label>
+  <input type="checkbox" id="check3"  name="chkFont" value="U" /><label for="check3">下划线</label>
+</div>
+
+
+
+
+
+<h3> 一组 非常大量的 CheckBox 显示为按钮 </h3>
+
+
+<table style="width:600px" >
+  <tr>
+    <td>
+<div id="commentTag">
+<input name="chkTag" type="checkbox" id="mychkTest01"  value="可以刷卡"  /><label for="mychkTest01"> 可以刷卡	 </label>
+<input name="chkTag" type="checkbox" id="mychkTest02"  value="无线上网"  /><label for="mychkTest02"> 无线上网 </label>
+<input name="chkTag" type="checkbox" id="mychkTest03"  value="免费停车"  /><label for="mychkTest03"> 免费停车 </label>
+<input name="chkTag" type="checkbox" id="mychkTest04"  value="有露天位"  /><label for="mychkTest04"> 有露天位 </label>
+<input name="chkTag" type="checkbox" id="mychkTest05"  value="有表演"  /><label for="mychkTest05"> 有表演 </label>
+<input name="chkTag" type="checkbox" id="mychkTest06"  value="可送外卖"  /><label for="mychkTest06"> 可送外卖 </label>
+<input name="chkTag" type="checkbox" id="mychkTest07"  value="供应早餐"  /><label for="mychkTest07"> 供应早餐 </label>
+<input name="chkTag" type="checkbox" id="mychkTest08"  value="有下午茶"  /><label for="mychkTest08"> 有下午茶 </label>
+<input name="chkTag" type="checkbox" id="mychkTest09"  value="供应夜宵"  /><label for="mychkTest09"> 供应夜宵 </label>
+<input name="chkTag" type="checkbox" id="mychkTest10"  value="是老字号"  /><label for="mychkTest10"> 是老字号 </label>
+<input name="chkTag" type="checkbox" id="mychkTest11"  value="24小时营业"  /><label for="mychkTest11"> 24小时营业 </label>
+<input name="chkTag" type="checkbox" id="mychkTest12"  value="有景观位"  /><label for="mychkTest12"> 有景观位 </label>
+<input name="chkTag" type="checkbox" id="mychkTest13"  value="有儿童游乐区"  /><label for="mychkTest13"> 有儿童游乐区 </label>
+<input name="chkTag" type="checkbox" id="mychkTest14"  value="有无烟区"  /><label for="mychkTest14"> 有无烟区 </label>
+<input name="chkTag" type="checkbox" id="mychkTest15"  value="有午市套餐"  /><label for="mychkTest15"> 有午市套餐 </label>
+<input name="chkTag" type="checkbox" id="mychkTest16"  value="有生日优惠"  /><label for="mychkTest16"> 有生日优惠 </label>
+<input name="chkTag" type="checkbox" id="mychkTest17"  value="可自带酒水"  /><label for="mychkTest17"> 可自带酒水 </label>
+<input name="chkTag" type="checkbox" id="mychkTest18"  value="可办大型宴会"  /><label for="mychkTest18"> 可办大型宴会 </label>
+<input name="chkTag" type="checkbox" id="mychkTest19"  value="洋房别墅"  /><label for="mychkTest19"> 洋房别墅 </label>
+<input name="chkTag" type="checkbox" id="mychkTest20"  value="四合院"  /><label for="mychkTest20"> 四合院 </label>
+<input name="chkTag" type="checkbox" id="mychkTest21"  value="可赏西湖"  /><label for="mychkTest21"> 可赏西湖 </label>
+<input name="chkTag" type="checkbox" id="mychkTest22"  value="可观珠江"  /><label for="mychkTest22"> 可观珠江 </label>
+<input name="chkTag" type="checkbox" id="mychkTest23"  value="情侣约会"  /><label for="mychkTest23"> 情侣约会 </label>
+<input name="chkTag" type="checkbox" id="mychkTest24"  value="朋友聚餐"  /><label for="mychkTest24"> 朋友聚餐 </label>
+<input name="chkTag" type="checkbox" id="mychkTest25"  value="家庭聚会"  /><label for="mychkTest25"> 家庭聚会 </label>
+<input name="chkTag" type="checkbox" id="mychkTest26"  value="商务宴请"  /><label for="mychkTest26"> 商务宴请 </label>
+<input name="chkTag" type="checkbox" id="mychkTest27"  value="休闲小憩"  /><label for="mychkTest27"> 休闲小憩 </label>
+<input name="chkTag" type="checkbox" id="mychkTest28"  value="随便吃吃"  /><label for="mychkTest28"> 随便吃吃 </label>
+
+<input type="text" id="txtMyInput" placeholder="自己写" /> <label for="txtMyInput"> 按回车添加 </label>
+</div>
+
+    </td>
+
+    <td>
+    <a id="aShowHide" href="#">展开</a>
+    </td>
+
+  </tr>
+</table>
+
+    
+    
+<input id="Submit1" type="submit" value="提交查看参数设置" />
+
+</form>
+
+
+
+</body>
+</html>

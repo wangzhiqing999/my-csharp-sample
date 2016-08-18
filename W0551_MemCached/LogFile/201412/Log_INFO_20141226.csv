@@ -1,0 +1,27 @@
+"2014-12-26 15:18:34.089","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 张三, 查询到数据 UserName = 张三 Password =  UserType = AdminUser 
+FirendList = [ 李四 王五 赵六 ]
+"
+"2014-12-26 15:20:41.962","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 张三, 查询到数据 UserName = 张三 Password =  UserType = AdminUser 
+FirendList = [ 李四 王五 赵六 ]
+"
+"2014-12-26 15:20:44.373","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 李四, 查询到数据 UserName = 李四 Password =  UserType = NormalUser 
+FirendList = [ 张三 王五 赵六 ]
+"
+"2014-12-26 15:24:09.698","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 王五, 查询到数据 UserName = 王五 Password =  UserType = TestUser 
+FirendList = [ 张三 李四 赵六 ]
+"
+"2014-12-26 15:24:23.424","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 王五, 查询到数据 UserName = 王五 Password =  UserType = TestUser 
+FirendList = [ 张三 李四 赵六 ]
+"
+"2014-12-26 15:31:34.639","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 王五, 查询到数据 UserName = 王五 Password =  UserType = TestUser 
+FirendList = [ 张三 李四 赵六 ]
+"
+"2014-12-26 15:31:40.408","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 赵六, 查询到数据 UserName = 赵六 Password =  UserType = TestUser 
+FirendList = [ 张三 李四 王五 ]
+"
+"2014-12-26 15:53:17.500","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 赵六, 查询到数据 UserName = 赵六 Password =  UserType = TestUser 
+FirendList = [ 张三 李四 王五 ]
+"
+"2014-12-26 15:53:32.780","INFO","W0551_MemCached.ServiceImpl.MemCachedTestDataService","从 MemCahced 中，通过关键字 张三, 查询到数据 UserName = 张三 Password =  UserType = AdminUser 
+FirendList = [ 李四 王五 赵六 ]
+"

@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title> Pie 0006 </title>
+</head>
+<body>
+
+
+
+    <h3>  Pie 0006  </h3>
+
+    <p>
+    环形图
+    </p>
+
+
+    
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <div id="wrong-message"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+ var dataStyle = {
+    normal: {
+        label: {show:false},
+        labelLine: {show:false}
+    }
+};
+var placeHolderStyle = {
+    normal : {
+        color: 'rgba(0,0,0,0)',
+        label: {show:false},
+        labelLine: {show:false}
+    },
+    emphasis : {
+        color: 'rgba(0,0,0,0)'
+    }
+};
+
+
+
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/pie', // 使用饼图就加载pie模块，按需加载
+
+                'echarts/chart/funnel'      // 漏斗图切换时使用.
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    title: {
+                        text: '你幸福吗？',
+                        subtext: 'From ExcelHome',
+                        sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
+                        x: 'center',
+                        y: 'center',
+                        itemGap: 20,
+                        textStyle: {
+                            color: 'rgba(30,144,255,0.8)',
+                            fontFamily: '微软雅黑',
+                            fontSize: 35,
+                            fontWeight: 'bolder'
+                        }
+                    },
+                    tooltip: {
+                        show: true,
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: document.getElementById('main').offsetWidth / 2,
+                        y: 45,
+                        itemGap: 12,
+                        data: ['68%的人表示过的不错', '29%的人表示生活压力很大', '3%的人表示“我姓曾”']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '1',
+                            type: 'pie',
+                            clockWise: false,
+                            radius: [125, 150],
+                            itemStyle: dataStyle,
+                            data: [
+                                {
+                                    value: 68,
+                                    name: '68%的人表示过的不错'
+                                },
+                                {
+                                    value: 32,
+                                    name: 'invisible',
+                                    itemStyle: placeHolderStyle
+                                }
+                            ]
+                        },
+                        {
+                            name: '2',
+                            type: 'pie',
+                            clockWise: false,
+                            radius: [100, 125],
+                            itemStyle: dataStyle,
+                            data: [
+                                {
+                                    value: 29,
+                                    name: '29%的人表示生活压力很大'
+                                },
+                                {
+                                    value: 71,
+                                    name: 'invisible',
+                                    itemStyle: placeHolderStyle
+                                }
+                            ]
+                        },
+                        {
+                            name: '3',
+                            type: 'pie',
+                            clockWise: false,
+                            radius: [75, 100],
+                            itemStyle: dataStyle,
+                            data: [
+                                {
+                                    value: 3,
+                                    name: '3%的人表示“我姓曾”'
+                                },
+                                {
+                                    value: 97,
+                                    name: 'invisible',
+                                    itemStyle: placeHolderStyle
+                                }
+                            ]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+
+
+
+            }
+        );
+
+
+
+        
+
+
+    </script>
+
+</body>
+</html>

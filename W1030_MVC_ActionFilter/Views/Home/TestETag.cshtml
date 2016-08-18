@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "测试 ETag";
+}
+
+<h2>测试 ETag</h2>
+
+
+
+<p>
+本页面，每分钟的数据不同。
+在同一分钟里， 内容是一致的。
+
+<br />
+@DateTime.Now.ToString("yyyy-MM-dd HH:mm")
+    
+</p>
+
+<div>
+
+验证方式： Google Chorme 浏览器。
+F12
+选中 Network 选项卡。
+
+
+F5 刷新页面。
+
+能观察到，会有两种情况。
+
+<ul>
+    <li> Status = 200，  Size = 较大的数值。 </li>
+    <li> Status = 304，  Size = 较小的数值。 </li>
+</ul>
+
+
+
+</div>
+
+
+
+

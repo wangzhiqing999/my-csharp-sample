@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Footers
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Footer 例子  </h1>
+
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+
+    </div>  <!-- /header -->
+
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+      
+
+        <h2> 默认的 footer </h2>
+
+        <p>
+<pre>
+<span class="nt">&lt;div</span> <strong><span class="na">data-role=</span><span class="s">"footer"</span></strong><span class="nt">&gt;</span> 
+	<span class="nt">&lt;h4&gt;</span>Footer content<span class="nt">&lt;/h4&gt;</span> 
+<span class="nt">&lt;/div&gt;</span> 
+</pre> 
+
+			<div data-role="footer">
+				<h4>Footer content</h4>
+			</div>
+			
+        
+        </p>
+
+
+
+        <h2> 追加按钮. </h2>
+
+
+        <p>
+<pre><code>
+&lt;div data-role=&quot;footer&quot; <strong>class=&quot;ui-bar&quot;</strong>&gt;
+	&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;plus&quot;&gt;Add&lt;/a&gt;
+	&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-u&quot;&gt;Up&lt;/a&gt;
+	&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-d&quot;&gt;Down&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>        
+        
+
+			<div data-role="footer" class="ui-bar">
+				<a href="index.html" data-icon="plus">Add</a>
+				<a href="index.html" data-icon="arrow-u">Up</a>
+				<a href="index.html" data-icon="arrow-d">Down</a>
+			</div>
+
+        </p>
+
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+
+
+</body>
+</html>

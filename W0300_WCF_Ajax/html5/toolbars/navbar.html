@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        navbar
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Navbar 例子  </h1>
+
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+
+        <h2> 简单的 Navbar </h2>
+
+        <p>
+<pre><code>
+<strong>&lt;div data-role=&quot;navbar&quot;&gt;</strong>
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;a.html&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+<strong>&lt;/div&gt;&lt;!-- /navbar --&gt;</strong>
+</code></pre>
+
+
+
+<div data-role="navbar">
+	<ul>
+		<li><a href="#">One</a></li>
+		<li><a href="#">Two</a></li>
+	</ul>
+</div><!-- /navbar -->
+
+        </p>
+
+
+
+        
+        <h2> 有默认值的 Navbar </h2>
+
+        <p>
+<pre><code>
+<strong>&lt;div data-role=&quot;navbar&quot;&gt;</strong>
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;a.html&quot; <strong>class=&quot;ui-btn-active ui-state-persist&quot;</strong>&gt;One&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+<strong>&lt;/div&gt;&lt;!-- /navbar --&gt;</strong>
+</code></pre>
+
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active">One</a></li>
+				<li><a href="#">Two</a></li>
+			</ul>
+		</div><!-- /navbar -->
+        
+        </p>
+
+
+
+        <h2> 当选项的数值比较大的时候. </h2>
+
+
+        <p> 三个 </p>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active">One</a></li>
+				<li><a href="#">Two</a></li>
+				<li><a href="#">Three</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+        
+        <p> 四个 </p>
+		<div data-role="navbar" data-grid="c">
+			<ul>
+				<li><a href="#" class="ui-btn-active">One</a></li>
+				<li><a href="#">Two</a></li>
+				<li><a href="#">Three</a></li>
+				<li><a href="#">Four</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+
+        <p> 五个 </p>
+		<div data-role="navbar" data-grid="d">
+			<ul>
+				<li><a href="#" class="ui-btn-active">One</a></li>
+				<li><a href="#">Two</a></li>
+				<li><a href="#">Three</a></li>
+				<li><a href="#">Four</a></li>
+				<li><a href="#">Five</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+
+
+         <p> 大于五个将自动换行 </p>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active">One</a></li>
+				<li><a href="#">Two</a></li>
+				<li><a href="#">Three</a></li>
+				<li><a href="#">Four</a></li>
+				<li><a href="#">Five</a></li>
+				<li><a href="#">Six</a></li>
+				<li><a href="#">Seven</a></li>
+				<li><a href="#">Eight</a></li>
+			</ul>
+		</div><!-- /navbar -->
+
+
+
+
+        <h2> Navbars in headers </h2>
+
+
+	    <div data-role="header">
+		    <h1>I'm a header</h1>
+		    <a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>
+				
+		    <div data-role="navbar">
+			    <ul>
+				    <li><a href="#">One</a></li>
+				    <li><a href="#">Two</a></li>
+				    <li><a href="#">Three</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /header -->        
+
+
+
+
+
+        <h2>Navbars in footers</h2>
+
+	    <div data-role="footer">		
+		    <div data-role="navbar">
+			    <ul>
+				    <li><a href="#">One</a></li>
+				    <li><a href="#">Two</a></li>
+				    <li><a href="#">Three</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /footer -->
+
+
+
+
+
+        <h2> Navbars 中的图标 </h2>
+
+	    <div data-role="footer">
+		    <div data-role="navbar">
+			    <ul>
+				    <li><a href="#" data-icon="grid">Summary</a></li>
+				    <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+				    <li><a href="#" data-icon="gear">Setup</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /footer -->
+
+
+        <h3> 图标靠下 </h3>
+<pre><code>
+&lt;div data-role=&quot;navbar&quot; <strong>data-iconpos=&quot;bottom&quot;</strong>&gt;
+</code></pre>
+
+	    <div data-role="footer">
+		    <div data-role="navbar" data-iconpos="bottom">
+			    <ul>
+				    <li><a href="#" data-icon="grid">Summary</a></li>
+				    <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+				    <li><a href="#" data-icon="gear">Setup</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /footer -->
+
+
+
+        <h3> 图标靠左 </h3>
+<pre><code>
+&lt;div data-role=&quot;navbar&quot; <strong>data-iconpos=&quot;left&quot;</strong>&gt;
+</code></pre>
+
+	    <div data-role="footer">
+		    <div data-role="navbar" data-iconpos="left">
+			    <ul>
+				    <li><a href="#" data-icon="grid">Summary</a></li>
+				    <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+				    <li><a href="#" data-icon="gear">Setup</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /footer -->
+
+
+
+        <h3> 图标靠右 </h3>
+<pre><code>
+&lt;div data-role=&quot;navbar&quot; <strong>data-iconpos=&quot;right&quot;</strong>&gt;
+</code></pre>
+
+	    <div data-role="footer">
+		    <div data-role="navbar" data-iconpos="right">
+			    <ul>
+				    <li><a href="#" data-icon="grid">Summary</a></li>
+				    <li><a href="#" data-icon="star" class="ui-btn-active">Favs</a></li>
+				    <li><a href="#" data-icon="gear">Setup</a></li>
+			    </ul>
+		    </div><!-- /navbar -->
+	    </div><!-- /footer -->
+
+
+
+
+        <h3> 使用 第三方的图标库 </h3>
+
+	    <style>	
+		    .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+		    .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+		    #chat .ui-icon { background:  url(/Content/glyphish-icons/09-chat2.png) 50% 50% no-repeat; background-size: 24px 22px; }
+		    #email .ui-icon { background:  url(/Content/glyphish-icons/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
+		    #beer .ui-icon { background:  url(/Content/glyphish-icons/88-beermug.png) 50% 50% no-repeat;  background-size: 22px 27px; }
+		    #coffee .ui-icon { background:  url(/Content/glyphish-icons/100-coffee.png) 50% 50% no-repeat;  background-size: 20px 24px; }
+		    #skull .ui-icon { background:  url(/Content/glyphish-icons/21-skull.png) 50% 50% no-repeat;  background-size: 22px 24px; }
+	    </style>
+	
+	    <div data-role="footer" class="nav-glyphish-example">
+		    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+		    <ul>
+			    <li><a href="#" id="chat" data-icon="custom">Chat</a></li>
+			    <li><a href="#" id="email" data-icon="custom">Email</a></li>
+			    <li><a href="#" id="skull" data-icon="custom">Danger</a></li>
+			    <li><a href="#" id="beer" data-icon="custom">Beer</a></li>
+			    <li><a href="#" id="coffee" data-icon="custom">Coffee</a></li>
+		    </ul>
+		    </div>
+	    </div>
+
+
+
+
+    </div> <!-- /content -->
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+
+
+
+
+</body>
+</html>

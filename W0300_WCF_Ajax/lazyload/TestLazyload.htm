@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>  使用延迟加载显示图片  </title>
+
+    <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.lazyload.js" type="text/javascript"></script>
+
+
+<script>
+    $(function () {
+        $("img.lazy").lazyload({
+            placeholder: "../Content/images/ajax-loader.gif",
+            effect: "fadeIn",
+            threshold: 200
+        });
+    });
+</script>
+
+</head>
+<body>
+
+
+  <table>
+    <tr>
+      <td>
+          <img alt="10000" class="lazy"  data-original="LongTimeImage.aspx?NO=10000" width="400" height="200"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10001" class="lazy"  data-original="LongTimeImage.aspx?NO=10001" width="400" height="200" />
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+          <img alt="10002" class="lazy"    data-original="LongTimeImage.aspx?NO=10002" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10003" class="lazy"    data-original="LongTimeImage.aspx?NO=10003" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10004" class="lazy"    data-original="LongTimeImage.aspx?NO=10004" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10005" class="lazy"    data-original="LongTimeImage.aspx?NO=10005" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10006" class="lazy"    data-original="LongTimeImage.aspx?NO=10006" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10007" class="lazy"   data-original="LongTimeImage.aspx?NO=10007" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10008" class="lazy"    data-original="LongTimeImage.aspx?NO=10008" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10009" class="lazy"    data-original="LongTimeImage.aspx?NO=10009" width="400" height="200" />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+          <img alt="10010" class="lazy"    data-original="LongTimeImage.aspx?NO=10010" width="400" height="200" />
+      </td>
+    </tr>
+
+</table>
+
+
+
+</body>
+</html>

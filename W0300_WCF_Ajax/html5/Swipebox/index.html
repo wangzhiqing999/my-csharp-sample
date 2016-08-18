@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Swipebox 例子
+    </title>
+    <script src="lib/ios-orientationchange-fix.js"></script>
+    <script src="lib/jquery-2.1.0.min.js"></script>
+    <script src="src/js/jquery.swipebox.js"></script>
+
+
+    <link rel="stylesheet" href="src/css/swipebox.css">
+	<link rel="stylesheet" href="demo/normalize.css">
+	<link rel="stylesheet" href="demo/bagpakk.min.css">
+	<link rel="stylesheet" href="demo/style.css">
+
+             
+    <link href="../../jquery.mobile-1.4.4/jquery.mobile-1.4.4.css" rel="stylesheet" type="text/css" />        
+    <script src="../../jquery.mobile-1.4.4/jquery.mobile-1.4.4.js" type="text/javascript"></script>        
+
+
+	<script type="text/javascript">
+	    ; (function ($) {
+
+	        /* Basic Gallery */
+	        $('.swipebox').swipebox();
+
+	    })(jQuery);
+	</script>
+
+</head>
+
+
+<body>
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> Swipebox 例子  </h1>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+
+
+	<section id="exemple" class="container">
+		<div class="wrap small-width">
+			<div id="try"></div>
+			<ul id="box-container">
+				<li class="box">
+					<a href="images/image-1.jpg" class="swipebox" title="照片一的描述">
+						<img src="images/image-1_s.jpg" alt="image">
+					</a>
+				</li>
+				<li class="box">
+					<a href="images/image-2.jpg" class="swipebox" title="照片二的描述">
+						<img src="images/image-2_s.jpg" alt="image">
+					</a>
+				</li>
+				<li class="box">
+					<a href="images/image-3.jpg" class="swipebox" title="照片三的描述">
+						<img src="images/image-3_s.jpg" alt="image">
+					</a>
+				</li>
+				<li class="box">
+					<a href="images/image-4.jpg" class="swipebox" title="照片四的描述">
+						<img src="images/image-4_s.jpg" alt="image">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+
+    </div> <!-- /content -->
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,989 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery 拖动 </title>
+
+
+    <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.jsmartdrag.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+            js = $(".drag-source").jsmartdrag({
+                target: '.BookingRoom',
+                afterDrag: afterDrag
+            });
+
+        });
+
+
+        function afterDrag(selected, currentObj, targetSelected) {
+            if (selected) {
+                
+                // 源用户名.
+                var vSourceClientname = currentObj.attr("clientname");
+
+                // 目标 所在行的 Tr.
+                var vTargetTr = targetSelected.parent("tr");
+
+                // 目标时间
+                var vTargetTimeRange = vTargetTr.children().first().html();
+
+
+                // 目标所在列.
+                var vIndex = targetSelected.index();
+                var vTitle = $(".BookingTableHead");
+
+                // 目标会议室.
+                var vTargetRoomName = vTitle.children().eq(vIndex).html();
+
+
+
+                var vMessage = "确定要把" + vSourceClientname + "的预约，移动到" + vTargetRoomName + "的" + vTargetTimeRange + "时间段么？";
+
+                if (confirm(vMessage)) {
+                    alert("开始处理！！！");
+
+
+                    targetSelected.append(currentObj);
+
+                }
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+
+
+
+
+
+
+    <table class="BookingTable table" border="1">
+        <tr class="BookingTableHead">
+            <th class="BookingTime"> 时间 </th>
+
+                <th class="BookingRoomTitle"> 
+                    测试会议室1
+                </th>
+                <th class="BookingRoomTitle"> 
+                    测试会议室2
+                </th>
+                <th class="BookingRoomTitle"> 
+                    测试会议室3
+                </th>
+                <th class="BookingRoomTitle"> 
+                    测试会议室4
+                </th>
+                <th class="BookingRoomTitle"> 
+                    测试会议室5
+                </th>
+
+            <th class="BookingTime"> 时间 </th>
+        </tr>
+
+
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    10:00
+                </td>
+
+                    <td class="BookingRoom"> 
+                        <div class="drag-source" bookid="9150" clientname="业务经理A" style="border-style: solid">
+                            业务经理A
+                        </div>
+                    </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    10:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    10:15
+                </td>
+
+                    <td class="BookingRoom"> 
+                        <div class="drag-source" bookid="9150" clientname="业务经理B" style="border-style: solid">
+                            业务经理B
+                        </div>
+                    </td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    10:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    10:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    10:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    10:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    10:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    11:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    11:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    11:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    11:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    11:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    11:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    11:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    11:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    12:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    12:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    12:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    12:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    12:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    12:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    12:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    12:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    13:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    13:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    13:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    13:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    13:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    13:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    13:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    13:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    14:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    14:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    14:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    14:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    14:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    14:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    14:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    14:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    15:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    15:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    15:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    15:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    15:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    15:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    15:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    15:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    16:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    16:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    16:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    16:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    16:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    16:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    16:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    16:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    17:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    17:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    17:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    17:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    17:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    17:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    17:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    17:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    18:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    18:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    18:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    18:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    18:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    18:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    18:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    18:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    19:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    19:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    19:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    19:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    19:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    19:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    19:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    19:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    20:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    20:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    20:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    20:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    20:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    20:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    20:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    20:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    21:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    21:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    21:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    21:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    21:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    21:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    21:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    21:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    22:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    22:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    22:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    22:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    22:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    22:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    22:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    22:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    23:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    23:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    23:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    23:15
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    23:30
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    23:30
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    23:45
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    23:45
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    次日00:00
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    次日00:00
+                </td>
+            </tr>
+            <tr class="BookingTableDetail">
+                <td class="BookingTime"> 
+                    次日00:15
+                </td>
+
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+                    <td class="BookingRoom"> &nbsp;</td>
+
+                <td class="BookingTime"> 
+                    次日00:15
+                </td>
+            </tr>
+
+
+
+
+
+    </table>
+
+
+
+
+
+
+
+
+</body>
+</html>

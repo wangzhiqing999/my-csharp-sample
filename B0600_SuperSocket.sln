@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0601_SuperSocket_TelnetServer", "B0601_SuperSocket_TelnetServer\B0601_SuperSocket_TelnetServer.csproj", "{E51B4BEE-317D-41F7-968C-A02067827E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0602_SuperSocket_TelnetServer", "B0602_SuperSocket_TelnetServer\B0602_SuperSocket_TelnetServer.csproj", "{E631FEF6-DC00-42F9-8F74-4D08DE345C30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E51B4BEE-317D-41F7-968C-A02067827E88}.Debug|x86.ActiveCfg = Debug|x86
+		{E51B4BEE-317D-41F7-968C-A02067827E88}.Debug|x86.Build.0 = Debug|x86
+		{E51B4BEE-317D-41F7-968C-A02067827E88}.Release|x86.ActiveCfg = Release|x86
+		{E51B4BEE-317D-41F7-968C-A02067827E88}.Release|x86.Build.0 = Release|x86
+		{E631FEF6-DC00-42F9-8F74-4D08DE345C30}.Debug|x86.ActiveCfg = Debug|x86
+		{E631FEF6-DC00-42F9-8F74-4D08DE345C30}.Debug|x86.Build.0 = Debug|x86
+		{E631FEF6-DC00-42F9-8F74-4D08DE345C30}.Release|x86.ActiveCfg = Release|x86
+		{E631FEF6-DC00-42F9-8F74-4D08DE345C30}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

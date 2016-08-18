@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionServer", "SYNC001_ProvisionServer\ProvisionServer.csproj", "{D214433B-87CE-46D7-BFB6-766C83A5059C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionClient", "SYNC002_ProvisionClient\ProvisionClient.csproj", "{9F01E751-B9B1-49D2-9864-CA03ED09D9B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteExpressSync", "SYNC003_ExecuteExpressSync\ExecuteExpressSync.csproj", "{9B3FDB5D-4868-4119-9345-19FC450A424A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionServerWithFilteredScope", "SYNC011_ProvisionServerWithFilteredScope\ProvisionServerWithFilteredScope.csproj", "{A8334BCD-CB6D-4E3E-B39C-BEDF6230760E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionFilteredScopeClient", "SYNC012_ProvisionFilteredScopeClient\ProvisionFilteredScopeClient.csproj", "{066577B2-C4E9-4DAB-96F0-FAD5EA7BF974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteExpressFilteredSync", "SYNC013_ExecuteExpressFilteredSync\ExecuteExpressFilteredSync.csproj", "{970B2F2B-293F-4CE3-AAA0-B6FCF3C448DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D214433B-87CE-46D7-BFB6-766C83A5059C}.Debug|x86.ActiveCfg = Debug|x86
+		{D214433B-87CE-46D7-BFB6-766C83A5059C}.Debug|x86.Build.0 = Debug|x86
+		{D214433B-87CE-46D7-BFB6-766C83A5059C}.Release|x86.ActiveCfg = Release|x86
+		{D214433B-87CE-46D7-BFB6-766C83A5059C}.Release|x86.Build.0 = Release|x86
+		{9F01E751-B9B1-49D2-9864-CA03ED09D9B3}.Debug|x86.ActiveCfg = Debug|x86
+		{9F01E751-B9B1-49D2-9864-CA03ED09D9B3}.Debug|x86.Build.0 = Debug|x86
+		{9F01E751-B9B1-49D2-9864-CA03ED09D9B3}.Release|x86.ActiveCfg = Release|x86
+		{9F01E751-B9B1-49D2-9864-CA03ED09D9B3}.Release|x86.Build.0 = Release|x86
+		{9B3FDB5D-4868-4119-9345-19FC450A424A}.Debug|x86.ActiveCfg = Debug|x86
+		{9B3FDB5D-4868-4119-9345-19FC450A424A}.Debug|x86.Build.0 = Debug|x86
+		{9B3FDB5D-4868-4119-9345-19FC450A424A}.Release|x86.ActiveCfg = Release|x86
+		{9B3FDB5D-4868-4119-9345-19FC450A424A}.Release|x86.Build.0 = Release|x86
+		{A8334BCD-CB6D-4E3E-B39C-BEDF6230760E}.Debug|x86.ActiveCfg = Debug|x86
+		{A8334BCD-CB6D-4E3E-B39C-BEDF6230760E}.Debug|x86.Build.0 = Debug|x86
+		{A8334BCD-CB6D-4E3E-B39C-BEDF6230760E}.Release|x86.ActiveCfg = Release|x86
+		{A8334BCD-CB6D-4E3E-B39C-BEDF6230760E}.Release|x86.Build.0 = Release|x86
+		{066577B2-C4E9-4DAB-96F0-FAD5EA7BF974}.Debug|x86.ActiveCfg = Debug|x86
+		{066577B2-C4E9-4DAB-96F0-FAD5EA7BF974}.Debug|x86.Build.0 = Debug|x86
+		{066577B2-C4E9-4DAB-96F0-FAD5EA7BF974}.Release|x86.ActiveCfg = Release|x86
+		{066577B2-C4E9-4DAB-96F0-FAD5EA7BF974}.Release|x86.Build.0 = Release|x86
+		{970B2F2B-293F-4CE3-AAA0-B6FCF3C448DC}.Debug|x86.ActiveCfg = Debug|x86
+		{970B2F2B-293F-4CE3-AAA0-B6FCF3C448DC}.Debug|x86.Build.0 = Debug|x86
+		{970B2F2B-293F-4CE3-AAA0-B6FCF3C448DC}.Release|x86.ActiveCfg = Release|x86
+		{970B2F2B-293F-4CE3-AAA0-B6FCF3C448DC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

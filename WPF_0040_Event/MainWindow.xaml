@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPF_0040_Event.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="376" Width="783">
+    <Grid>
+
+        <Label x:Name="lblTest" Content="-" HorizontalAlignment="Left" Margin="282,310,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Height="26"/>
+
+        <Button x:Name="btnTest" Content="Test" HorizontalAlignment="Left" Margin="264,272,0,0" VerticalAlignment="Top" Width="75" Click="btnTest_Click" Grid.Column="1" Height="22" />
+
+        <Label Content="WinForm 当中，  按钮事件， 可以通过双击按钮，  自动产生事件代码。然后去写按钮的处理代码。&#xA;&#xA;WPF 里面， 双击按钮就变成 编辑文字信息了。&#xD;&#xA;需要像 WinForm 里面的， 先在属性窗口那里，  切换到  事件的 Tab，然后双击 事件，  产生代码， 进行编辑处理.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;WinForm 设计过程中， 拖控件， 会自动为控件命名， 顺序是  1,2,3,4,5... 这样的顺序&#xD;&#xA;&#xD;&#xA;WPF 里面， 拖控件，  默认没用名称。 开发者可以根据需要，  仅仅对那些需要命名的控件，  进行命名。&#xD;&#xA;最终会在 xaml 文件里面，  生成  x:Name= ......的相关 xaml 内容   " HorizontalAlignment="Left" Margin="1,19,0,0" VerticalAlignment="Top" Height="203" Width="719" Grid.Column="1"/>
+
+    </Grid>
+</Window>

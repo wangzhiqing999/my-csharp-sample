@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        search 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1>search 输入框  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+
+
+        <h2> 基本  </h2>
+
+<pre><code>	
+&lt;label for=&quot;search-basic&quot;&gt;Search Input:&lt;/label&gt;
+&lt;input type=&quot;search&quot; name=&quot;search&quot; id=&quot;search-basic&quot; value=&quot;&quot; /&gt;
+</code></pre>	
+
+        <p> 显示效果 </p>
+
+        <label for="search-basic">Search Input:</label>
+        <input type="search" name="search" id="search-basic" value="" />
+
+
+
+
+        <h2> 迷你版本  </h2>
+
+<pre><code>	
+&lt;label for=&quot;search-mini&quot;&gt;Search Input:&lt;/label&gt;
+&lt;input type=&quot;search&quot; name=&quot;search-mini&quot; id=&quot;search-mini&quot; value=&quot;&quot; <strong>data-mini=&quot;true&quot;</strong> /&gt;
+</code></pre>
+
+        <p> 显示效果 </p>
+
+		<label for="search-mini">Search Input:</label>
+		<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+
+
+
+
+
+
+
+        <h2> Field containers </h2>
+
+<pre><code>	
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>    &lt;label for=&quot;search-2&quot;&gt;Search Input:&lt;/label&gt;
+    &lt;input type=&quot;search&quot; name=&quot;search-2&quot; id=&quot;search-2&quot; value=&quot;&quot; /&gt;
+<strong>&lt;/div&gt;
+</strong></code></pre>	
+
+
+        <p> 显示效果 </p>
+
+        <div data-role="fieldcontain">
+            <label for="search-2">Search Input:</label>
+            <input type="search" name="search-2" id="search-2" value="" />
+        </div>
+
+
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<Page x:Class="WPF_0090_Command.Page002_CommandParameter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page002_CommandParameter">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Name:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" />
+        <TextBox x:Name="txtName" Margin="60,0,0,0" Grid.Row="0" />
+        
+        <Button Content="New Teacher" Command="New" CommandParameter="Teacher" Grid.Row="2" />
+        <Button Content="New Student" Command="New" CommandParameter="Student" Grid.Row="4" />
+        
+        <ListBox x:Name="lstResult" Grid.Row="6" />
+        
+    </Grid>
+
+    <!-- 为页面添加 CommandBindings -->
+    <Page.CommandBindings>
+        <CommandBinding Command="New" CanExecute="New_CanExecute" Executed="New_Executed" />
+    </Page.CommandBindings>
+    
+</Page>

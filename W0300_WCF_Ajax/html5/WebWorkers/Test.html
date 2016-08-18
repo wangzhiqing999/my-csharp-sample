@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML>
+<html manifest="test.appcache">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        HTML 5 Web Workers
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+
+<body>
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> HTML 5 Web Workers 例子  </h1>
+
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+
+    </div>  <!-- /header -->
+
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+
+
+    <a href="#" id="btnStart" data-role="button" data-icon="check"> 开始 </a>
+
+    <a href="#" id="btnStop" data-role="button" data-icon="delete"> 结束 </a>
+
+
+    <div data-role="fieldcontain">
+        <label for="name"> 测试数据 :</label>
+        <input type="text" name="txtValue" id="txtValue" value=""  />
+    </div>	
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+    <div data-role="footer">
+        <h3>
+            Footer
+        </h3>
+    </div>  <!-- /footer -->
+
+
+</div><!-- /page -->
+
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#btnStart").bind("click", function (event, ui) {
+            startWorker();
+        });
+
+
+        $("#btnStop").bind("click", function (event, ui) {
+            stopWorker();
+        });
+
+    });
+
+
+    
+    var w;
+
+
+    function startWorker() {
+
+        // 在创建 web worker 之前，检测用户的浏览器是否支持
+        if (typeof (Worker) !== "undefined") {
+
+            if (typeof (w) == "undefined") {
+                w = new Worker("/html5/WebWorkers/demo_workers.js");
+            }
+
+
+            // 向 web worker 添加一个 "onmessage" 事件监听器：
+            w.onmessage = function (event) {
+                $("#txtValue").val( event.data );
+            };
+
+        }
+        else {
+            $("#txtValue").val("对不起，您的浏览器不支持 Web Workers...");
+        }
+    }
+
+
+
+    function stopWorker() {
+        // 终止 Web Worker
+        w.terminate();
+    }
+
+</script>
+
+
+
+</body>
+</html>
+

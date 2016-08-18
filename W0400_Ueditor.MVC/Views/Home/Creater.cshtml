@@ -1,0 +1,37 @@
+﻿@model W0400_Ueditor.MVC.Models.EditData
+@{
+    ViewBag.Title = "Creater";
+}
+
+<h2>Creater</h2>
+
+
+
+<script src="/ueditor/ueditor.config.js" type="text/javascript"></script>
+
+<script src="/ueditor/ueditor.all.min.js" type="text/javascript"></script>
+
+<script src="/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript"></script>
+
+
+
+
+@using (Html.BeginForm("Editor", "Home", FormMethod.Post))
+{
+    
+
+    <script name="editor" id="editor" type="text/plain" style="width:1024px;height:400px;"></script>
+    <hr />
+
+    <button type="submit">
+        保存
+    </button>
+}
+
+
+<script>
+
+    var ue = UE.getEditor('editor');
+
+
+</script>

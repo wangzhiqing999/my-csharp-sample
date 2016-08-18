@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 简单 Ajax 例子 </title>
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+    
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+
+
+            // 返回一个对象 按钮的 点击处理事件.
+            $("#btnGetUser").click(function () {
+
+                // 获取用户输入的参数.
+                var vParam = $("#txtUserName").val();
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/GetUser",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: '{"userName":"' + vParam + '"}',
+                    success: function (data) {
+
+                        if (data.d == null) {
+                            ShowAjaxResult("名称为 " + vParam + " 的用户不存在！");
+                        } else {
+                            ShowAjaxResult("用户名：" + data.d.LoginName + "; 密码：" + data.d.Password + "; 电话：" + data.d.Phone);
+                        }
+
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+
+
+            });
+
+
+
+            // 返回一个对象列表 按钮的 点击处理事件.
+            $("#btnGetAllUser").click(function () {
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/GetAllUser",
+                    type: "POST",
+                    success: function (data) {
+                        var vTempResult = "";                        
+                        for(var i = 0; i < data.d.length; i ++) {
+                            vTempResult = vTempResult + "用户名：" + data.d[i].LoginName + "; 密码：" + data.d[i].Password + "; 电话：" + data.d[i].Phone + "<br/>";
+                        }
+                        ShowAjaxResult(vTempResult);                        
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+
+            });
+
+
+
+
+
+
+            // 返回一个 Dictionary 对象 按钮的 点击处理事件.
+            $("#btnGetAllUserDictionary").click(function () {
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/GetAllUserDictionary",
+                    type: "POST",
+                    success: function (data) {
+                        var vTempResult = "";
+                        for (var i = 0; i < data.d.length; i++) {
+                            vTempResult = vTempResult + "用户名：" + data.d[i].Key + "; 电话：" + data.d[i].Value + "<br/>";
+                        }
+                        ShowAjaxResult(vTempResult);
+                    },
+                    error: function (msg) {
+                        ShowAjaxResult(msg.responseText);
+                    }
+                });
+
+            });
+
+
+
+
+
+
+        });
+
+
+
+
+
+        // 显示  执行结果.
+        function ShowAjaxResult(pResult) {
+            $("#lblCallAjaxResult").html(pResult);
+        }
+
+    </script>
+
+
+
+
+</head>
+
+
+<body>
+
+<h4>
+简单调用，返回结果为 json 格式化的对象.
+</h4>
+
+
+  <form id="form1" action="#">
+     <table>
+       <tr>
+         <td>  需要查询的用户名：<input id="txtUserName" type="text" value="zhao" />   </td>
+         <td> <input id="btnGetUser" type="button" value="返回一个对象" title="返回一个对象" /> </td>
+       </tr>
+
+
+
+       <tr>
+         <td> 返回所有的用户 不需要输入查询条件 </td>
+         <td> <input id="btnGetAllUser" type="button" value="返回一个对象列表" title="返回一个对象列表" /> </td>
+       </tr>
+
+
+     </table> 
+
+
+
+
+
+
+<hr />
+
+<h4>
+简单调用，返回结果为 Json  格式化的 Dictionary 数据 .
+</h4>
+
+     <table>
+       <tr>
+         <td> 返回所有的用户 不需要输入查询条件 </td>
+         <td> <input id="btnGetAllUserDictionary" type="button" value="返回一个 Dictionary 对象" title="返回一个 Dictionary 对象" /> </td>
+       </tr>
+     </table> 
+
+
+
+
+
+<h4>
+执行结果
+</h4>
+
+     <label id="lblCallAjaxResult"></label>
+
+
+  </form>
+
+
+
+</body>
+
+</html>

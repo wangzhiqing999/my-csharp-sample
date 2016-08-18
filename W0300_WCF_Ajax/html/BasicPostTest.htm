@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title> 简单 Ajax 例子 </title>
+
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+            // 按钮1的 点击处理事件.
+            $("#btnGetServerDate").click(function () {
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/DoWork",
+                    type: "POST",
+                    success: function (data) {
+                        ShowAjaxResult(data.d);
+                    },
+
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                })
+            });
+
+
+            // 按钮2的 点击处理事件.
+            $("#btnGetServerDate2").click(function () {
+                
+                // 获取用户输入的参数.
+                var vParam = $("#txtParam2").val();
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/DoWork2",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: '{"hello":"' + vParam + '"}',
+                    success: function (data) {
+                        ShowAjaxResult(data.d);
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                })
+            });
+
+
+
+            // 按钮3的 点击处理事件.
+            $("#btnGetServerDate3").click(function () {
+
+                // 获取用户输入的参数.
+                var vParamA = $("#txtParam3a").val();
+                var vParamB = $("#txtParam3b").val();
+
+                // 调用 ajax 
+                $.ajax({
+                    url: "/WcfTestPostService.svc/DoWork3",
+                    type: "POST",
+                    contentType: "text/json",
+                    dataType: "json",
+                    data: '{"hello":"' + vParamA + '","world":"' + vParamB + '"}',
+                    success: function (data) {
+                        ShowAjaxResult(data.d);
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                })
+            });
+
+        })
+
+
+
+        // 显示  执行结果.
+        function ShowAjaxResult(pResult) {
+            $("#lblCallAjaxResult").html(pResult);
+        }
+
+    </script>
+
+</head>
+
+
+<body>
+
+<h4>
+简单调用，获取普通字符串类型的结果
+（使用 Post 方式， 传递 json 数据）
+</h4>
+
+
+
+  <form id="form1" action="#">
+     
+     <table>
+     
+
+       <tr>
+
+         <td>
+           不传递任何参数的例子
+         </td>
+
+         <td>         
+           <input id="btnGetServerDate" type="button" value="简单调用" title="显示服务器上的时间" />
+         </td>
+       
+       </tr>
+
+
+       <tr>
+         <td>
+            传递1个参数：
+             <input id="txtParam2" type="text" value="12345" />
+         </td>
+
+         <td>
+
+         <input id="btnGetServerDate2" type="button" value="简单调用2" title="显示服务器上的时间" />
+
+         </td>
+       
+       </tr>
+
+
+
+
+       <tr>
+
+         <td>
+         传递2个参数：
+
+         <input id="txtParam3a" type="text" value="12345" />
+         <input id="txtParam3b" type="text" value="67890" />
+
+         </td>
+       
+         <td>
+
+         <input id="btnGetServerDate3" type="button" value="简单调用3" title="显示服务器上的时间" />
+     
+
+         </td>
+       </tr>
+
+     
+     </table>
+         
+
+<h4>
+执行结果
+</h4>
+
+     <label id="lblCallAjaxResult"></label>
+
+  </form>
+
+
+<p>
+
+    <strong>注意事项：</strong>
+
+使用 POST 方式， 将忽略 cache 的设置。
+也就是 每一次 POST， 都会将数据传递到服务器， 本地不会做缓存处理。
+
+
+<br/>
+
+可对比一下  GET 与 POST 的2个页面。 
+<br/>
+GET 页面中， 如果参数是一样的，按了一次按钮，以后， 重复再按一次按钮， 结果将不发生变化，因为 结果被缓存了。
+<br/>
+而 POST 页面中，参数是一样的，按了一次按钮，以后， 重复再按一次按钮，结果是不断变化的。因为客户端不缓存。
+
+
+
+</p>
+
+
+</body>
+</html>

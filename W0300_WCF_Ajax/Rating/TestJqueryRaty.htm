@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Jquery  Raty 测试.  </title>
+
+    <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+
+    <!-- 从 https://github.com/wbotelhos/raty/ 下载.   -->
+    <script src="../lib/jquery.raty.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+
+
+
+
+    $(function () {
+
+        //  这里是全局设置:
+
+        // 提示信息.
+        $.fn.raty.defaults.hints = ['很差', '较差', '一般', '良好', '优秀'];
+        // 图片所在目录.
+        $.fn.raty.defaults.path = '/css/Raty/img';
+        // 一半的图片.
+        $.fn.raty.defaults.starHalf = 'star-half-big.png'
+        // 关闭图标
+        $.fn.raty.defaults.starOff = 'star-off-big.png',
+        // 打开图标.
+        $.fn.raty.defaults.starOn = 'star-on-big.png',
+        // 图片大小（太小会导致换行）
+        $.fn.raty.defaults.size = 30;
+
+
+
+
+
+        // raty 方法 参数里面的是  局部设置.
+        $('#testAll').raty({
+            // 保存选择项目的， 是哪一个名字，该名字用于向后台提交数据时使用.
+            scoreName: "testAll",
+
+            // 选择的时候， 提示信息显示到哪里去.
+            target: '#testAllTitle',
+
+            // 选择以后，提示信息依然保持显示.
+            targetKeep: true,
+
+            // 初始化，没有选择的情况下， 提示信息显示什么文字.
+            targetText: '--'
+        });
+
+
+
+        $('#testService').raty({
+            scoreName: "testService"
+        });
+
+        $('#testEnvironmental').raty({
+            scoreName: "testEnvironmental"
+        });
+
+        $('#testTraffic').raty({
+            scoreName: "testTraffic"
+        });
+
+
+
+
+        $("#btnSubmit").click(function () {
+            $("#lblResult").html($(this.form).serialize() || '(nothing submitted)');
+
+
+
+            var vSumData = ($("[name='testAll']").val() * 1)
+                        + ($("[name='testService']").val() * 1)
+                        + ($("[name='testEnvironmental']").val() * 1)
+                        + ($("[name='testTraffic']").val() * 1);
+            vSumData = vSumData / 4.0;
+
+            alert(vSumData);
+
+
+            $('#divSum').raty({
+                // 数据是小数.
+                score: vSumData,
+                // 只读.
+                readOnly: true
+            });
+        });
+
+
+
+
+
+        $(".result_star").raty({
+            // 只读.
+            readOnly: true,
+            // 数据来自 data-score 属性值.
+            score: function () {
+                return $(this).attr('data-score');
+            }
+        });
+
+
+
+
+
+        // 每个图片显示效果不一样.
+        $("#divDiffPic").raty({
+            iconRange: [
+                { range: 1, on: 'number_1.png', off: 'coins.png' },
+                { range: 2, on: 'number_2.png', off: 'coins.png' },
+                { range: 3, on: 'number_3.png', off: 'coins.png' },
+                { range: 4, on: 'coin_yuan.png', off: 'coins.png' },
+                { range: 5, on: 'coin_euro.png', off: 'coins.png' }
+              ]
+        });
+
+
+
+
+        // 每个图片显示效果不一样. 并且只显示被选择的项目。
+        $("#divDiffPicSingle").raty({
+            iconRange: [
+                { range: 1, on: 'number_1.png', off: 'coins.png' },
+                { range: 2, on: 'number_2.png', off: 'coins.png' },
+                { range: 3, on: 'number_3.png', off: 'coins.png' },
+                { range: 4, on: 'coin_yuan.png', off: 'coins.png' },
+                { range: 5, on: 'coin_euro.png', off: 'coins.png' }
+              ],
+
+            single: true 
+        });
+
+
+    });
+</script>
+
+
+</head>
+<body>
+
+
+
+<form action="#">
+
+
+
+
+<table border="0">
+  <tr>
+    <td> 总体  </td>
+    <td>
+        <div id="testAll" class="star" ></div>
+    </td>
+    <td>
+        <div id="testAllTitle"></div>
+    </td>
+  </tr>
+
+  
+
+  <tr>
+    <td> 服务  </td>
+    <td>
+        <div id="testService" class="star"></div>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td> 环境  </td>
+    <td>
+        <div id="testEnvironmental" class="star"></div>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td> 交通  </td>
+    <td>
+        <div id="testTraffic" class="star"></div>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td colspan="2" style="text-align: center"> 
+        <input id="btnSubmit" type="button" value="模拟提交" /> </td>
+  </tr>
+
+
+  <tr>
+    <td colspan="2" style="text-align: center">
+    <label id ="lblResult"></label>
+    </td>
+  </tr>
+
+</table>
+ 
+
+
+
+
+ </form>
+
+
+
+
+ <hr />
+
+ 统计只读效果：
+
+
+ 统计结果：
+   <div id="divSum" class="star"></div>
+
+
+
+
+
+
+
+<hr />
+
+
+<h3> 数据列表中的只读效果： </h3>
+
+
+<table>
+
+  <tr>
+    <td> 评分对象1 </td>
+    <td> <div id="div1" class="result_star" data-score="4"></div> </td>
+  </tr>
+
+  <tr>
+    <td> 评分对象2 </td>
+    <td> <div id="div2" class="result_star" data-score="3.6"></div> </td>
+  </tr>
+
+  <tr>
+    <td> 评分对象3 </td>
+    <td> <div id="div3" class="result_star" data-score="4.4"></div> </td>
+  </tr>
+
+</table>
+
+
+
+
+
+<hr />
+
+每个选择，显示得不一样
+
+   <div id="divDiffPic" class="star"></div>
+
+
+
+<hr />
+
+每个选择，显示得不一样, 并且只显示被选择的项目。
+
+   <div id="divDiffPicSingle" class="star"></div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+CACHE MANIFEST
+## 在此标题下列出的文件将在首次下载后进行缓存
+/Content/jquery.mobile-1.2.0.min.css
+/Scripts/jquery-1.8.2.min.js
+/Scripts/jquery.mobile-1.2.0.min.js
+/html5/images/album-bb.jpg
+/html5/images/album-hc.jpg
+/html5/dialog/dialog.html
+/html5/dialog/LoginFail.html
+/html5/Cache/TestCache.html
+
+NETWORK 
+## 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+## 可以使用星号来指示所有其他其他资源/文件都需要因特网连接
+*
+
+
+FALLBACK
+## 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）

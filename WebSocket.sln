@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W2001_WebSocket_Fleck", "W2001_WebSocket_Fleck\W2001_WebSocket_Fleck.csproj", "{829392E1-1943-4E24-BD15-6269FE1C42D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W2002_WebSocket4Net_Client", "W2002_WebSocket4Net_Client\W2002_WebSocket4Net_Client.csproj", "{61113076-AC34-4E35-AB64-FAD86C1E2EEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{829392E1-1943-4E24-BD15-6269FE1C42D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829392E1-1943-4E24-BD15-6269FE1C42D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829392E1-1943-4E24-BD15-6269FE1C42D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829392E1-1943-4E24-BD15-6269FE1C42D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61113076-AC34-4E35-AB64-FAD86C1E2EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61113076-AC34-4E35-AB64-FAD86C1E2EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61113076-AC34-4E35-AB64-FAD86C1E2EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61113076-AC34-4E35-AB64-FAD86C1E2EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,49 @@
+﻿<Page x:Class="WPF_0100_Resource.Page001_BasicResource"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page001_BasicResource">
+
+    
+    <Page.Resources>
+        <sys:String x:Key="testString">
+            测试在 Page 中定义资源.
+        </sys:String>
+        <sys:Double x:Key="testDouble">3.1415926</sys:Double>
+
+        <sys:String x:Key="testString3">
+            测试在 Page 中定义资源. 与 StackPanel 中定义的资源重名。
+        </sys:String>
+    </Page.Resources>
+    
+    
+    <StackPanel >
+        <StackPanel.Resources>
+            <sys:String x:Key="testString2">
+                测试在 StackPanel 中定义资源.
+            </sys:String>
+
+            <sys:String x:Key="testString3">
+                测试在 StackPanel 中定义资源. 与 Page 中定义的资源重名。
+            </sys:String>
+        </StackPanel.Resources>
+
+        <!-- 检索资源时， 先查找控件自己的 Resource 属性， 如果没有，会沿着逻辑树向上一级控件查找。一直查询到顶层。-->
+
+        <TextBlock Text="{StaticResource testString}" Margin="5" Background="LightBlue" />
+        <TextBlock Text="{StaticResource testString2}" Margin="5" Background="LightBlue" />
+
+        <TextBlock Text="{StaticResource testString3}" Margin="5" Background="LightBlue">
+            <TextBlock.Resources>
+                <sys:String x:Key="testString3">
+                    测试在 TextBlock 中定义资源.
+                </sys:String>
+            </TextBlock.Resources>
+        </TextBlock>
+        
+    </StackPanel>
+</Page>

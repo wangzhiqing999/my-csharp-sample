@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery  CheckBox 联动 处理机制  </title>
+    
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 首先，初始化 市的数据.
+            $.ajax({
+                url: "/WcfMyDemoService.svc/GetAllCity",
+                type: "get",
+                success: function (data) {
+                    // 遍历返回的数据结果.
+                    for (var i = 0; i < data.d.length; i++) {
+                        // 追加 Option 选项.
+                        $("#ddlCity").append("<option value='" +
+                        data.d[i].OptionValue + "'>" +
+                        data.d[i].OptionText + "</option>");
+                    }
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+
+
+
+
+            // 市 下拉列表发生变化的时候， 联动更新 区县.
+            $("#ddlCity").change(function () {
+
+                // 首先获取 本次选择了哪一个  市
+                var selectedRefCity = $("#ddlCity").val();
+
+                // 初始化 区县. ( 参数为  市)
+                InitDistric(selectedRefCity);
+            });
+
+        })
+
+
+
+
+        // 初始化 区县. ( 参数为  市)
+        function InitDistric(pCity) {
+
+            // 清空 区县 Select， 先追加一个 “ ”
+            $("#ddlDistric").empty();
+            $("#ddlDistric").append("<option value=''>  </option>");
+
+            if (pCity != "") {
+
+                // 执行 ajax 查询.
+                $.ajax({
+                    url: "/WcfMyDemoService.svc/GetCityDistrict",
+                    type: "get",
+                    async: false,
+                    data: "cityid=" + pCity,
+                    success: function (data) {
+
+                        // 遍历返回的数据结果.
+                        for (var i = 0; i < data.d.length; i++) {
+                            // 追加 Option 选项.
+                            $("#ddlDistric").append("<option value='" +
+                                data.d[i].OptionValue + "'>" +
+                                data.d[i].OptionText + "</option>");
+                        }
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+
+<table>
+
+  <tr>
+
+    <td> 市: </td>
+    <td style="width:200px">
+        <select id="ddlCity" name="ddlCity" style="width:85%">
+            <option></option>
+        </select>  
+    </td>
+
+    <td> 区: </td>
+    <td style="width:200px"> 
+        <select id="ddlDistric" name="ddlDistric" style="width:85%">
+            <option></option>
+        </select>  
+    </td>
+
+  </tr>
+
+</table>
+
+
+
+</body>
+</html>

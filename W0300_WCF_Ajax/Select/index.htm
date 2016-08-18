@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+    <style>
+        .MySelectImg 
+        {
+            max-width: 32px;
+            max-height: 32px;
+        }
+        .MySelectText
+        {
+            width : 64px;
+        }
+        
+        #MySelectList
+        {
+            width:200px;
+            border-style:solid;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+            // 点击下拉列表.
+            $("#MySelect").click(function () {
+                $("#MySelectList").show();
+            });
+
+
+            // 下拉列表选择.
+            $(".MySelectItem").click(function () {
+                $("#MySelectList").hide();
+
+                var vSelectImg = $(this).find("img");
+                var vSelectText = $(this).find("span");
+
+                $("#MySelectedImg").attr("src", vSelectImg.attr("src"));
+                $("#MySelectedText").html(vSelectText.html());
+
+                $("#imgUser").val(vSelectText.attr("code"));
+            });
+
+
+            // 测试提交 
+            $("#btnTestSubmit").click(function () {
+
+                var selectVal1 = $("#normalUser").val();
+                var selectVal2 = $("#imgUser").val();
+
+                var result = "普通 Select 选择了 " + selectVal1 + ", 带图片的 Select 选择了 " + selectVal2
+
+                $("#submitResult").html(result);
+            });
+        });
+
+    </script>
+
+</head>
+
+
+<body>
+
+<h3>普通 Select </h3>
+
+    <select id="normalUser" name="normalUser">
+        <option value="001"> 支援型布兰奇芙蓉 </option>
+        <option value="002"> 第二型卡多 </option>
+        <option value="003"> 特异型罗宾汉 </option>
+        <option value="005"> 支援型律涅特 </option>
+        <option value="006"> 特异型维尔薇尤 </option>
+        <option value="007"> 特异型达芬奇 </option>
+    </select>
+
+
+<hr />
+
+<h3>带图片的 Select </h3>
+
+   
+    <table>
+        <tr>
+          <td> 用户 </td>
+
+          <td>
+            <div>  
+                <img id="MySelectedImg" class="MySelectImg" src="full_thumbnail_chara_100_horo.png" /> 
+                <span id="MySelectedText" class="MySelectText">支援型布兰奇芙蓉</span>
+                <img id="MySelect" src="intro.png" />
+                <input type="hidden" id="imgUser" name="imgUser" >
+            
+                <ul id="MySelectList" style="display:none;">
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_100_horo.png" /> <span code="001">支援型布兰奇芙蓉</span> </li>
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_105_horo.png" /> <span code="002">第二型卡多</span> </li>
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_27_horo.png" />  <span code="003">特异型罗宾汉</span> </li>
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_49_horo.png" />  <span code="005">支援型律涅特</span> </li>
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_56_horo.png" />  <span code="006">特异型维尔薇尤</span> </li>
+                    <li class="MySelectItem"> <img class="MySelectImg" src="full_thumbnail_chara_96_horo.png" />  <span code="007">特异型达芬奇</span> </li>
+                </ul>
+            </div>
+
+            
+            
+            
+          </td>
+        </tr>
+
+        <tr>
+            <td> 性别 </td>
+            <td> 
+                <select id="userSex" name="userSex">
+                    <option value="1"> 男 </option>
+                    <option value="2"> 女 </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    
+
+
+
+    <input id="btnTestSubmit" type="button" value="测试用户提交" />
+
+
+    <span id="submitResult"></span>
+
+</body>
+
+
+
+
+</html>

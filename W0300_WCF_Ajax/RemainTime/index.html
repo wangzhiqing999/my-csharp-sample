@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+
+   <script type="text/javascript">
+
+       /*-------------------------------------------*/
+       var InterValObj; //timer变量，控制时间
+       var count = 10; //间隔函数，1秒执行
+       var curCount; //当前剩余秒数
+
+
+
+       function sendMessage() {
+           //设置button效果，开始计时
+           curCount = count;
+           $("#btnSendCode").attr("disabled", "true");
+           $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+           InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+       }
+
+
+       //timer处理函数
+       function SetRemainTime() {
+           if (curCount == 0) {
+               window.clearInterval(InterValObj); //停止计时器
+               $("#btnSendCode").removeAttr("disabled"); //启用按钮
+               $("#btnSendCode").val("重新发送验证码");
+           }
+           else {
+               curCount--;
+               $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+           }
+       }
+    </script>
+</head>
+
+
+<body>
+        <input id="btnSendCode" type="button" value="发送验证码" onclick="sendMessage()" />
+</body>
+
+
+
+</html>

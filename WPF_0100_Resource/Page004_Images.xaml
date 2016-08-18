@@ -1,0 +1,15 @@
+﻿<Page x:Class="WPF_0100_Resource.Page004_Images"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page004_Images">
+
+    <StackPanel>
+        <Label Content="图片资源 需要注意： 图片文件要设置成：不复制。 生成操作为：Resource"/>
+
+        <Image x:Name="imgTest" Source="Images/month_7_26_pic.gif"  />
+    </StackPanel>
+</Page>

@@ -1,0 +1,22 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <p> Razor 的 Each, 写法 与 SSVE 不同！  </p>
+
+    @foreach (var item in Model)
+    {
+    <p>@item</p>
+    }
+
+
+
+
+</body>
+</html>

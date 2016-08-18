@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0650_EF_SqlServer", "A0650
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0650_EF_Oracle", "A0650_EF_Oracle\A0650_EF_Oracle.csproj", "{FF41C39D-EFA1-4934-BA64-434D5E55040E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0660_EF_MySql", "A0660_EF_MySql\A0660_EF_MySql.csproj", "{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -67,6 +69,10 @@ Global
 		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Debug|x86.Build.0 = Debug|x86
 		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Release|x86.ActiveCfg = Release|x86
 		{FF41C39D-EFA1-4934-BA64-434D5E55040E}.Release|x86.Build.0 = Release|x86
+		{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}.Debug|x86.ActiveCfg = Debug|x86
+		{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}.Debug|x86.Build.0 = Debug|x86
+		{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}.Release|x86.ActiveCfg = Release|x86
+		{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        footer  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+
+<body>
+
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> footer 页面导航例子  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        <p>
+        Friends  测试页面
+        </p>
+
+
+    </div> <!-- /content -->
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="footer-persist-a.html" data-prefetch="true" >Info</a></li>
+				<li><a href="footer-persist-b.html" data-prefetch="true" data-transition="slideup" class="ui-btn-active ui-state-persist">Friends</a></li>
+				<li><a href="footer-persist-c.html" data-prefetch="true">Albums</a></li>
+				<li><a href="footer-persist-d.html" data-prefetch="true">Emails</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+
+
+</div><!-- /page -->
+
+
+
+
+</body>
+</html>

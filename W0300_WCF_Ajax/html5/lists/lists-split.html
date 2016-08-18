@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        按钮列表显示
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 按钮列表显示  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+
+    <h2> 按钮列表 </h2>
+
+
+		<div class="content-primary">	
+
+
+		<ul data-role="listview" data-split-icon="gear" data-split-theme="d">
+			
+            <li><a href="#">
+				<img src="../images/album-bb.jpg" />
+				<h3>Broken Bells</h3>
+				<p>Broken Bells</p>
+				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			</li>
+
+
+			<li><a href="#">				
+				<img src="../images/album-hc.jpg" />
+				<h3>Warning</h3>
+				<p>Hot Chip</p>
+				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			</li>
+
+
+			<li><a href="#">
+				<img src="../images/album-p.jpg" />
+				<h3>Wolfgang Amadeus Phoenix</h3>
+				<p>Phoenix</p>
+				</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+			</li>
+
+		</ul>
+		
+		<div data-role="popup" id="purchase" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:340px;">
+			<h3>Purchase Album?</h3>
+			<p>Your download will begin immediately on your mobile device when you purchase.</p>
+			<a href="#" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true">Buy: $10.99</a>
+			<a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancel</a>	
+		</div>
+		
+		</div>
+
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>
+
+

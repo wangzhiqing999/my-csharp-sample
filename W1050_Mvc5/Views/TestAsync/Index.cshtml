@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<ul>
+
+    <li>
+        @Html.ActionLink(linkText: "不使用 async  的处理.", actionName: "WithoutAsync")
+    </li>
+    <li>
+        @Html.ActionLink(linkText: "使用 Task.WaitAll  的处理.", actionName: "UseTaskWaitAll")
+    </li>
+
+
+
+    <li>
+        @Html.ActionLink(linkText: "使用 async  的处理.", actionName: "WithAsync")
+    </li>
+    <li>
+        @Html.ActionLink(linkText: "使用 Task.WhenAll  的处理.", actionName: "UseTaskWhenAll")
+    </li>
+
+
+</ul>

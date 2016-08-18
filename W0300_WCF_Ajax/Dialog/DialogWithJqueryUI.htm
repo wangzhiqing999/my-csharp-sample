@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 使用 jqueryUI 创建的对话框 </title>
+
+
+    <link href="../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jquery-2.0.3.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.3.js" type="text/javascript"></script>
+
+
+
+	<script type="text/javascript">
+
+	    $(function () {
+
+
+
+	        // 这里是  定义对话框
+	        // 请注意关键的  autoOpen: false
+	        $("#dialog-basic").dialog({
+	            autoOpen: false,
+	        });
+
+	        $("#openBasicDialog").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-basic").dialog("open");
+	            return false;
+	        });
+
+
+
+
+
+	        // 这里是  定义对话框
+	        // 请注意关键的  
+            //    show: "blind",
+	        //    hide: "explode"
+	        $("#dialog-animated").dialog({
+	            autoOpen: false,
+	            show: "blind",
+	            hide: "explode"
+	        });
+
+	        $("#openAnimatedDialog").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-animated").dialog("open");
+	            return false;
+	        });
+
+	        
+
+
+
+
+
+
+
+	        // 这里是  定义对话框
+	        // 请注意关键的  modal: true
+	        $("#dialog-modal").dialog({
+	            autoOpen: false,
+	            // 模式对话框
+	            modal: true
+	        });
+
+	        $("#openModalDialog").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-modal").dialog("open");
+	            return false;
+	        });
+
+
+
+
+
+
+
+	        // 这里是  定义对话框
+	        // 请注意关键的  buttons
+	        $("#dialog-button").dialog({
+	            autoOpen: false,
+	            // 模式对话框
+	            modal: true,
+                // 不允许变更对话框大小.
+			    resizable: false,
+                // 对话框大小.
+			    height:140,
+			    
+                // 对话框按钮.
+			    buttons: {
+				    "确认": function() {
+					    alert (" 您选择了 确认 ...");
+					    $( this ).dialog( "close" );
+				    },
+				    Cancel: function() {
+					    alert (" 您选择了 Cancel ...");
+					    $( this ).dialog( "close" );
+				    }
+			    }
+	        });
+
+	        $("#openButtonDialog").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-button").dialog("open");
+	            return false;
+	        });
+
+
+
+
+
+
+
+            
+            // 日期输入的设置.
+            $( "#datepicker" ).datepicker();
+
+
+            // 这里是  定义对话框
+	        $("#dialog-with-datepicker").dialog({
+	            autoOpen: false,
+	            // 模式对话框
+	            modal: true
+	        });
+
+	        $("#openDatepickerDialog").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-with-datepicker").dialog("open");
+
+                
+                
+	            return false;
+	        });
+
+
+
+
+
+
+            // 日期输入的设置.
+            // 注意：  这里的  showOn: "button"
+            // 就是点了按钮， 才显示 选择日期选择的对话框。
+            // 默认是  showOn: "focus" ， 也就是获得输入焦点了， 就显示选择日期选择的对话框。
+            // 结果就会发生， 对话框一打开， 第一个控件是 datepicker， 然后获得输入焦点了。 
+            // 然后就把日期对话框弹出了。
+            $( "#datepicker2" ).datepicker( { showOn: "button" } );
+
+
+            // 这里是  定义对话框
+	        $("#dialog-with-datepicker2").dialog({
+	            autoOpen: false,
+	            // 模式对话框
+	            modal: true
+	        });
+
+	        $("#openDatepickerDialog2").click(function () {
+	            // 这里是 显示对话框.
+	            $("#dialog-with-datepicker2").dialog("open");
+
+                
+                
+	            return false;
+	        });
+
+	    });
+
+
+	</script>
+
+</head>
+
+
+
+<body>
+
+
+
+
+<div>
+
+  <ul>
+  
+    <li>
+      <button id="openBasicDialog"> 打开基本的对话框 </button>
+    </li>
+  
+
+    <li>
+      <button id="openAnimatedDialog"> 打开带有动画效果的对话框 </button>
+    </li>
+
+
+
+    <li>
+      <button id="openModalDialog"> 打开模式对话框 </button>
+    </li>
+
+
+
+
+    <li>
+      <button id="openButtonDialog"> 打开带按钮的对话框 </button>
+    </li>
+
+
+
+
+    <li>
+      <button id="openDatepickerDialog"> 打开带日期输入的对话框 </button>
+    </li>
+
+
+    <li>
+      <button id="openDatepickerDialog2"> 打开带日期输入的对话框 ( 通过设置日期样式，不自动弹出对话框 ) </button>
+    </li>
+
+
+
+  </ul>
+
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="dialog-basic" title="基本的对话框">
+  <p> 我是一个最简单的对话框. </p>
+</div>
+
+
+
+<div id="dialog-animated" title="基本的对话框(动画效果)">
+  <p> 我是一个最简单的对话框.(动画效果) </p>
+</div>
+
+
+
+<div id="dialog-modal" title="模式对话框">
+<p> 我是一个模式对话框 </p>
+模式对话框 意味着必须关掉当前对话框， 才能做后面页面的操作。
+</div>
+
+
+
+
+<div id="dialog-button" title="带按钮的对话框">
+  <p> 我是一个带按钮的对话框 </p>
+</div>
+
+
+
+
+
+
+
+<div id="dialog-with-datepicker" title="首个控件是日期的对话框">
+  <p> 我是一个首个控件是日期的对话框 </p>
+  本对话框用于检测， 对话框打开时， 如果第一个控件是 datepicker， 是否会自动触发 datepicker 对话框打开！
+
+  <br />
+
+<p>测试日期: <input type="text" id="datepicker" />  </p>
+
+<p>测试人: <input type="text" id="testUser" />  </p>
+
+
+</div>
+
+
+
+
+<div id="dialog-with-datepicker2" title="首个控件是日期的对话框">
+  <p> 我是一个首个控件是日期的对话框 </p>
+  本对话框用于检测， 对话框打开时， 如果第一个控件是 datepicker， 是否会自动触发 datepicker 对话框打开！
+
+  <br />
+
+<p>测试日期: <input type="text" id="datepicker2" />  </p>
+
+<p>测试人: <input type="text" id="testUser2" />  </p>
+
+这里使用 showOn: "button" 的办法来解决.
+
+</div>
+
+
+
+
+
+</body>
+</html>

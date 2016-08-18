@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        嵌套列表显示
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 嵌套列表显示  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+
+
+    <h2> 嵌套列表 </h2>
+
+    <p> 
+      嵌套列表就是在 一个 html 文件中， 定义了 数型结构的 列表信息。
+      画面上点击树枝节点，将迁移到该节点的子节点.
+    </p>
+
+
+
+<div class="content-primary">	
+		<ul data-role="listview">
+			<li>
+				<h3>Animals</h3>
+				<p>All your favorites from aarkvarks to zebras.</p>
+			
+				<ul>
+					<li><div>Pets</div>
+						<span class="ui-li-count">6</span>
+						<ul>
+							<li><a href="#">Canary</a></li>
+							<li><a href="#">Cat</a></li>
+							<li><a href="#">Dog</a></li>
+							<li><a href="#">Gerbil</a></li>
+							<li><a href="#">Iguana</a></li>
+							<li><a href="#">Mouse</a></li>
+						</ul>
+					</li>
+					<li><div>Farm animals</div>
+						<p class="ui-li-count">6</p>
+						<ul>
+							<li><a href="#">Chicken</a></li>
+							<li><a href="#">Cow</a></li>
+							<li><a href="#">Duck</a></li>
+							<li><a href="#">Horse</a></li>
+							<li><a href="#">Pig</a></li>
+							<li><a href="#">Sheep</a></li>
+						</ul>
+					</li>
+					<li><div>Wild animals</div>
+						<p class="ui-li-count">18</p>
+						<ul>
+							<li><a href="#">Aardvark</a></li>
+							<li><a href="#">Alligator</a></li>
+							<li><a href="#">Ant</a></li>
+							<li><a href="#">Bear</a></li>
+							<li><a href="#">Beaver</a></li>
+							<li><a href="#">Cougar</a></li>
+							<li><a href="#">Dingo</a></li>
+							<li><a href="#">Eagle</a></li>
+							<li><a href="#">Elephant</a></li>
+							<li><a href="#">Ferret</a></li>
+							<li><a href="#">Frog</a></li>
+							<li><a href="#">Giraffe</a></li>
+							<li><a href="#">Lion</a></li>
+							<li><a href="#">Monkey</a></li>
+							<li><a href="#">Panda bear</a></li>
+							<li><a href="#">Polar bear</a></li>
+							<li><a href="#">Tiger</a></li>
+							<li><a href="#">Zebra</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+
+				<h3>Colors</h3>
+				<p>Fresh colors from the magic rainbow.</p>
+	
+				<ul>
+					<li><a href="#">Blue</a></li>
+					<li><a href="#">Green</a></li>
+					<li><a href="#">Orange</a></li>
+					<li><a href="#">Purple</a></li>
+					<li><a href="#">Red</a></li>
+					<li><a href="#">Yellow</a></li>
+					<li><a href="#">Violet</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3>Vehicles</h3>
+				<p>Everything from cars to planes.</p>
+				
+				<ul>
+					<li><div>Cars</div>
+						<span class="ui-li-count">22</span>
+						<ul>
+							<li><a href="#">Acura</a></li>
+							<li><a href="#">Audi</a></li>
+							<li><a href="#">BMW</a></li>
+							<li><a href="#">Cadillac</a></li>
+							<li><a href="#">Chrysler</a></li>
+							<li><a href="#">Dodge</a></li>
+							<li><a href="#">Ferrari</a></li>
+							<li><a href="#">Ford</a></li>
+							<li><a href="#">GMC</a></li>
+							<li><a href="#">Honda</a></li>
+							<li><a href="#">Hyundai</a></li>
+							<li><a href="#">Infiniti</a></li>
+							<li><a href="#">Jeep</a></li>
+							<li><a href="#">Kia</a></li>
+							<li><a href="#">Lexus</a></li>
+							<li><a href="#">Mini</a></li>
+							<li><a href="#">Nissan</a></li>
+							<li><a href="#">Porsche</a></li>
+							<li><a href="#">Subaru</a></li>
+							<li><a href="#">Toyota</a></li>
+							<li><a href="#">Volkswagon</a></li>
+							<li><a href="#">Volvo</a></li>
+						</ul>
+					</li>
+					<li><div>Planes</div>
+						<span class="ui-li-count">7</span>
+						<ul>
+							<li><a href="#">Boeing</a></li>
+							<li><a href="#">Cessna</a></li>
+							<li><a href="#">Derringer</a></li>
+							<li><a href="#">Embraer</a></li>
+							<li><a href="#">Gulfstream</a></li>
+							<li><a href="#">Piper Aircraft</a></li>
+							<li><a href="#">Raytheon</a></li>
+						</ul>
+					</li>
+					<li><div>Construction</div>
+						<span class="ui-li-count">3</span>
+						<ul>
+							<li><a href="#">Caterpillar</a></li>
+							<li><a href="#">Ford</a></li>
+							<li><a href="#">John Deere</a></li>
+
+						</ul>
+					</li>				
+				</ul>
+			</li>
+		</ul>
+		</div><!--/content-primary -->		
+
+
+
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+
+
+
+</body>
+</html>

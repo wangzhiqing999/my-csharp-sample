@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        slider 输入框  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+<body>
+
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1>slider 输入框  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        <form action="#" method="get">
+        
+
+        <h2> 基本 </h2>
+<pre><code>
+&lt;label for=&quot;slider-1&quot;&gt;Input slider:&lt;/label&gt;
+&lt;input type=&quot;range&quot; name=&quot;slider-1&quot; id=&quot;slider-1&quot; value=&quot;60&quot; min=&quot;0&quot; max=&quot;100&quot; /&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+        <label for="slider-1">Input slider:</label>
+		<input type="range" name="slider-1" id="slider-1" value="60" min="0" max="100" />
+
+
+
+
+
+        <h2> 增幅 </h2>
+<pre><code>
+&lt;label for=&quot;slider-step&quot;&gt;Input slider:&lt;/label&gt;
+&lt;input type=&quot;range&quot; name=&quot;slider-step&quot; id=&quot;slider-step&quot; value=&quot;150&quot; min=&quot;0&quot; max=&quot;500&quot; <strong>step=&quot;50&quot;</strong> /&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+        <label for="slider-step">Input slider:</label>
+		<input type="range" name="slider-step" id="slider-step" value="150" min="0" max="500" step="50" />
+
+
+
+
+
+        <h2> 填充 </h2>
+
+<pre><code>
+&lt;label for=&quot;slider-fill&quot;&gt;Input slider:&lt;/label&gt;
+&lt;input type=&quot;range&quot; name=&quot;slider-fill&quot; id=&quot;slider-fill&quot; value=&quot;60&quot; min=&quot;0&quot; max=&quot;100&quot; <strong>data-highlight=&quot;true&quot;</strong> /&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+        <label for="slider-fill">Input slider:</label>
+		<input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" data-highlight="true" />
+
+
+
+
+
+
+        <h2> Mini 版本 </h2>
+
+<pre><code>
+&lt;label for=&quot;slider-mini&quot;&gt;Input slider:&lt;/label&gt;
+&lt;input type=&quot;range&quot; name=&quot;slider-mini&quot; id=&quot;slider-mini&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; data-highlight=&quot;true&quot; <strong>data-mini=&quot;true&quot;</strong> /&gt;
+</code></pre>
+
+        <p> 显示结果 </p>
+
+        <label for="slider-mini">Input slider:</label>
+		<input type="range" name="slider-mini" id="slider-mini" value="25" min="0" max="100" data-highlight="true" data-mini="true" />
+
+
+
+
+
+        <h2> Field containers </h2>
+
+<pre><code>
+<strong>&lt;div data-role=&quot;fieldcontain&quot;&gt;
+</strong>   &lt;label for=&quot;slider-2&quot;&gt;Input slider:&lt;/label&gt;
+   &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-2&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
+<strong>&lt;/div&gt;
+</strong></code></pre>
+
+
+        <p> 显示结果 </p>
+
+		<div data-role="fieldcontain">
+			<label for="slider-2">Input slider:</label>
+			<input type="range" name="slider-2" id="slider-2" value="25" min="0" max="100" />
+		</div>
+
+        </form>
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>

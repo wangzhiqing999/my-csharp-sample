@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53B52E0F-A45E-43E6-AC75-D6DAC98372C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>W1100_ECharts</RootNamespace>
+    <AssemblyName>W1100_ECharts</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="0000_Basic\HelloWorld.htm" />
+    <Content Include="0010_Line\Line0001.htm" />
+    <Content Include="0010_Line\Line0002.htm" />
+    <Content Include="0010_Line\Line0003.htm" />
+    <Content Include="0010_Line\Line0004.htm" />
+    <Content Include="0010_Line\Line0011.htm" />
+    <Content Include="0010_Line\Line0012.htm" />
+    <Content Include="0020_Bar\Bar0001.htm" />
+    <Content Include="0020_Bar\Bar0002.htm" />
+    <Content Include="0020_Bar\Bar0003.htm" />
+    <Content Include="0030_Scatter\Scatter0001.htm" />
+    <Content Include="0030_Scatter\Scatter0002.htm" />
+    <Content Include="0030_Scatter\Scatter0005.htm" />
+    <Content Include="0030_Scatter\Scatter0008.htm" />
+    <Content Include="0030_Scatter\Scatter0011.htm" />
+    <Content Include="0030_Scatter\Scatter0012.htm" />
+    <Content Include="0030_Scatter\Scatter0021.htm" />
+    <Content Include="0040_K\K0001.htm" />
+    <Content Include="0040_K\K0002.htm" />
+    <Content Include="0040_K\K0011.htm" />
+    <Content Include="0040_K\K0012.htm" />
+    <Content Include="0050_Pie\Pie0001.htm" />
+    <Content Include="0050_Pie\Pie0002.htm" />
+    <Content Include="0050_Pie\Pie0003.htm" />
+    <Content Include="0050_Pie\Pie0005.htm" />
+    <Content Include="0050_Pie\Pie0006.htm" />
+    <Content Include="0050_Pie\Pie0007.htm" />
+    <Content Include="0050_Pie\Pie0008.htm" />
+    <Content Include="0060_Radar\Radar0001.htm" />
+    <Content Include="0060_Radar\Radar0002.htm" />
+    <Content Include="0060_Radar\Radar0003.htm" />
+    <Content Include="0060_Radar\Radar0004.htm" />
+    <Content Include="0060_Radar\Radar0005.htm" />
+    <Content Include="0100_Gauge\Gauge0001.htm" />
+    <Content Include="0100_Gauge\Gauge0002.htm" />
+    <Content Include="0100_Gauge\Gauge0003.htm" />
+    <Content Include="0100_Gauge\Gauge0004.htm" />
+    <Content Include="0110_Funnel\Funnel0001.htm" />
+    <Content Include="0110_Funnel\Funnel0002.htm" />
+    <Content Include="0110_Funnel\Funnel0003.htm" />
+    <Content Include="0110_Funnel\Funnel0004.htm" />
+    <Content Include="0110_Funnel\Funnel0005.htm" />
+    <Content Include="0210_MultiUsage\MultiUsage0001.htm" />
+    <Content Include="0210_MultiUsage\MultiUsage0003.htm" />
+    <Content Include="0210_MultiUsage\MultiUsage0010.htm" />
+    <Content Include="index.htm" />
+    <Content Include="js\chart\bar.js" />
+    <Content Include="js\chart\chord.js" />
+    <Content Include="js\chart\eventRiver.js" />
+    <Content Include="js\chart\force.js" />
+    <Content Include="js\chart\funnel.js" />
+    <Content Include="js\chart\gauge.js" />
+    <Content Include="js\chart\k.js" />
+    <Content Include="js\chart\line.js" />
+    <Content Include="js\chart\map.js" />
+    <Content Include="js\chart\pie.js" />
+    <Content Include="js\chart\radar.js" />
+    <Content Include="js\chart\scatter.js" />
+    <Content Include="js\echarts.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="js\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4501</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

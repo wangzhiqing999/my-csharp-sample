@@ -1,0 +1,27 @@
+﻿<Page x:Class="WPF_0100_Resource.Page002_StaticDynamic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page002_StaticDynamic">
+
+    <Page.Resources>
+        <TextBlock x:Key="res1" Text="测试资源1 - 准备用于测试 StaticResource" />
+        <TextBlock x:Key="res2" Text="测试资源2 - 准备用于测试 StaticResource" />
+    </Page.Resources>
+    
+    
+    
+    <StackPanel>
+        <Label Content="以静态方式使用资源的情况下，资源发生变化了，控件是不会去自动更新的。"/>
+        <Button Margin="5" Content="{StaticResource res1}" />
+
+        <Label Content="以动态方式使用资源的情况下，资源发生变化了，控件会自动更新。"/>
+        <Button Margin="5" Content="{DynamicResource res2}" />
+            
+        <Button Margin="5" Content="尝试更新资源" Click="Button_Click" />
+        
+    </StackPanel>
+</Page>

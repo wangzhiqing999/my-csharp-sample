@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> 使用 JqueryUI 的 Tabs  </title>
+
+
+    <link href="../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jquery-2.0.3.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.3.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            // 默认只需要一行代码.
+            $("#tabs").tabs();
+
+
+
+            // 鼠标移动，自动切换.
+            $("#mouseoverTabs").tabs({
+                event: "mouseover"
+            });
+
+
+
+
+            // 可自定义排序.
+            var sortableTabs = $("#sortableTabs").tabs();
+            sortableTabs.find(".ui-tabs-nav").sortable({
+                axis: "x",
+                stop: function () {
+                    sortableTabs.tabs("refresh");
+                }
+            });
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1"> WinForm 应用 </a></li>
+    <li><a href="#tabs-2"> Web 应用 </a></li>
+    <li><a href="#tabs-3"> WinPhone 应用 </a></li>
+  </ul>
+  <div id="tabs-1">
+    <p> WinForm 应用还是比较简单的，就是使用起来，有点局限，需要安装 .NET Framework. </p>
+  </div>
+  <div id="tabs-2">
+    <p> Web 应用的好处就是， 不需要安装。有浏览器就能使用。 缺点就是 如果使用了某些太花哨的功能， 某些浏览器搞不好就会不支持...  (例如传说中的 IE6 ) </p>
+  </div>
+  <div id="tabs-3">
+    <p> WinPhone 没写过， 不过好像目前市场份额不是很大，不知将来会如何了.  </p>
+  </div>
+</div>
+
+
+
+
+
+
+<hr />
+<h3> 高级版本， 鼠标移动上去， 自动切换 </h3>
+
+<div id="mouseoverTabs">
+  <ul>
+    <li><a href="#mouseoverTabs-1"> WinForm 应用 </a></li>
+    <li><a href="#mouseoverTabs-2"> Web 应用 </a></li>
+    <li><a href="#mouseoverTabs-3"> WinPhone 应用 </a></li>
+  </ul>
+  <div id="mouseoverTabs-1">
+    <p> WinForm 应用还是比较简单的，就是使用起来，有点局限，需要安装 .NET Framework. </p>
+  </div>
+  <div id="mouseoverTabs-2">
+    <p> Web 应用的好处就是， 不需要安装。有浏览器就能使用。 缺点就是 如果使用了某些太花哨的功能， 某些浏览器搞不好就会不支持...  (例如传说中的 IE6 ) </p>
+  </div>
+  <div id="mouseoverTabs-3">
+    <p> WinPhone 没写过， 不过好像目前市场份额不是很大，不知将来会如何了.  </p>
+  </div>
+</div>
+
+
+
+
+
+<hr />
+<h3> 高级版本， 可自己拖动 Tab 进行排序处理. </h3>
+
+
+<div id="sortableTabs">
+  <ul>
+    <li><a href="#sortableTabs-1"> WinForm 应用 </a></li>
+    <li><a href="#sortableTabs-2"> Web 应用 </a></li>
+    <li><a href="#sortableTabs-3"> WinPhone 应用 </a></li>
+  </ul>
+  <div id="sortableTabs-1">
+    <p> WinForm 应用还是比较简单的，就是使用起来，有点局限，需要安装 .NET Framework. </p>
+  </div>
+  <div id="sortableTabs-2">
+    <p> Web 应用的好处就是， 不需要安装。有浏览器就能使用。 缺点就是 如果使用了某些太花哨的功能， 某些浏览器搞不好就会不支持...  (例如传说中的 IE6 ) </p>
+  </div>
+  <div id="sortableTabs-3">
+    <p> WinPhone 没写过， 不过好像目前市场份额不是很大，不知将来会如何了.  </p>
+  </div>
+</div>
+
+
+
+</body>
+</html>

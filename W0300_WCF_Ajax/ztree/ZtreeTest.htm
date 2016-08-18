@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ZTree 列表测试.</title>
+
+    <link href="../css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../js/jquery.ztree.core-3.5.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+    var setting = {
+        view: {
+            // 不显示图标.
+            showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+
+
+    var zNodes = [
+			{ id: 1, pId: 0, name: "操作系统", url: "#" },
+			{ id: 2, pId: 0, name: "数据库", url: "#"},
+			{ id: 3, pId: 0, name: "计算机语言", url: "#"},
+			{ id: 4, pId: 0, name: "移动设备", url: "#" },
+
+            { id: 11, pId: 1, name: "Microsoft Windows", url: "#" },
+            { id: 12, pId: 1, name: "Apple OSX", url: "#" },
+            { id: 13, pId: 1, name: "RedHat Linux", url: "#" },
+            { id: 14, pId: 1, name: "SCO Unix ", url: "#" },
+
+            { id: 21, pId: 2, name: "Oracle", url: "#" },
+            { id: 22, pId: 2, name: "DB2", url: "#" },
+            { id: 23, pId: 2, name: "SQL Server", url: "#" },
+            { id: 24, pId: 2, name: "MongoDB", url: "#" },
+
+            { id: 31, pId: 3, name: "C", url: "#" },
+            { id: 32, pId: 3, name: "C++", url: "#" },
+            { id: 33, pId: 3, name: "C#", url: "#" },
+            { id: 34, pId: 3, name: "Objective-C", url: "#" },
+
+            { id: 41, pId: 4, name: "IPhone", url: "#" },
+            { id: 42, pId: 4, name: "Android", url: "#" },
+            { id: 43, pId: 4, name: "WinPhone", url: "#" }
+
+		];
+
+
+
+            $(document).ready(function () {
+                var zTree = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                // 初始化时默认全部展开.
+                zTree.expandAll(true);
+
+
+
+
+                $("#btnExpandAll").click(function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.expandAll(true);
+                });
+
+                $("#btnCollapseAll").click(function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.expandAll(false);
+                });
+
+                
+
+            });
+
+</script>
+
+
+</head>
+<body>
+
+
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+
+
+    <input id="btnExpandAll" type="button" value="全部展开" onclick="return false;" />
+    <input id="btnCollapseAll" type="button" value="全部收起" onclick="return false;" />
+
+</body>
+</html>

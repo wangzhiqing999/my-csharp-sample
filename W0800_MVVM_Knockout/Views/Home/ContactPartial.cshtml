@@ -1,0 +1,60 @@
+﻿@model W0800_MVVM_Knockout.Models.Contact
+@{
+    Layout = null;
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+@using (Ajax.BeginForm((string)ViewBag.Action, "Home", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = (string)ViewBag.OnSuccess}, new { @class = "form-horizontal" }))
+{
+  <div class="modal-header">     
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Detail</h3>
+  </div>
+  <div class="modal-body">
+        <div class="control-group">
+            @Html.HiddenFor(model=>model.Id)
+            @Html.LabelFor(model=>model.FirstName,new{@class="control-label"})
+            <div class="controls">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model=>model.LastName,new{@class="control-label"})
+            <div class="controls">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(model=>model.EmailAddress,new{@class="control-label"})
+            <div class="controls">
+                @Html.EditorFor(model => model.EmailAddress)
+                @Html.ValidationMessageFor(model => model.EmailAddress)
+            </div>
+        </div>
+
+         <div class="control-group">
+            @Html.LabelFor(model=>model.PhoneNo,new{@class="control-label"})
+            <div class="controls">
+                @Html.EditorFor(model => model.PhoneNo)
+                @Html.ValidationMessageFor(model => model.PhoneNo)
+            </div>
+        </div>
+   </div>
+
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <input type="submit" class="btn btn-primary" value="Save" />
+  </div>
+    
+    
+}
+
+
+</div>
+</div>

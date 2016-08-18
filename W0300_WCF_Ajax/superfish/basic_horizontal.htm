@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>普通-水平菜单</title>
+
+
+    <link href="../css/superfish.css" rel="stylesheet" type="text/css" />
+
+
+    <script src="../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Scripts/hoverIntent.js" type="text/javascript"></script>
+    <script src="../Scripts/superfish.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var example = $('#example').superfish({
+                //add options here if required
+            });
+        })
+
+    </script>
+
+
+
+</head>
+<body>
+
+
+<pre><code>
+
+水平菜单， 需要定义好 菜单的整体结构， 也就是  ul 与 li 的数据层次关系.
+
+样式表方面，需要引用 superfish.css
+
+js 方面，需要引用 jquery, hoverIntent, superfish.
+
+
+客户端需要增加的代码， 就是简单的：
+
+
+$(document).ready(function () {
+    var example = $('#example').superfish({
+    });
+})
+
+
+</code></pre>
+
+
+		<ul class="sf-menu" id="example">
+			<li class="current">
+				<a href="#">文件</a>
+				<ul>
+					<li class="current">
+						<a href="#">新建</a>
+						<ul>
+							<li class="current"><a href="#">项目</a></li>
+							<li><a href="#">网站</a></li>
+							<li><a href="#">团队项目</a></li>
+							<li><a href="#">文件</a></li>
+							<li><a href="#">从现有代码创建项目</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">打开</a>
+						<ul>
+							<li><a href="#">项目/解决方案</a></li>
+							<li><a href="#">网站</a></li>
+							<li><a href="#">团队项目</a></li>
+							<li><a href="#">文件</a></li>
+							<li><a href="#">转换</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">添加</a>
+						<ul>
+							<li><a href="#">新建项目</a></li>
+							<li><a href="#">新建网站</a></li>
+							<li><a href="#">现有项目</a></li>
+							<li><a href="#">现有网站</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="#">编辑</a>
+				<ul>
+                    <li>
+						<a href="#">撤销</a>
+					</li>
+                    <li>
+						<a href="#">重做</a>
+					</li>
+                    <li>
+						<a href="#">剪切</a>
+					</li>
+                    <li>
+						<a href="#">复制</a>
+					</li>
+                    <li>
+						<a href="#">粘贴</a>
+					</li>
+					<li>
+						<a href="#">查找和替换</a>
+						<ul>
+							<li><a href="#">快速查找</a></li>
+							<li><a href="#">快速替换</a></li>
+							<li><a href="#">在文件中查找</a></li>
+							<li><a href="#">在文件中替换</a></li>
+							<li><a href="#">查找符号</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+
+			<li>
+				<a href="#">视图</a>
+
+				<ul>
+                    <li>
+						<a href="#">设计器</a>
+					</li>
+
+                    <li>
+						<a href="#">标记</a>
+					</li>
+                </ul>
+
+			</li>	
+
+
+
+            <li>
+				<a href="#">项目</a>
+				<ul>
+                    <li>
+						<a href="#">添加类 </a>
+					</li>
+
+                    <li>
+						<a href="#">添加引用 </a>
+					</li>
+                </ul>
+			</li>
+
+            <li>
+				<a href="index.htm">返回</a>
+            </li>
+		</ul>
+
+
+
+</body>
+</html>

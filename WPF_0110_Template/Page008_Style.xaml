@@ -1,0 +1,27 @@
+﻿<Page x:Class="WPF_0110_Template.Page008_Style"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page008_Style">
+
+    
+    <Page.Resources>
+        
+        <!-- 样式. -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextDecorations" Value="Underline" />
+            <Setter Property="FontStyle" Value="Italic" />
+        </Style>
+    </Page.Resources>
+    
+    
+    <StackPanel Margin="5">
+        <TextBlock Text="测试 WPF 中的 Style !" />
+        <TextBlock Text="画面中所有同类控件使用同一个 Style 定义 " />
+        <TextBlock Text="不使用的情况下，设置 Style=x:Null " Style="{x:Null}" />
+    </StackPanel>
+</Page>

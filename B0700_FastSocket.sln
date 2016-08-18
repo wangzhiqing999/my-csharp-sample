@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0700_FastSocket_TelnetServer", "B0700_FastSocket_TelnetServer\B0700_FastSocket_TelnetServer.csproj", "{76A32176-FCB3-4929-B7BD-FD846931678A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0701_FastSocket_Server", "B0701_FastSocket_Server\B0701_FastSocket_Server.csproj", "{EE583C88-82F9-4F9A-ABB6-2A51D2ECFA25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0701_FastSocket_Client", "B0701_FastSocket_Client\B0701_FastSocket_Client.csproj", "{AE394D4B-FA12-4E24-8134-F9FFA099F69B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76A32176-FCB3-4929-B7BD-FD846931678A}.Debug|x86.ActiveCfg = Debug|x86
+		{76A32176-FCB3-4929-B7BD-FD846931678A}.Debug|x86.Build.0 = Debug|x86
+		{76A32176-FCB3-4929-B7BD-FD846931678A}.Release|x86.ActiveCfg = Release|x86
+		{76A32176-FCB3-4929-B7BD-FD846931678A}.Release|x86.Build.0 = Release|x86
+		{EE583C88-82F9-4F9A-ABB6-2A51D2ECFA25}.Debug|x86.ActiveCfg = Debug|x86
+		{EE583C88-82F9-4F9A-ABB6-2A51D2ECFA25}.Debug|x86.Build.0 = Debug|x86
+		{EE583C88-82F9-4F9A-ABB6-2A51D2ECFA25}.Release|x86.ActiveCfg = Release|x86
+		{EE583C88-82F9-4F9A-ABB6-2A51D2ECFA25}.Release|x86.Build.0 = Release|x86
+		{AE394D4B-FA12-4E24-8134-F9FFA099F69B}.Debug|x86.ActiveCfg = Debug|x86
+		{AE394D4B-FA12-4E24-8134-F9FFA099F69B}.Debug|x86.Build.0 = Debug|x86
+		{AE394D4B-FA12-4E24-8134-F9FFA099F69B}.Release|x86.ActiveCfg = Release|x86
+		{AE394D4B-FA12-4E24-8134-F9FFA099F69B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

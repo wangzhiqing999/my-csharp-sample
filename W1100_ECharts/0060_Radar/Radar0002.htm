@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>  Radar 0002</title>
+</head>
+<body>
+
+
+
+    <h3>  Radar 0002  </h3>
+
+    <p>
+    标准填充雷达图
+    </p>
+
+
+
+    
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/radar' // 使用雷达图就加载radar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    title: {
+                        text: '罗纳尔多 vs 舍普琴科',
+                        subtext: '完全实况球员数据'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        x: 'center',
+                        data: ['罗纳尔多', '舍普琴科']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    calculable: true,
+                    polar: [
+                        {
+                            indicator: [
+                                { text: '进攻', max: 100 },
+                                { text: '防守', max: 100 },
+                                { text: '体能', max: 100 },
+                                { text: '速度', max: 100 },
+                                { text: '力量', max: 100 },
+                                { text: '技巧', max: 100 }
+                            ],
+                            radius: 130
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '完全实况球员数据',
+                            type: 'radar',
+                            itemStyle: {
+                                normal: {
+                                    areaStyle: {
+                                        type: 'default'
+                                    }
+                                }
+                            },
+                            data: [
+                                {
+                                    value: [97, 42, 88, 94, 90, 86],
+                                    name: '舍普琴科'
+                                },
+                                {
+                                    value: [97, 32, 74, 95, 88, 92],
+                                    name: '罗纳尔多'
+                                }
+                            ]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+        );
+
+    </script>
+
+</body>
+</html>

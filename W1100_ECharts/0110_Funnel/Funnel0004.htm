@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>  Funnel 0004 </title>
+</head>
+<body>
+
+
+    <h3>  Funnel 0004 </h3>
+
+    <p>
+    多漏斗图
+    </p>
+
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/funnel', // 使用漏斗图就加载 funnel 模块，按需加载
+
+                'echarts/chart/pie'     // 切换饼图时使用.
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    title: {
+                        text: '漏斗图(对比)',
+                        subtext: '纯属虚构',
+                        x: 'left',
+                        y: 'bottom'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b} : {c}%"
+                    },
+                    toolbox: {
+                        show: true,
+                        orient: 'vertical',
+                        y: 'center',
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            magicType: {
+                                show: true,
+                                type: ['pie', 'funnel'],
+                                option: {
+                                    pie: {
+                                        radius: [0, 50]
+                                    }
+                                }
+                            },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'left',
+                        data: ['产品A', '产品B', '产品C', '产品D', '产品E']
+                    },
+                    calculable: true,
+                    series: [
+                        {
+                            name: '漏斗图',
+                            type: 'funnel',
+                            width: '40%',
+                            height: '45%',
+                            x: '5%',
+                            y: '50%',
+                            funnelAlign: 'right',
+
+                            center: ['25%', '25%'],  // for pie
+
+                            data: [
+                                { value: 60, name: '产品C' },
+                                { value: 30, name: '产品D' },
+                                { value: 10, name: '产品E' },
+                                { value: 80, name: '产品B' },
+                                { value: 100, name: '产品A' }
+                            ]
+                        },
+                        {
+                            name: '金字塔',
+                            type: 'funnel',
+                            width: '40%',
+                            height: '45%',
+                            x: '5%',
+                            y: '5%',
+                            sort: 'ascending',
+                            funnelAlign: 'right',
+
+                            center: ['25%', '75%'],  // for pie
+
+                            data: [
+                                { value: 60, name: '产品C' },
+                                { value: 30, name: '产品D' },
+                                { value: 10, name: '产品E' },
+                                { value: 80, name: '产品B' },
+                                { value: 100, name: '产品A' }
+                            ]
+                        },
+                        {
+                            name: '漏斗图',
+                            type: 'funnel',
+                            width: '40%',
+                            height: '45%',
+                            x: '55%',
+                            y: '5%',
+                            funnelAlign: 'left',
+
+                            center: ['75%', '25%'],  // for pie
+
+                            data: [
+                                { value: 60, name: '产品C' },
+                                { value: 30, name: '产品D' },
+                                { value: 10, name: '产品E' },
+                                { value: 80, name: '产品B' },
+                                { value: 100, name: '产品A' }
+                            ]
+                        },
+                        {
+                            name: '金字塔',
+                            type: 'funnel',
+                            width: '40%',
+                            height: '45%',
+                            x: '55%',
+                            y: '50%',
+                            sort: 'ascending',
+                            funnelAlign: 'left',
+
+                            center: ['75%', '75%'],  // for pie
+
+                            data: [
+                                { value: 60, name: '产品C' },
+                                { value: 30, name: '产品D' },
+                                { value: 10, name: '产品E' },
+                                { value: 80, name: '产品B' },
+                                { value: 100, name: '产品A' }
+                            ]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+        );
+
+    </script>
+
+</body>
+</html>

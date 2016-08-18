@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "TestAsync";
+
+    DateTime startTime = ViewBag.StartTime;
+}
+
+<h2>TestChart</h2>
+
+
+<ul>
+
+    <li> 开始处理时间： @(startTime) </li>
+
+    <li> 结果1： @(ViewBag.Val1) </li>
+    <li> 结果2： @(ViewBag.Val2) </li>
+    <li> 结果3： @(ViewBag.Val3) </li>
+
+    <li> 处理完成时间： @(DateTime.Now) </li>
+
+    <li> 总耗时:  @((DateTime.Now - startTime).Seconds) 秒.  </li>
+
+</ul>

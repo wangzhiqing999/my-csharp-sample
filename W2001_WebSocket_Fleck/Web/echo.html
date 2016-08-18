@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+    <script type="text/javascript">
+
+
+        var echoWsServer = 'ws://127.0.0.1:8181/Echo';
+        var echoWebsocket = new WebSocket(echoWsServer);
+
+        // websocket Open 的事件.
+        echoWebsocket.onopen = function (evt) {
+            console.log("Connected to WebSocket server.");
+        };
+
+        // websocket Close 的事件.
+        echoWebsocket.onclose = function (evt) {
+            console.log("Disconnected");
+        };
+
+        // 当接受到消息时候的事件.
+        echoWebsocket.onmessage = function (evt) {
+            console.log('Retrieved data from server: ' + evt.data);
+        };
+
+        // 发生异常的时候的事件.
+        echoWebsocket.onerror = function (evt) {
+            console.log('Error occured: ' + evt.data);
+        };
+
+
+
+        var vIndex = 0;
+
+        // 发送消息给服务器.
+        function TestSendMessage() {
+            vIndex++;
+            echoWebsocket.send("Hello World ! " + vIndex.toString());
+        }
+
+
+        // 每5秒发送一次.
+        window.setInterval(TestSendMessage, 5000);
+
+
+    </script>
+
+
+</head>
+<body>
+
+    WebSocket 测试客户端。
+    （F12 查看 Console 输出）
+
+
+</body>
+</html>

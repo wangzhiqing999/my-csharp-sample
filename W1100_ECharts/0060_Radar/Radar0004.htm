@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>  Radar 0004</title>
+</head>
+<body>
+
+
+
+    <h3>  Radar 0004  </h3>
+
+    <p>
+    虫洞
+    </p>
+
+
+
+    
+
+
+    <!--Step:1 为ECharts准备一个具备大小（宽高）的Dom-->
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+
+
+
+    <!--Step:2 引入echarts.js-->
+    <!-- ECharts单文件引入 -->
+    <script src="/js/echarts.js" type="text/javascript"></script>
+
+
+
+
+    <script type="text/javascript">
+
+        // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: '/js'
+            }
+        });
+
+
+
+        // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/radar' // 使用雷达图就加载radar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    color: (function () {
+                        var zrColor = require('zrender/tool/color');
+                        return zrColor.getStepColors('yellow', 'red', 28);
+                    })(),
+                    title: {
+                        text: '浏览器占比变化',
+                        subtext: '纯属虚构',
+                        x: 'right',
+                        y: 'bottom'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        backgroundColor: 'rgba(0,0,250,0.2)'
+                    },
+                    legend: {
+                        // orient : 'vertical',
+                        //x : 'center',
+                        data: function () {
+                            var list = [];
+                            for (var i = 1; i <= 28; i++) {
+                                list.push(i + 2000);
+                            }
+                            return list;
+                        } ()
+                    },
+                    toolbox: {
+                        show: true,
+                        orient: 'vertical',
+                        y: 'center',
+                        feature: {
+                            mark: { show: true },
+                            dataView: { show: true, readOnly: false },
+                            restore: { show: true },
+                            saveAsImage: { show: true }
+                        }
+                    },
+                    polar: [
+                       {
+                           indicator: [
+                               { text: 'IE8-', max: 400 },
+                               { text: 'IE9+', max: 400 },
+                               { text: 'Safari', max: 400 },
+                               { text: 'Firefox', max: 400 },
+                               { text: 'Chrome', max: 400 }
+                            ],
+                           center: ['50%', 240],
+                           radius: 150
+                       }
+                    ],
+                    calculable: false,
+                    series: (function () {
+                        var series = [];
+                        for (var i = 1; i <= 28; i++) {
+                            series.push({
+                                name: '浏览器（数据纯属虚构）',
+                                type: 'radar',
+                                symbol: 'none',
+                                itemStyle: {
+                                    normal: {
+                                        lineStyle: {
+                                            width: 1
+                                        }
+                                    },
+                                    emphasis: {
+                                        areaStyle: { color: 'rgba(0,250,0,0.3)' }
+                                    }
+                                },
+                                data: [
+                                  {
+                                      value: [
+                                        (40 - i) * 10,
+                                        (38 - i) * 4 + 60,
+                                        i * 5 + 10,
+                                        i * 9,
+                                        i * i / 2
+                                    ],
+                                      name: i + 2000
+                                  }
+                                ]
+                            })
+                        }
+                        return series;
+                    })()
+                };
+
+                // 为echarts对象加载数据 
+                myChart.setOption(option);
+            }
+        );
+
+    </script>
+
+</body>
+</html>

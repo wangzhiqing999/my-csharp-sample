@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4B00743-50B5-4654-A8FB-DAC96FCAD8EE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPF_0110_Template</RootNamespace>
+    <AssemblyName>WPF_0110_Template</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converter\CategoryToSourceConverter.cs" />
+    <Compile Include="Converter\L2BConverter.cs" />
+    <Compile Include="Converter\MyDataType.cs" />
+    <Compile Include="Converter\StateToNullableBoolConverter.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Page001_DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page002_ControlTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page003_DataTemplateAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page004_ControlTemplateAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page005_DataTemplateXml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page006_DataTemplateXmlTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page007_DataTemplateXmlMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page008_Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page009_StyleTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page010_StyleMultiTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page011_DataTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page012_MultiDataTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page013_EventTrigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Page001_DataTemplate.xaml.cs">
+      <DependentUpon>Page001_DataTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page002_ControlTemplate.xaml.cs">
+      <DependentUpon>Page002_ControlTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page003_DataTemplateAll.xaml.cs">
+      <DependentUpon>Page003_DataTemplateAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page004_ControlTemplateAll.xaml.cs">
+      <DependentUpon>Page004_ControlTemplateAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page005_DataTemplateXml.xaml.cs">
+      <DependentUpon>Page005_DataTemplateXml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page006_DataTemplateXmlTreeView.xaml.cs">
+      <DependentUpon>Page006_DataTemplateXmlTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page007_DataTemplateXmlMenu.xaml.cs">
+      <DependentUpon>Page007_DataTemplateXmlMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page008_Style.xaml.cs">
+      <DependentUpon>Page008_Style.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page009_StyleTrigger.xaml.cs">
+      <DependentUpon>Page009_StyleTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page010_StyleMultiTrigger.xaml.cs">
+      <DependentUpon>Page010_StyleMultiTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page011_DataTrigger.xaml.cs">
+      <DependentUpon>Page011_DataTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page012_MultiDataTrigger.xaml.cs">
+      <DependentUpon>Page012_MultiDataTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page013_EventTrigger.xaml.cs">
+      <DependentUpon>Page013_EventTrigger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\tie_bomber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\tie_fighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestTreeView.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestMenu.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

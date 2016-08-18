@@ -1,0 +1,1 @@
+﻿var jimmy = {name:"jimmy.yang",email:"jimmy.yang@163.com"}

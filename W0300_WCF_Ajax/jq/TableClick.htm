@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <title> jQuery  表格点击的 处理  </title>
+    
+    <!--  这个是 基本的 jQuery 的 js.  -->
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+        // 下面这行，定义了 ready: 文档就绪事件（当 HTML 文档就绪可用时） 需要执行的代码.
+        $(document).ready(function () {
+
+            var txtTest = $("#test");
+
+            $("tr.Title").children("td.UserName").mouseover(function () {
+                $(this).css("background-color", "yellow");
+                // 取得 TR 节点.		 
+                var trLine = $(this).parent("tr");
+                // 取得 TR 节点上的 sCode.
+                var sCode = trLine.attr("sCode");
+                // 再取得一个 店铺名称.			
+                var sShop = trLine.attr("sShop");
+                // 模拟 ToolTip.
+                txtTest.val($(this).html() + sCode + sShop);
+            });
+
+
+            $("tr.Title").children().click(function () {
+                $(this).css("background-color", "red");
+                // 取得 TR 节点.		 
+                var trLine = $(this).parent("tr");
+                // 取得 TR 节点上的 sCode.
+                var sCode = trLine.attr("sCode");
+
+                if ($(this).attr("class") == "UserName") {
+                    // 鼠标在 姓名上.
+                    txtTest.val("Goto " + sCode + " User Detail Page! ");
+                } else {
+                    // 这里的 $(this).index()， 就是 td 在当前 tr 中的索引数. -1 的原因是  第一列是  姓名标题列.
+                    txtTest.val("Call Function: " + sCode + "," + ($(this).index() - 1));
+                }
+            });
+
+
+        });
+    </script>
+
+
+</head>
+
+
+<body>
+
+
+
+
+<p>
+本页面为模拟一个 排班表的画面。
+</p>
+
+
+
+<pre><code>
+横向是日期， 从月初到月末。
+纵向是员工。
+
+鼠标移动到 姓名上， 处理 ToolTip 的功能.
+点击具体的 日期+员工， 处理 排班的功能.
+</code></pre>
+
+
+	<input type="text" id="test" /> 
+
+
+	<table border="1">
+		<tr>
+			<td></td>
+			<td>01</td>
+			<td>02</td>
+			<td>03</td>
+			<td>04</td>
+			<td>05</td>
+			<td>06</td>
+			<td>07</td>
+			<td>08</td>
+			<td>09</td>
+			<td>10</td>
+            <td>11</td>
+			<td>12</td>
+			<td>13</td>
+			<td>14</td>
+			<td>15</td>
+			<td>16</td>
+			<td>17</td>
+			<td>18</td>
+			<td>19</td>
+            <td>20</td>
+            <td>21</td>
+			<td>22</td>
+			<td>23</td>
+			<td>24</td>
+			<td>25</td>
+			<td>26</td>
+			<td>27</td>
+			<td>28</td>
+			<td>29</td>			
+			<td>30</td>
+			<td></td>
+		</tr>
+		
+		<tr class="Title" sCode="001" sShop="南京东路店" >
+			<td class="UserName">张三</td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td class="UserName">张三</td>
+		</tr>
+		
+		<tr class="Title" sCode="002" sShop="淮海路店" >
+			<td class="UserName">李四</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td></td>
+			<td>A</td>
+			<td class="UserName">李四</td>
+		</tr>
+		
+
+		<tr class="Title" sCode="003" sShop="静安寺店" >
+			<td class="UserName">王五</td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td class="UserName">王五</td>
+		</tr>
+		
+		<tr class="Title" sCode="004" sShop="人民广场店" >
+			<td class="UserName">赵六</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td></td>
+			<td>B</td>
+			<td class="UserName">赵六</td>
+		</tr>
+
+    </table>
+
+
+
+
+</body>
+</html>

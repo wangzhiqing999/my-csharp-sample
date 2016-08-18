@@ -1,0 +1,50 @@
+﻿@model W0400_Ueditor.MVC.Models.EditData
+@{
+    ViewBag.Title = "Creater";
+}
+
+<h2>Creater</h2>
+
+
+
+<script src="/ueditor/ueditor.config.js" type="text/javascript"></script>
+
+<script src="/ueditor/ueditor.all.min.js" type="text/javascript"></script>
+
+<script src="/ueditor/lang/zh-cn/zh-cn.js" type="text/javascript"></script>
+
+
+
+<p>
+    本例子代码， 用于演示： 
+    某些情况下， 一篇文章， 开头部分是大家都能看到的。
+
+    但是到了文章的后半部分， 只有已登录用户能够看得到。
+    未登录用户只能看到  “想查看全部文章，请登录...... 的相关提示”
+
+
+    这里简单使用编辑器的   分页  ， 来实现。
+
+</p>
+
+
+@using (Html.BeginForm("Editor", "Home", FormMethod.Post))
+{
+
+
+    <script name="editor" id="editor" type="text/plain" style="width:1024px;height:400px;">
+    </script>
+    <hr />
+
+    <button type="submit">
+        保存
+    </button>
+}
+
+
+<script>
+
+    var ue = UE.getEditor('editor');
+
+
+</script>

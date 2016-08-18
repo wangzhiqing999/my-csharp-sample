@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery 跨域请求  </title>
+
+    <!--  这个是 基本的 jQuery 的 js.  -->
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+            // 当前域名 Ajax
+            $("#btnAjax").click(function () {
+                callAjax("");
+            });
+
+            // 
+            $("#btnAjaxA").click(function () {
+                callAjax("http://a.test.cn:56762");
+            });
+
+            $("#btnAjaxB").click(function () {
+                callAjax("http://b.test.cn:56762");
+            });
+
+            $("#btnAjaxC").click(function () {
+                callAjax("http://c.test.cn:56762");
+            });
+
+
+
+
+            // 当前域名 getScript
+            $("#btnGetScript").click(function () {
+                callGetScript("");
+            });
+
+            $("#btnGetScriptA").click(function () {
+                callGetScript("http://a.test.cn:56762");
+            });
+            $("#btnGetScriptB").click(function () {
+                callGetScript("http://b.test.cn:56762");
+            });
+            $("#btnGetScriptC").click(function () {
+                callGetScript("http://c.test.cn:56762");
+            });
+
+
+
+            // 当前域名 Ajax Jsonp
+            $("#btnAjaxJsonp").click(function () {
+                callAjaxJsonp("");
+            });
+
+            $("#btnAjaxJsonpA").click(function () {
+                callAjaxJsonp("http://a.test.cn:56762");
+            });
+
+            $("#btnAjaxJsonpB").click(function () {
+                callAjaxJsonp("http://b.test.cn:56762");
+            });
+
+            $("#btnAjaxJsonpC").click(function () {
+                callAjaxJsonp("http://c.test.cn:56762");
+            });
+            
+
+        });
+
+
+
+        // 调用 Ajax
+        function callAjax(pDomain) {
+            // 调用 ajax 
+            $.ajax({
+                url:  pDomain + "/WcfTestService.svc/DoWork",
+                type: "get",
+                success: function (data) {
+                    ShowAjaxResult(data.d);
+                },
+                error: function (msg) {
+                    ShowAjaxResult("Ajax 出错！" + msg.statusText + " " + msg.responseText);
+                }
+            });            
+        }
+
+
+        // 调用 getScript
+        function callGetScript(pDomain) {
+
+            var vUrl = pDomain + "/CrossDomain/test.js";
+
+            $.getScript(
+                vUrl,
+                function () {
+                    var vResult = "访问的域名：" + pDomain;
+                    vResult = vResult + "<br/>姓名:" + jimmy.name;
+                    vResult = vResult + "<br/>电子邮件:" + jimmy.email;                    
+                    $("#result").html(vResult);
+                }
+            );
+        }
+
+
+
+
+        function callAjaxJsonp(pDomain) {
+            var vUrl = pDomain + "/CrossDomain/TestAjax.ashx";
+
+            $.ajax({
+                url: vUrl,
+                type: "get",
+                async: false,
+                dataType: "jsonp",
+                data:"name=Test",
+
+                // 传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(默认为:callback) 
+                jsonp: "callbackparam",
+
+                // 自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                jsonpCallback: "ShowAjaxJsonpResult", 
+
+                success : function(json){ 
+//                    alert(json); 
+//                    alert(json[0].name);
+                },
+                error: function () {
+                    alert('fail');
+                } 
+            });   
+        }
+
+
+
+        // 显示  执行结果.
+        function ShowAjaxResult(pResult) {
+            $("#result").html(pResult);
+        }
+
+
+        function ShowAjaxJsonpResult(pResult) {
+            var vResult = "域名=" + pResult[0].hostname + "; 数据=" + pResult[0].name;
+
+            $("#result").html(vResult);
+        }
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+
+<pre><code>
+
+测试之前， 需要修改 C:\Windows\System32\drivers\etc\hosts 文件。
+
+增加下面的测试信息.
+
+
+127.0.0.1			a.test.cn
+127.0.0.1			b.test.cn
+127.0.0.1			c.test.cn
+127.0.0.1			www.test.cn
+
+</code></pre>
+
+
+<hr />
+<h3> Ajax 直接访问其他的域名 </h3>
+
+
+
+<table border="1">
+
+  <tr>
+    <td> 当前域名 </td>
+    <td> <input id="btnAjax" type="button" value="Ajax 访问" /> </td>
+    <td> 直接访问当前域名，将正常执行 </td>
+  </tr>
+
+  <tr>
+    <td> a.test.cn </td>
+    <td> <input id="btnAjaxA" type="button" value="Ajax 访问" /> </td>
+    <td> 其他域名将报异常！ </td>
+  </tr>
+
+  <tr>
+    <td> b.test.cn </td>
+    <td> <input id="btnAjaxB" type="button" value="Ajax 访问" /> </td>
+    <td> 其他域名将报异常！ </td>
+  </tr>
+
+  <tr>
+    <td> c.test.cn </td>
+    <td> <input id="btnAjaxC" type="button" value="Ajax 访问" /> </td>
+    <td> 其他域名将报异常！ </td>
+  </tr>
+
+</table>
+
+
+
+
+<hr />
+<h3> 使用 getScript 跨域访问  </h3>
+
+<table border="1">
+
+  <tr>
+    <td> 当前域名 </td>
+    <td> <input id="btnGetScript" type="button" value="getScript 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> a.test.cn </td>
+    <td> <input id="btnGetScriptA" type="button" value="getScript 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> b.test.cn </td>
+    <td> <input id="btnGetScriptB" type="button" value="getScript 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> c.test.cn </td>
+    <td> <input id="btnGetScriptC" type="button" value="getScript 访问" /> </td>
+  </tr>
+
+</table>
+
+
+
+
+<h3> 使用 Ajax jsonp 跨域访问 </h3>
+
+
+
+<table border="1">
+
+  <tr>
+    <td> 当前域名 </td>
+    <td> <input id="btnAjaxJsonp" type="button" value="Ajax Jsonp 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> a.test.cn </td>
+    <td> <input id="btnAjaxJsonpA" type="button" value="Ajax Jsonp 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> b.test.cn </td>
+    <td> <input id="btnAjaxJsonpB" type="button" value="Ajax Jsonp 访问" /> </td>
+  </tr>
+
+  <tr>
+    <td> c.test.cn </td>
+    <td> <input id="btnAjaxJsonpC" type="button" value="Ajax Jsonp 访问" /> </td>
+  </tr>
+
+</table>
+
+
+
+<hr />
+<h3> 调用结果 </h3>
+
+<div id="result"></div>
+
+
+
+</body>
+</html>

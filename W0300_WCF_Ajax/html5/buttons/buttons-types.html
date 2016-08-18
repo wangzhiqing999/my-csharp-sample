@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        按钮  
+    </title>
+
+         
+    <link href="../../Content/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+        
+    <script src="../../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>        
+</head>
+
+
+<body>
+
+
+
+<!-- data-role = page  用于定义  一个页面.  -->
+<div data-role="page">
+
+
+    <!--  data-role = header  用于定义一个 顶部标题.  -->
+    <div data-role="header">
+	    <h1> 按钮类型  </h1>
+        <a href="/html5/home.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    </div>  <!-- /header -->
+
+
+
+    <!--  data-role = content  用于定义一个 中间内容区域.  -->
+    <div data-role="content">
+        
+        
+        <h2> 链接 以按钮方式显示  </h2>
+        <p>
+<code>
+&lt;a href=&quot;index.html&quot; <strong>data-role=&quot;button&quot;</strong>&gt;Link button&lt;/a&gt;
+</code>
+
+<a href="#" data-role="button">Link button</a>
+
+
+如果要 链接不可用
+<code>
+    &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; <strong>class=&quot;ui-disabled&quot;</strong>&gt;Link button&lt;/a&gt;
+</code>
+
+<a href="#" data-role="button" class="ui-disabled">Link button</a>
+
+        </p>
+
+
+
+         <h2> Mini version   </h2>
+
+         <p>
+<pre><code>	
+&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; <strong>data-mini=&quot;true&quot;</strong>&gt;Link button&lt;/a&gt;
+</code></pre>
+
+            <a href="#" data-role="button" data-mini="true">Link button</a>
+
+         </p>
+
+
+
+
+         <h2> Form buttons </h2>
+         
+		<p><strong>Button</strong> based button:</p>
+<pre><code>	
+&lt;button&gt;Button element&lt;/button&gt;
+</code></pre>
+		<button>Button element</button>
+	
+		<p><strong>Input type="button"</strong> based button:</p>
+<pre><code>	
+&lt;input type=&quot;button&quot; value=&quot;Button&quot; /&gt;
+</code></pre>
+		<input type="button" value="Button" />
+		
+		<p><strong>Input type="submit"</strong> based button:</p>
+<pre><code>
+&lt;input type=&quot;submit&quot; value=&quot;Submit Button&quot; /&gt;
+</code></pre>
+		<input type="submit" value="Submit Button" />
+		
+		<p><strong>Input type="reset"</strong> based button:</p>
+<pre><code>
+&lt;input type=&quot;reset&quot; value=&quot;Reset Button&quot; /&gt;
+</code></pre>
+		<input type="reset" value="Reset Button" />
+
+
+    </div> <!-- /content -->
+
+
+
+
+
+    <!--  data-role = footer  用于定义一个 底部标题.  -->
+	<div data-role="footer" data-id="foo1" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+	</div><!-- /footer -->
+
+
+
+</div><!-- /page -->
+
+
+
+
+
+</body>
+</html>

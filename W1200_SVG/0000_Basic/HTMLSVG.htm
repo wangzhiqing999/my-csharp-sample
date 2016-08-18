@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<h2> HTML 页面中的 SVG </h2>
+
+
+<hr />
+
+
+<h3> 使用 embed 标签 </h3>
+
+<embed src="OneSvg.svg" width="300" height="100" 
+    type="image/svg+xml"
+    pluginspage="http://www.adobe.com/svg/viewer/install/" />
+
+
+<h3> 使用 object 标签 </h3>
+
+<object data="OneSvg.svg" width="300" height="100" 
+    type="image/svg+xml"
+    codebase="http://www.adobe.com/svg/viewer/install/" >
+</object>
+
+
+<h3> 使用 iframe 标签 </h3>
+
+<iframe src="OneSvg.svg" width="300" height="100">
+</iframe>
+
+
+
+<h3> HTML 5中，嵌入 svg 代码. </h3>
+
+<svg id="svgCircleTutorial" height="250" xmlns="http://www.w3.org/2000/svg">
+    <circle id="myCircle" cx="55" cy="55" r="50" fill="#219E3E" stroke="#17301D" stroke-width="2" />
+</svg>
+
+
+</body>
+</html>
