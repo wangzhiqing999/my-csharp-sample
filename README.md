@@ -1621,6 +1621,90 @@ Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报�
 
 
 
+### B1000_Fody_Anotar
+
+调用 Anotar.Log4Net 来进行 日志输出的例子.
+
+作用： 代码中统一使用 统一的日志接口，如果实际业务，需要进行 日志类库更换的话（例如 CommonLogging 更换为 NLog）， 代码方面不需要大幅修改。
+
+Catel
+Custom (for frameworks/toolkits with custom logging)
+CommonLogging
+LibLog
+Log4Net
+MetroLog
+NLog
+NServiceBus
+Serilog
+Splat
+
+
+
+### B1000_Fody_AutoLazy
+
+调用 AutoLazy.Fody 包的例子
+作用： 延迟加载。 主要用于 静态类， 加载一次，缓存结果并返回的处理。 例如 配置信息什么的。
+
+
+### B1000_Fody_Caseless
+
+调用 Caseless.Fody 包的例子
+作用：在项目中， 忽略字符串的大小写.
+
+
+
+### B1000_Fody_Cilador / B1000_Fody_Cilador_Old
+
+调用 Cilador.Fody 包的例子
+作用：在项目中， 不使用继承，而重用代码的处理。 （可以实现  类似 一个类， 继承多个类的  运行效果。）
+
+
+
+### B1000_Fody_Costura
+
+调用 Costura.Fody 包的例子
+作用：把C#程序（含多个Dll）合并成一个Exe.
+
+
+
+### B1000_Fody_Equals
+
+调用 Equals.Fody 包的例子
+作用：通过 [Equals]， 生成 Equals 方法.
+
+
+
+### B1000_Fody_Fielder
+
+调用 Fielder.Fody 包的例子
+作用：将变量， 直接生成为  {set;get;} 的属性代码.
+(测试结果，好像不是很确定)
+
+
+
+### B1000_Fody_MethodTimer
+
+调用 MethodTimer.Fody 包的例子
+作用： 自动统计方法的执行时间， 并以 Debug.WriteLine 的方式输出。
+（如果需要输出到 别的 Logger 体系中，需要创建 MethodTimeLogger 代码）
+
+
+
+### B1000_Fody_MrAdvice
+
+调用 MrAdvice 包的例子
+作用：方法级别上的 AOP 处理逻辑。  需要在目标方法上加 标记.
+
+
+### B1000_Fody_ToString
+
+调用 ToString.Fody 包的例子
+作用：通过 [ToString]， 生成 ToString 方法.
+
+
+
+
+
 
 
 

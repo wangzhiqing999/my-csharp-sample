@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers>
+	<Cilador>
+		<cfc:CiladorConfig xmlns:cfc="urn:Cilador:Fody:Config">
+			
+      <!-- This is the section for configurating Interface Mixins -->
+			<WeaveConfig d4p1:type="cfc:InterfaceMixinConfigType" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance">        
+				<!-- Add an InterfaceMixinMap element for each mixin interface definition -->
+				<InterfaceMixinMap Interface="B1000_Fody_Cilador_Old.IOldService, B1000_Fody_Cilador_Old" Mixin="B1000_Fody_Cilador_Old.OldServiceImpl, B1000_Fody_Cilador_Old"/>
+        <InterfaceMixinMap Interface="B1000_Fody_Cilador_Old.IOldService2, B1000_Fody_Cilador_Old" Mixin="B1000_Fody_Cilador_Old.OldServiceImpl2, B1000_Fody_Cilador_Old"/>
+			</WeaveConfig>
+            
+			<!-- Include this configuration to support data transfer object projection -->
+			<WeaveConfig d4p1:type="cfc:DtoProjectorConfigType" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance"/>
+      
+		</cfc:CiladorConfig>
+	</Cilador>
+  
+</Weavers>

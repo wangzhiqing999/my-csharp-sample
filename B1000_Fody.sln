@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Costura", "B1000_Fody_Costura\B1000_Fody_Costura.csproj", "{0461438D-BE14-4F61-85E9-9FA8B460FA6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_ToString", "B1000_Fody_ToString\B1000_Fody_ToString.csproj", "{B16283B1-1BE3-483E-B5EE-36E325CB7C8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Anotar", "B1000_Fody_Anotar\B1000_Fody_Anotar.csproj", "{D3EB83D7-9734-412C-8313-425314121D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_AutoLazy", "B1000_Fody_AutoLazy\B1000_Fody_AutoLazy.csproj", "{BE591476-187B-4014-9DD4-BCA677D225EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Caseless", "B1000_Fody_Caseless\B1000_Fody_Caseless.csproj", "{AB81C38C-4C95-49D6-997E-5FD91F769773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Cilador", "B1000_Fody_Cilador\B1000_Fody_Cilador.csproj", "{B5724C55-B8F1-4F67-B03E-93BC81E4C48F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Cilador_Old", "B1000_Fody_Cilador_Old\B1000_Fody_Cilador_Old.csproj", "{6F97825D-3865-471B-A60E-36BBDC60622F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Equals", "B1000_Fody_Equals\B1000_Fody_Equals.csproj", "{527B5007-1CE1-43ED-802F-BAB54B7CC170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_Fielder", "B1000_Fody_Fielder\B1000_Fody_Fielder.csproj", "{6511BA34-160D-4B54-9309-7621E2205E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_MethodTimer", "B1000_Fody_MethodTimer\B1000_Fody_MethodTimer.csproj", "{F4825118-80B1-4079-B580-8FE482EB57B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1000_Fody_MrAdvice", "B1000_Fody_MrAdvice\B1000_Fody_MrAdvice.csproj", "{3EAF1AF4-0AF1-4AD9-AB05-2EDB7A5E5CDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0461438D-BE14-4F61-85E9-9FA8B460FA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0461438D-BE14-4F61-85E9-9FA8B460FA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0461438D-BE14-4F61-85E9-9FA8B460FA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0461438D-BE14-4F61-85E9-9FA8B460FA6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16283B1-1BE3-483E-B5EE-36E325CB7C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16283B1-1BE3-483E-B5EE-36E325CB7C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16283B1-1BE3-483E-B5EE-36E325CB7C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16283B1-1BE3-483E-B5EE-36E325CB7C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3EB83D7-9734-412C-8313-425314121D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3EB83D7-9734-412C-8313-425314121D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3EB83D7-9734-412C-8313-425314121D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3EB83D7-9734-412C-8313-425314121D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE591476-187B-4014-9DD4-BCA677D225EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE591476-187B-4014-9DD4-BCA677D225EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE591476-187B-4014-9DD4-BCA677D225EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE591476-187B-4014-9DD4-BCA677D225EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB81C38C-4C95-49D6-997E-5FD91F769773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB81C38C-4C95-49D6-997E-5FD91F769773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB81C38C-4C95-49D6-997E-5FD91F769773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB81C38C-4C95-49D6-997E-5FD91F769773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5724C55-B8F1-4F67-B03E-93BC81E4C48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5724C55-B8F1-4F67-B03E-93BC81E4C48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5724C55-B8F1-4F67-B03E-93BC81E4C48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5724C55-B8F1-4F67-B03E-93BC81E4C48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F97825D-3865-471B-A60E-36BBDC60622F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F97825D-3865-471B-A60E-36BBDC60622F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F97825D-3865-471B-A60E-36BBDC60622F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F97825D-3865-471B-A60E-36BBDC60622F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527B5007-1CE1-43ED-802F-BAB54B7CC170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527B5007-1CE1-43ED-802F-BAB54B7CC170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527B5007-1CE1-43ED-802F-BAB54B7CC170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527B5007-1CE1-43ED-802F-BAB54B7CC170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6511BA34-160D-4B54-9309-7621E2205E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6511BA34-160D-4B54-9309-7621E2205E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6511BA34-160D-4B54-9309-7621E2205E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6511BA34-160D-4B54-9309-7621E2205E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4825118-80B1-4079-B580-8FE482EB57B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4825118-80B1-4079-B580-8FE482EB57B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4825118-80B1-4079-B580-8FE482EB57B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4825118-80B1-4079-B580-8FE482EB57B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAF1AF4-0AF1-4AD9-AB05-2EDB7A5E5CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAF1AF4-0AF1-4AD9-AB05-2EDB7A5E5CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAF1AF4-0AF1-4AD9-AB05-2EDB7A5E5CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAF1AF4-0AF1-4AD9-AB05-2EDB7A5E5CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Weavers>
+  
+  
+  <!-- 配置文档， 参考   https://github.com/Fody/Costura/  -->
+	<Costura/>
+  
+</Weavers>
