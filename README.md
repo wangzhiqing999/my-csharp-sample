@@ -1480,6 +1480,14 @@ NVelocity 是 java 的 Velocity 的 .NET 版本
 
 
 
+### B0015_RazorEngine
+
+基于微软 Razor 解析器引擎的开源模板引擎 RazorEngine 使用的例子
+
+用 MVC 中， 写页面的语法， 来实现 数据 + 模板 = 结果
+某些情况下， 可用来 代替 NVelocity 的处理.
+
+
 
 
 ### B0020_Log4Net
