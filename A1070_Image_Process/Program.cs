@@ -23,6 +23,10 @@ namespace A1070_Image_Process
 
 
 
+            // 打水印.
+            ImageWatermark.DoImageWatermark();
+
+
             Console.WriteLine("Finish!");
             Console.ReadKey();
 

@@ -43,6 +43,10 @@ namespace A1020_Hardware
 
 
 
+            // 显卡信息.
+            // Test.ShowHardwareInfo("Win32_VideoController");
+
+
             // 进程信息.
             //Test.ShowHardwareInfo("Win32_Process");
 
