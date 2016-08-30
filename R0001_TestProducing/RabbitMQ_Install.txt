@@ -1,0 +1,110 @@
+RabbitMQ  环境搭建
+
+
+一、软件下载。
+
+Erlang 官网， 下载 Erlang。
+http://www.erlang.org/download.html
+
+本次下载的文件为 otp_win64_19.0.exe
+
+
+RabbitMQ官网， 下载 RabbitMQ。
+http://www.rabbitmq.com/download.html
+
+本次下载的文件为 rabbitmq-server-3.6.5.exe
+
+
+
+
+
+二、安装。
+
+首先， 安装 Erlang
+运行 otp_win64_19.0.exe
+
+Erlang 安装完毕后，安装 RabbitMQ。
+运行  rabbitmq-server-3.6.5.exe
+
+
+
+
+
+三、配置。
+
+[控制面板] -- [管理工具] -- [服务] ， 观察是否存在  [RabbitMQ]  服务。
+
+以管理员身份， 运行  cmd.
+
+到 RabbitMQ 安装目录。
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.5\sbin
+
+
+运行 
+rabbitmqctl status
+
+首次运行，预期会抱错，内容为：
+
+Authentication failed (rejected by the remote node), please check the Erlang cookie
+
+
+
+处理办法， 将 C:\Windows目录下，的  erlang.cookie文件， 复制到  C:\Users\{用户名}  目录下。
+
+本次实际复制的目录，为 C:\Users\Administrator
+
+再次运行 
+rabbitmqctl status
+
+提示正常。
+
+
+
+运行
+rabbitmqctl list_users
+命令， 查看 用户列表.
+结果：
+
+Listing users ...
+guest   [administrator]
+
+
+
+现在只有一个角色为administrator的名为guest的用户，这个是RabbitMQ默认创建的
+
+
+
+运行
+rabbitmqctl  add_user tester  hello!
+rabbitmqctl  set_permissions  tester  ".*"  ".*"  ".*"
+rabbitmqctl  set_user_tags tester administrator
+
+来创建用户 tester， 密码为 hello!
+并授予权限，并将其设置为管理员。
+
+
+再次运行
+rabbitmqctl list_users
+结果为
+Listing users ...
+guest   [administrator]
+tester  [administrator]
+
+
+
+
+
+四、Web管理
+
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.5\sbin
+下， 运行
+rabbitmq-plugins enable rabbitmq_management
+
+
+访问 
+http://localhost:15672/
+
+用户名/密码为 前面通过 rabbitmqctl  add_user 创建的用户名/密码
+
+
+
