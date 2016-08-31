@@ -13,21 +13,18 @@ namespace A0622_EF_OneToMany
         {
             Test t = new Test();
 
-            // 新增学校.
+
+            // 测试 单独 新增学校.
             School school1 = new School()
             { 
                 SchoolName = "学校1"
             };
-            School school2 = new School()
-            {
-                SchoolName = "学校2"
-            };
 
             t.SaveSchoolData(school1);
-            t.SaveSchoolData(school2);
 
 
-            // 新增老师.
+
+            // 测试 单独 新增 已有学校下的 老师.
             Teacher t1 = new Teacher()
             {
                 TeacherName = "张老师",
@@ -40,26 +37,58 @@ namespace A0622_EF_OneToMany
                 InSchool = school1
             };
 
-            Teacher t3 = new Teacher()
-            {
-                TeacherName = "王老师",
-                InSchool = school2
-            };
-
-            Teacher t4 = new Teacher()
-            {
-                TeacherName = "赵老师",
-                InSchool = school2
-            };
-
             t.SaveTeacherData(t1);
             t.SaveTeacherData(t2);
-            t.SaveTeacherData(t3);
-            t.SaveTeacherData(t4);
 
-            
+
+
+
+            // 测试 批量 新增  学校与老师.
+
+            List<School> schoolList = new List<School>()
+            {
+                new School() {
+                    SchoolName = "学校2",
+
+                    SchoolTeachers = new List<Teacher>() {
+                        new Teacher()
+                        {
+                            TeacherName = "老师001",
+                        },
+                        new Teacher()
+                        {
+                            TeacherName = "老师002",
+                        }
+                    },
+                },
+
+                new School() {
+                    SchoolName = "学校3",
+
+                    SchoolTeachers = new List<Teacher>() {
+                        new Teacher()
+                        {
+                            TeacherName = "老师003",
+                        },
+                        new Teacher()
+                        {
+                            TeacherName = "老师004",
+                        }
+                    },
+                },
+            };
+
+
+            t.BatchInsert(schoolList);
+
+
+
+
+
+            var allSchool = t.GetSchoolList();
+
             // 查询 学校中的老师.
-            foreach (School sc in t.SchoolDataSource)
+            foreach (School sc in allSchool)
             {
                 foreach (Teacher te in sc.SchoolTeachers)
                 {

@@ -13,6 +13,13 @@ namespace A0622_EF_OneToMany.Sample
     public class MyDbContext : DbContext
     {
 
+
+        public MyDbContext()
+            : base("name=MyDbContext")
+        {
+        }
+
+
         /// <summary>
         /// 构造函数.
         /// </summary>
@@ -31,6 +38,25 @@ namespace A0622_EF_OneToMany.Sample
         public DbSet<School> SchoolDbSet { get; set; }
         public DbSet<Teacher> TeacherDbSet { get; set; }
 
+
+
+
+
+
+        /// <summary>
+        /// 指定如何创建 表的处理.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // 注意： 
+            // Oracle 必须要加这一句。 否则就会抱  dbo 用户不存在的错误！
+            // SQL Server 则不要加这句话。
+            modelBuilder.HasDefaultSchema("TEST2");
+
+        }
 
     }
 

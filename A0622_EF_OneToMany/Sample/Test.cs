@@ -5,44 +5,15 @@ using System.Text;
 using System.Data;
 
 
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+
+
 namespace A0622_EF_OneToMany.Sample
 {
     public class Test
     {
-
-        /// <summary>
-        /// 数据库连接地址.
-        /// 
-        /// 在 Entity Framework 4 当中.
-        /// 如果 Initial Catalog 指定的 “数据库”不存在
-        /// 那么会在 Data Source 指定的服务器下，自动创建一个。
-        /// 
-        /// </summary>
-        private static readonly string connString =
-            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=TestOneToMany;Integrated Security=True";
-
-
-        MyDbContext context = new MyDbContext(connString);
-
-
-        /// <summary>
-        /// 用于 Linq 处理的数据源.
-        /// </summary>
-        public IQueryable<School> SchoolDataSource
-        {
-            get { return context.SchoolDbSet; }
-        }
-
-        /// <summary>
-        /// 用于 Linq 处理的数据源.
-        /// </summary>
-        public IQueryable<Teacher> TeacherDataSource
-        {
-            get { return context.TeacherDbSet; }
-        }
-
-
-
 
         /// <summary>
         /// 保存.
@@ -50,15 +21,32 @@ namespace A0622_EF_OneToMany.Sample
         /// <param name="data"></param>
         public void SaveSchoolData(School data)
         {
-            if (data.SchoolID == 0)
-            {
-                context.SchoolDbSet.Add(data);
+
+            using (MyDbContext context = new MyDbContext()) {
+
+                if (data.SchoolID == 0)
+                {
+                    context.SchoolDbSet.Add(data);
+                }
+                else
+                {
+
+                    School dbData = context.SchoolDbSet.Find(data.SchoolID);
+
+                    // 先从上下文中的旧实体获取跟踪
+                    DbEntityEntry entry = context.Entry(dbData);
+
+                    // 把新值设置到旧实体上
+                    entry.CurrentValues.SetValues(data);  
+
+                }
+
+
+                context.SaveChanges();
+
             }
-            else
-            {
-                context.Entry(data).State = EntityState.Modified;
-            }
-            context.SaveChanges();
+
+            
         }
 
 
@@ -69,17 +57,69 @@ namespace A0622_EF_OneToMany.Sample
         /// <param name="data"></param>
         public void SaveTeacherData(Teacher data)
         {
-            if (data.TeacherID == 0)
+            using (MyDbContext context = new MyDbContext())
             {
-                context.TeacherDbSet.Add(data);
+                if (data.TeacherID == 0)
+                {
+                    context.TeacherDbSet.Add(data);
+                }
+                else
+                {
+
+                    Teacher dbData = context.TeacherDbSet.Find(data.TeacherID);
+
+                    // 先从上下文中的旧实体获取跟踪
+                    DbEntityEntry entry = context.Entry(dbData);
+
+                    // 把新值设置到旧实体上
+                    entry.CurrentValues.SetValues(data);  
+                }
+
+                context.SaveChanges();
             }
-            else
-            {
-                context.Entry(data).State = EntityState.Modified;
-            }
-            context.SaveChanges();
         }
 
+
+
+
+
+
+
+        /// <summary>
+        /// 批量新增.
+        /// </summary>
+        /// <param name="schoolList"></param>
+        public void BatchInsert(List<School> schoolList)
+        {
+            using (MyDbContext context = new MyDbContext())
+            {
+                // 遍历每一个学校.
+                foreach (var school in schoolList)
+                {
+                    context.SchoolDbSet.Add(school);
+                } 
+                context.SaveChanges();
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// 获取学校列表.
+        /// </summary>
+        /// <returns></returns>
+        public List<School> GetSchoolList()
+        {
+            using (MyDbContext context = new MyDbContext())
+            {
+                var query =
+                    from data in context.SchoolDbSet.Include("SchoolTeachers")
+                    select data;
+
+                return query.ToList();
+            }
+        }
 
     }
 }
