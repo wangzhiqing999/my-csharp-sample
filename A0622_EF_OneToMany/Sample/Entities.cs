@@ -20,7 +20,7 @@ namespace A0622_EF_OneToMany.Sample
     {
 
         /// <summary>
-        /// 学校ID.
+        /// 学校代码.
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -63,12 +63,21 @@ namespace A0622_EF_OneToMany.Sample
         public string TeacherName { set; get; }
 
 
+
+
+        /// <summary>
+        /// 学校代码
+        /// </summary>
+        public int SchoolID { set; get; } 
+
+
+
+
         /// <summary>  
         /// 执教的 学校.
         /// 这里是 一对多 关系中
         /// 一个学校，对应多个教师.
         /// </summary>  
-        [InverseProperty("SchoolTeachers")]
         public virtual School InSchool { get; set; }
     }
 

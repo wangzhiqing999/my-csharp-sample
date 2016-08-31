@@ -7,6 +7,9 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 
+using A0622_EF_OneToMany.Config;
+
+
 namespace A0622_EF_OneToMany.Sample
 {
 
@@ -51,10 +54,18 @@ namespace A0622_EF_OneToMany.Sample
         {
             base.OnModelCreating(modelBuilder);
 
+
             // 注意： 
             // Oracle 必须要加这一句。 否则就会抱  dbo 用户不存在的错误！
-            // SQL Server 则不要加这句话。
+            // SQL Server 则不需要加这句话。
             modelBuilder.HasDefaultSchema("TEST2");
+
+
+
+
+
+            // 学校表配置.
+            modelBuilder.Configurations.Add(new SchoolConfig());
 
         }
 

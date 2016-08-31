@@ -16,6 +16,29 @@ namespace A0622_EF_OneToMany.Sample
     {
 
         /// <summary>
+        /// 获取创建数据库表的初始脚本.
+        /// </summary>
+        /// <returns></returns>
+        public String GetCreateDatabaseScript()
+        {
+            using (MyDbContext context = new MyDbContext())
+            {
+
+                // 在 Oracle 环境下， 如果下面这个语句， 也抱错的话...
+                // 错误内容一般是  名称已被使用什么的。
+                // 测试情况下， 简单的处理
+                // 就是抛弃幻想， DROP user 数据库用户 cascade;
+                // 然后重建用户。
+                var dbCreationScript = ((IObjectContextAdapter)context).ObjectContext.CreateDatabaseScript();
+
+                return dbCreationScript;
+            }
+
+        }
+
+
+
+        /// <summary>
         /// 保存.
         /// </summary>
         /// <param name="data"></param>
