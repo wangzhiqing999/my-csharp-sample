@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+<ul>
+
+    <li>
+        @Html.ActionLink(linkText: "测试一个页面中，多个分布视图的处理.", actionName: "TestPartial")
+    </li>
+
+
+    <li>
+        @Html.ActionLink(linkText: "测试一个页面中，Ajax load 多个分布视图的处理.", actionName: "TestPartialAjax")
+    </li>
+
+
+
+    <li>
+        @Html.ActionLink(linkText: "测试 EF 执行SQL语句的处理.", actionName: "TestEf")
+		需要通过 NuGet， 安装 Glimpse.EF6
+    </li>
+
+
+</ul>

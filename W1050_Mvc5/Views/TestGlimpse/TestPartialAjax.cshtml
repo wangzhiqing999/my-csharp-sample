@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "TestPartialAjax";
+}
+
+<h2> 测试 Ajax load 分布视图的性能. </h2>
+
+
+<div id="p1">
+    
+</div>
+
+
+<div id="p2">
+    
+</div>
+
+
+<div id="p3">
+    
+</div>
+
+
+
+
+@section scripts
+{
+
+<script>
+    $("#p1").load('@Url.Action(actionName: "Partial1")');
+    $("#p2").load('@Url.Action(actionName: "Partial2")');
+    $("#p3").load('@Url.Action(actionName: "Partial3")');
+</script>
+
+}
+

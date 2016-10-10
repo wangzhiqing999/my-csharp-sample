@@ -2721,9 +2721,10 @@ MVC 项目, 简单创建 Web Api 项目的例子
 
 
 ### W1050_Mvc5 
-.Net 4.5， MVC 5 例子，  主要用于测试  MVC 中的  async 与 await   
-
-
+.Net 4.5， MVC 5 例子
+1.测试使用 Glimpse ，诊断性能上的问题.
+2.测试  MVC 中的  async 与 await 
+3.测试 System.Web.Helpers.Chart 的使用.
 
 
 
