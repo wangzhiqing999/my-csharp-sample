@@ -31,6 +31,7 @@ namespace A0401_String
 
             regexSample.DemoRegexUse6();
             regexSample.DemoRegexUse7();
+            regexSample.DemoRegexUse8();
 
 
             Console.ReadLine();

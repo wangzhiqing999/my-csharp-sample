@@ -1709,6 +1709,39 @@ Splat
 
 
 
+### B1100_AutoMapper
+
+使用 AutoMapper 的一个简单的例子。
+
+因为 NuGet 最新版本的报错，因此手动获取一个低版本的进行处理.
+Install-Package AutoMapper -Version 4.2.1 
+
+
+
+### B1101_AutoMapper_BeforeAfter
+
+使用 AutoMapper 的过程中， 映射前后操作的例子。
+
+
+
+### B1102_AutoMapper_Initialize
+
+使用 AutoMapper 的过程中， 配置处理的例子。
+
+
+
+
+### B1110_AutoMapper_EF
+
+AutoMapper 配合 EF6 CodeFirst 一齐使用的例子。
+
+需要安装
+Install-Package AutoMapper -Version 4.2.1
+Install-Package AutoMapper.EF6 -Version 0.3.0
+
+
+
+
 
 
 # 加密/解密 部分.
@@ -2725,7 +2758,7 @@ MVC 项目, 简单创建 Web Api 项目的例子
 1.测试使用 Glimpse ，诊断性能上的问题.
 2.测试  MVC 中的  async 与 await 
 3.测试 System.Web.Helpers.Chart 的使用.
-
+4.网站初始化时，使用 EF Pre-Generated Mapping Views， 使得初始化完毕后，首次查询操作时，不会发生太过耗时的处理。
 
 
 

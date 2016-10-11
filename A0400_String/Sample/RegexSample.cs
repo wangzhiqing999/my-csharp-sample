@@ -343,10 +343,46 @@ namespace A0401_String.Sample
 			Console.WriteLine("[07]使用正则表达式替换 @ 为 # 后的结果为：{0}", Regex.Replace(val, "@", "#"));
 
 
+
+
+            string source = @" </tr>                        	         <script type=""text/javascript"">timeSplit('2016-10-11 08:53:46');</script> ";
+            string pat = "<script .*/script>";
+            string removeScript = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
+            Console.WriteLine(@"[07]尝试移除 html 中的 script. 
+{0}
+{1}", source, removeScript);
+
+
+
+
+            source = @"财经早知道(1011)：聚焦IEA月度原油市场报告	<img class=""more_end2"" src=""/Public/images/more_ads2.gif"" align=""absmiddle"">  </a></div>";
+            pat = "<img [^>]*>";
+            string removeImg = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
+            Console.WriteLine(@"[07]尝试移除 html 中的 Img. 
+{0}
+{1}", source, removeImg);
+
+
+        }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 演示 匹配 替换 的例子
+        /// </summary>
+        public void DemoRegexUse8()
+        {
+
+
 			// 字符串中间有连续空格的话,仅保留一个。
 			String badString = "测试本文：   中间 一个  或者    多个     空格";
 
-			Console.WriteLine("[07]{0}\n中间有连续空格的话,仅保留一个后的结果为：\n{1}", badString, Regex.Replace(badString, " +", " "));
+			Console.WriteLine("[08]{0}\n中间有连续空格的话,仅保留一个后的结果为：\n{1}", badString, Regex.Replace(badString, " +", " "));
 
 
 			char[] divChar = { ' ' };
@@ -354,14 +390,14 @@ namespace A0401_String.Sample
 
 			String[] regexSplit = Regex.Split(badString, " +");
 
-			Console.WriteLine("[07]{0} 根据 String.Split “{1}” 拆分出来的结果为：", badString, divChar[0]);
+			Console.WriteLine("[08]{0} 根据 String.Split “{1}” 拆分出来的结果为：", badString, divChar[0]);
 			foreach (String oneData in stringSplit)
 			{
 				Console.WriteLine(oneData);
 			}
 
 
-			Console.WriteLine("[07]{0} 根据 Regex.Split “{1}” 拆分出来的结果为：", badString, " +");
+			Console.WriteLine("[08]{0} 根据 Regex.Split “{1}” 拆分出来的结果为：", badString, " +");
 			foreach (String oneData in regexSplit)
 			{
 				Console.WriteLine(oneData);
@@ -373,7 +409,7 @@ namespace A0401_String.Sample
 			String dataString = "Java; C#; C++ ; C; DELPHI; BASIC";
 			divChar[0] = ';';
 			string[] itemArray = dataString.Split(divChar);
-			Console.WriteLine("[07]{0} 根据 String.Split  {1} 拆分出来的结果为：", dataString, divChar[0]);
+			Console.WriteLine("[08]{0} 根据 String.Split  {1} 拆分出来的结果为：", dataString, divChar[0]);
 			foreach (String oneData in itemArray)
 			{
 				Console.WriteLine("==[{0}]", oneData);
@@ -381,7 +417,7 @@ namespace A0401_String.Sample
 
 			// 使用正则表达式来进行 Split， 可以使 Split 出来的 字符创数组，不需要做额外的 Trim 工作。
 			itemArray = Regex.Split(dataString, " *; *");
-			Console.WriteLine("[07]{0} 根据 Regex.Split  {1} 拆分出来的结果为：", dataString, " *; *");
+			Console.WriteLine("[08]{0} 根据 Regex.Split  {1} 拆分出来的结果为：", dataString, " *; *");
 			foreach (String oneData in itemArray)
 			{
 				Console.WriteLine("==[{0}]", oneData);
