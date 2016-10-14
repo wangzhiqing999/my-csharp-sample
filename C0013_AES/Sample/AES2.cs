@@ -11,8 +11,12 @@ using System.Security.Cryptography;
 
 namespace C0013_AES.Sample
 {
-    public class AES
+
+
+
+    public class AES2
     {
+
 
         /// <summary>
         /// 密钥
@@ -24,6 +28,9 @@ namespace C0013_AES.Sample
         /// 向量
         /// </summary>
         public string IV { set; get; }
+
+
+
 
 
 
@@ -41,18 +48,25 @@ namespace C0013_AES.Sample
 
 
         /// <summary>
-        /// AES加密
+        /// AES加密 - CBC
         /// </summary>
         /// <param name="plainStr">明文字符串</param>
         /// <returns>密文</returns>
-        public string AESEncrypt(string plainStr)
+        public string AESEncryptCBC(string plainStr)
         {
             byte[] bKey = Encoding.UTF8.GetBytes(Key);
             byte[] bIV = Encoding.UTF8.GetBytes(IV);
             byte[] byteArray = Encoding.UTF8.GetBytes(plainStr);
 
             string encrypt = null;
-            Rijndael aes = Rijndael.Create();
+
+
+            // AesManaged - 高级加密标准(AES) 对称算法的管理类
+            AesManaged aes = new AesManaged();
+            // 模式 ： CBC
+            aes.Mode = CipherMode.CBC;
+
+
             try
             {
                 using (MemoryStream mStream = new MemoryStream())
@@ -65,26 +79,39 @@ namespace C0013_AES.Sample
                     }
                 }
             }
-            catch { }
+            catch (Exception Exception)
+            {
+                Console.WriteLine(Exception.Message);
+            }
             aes.Clear();
 
             return encrypt;
         }
 
 
+
+
         /// <summary>
-        /// AES解密
+        /// AES解密 - CBC
         /// </summary>
         /// <param name="encryptStr">密文字符串</param>
         /// <returns>明文</returns>
-        public string AESDecrypt(string encryptStr)
+        public string AESDecryptCBC(string encryptStr)
         {
             byte[] bKey = Encoding.UTF8.GetBytes(Key);
             byte[] bIV = Encoding.UTF8.GetBytes(IV);
             byte[] byteArray = Convert.FromBase64String(encryptStr);
 
             string decrypt = null;
-            Rijndael aes = Rijndael.Create();
+
+
+            // AesManaged - 高级加密标准(AES) 对称算法的管理类
+            AesManaged aes = new AesManaged();
+
+            // 模式 ： CBC
+            aes.Mode = CipherMode.CBC;
+
+
             try
             {
                 using (MemoryStream mStream = new MemoryStream())
@@ -97,7 +124,10 @@ namespace C0013_AES.Sample
                     }
                 }
             }
-            catch { }
+            catch (Exception Exception)
+            {
+                Console.WriteLine(Exception.Message);
+            }
             aes.Clear();
 
             return decrypt;
@@ -106,7 +136,6 @@ namespace C0013_AES.Sample
 
 
         #endregion
-
 
 
 
@@ -142,8 +171,8 @@ namespace C0013_AES.Sample
             string encrypt = null;
 
 
-            
-            Rijndael aes = Rijndael.Create();
+            // AesManaged - 高级加密标准(AES) 对称算法的管理类
+            AesManaged aes = new AesManaged();
             // 模式 ： ECB
             aes.Mode = CipherMode.ECB;
 
@@ -186,7 +215,8 @@ namespace C0013_AES.Sample
             string decrypt = null;
 
 
-            Rijndael aes = Rijndael.Create();
+            // AesManaged - 高级加密标准(AES) 对称算法的管理类
+            AesManaged aes = new AesManaged();
 
             // 模式 ： ECB
             aes.Mode = CipherMode.ECB;
@@ -222,7 +252,10 @@ namespace C0013_AES.Sample
 
 
 
+
     }
+
+
 
 
 }

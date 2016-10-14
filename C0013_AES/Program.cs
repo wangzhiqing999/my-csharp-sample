@@ -23,6 +23,9 @@ namespace C0013_AES
             tester.TestAes();
 
 
+            tester.TestAes2();
+
+
             Console.WriteLine("Finish!");
             Console.ReadLine();
 
