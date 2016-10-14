@@ -1790,6 +1790,15 @@ Java 目录下， 为 Java 的测试代码。
 
 
 
+### C0013_AES
+
+DES 与  AES  加密/解密的处理。
+
+例子代码中
+加密处理逻辑为 先加密为 byte 数组， 后转换为 Base64 字符串。
+解密处理逻辑为，先将 Base64 字符串转换为 byte 数组， 再作 解密的处理。
+
+
 
 
 ### C0020_PublicKeyEncryption
