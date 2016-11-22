@@ -166,16 +166,16 @@ namespace A0401_String.Sample
 
 
             // 正则表达式检查  身份证号码.
-            //   
+            //
             string cradPat = @"^\d{17}(\d|X|x)$";
 
-            string[] cardValueArray = { 
-                "11010519491231002X", 
-                "110105194912310011", 
-                "11010519491231001C", 
+            string[] cardValueArray = {
+                "11010519491231002X",
+                "110105194912310011",
+                "11010519491231001C",
                 "1101051949123100112",
-                "1101051949 2310011", 
-                "1101051949X2310011", 
+                "1101051949 2310011",
+                "1101051949X2310011",
                 "11010519491231001"};
 
             foreach (string cardValue in cardValueArray)
@@ -267,10 +267,12 @@ namespace A0401_String.Sample
             // 电子邮件地址
             string emailPat = @"^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$";
 
-            string[] emailValueArray = { 
+            string[] emailValueArray = {
                 "zhang3@sina.com",
                 "li4@sina.com",
                 "abc.def@sina.com",
+                "abc.def@sina.com.tw",
+                "abc.def@sina.co.jp",
                 "@sina.com",
                 "zhang3@",
                 "zhang3@com",};
@@ -280,10 +282,10 @@ namespace A0401_String.Sample
                 Console.WriteLine("[06]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", value, emailPat, Regex.IsMatch(value, emailPat));
             }
 
-			
+
 
             // 网页地址匹配.
-            String[] testArray = { 
+            String[] testArray = {
                 "http://localhost:7735/%E5%85%AC%E5%8F%B8%E7%BD%91%E7%AB%99/home.htm",
                 "adf.htm",
                 "aas/sfg.htm",
@@ -319,12 +321,50 @@ namespace A0401_String.Sample
             Match mHtml = rHtml.Match(htmlText);
             if (mHtml.Success)
             {
-                
-                Console.WriteLine(@"[06] 原始数据：{0}, 
+
+                Console.WriteLine(@"[06] 原始数据：{0},
 解析后的结果：{1}
 {2}
 {3}", htmlText,  mHtml.Groups[1].Value, mHtml.Groups[2].Value, mHtml.Groups[3].Value);
             }
+
+
+
+
+
+
+
+
+
+            string htmlText2 = @"
+据汇金网(www.gold678.com)周三(9月16日)监测的黄金ETFs数据显示，截止周二(9月15日)黄金ETF-SPDR Gold Trust的黄金持仓量约为678.18吨或2180.4252万盎司，较上一交易日持平。
+<img[b]src=http://upload.fx678.com/upload/ht/20150916/nsy_2015091610562484.jpg[b]onload=imgresize(this);[b]style=cursor:pointer;[b]alt=图片点击可在新窗口打开查看[b]onclick=javascript:window.open(this.src);[b]/>
+(SPDR Gold Trust黄金持仓历史走势)
+<B>具体数据见下表：</B>
+<img[b]src=http://upload.fx678.com/upload/ht/20150916/nsy_2015091610565776.png[b]onload=imgresize(this);[b]style=cursor:pointer;[b]alt=图片点击可在新窗口打开查看[b]onclick=javascript:window.open(this.src);[b]/>
+";
+
+
+
+            string patHtml2 = @"<img\[b\]src=([^ \[]+)";
+
+
+            // 初始化 正则表达式  忽略大小写
+            Regex rHtml2 = new Regex(patHtml2, RegexOptions.IgnoreCase);
+
+            Match mHtml2 = rHtml2.Match(htmlText2);
+
+
+            while (mHtml2.Success)
+            {
+
+                Group g2 = mHtml2.Groups[1];
+
+                Console.WriteLine("[06] 分析 HTML 字符串，获取 <img 的 src = {0}", g2.Value);
+
+                mHtml2 = mHtml2.NextMatch();
+            }
+
 
 		}
 
@@ -348,7 +388,7 @@ namespace A0401_String.Sample
             string source = @" </tr>                        	         <script type=""text/javascript"">timeSplit('2016-10-11 08:53:46');</script> ";
             string pat = "<script .*/script>";
             string removeScript = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
-            Console.WriteLine(@"[07]尝试移除 html 中的 script. 
+            Console.WriteLine(@"[07]尝试移除 html 中的 script.
 {0}
 {1}", source, removeScript);
 
@@ -358,7 +398,7 @@ namespace A0401_String.Sample
             source = @"财经早知道(1011)：聚焦IEA月度原油市场报告	<img class=""more_end2"" src=""/Public/images/more_ads2.gif"" align=""absmiddle"">  </a></div>";
             pat = "<img [^>]*>";
             string removeImg = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
-            Console.WriteLine(@"[07]尝试移除 html 中的 Img. 
+            Console.WriteLine(@"[07]尝试移除 html 中的 Img.
 {0}
 {1}", source, removeImg);
 
