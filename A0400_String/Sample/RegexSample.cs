@@ -403,6 +403,35 @@ namespace A0401_String.Sample
 {1}", source, removeImg);
 
 
+
+
+
+
+            // 网站需要  http 迁移至 https
+            // 所有  http://域名：端口号/... 的， 需要变更为 https://域名/...
+
+            string[] httpUrls = { 
+                    @"http://www.test.com/index.html",
+                    @"http://a.test.com/Test123/",
+                    @"http://b.test.com/Sample?id=12345",
+                    @"http://c.test.com/A/B/C/12345/",
+                    @"http://d.test.com:1234/",
+                    @"http://d.test.com:1234/xyz",
+                    @"http://d.test.com:1234/1234",
+                    @"http://d.test.com:1234/1234/",
+                    @"http://d.test.com:1234/1234/5678/",
+                               };
+
+            string httpPortPat = @"[:][0-9]+/";
+            foreach (string httpulr in httpUrls)
+            {
+                string httpsUrl = httpulr.Replace("http://", "https://");
+                httpsUrl = Regex.Replace(httpsUrl, httpPortPat, "/", RegexOptions.IgnoreCase);
+
+                Console.WriteLine("Before: {0}", httpulr);
+                Console.WriteLine("After:  {0}", httpsUrl);
+            }
+
         }
 
 
