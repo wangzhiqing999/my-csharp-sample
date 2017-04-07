@@ -12,7 +12,7 @@ namespace C0200_HashValues
     {
         static void Main(string[] args)
         {
-            HashTest.DoTest2();
+            HashTest.DoTest3();
 
 
             Console.ReadLine();

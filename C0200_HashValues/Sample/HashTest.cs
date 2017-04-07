@@ -39,6 +39,7 @@ namespace C0200_HashValues.Sample
 
             Console.WriteLine("SHA512");
             ByteArrayOutput.Print(SHA512hash(dataToEncrypt));
+
         }
 
 
@@ -79,6 +80,23 @@ namespace C0200_HashValues.Sample
 
 
 
+
+        /// <summary>
+        /// 一个 HMAC-SHA1 加密的处理.
+        /// </summary>
+        public static void DoTest3()
+        {
+            string appid = "173a9608f2d411e4936600ffa64984b5";
+            string expired_time = "1452663274";
+            string secret_key = "aOahcMWCoX6I";
+            string rawMask = appid + "_" + expired_time + "_" + secret_key;
+
+            byte[] data = Encoding.UTF8.GetBytes(rawMask);
+            byte[] key = Encoding.UTF8.GetBytes(secret_key);
+
+            Console.WriteLine("HMAC-SHA1");
+            ByteArrayOutput.Print(HMACSHA1hash(data, key));
+        }
 
 
 
@@ -132,6 +150,22 @@ namespace C0200_HashValues.Sample
         {
             SHA512 shaM = new SHA512Managed();
             byte[] result = shaM.ComputeHash(data);
+            return result;
+        }
+
+
+
+
+
+
+
+        static byte[] HMACSHA1hash(byte[] data, byte[] secret)
+        {
+            HMACSHA1 hmacsha1 = new HMACSHA1();
+
+            hmacsha1.Key = secret;
+
+            byte[] result = hmacsha1.ComputeHash(data);
             return result;
         }
 
