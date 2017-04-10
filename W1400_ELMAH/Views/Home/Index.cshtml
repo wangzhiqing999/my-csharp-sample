@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $("#btn").click(function () {
+            $.ajax({
+                type: 'get',
+                url: '/Home/GetError',
+                data: {}
+            });
+        });
+    });
+    </script>
+
+
+</head>
+<body>
+
+
+    
+    <div>
+        <button type="button" id="btn">测试异常</button>
+    </div>
+
+
+
+    <div> 
+
+        <h3>elmah</h3>
+        
+        <a href="/elmah.axd" target="_blank"> elmah 管理页 </a>
+    </div>
+
+	
+	<div>
+		<ul>
+			<li> ELMAH的使用更加简单，它甚至不用写一句代码，只需要引入dll，然后在Web.config里面配置相应的节点即可 </li>
+			<li> ELMAH组件自带界面，不用写任何代码，即可查看异常日志的界面，轻松找到当前异常的详细信息；和web的结合更加紧密 </li>
+		</ul>
+	</div>
+	
+</body>
+</html>
