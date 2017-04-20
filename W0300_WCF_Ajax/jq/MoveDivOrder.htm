@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> jQuery Div 排序的处理.  </title>
+
+
+    <!--  这个是 基本的 jQuery 的 js.  -->
+    <script src="../Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+
+            $("#btnOrder").click(function () {
+				// 获取输入框的内容.
+				var text = $("#txtOrder").val();
+				// 逗号分隔，转换为数组.
+				var orderArray = text.split(',');
+				// 输出调试.
+				console.log("[Order Data]" , orderArray);
+
+				// 排序.
+				for(var i = 0; i < orderArray.length; i ++) {
+					// 获取目标 div 的 id.
+					var itemName = "#div" + orderArray[i];
+					// 获取目标 div.
+					var item = $(itemName);
+					// 移动到父 div 的底部.
+					$("#main").append(item);
+				}
+            });
+
+
+            $("#btnOrderDesc").click(function () {
+				// 获取输入框的内容.
+				var text = $("#txtOrder").val();
+				// 逗号分隔，转换为数组.
+				var orderArray = text.split(',');
+				// 输出调试.
+				console.log("[Order Data]" , orderArray);
+
+				// 逆序.
+				for(var i = orderArray.length - 1; i >= 0; i --) {
+					// 获取目标 div 的 id.
+					var itemName = "#div" + orderArray[i];
+					// 获取目标 div.
+					var item = $(itemName);
+					// 移动到父 div 的底部.
+					$("#main").append(item);
+				}
+            });
+			
+			
+			// 随机排序.
+			$("#btnRandomOrder").click(function () {
+				// 获取输入框的内容.
+				var text = $("#txtOrder").val();
+				// 逗号分隔，转换为数组.
+				var orderArray = text.split(',');
+				// 数组随机排序.
+				orderArray.sort(function(){return Math.random()-0.5;});
+				// 填充文本框.
+				$("#txtOrder").val(orderArray.join(","));
+				
+				// 排序按钮点击.
+				$("#btnOrder").click();
+			});
+			
+        })
+
+    </script>
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+<input id="txtOrder" type="text" value="1,2,3,4,5,6" title="Div顺序!" placeholder="这里输入Div顺序，以逗号分隔！"/>
+<input id="btnOrder" type="button" value="顺序" />
+<input id="btnOrderDesc" type="button" value="逆序" />
+
+<input id="btnRandomOrder" type="button" value="随机排序" />
+
+
+
+<div id="main">
+
+<div id="div1">
+我是第一个 div
+</div>
+
+<div id="div2">
+我是第二个 div
+</div>
+
+<div id="div3">
+我是第三个 div
+</div>
+
+<div id="div4">
+我是第四个 div
+</div>
+
+<div id="div5">
+我是第五个 div
+</div>
+
+<div id="div6">
+我是第六个 div
+</div>
+
+</div>
+
+
+
+
+</body>
+
+
+
+</html>
