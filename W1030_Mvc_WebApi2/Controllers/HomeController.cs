@@ -22,5 +22,14 @@ namespace W1030_Mvc_WebApi2.Controllers
         }
 
 
+
+
+        public ActionResult TestMyDemoKnockout()
+        {
+            return View();
+        }
+
+
+
     }
 }

@@ -23,6 +23,16 @@ namespace W1030_Mvc_WebApi2
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+
+
+
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                      "~/Scripts/knockout-{version}.js",
+                    "~/Scripts/knockout.validation.min.js",
+                    "~/Scripts/knockout.mapping-latest.js"));
+
         }
     }
 }

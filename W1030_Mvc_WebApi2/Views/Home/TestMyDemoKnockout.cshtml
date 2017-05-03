@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "TestMyDemoKnockout";
+}
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+@Scripts.Render("~/bundles/knockout")
+
+
+
+<script type="text/javascript">
+
+
+    function AppViewModel() {
+        var self = this;
+
+        // 数据列表.
+        self.peopleList = ko.observableArray();
+
+        // 用于查询的用户名.
+        self.queryUserName = ko.observableArray();
+
+        // 新增的用户输入的用户名.
+        self.addUserName = ko.observableArray();
+        // 新增的用户输入的密码.
+        self.addPassword = ko.observableArray();
+
+        // 编辑的用户输入的用户名.
+        self.updateUserName = ko.observableArray();
+        // 编辑的用户输入的密码.
+        self.updatePassword = ko.observableArray();
+
+
+
+        // 获取全部数据.
+        self.getAll = function () {
+            console.log("getAll Start.");
+            $.ajax({
+                url: '/api/mydemo/',
+                type: 'GET',
+                success: function (data) {
+                    console.log("getAll success.");
+                    // 先清空数据.
+                    self.peopleList.removeAll();
+                    // 遍历新增数据.
+                    $.each(data, function (key, val) {
+                        console.log("one line :", key, val);
+                        self.peopleList.push(val);
+                    });
+                }
+            }).fail(
+                function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+                });
+        };
+
+
+        self.doQueryPerson = function () {
+            console.log("doQueryPerson Start.");
+            $.ajax({
+                url: '/api/mydemo/' + self.queryUserName(),
+                type: 'GET',
+                success: function (data) {
+                    console.log("doQueryPerson success.");
+                    // 先清空数据.
+                    self.peopleList.removeAll();
+                    // 遍历新增数据.
+                    $.each(data, function (key, val) {
+                        console.log("one line :", key, val);
+                        self.peopleList.push(val);
+                    });
+                }
+            }).fail(
+                function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+                });
+        };
+
+
+        // 删除.
+        self.removePerson = function () {
+            console.log("removePerson Start.", this);
+            var removeData = this;
+            $.ajax({
+                url: "/api/mydemo/" + this.userName,
+                type: 'DELETE',
+                success: function (data) {
+                    console.log("removePerson success.");
+                    self.peopleList.remove(removeData);
+                }
+            }).fail(
+                function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+            });
+        }
+
+
+
+        self.addPerson = function () {
+            $("#addPerson").show();
+        };
+
+        // 添加.
+        self.doAddPerson = function () {
+            console.log("doAddPerson Start.");
+            $.ajax({
+                url: "/api/mydemo/",
+                type: "POST",
+                dataType: "json",
+                data: { "UserName": self.addUserName(), "Password": self.addPassword() },
+                success: function (data) {
+                    console.log("doAddPerson success.");
+                    self.peopleList.push({ "userName": self.addUserName(), "password": self.addPassword() });
+
+                    $("#addPerson").hide();
+                }
+            }).fail(
+                function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+            });
+        };
+
+
+
+        // 修改.
+        self.updatePerson = function () {
+            console.log("updatePerson Start.", this);
+
+            self.updateUserName(this.userName);
+            self.updatePassword(this.password);
+
+            $("#updatePerson").show();
+        };
+
+        // 更新.
+        self.doUpdatePerson = function () {
+            console.log("doUpdatePerson Start.");
+            $.ajax({
+                url: "/api/mydemo/" + self.updateUserName(),
+                type: "PUT",
+                dataType: "json",
+                data: { "userName": self.updateUserName(), "password": self.updatePassword() },
+                success: function (data) {
+                    console.log("doUpdatePerson success.");
+                    self.getAll();
+                    $("#updatePerson").hide();
+                }
+            }).fail(
+                function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+                });
+
+        };
+
+    };
+
+
+
+    var appViewModel = new AppViewModel();
+
+
+
+
+    $(document).ready(function () {
+
+        appViewModel.getAll();
+
+        ko.applyBindings(appViewModel, $('#list').get(0));
+
+    });
+
+
+</script>
+
+}
+
+
+<h2>TestMyDemoKnockout</h2>
+
+
+<div id="list">
+    <h2>People List</h2>
+
+
+    <a class="btn btn-xs btn-primary" data-bind="click:addPerson" href="javascript:void(0)">添加</a>
+
+
+    <div>
+        <span>用户名</span>
+        <input data-bind="value: queryUserName" />
+
+        <a class="btn btn-xs btn-primary" data-bind="click:doQueryPerson" href="javascript:void(0)">查询</a>
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:peopleList">
+                <tr>
+                    <td data-bind="text: userName"></td>
+                    <td data-bind="text: password"></td>
+
+                    <td><a class="btn btn-xs btn-primary" data-bind="click:$parent.updatePerson" href="javascript:void(0)">编辑</a></td>
+                    <td><a class="btn btn-xs btn-primary" data-bind="click:$parent.removePerson" href="javascript:void(0)">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="addPerson" style="display:none">
+        <form data-bind="submit: doAddPerson">
+            <p>用户名: <input data-bind="value: addUserName" /></p>
+            <p>密码: <input type="password" data-bind="value: addPassword" /></p>
+            <button type="submit">添加</button>
+        </form>
+    </div>
+
+    <div id="updatePerson" style="display:none">
+        <form data-bind="submit: doUpdatePerson">
+            <p>用户名: <span data-bind="text: updateUserName" /> </p>
+            <p>密码: <input type="password" data-bind="value: updatePassword" /></p>
+            <button type="submit">更新</button>
+        </form>
+    </div>
+
+</div>
+
+

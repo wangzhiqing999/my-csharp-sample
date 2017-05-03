@@ -12,6 +12,9 @@
 <script>
 
     function getAll() {
+
+        console.log("getAll Start.");
+
         $.ajax({
             url: '/api/mydemo/',
             type: 'GET',
@@ -33,6 +36,8 @@
 
     function add() {
 
+        console.log("add Start.");
+
         $.ajax({
             url: "/api/mydemo/",
             type: "POST",
@@ -49,6 +54,8 @@
     }
 
     function find() {
+
+        console.log("find Start.");
 
         $.ajax({
             url: "/api/mydemo/" + document.getElementById("txtSearchUserName").value,
@@ -69,6 +76,9 @@
 
 
     function removeAll() {
+
+        console.log("removeAll Start.");
+
         $.ajax({
             url: "/api/mydemo/",
             type: 'DELETE',
@@ -83,6 +93,9 @@
     }
 
     function remove() {
+
+        console.log("remove Start.");
+
         $.ajax({
             url: "/api/mydemo/" + document.getElementById("txtDelUserName").value,
             type: 'DELETE',
@@ -97,6 +110,9 @@
     }
 
     function update() {
+
+        console.log("update Start.");
+
         $.ajax({
             url: "/api/mydemo/" + document.getElementById("txtUpdateUserName").value,
             type: 'PUT',
