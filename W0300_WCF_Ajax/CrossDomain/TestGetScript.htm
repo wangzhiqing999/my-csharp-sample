@@ -278,5 +278,49 @@
 
 
 
+
+
+<hr/>
+
+如果服务器服务 与 客户端js， 都由自己开发。
+
+
+    <h3>第一种方式 在代码里设置HttpHeader</h3>
+
+
+<pre><code>
+
+#region 支持跨域请求
+context.Response.ClearHeaders();
+context.Response.AppendHeader("Access-Control-Allow-Origin","*");
+string requestHeaders = context.Request.Headers["Access-Control-Request-Headers"];
+context.Response.AppendHeader("Access-Control-Allow-Headers",
+string.IsNullOrEmpty(requestHeaders) ? "*" : requestHeaders);
+context.Response.AppendHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+#endregion 
+
+</code></pre>
+
+
+    <h3>第二种方式在web.config文件里配置</h3>
+    
+<pre><code>
+
+
+&lt;system.webServer&gt;  
+  &lt;httpProtocol&gt; 
+    &lt;customHeaders&gt; 
+      &lt;add name="Access-Control-Allow-Methods" value="OPTIONS,POST,GET"/&gt; 
+      &lt;add name="Access-Control-Allow-Headers" value="x-requested-with"/&gt; 
+      &lt;add name="Access-Control-Allow-Origin" value="*" /&gt; 
+    &lt;/customHeaders&gt; 
+  &lt;/httpProtocol&gt; 
+&lt;/system.webServer&gt; 
+
+
+</code></pre>
+
+
+
 </body>
 </html>
