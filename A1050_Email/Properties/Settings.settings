@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="A1050_Email.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SmtpServerName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.exmail.qq.com</Value>
+    </Setting>
+    <Setting Name="SmtpServerPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">465</Value>
+    </Setting>
+    <Setting Name="MailUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test@test.com</Value>
+    </Setting>
+    <Setting Name="MailPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -14,12 +14,16 @@ namespace A1050_Email
         static void Main(string[] args)
         {
 
-            // 邮件发送测试类.
-            MailSender mailSender = new MailSender();
+            //// 邮件发送测试类.
+            //MailSender mailSender = new MailSender();
+
+            //// 测试发送邮件.
+            //mailSender.TestSendMail();
 
 
-            // 测试发送邮件.
-            mailSender.TestSendMail();
+
+
+            WebMailSender.TestSendMail("test@test.com");
 
 
 
