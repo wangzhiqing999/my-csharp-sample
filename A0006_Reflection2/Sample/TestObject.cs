@@ -6,10 +6,11 @@ using System.Text;
 namespace A0006_Reflection2.Sample
 {
 
-	/// <summary>
-	/// 用于测试 反射 的对象类
-	/// </summary>
-	public class TestObject
+    /// <summary>
+    /// 用于测试 反射 的对象类
+    /// </summary>
+    [Serializable]
+    public class TestObject
 	{
 		/// <summary>
 		/// 测试的 字符串类型的数据.
@@ -118,6 +119,15 @@ namespace A0006_Reflection2.Sample
 		/// 枚举的属性.
 		/// </summary>
 		public EnumColor Color { set; get; }
+
+
+
+        /// <summary>
+        /// 测试  NonSerialized  标签.
+        /// </summary>
+        [NonSerialized]
+        public string testValue;
+
 
 	}
 }
