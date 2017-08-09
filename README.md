@@ -1743,6 +1743,17 @@ Install-Package AutoMapper.EF6 -Version 0.3.0
 
 
 
+### B2000_AbpEf
+
+使用 ABP 框架的 EF  编码的例子.
+
+
+
+
+
+
+
+
 
 # 加密/解密 部分.
 
