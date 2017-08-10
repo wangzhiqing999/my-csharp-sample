@@ -111,6 +111,8 @@
     <Compile Include="Module\B2000_AbpEfAbpModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ISchoolRepository.cs" />
+    <Compile Include="Repository\SchoolRepository.cs" />
     <Compile Include="Test\AbpTest.cs" />
     <Compile Include="Test\BasicTest.cs" />
   </ItemGroup>

@@ -45,5 +45,15 @@ namespace B2000_AbpEf.Model
         [ForeignKey(nameof(SchoolID))]
         public virtual School InSchool { get; set; }
 
+
+
+        public override string ToString()
+        {
+            return String.Format(@"Teacher [ id = {0};  name = {1};  schoolID = {2} ]", this.Id, this.TeacherName, this.SchoolID);
+        }
+
+
+
+
     }
 }

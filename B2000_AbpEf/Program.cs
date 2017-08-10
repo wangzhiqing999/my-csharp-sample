@@ -38,6 +38,8 @@ namespace B2000_AbpEf
             // 翻页的操作.
             BasicTest.TestPage();
 
+            // 直接执行 SQL 语句的操作.
+            BasicTest.ExecSql();
 
 
 
@@ -53,6 +55,7 @@ namespace B2000_AbpEf
                     tester.Object.TestOneTableFunc();
                     tester.Object.TestMulTableFunc();
                     tester.Object.TestPage();
+                    tester.Object.ExecSql();
                 }
             }
 

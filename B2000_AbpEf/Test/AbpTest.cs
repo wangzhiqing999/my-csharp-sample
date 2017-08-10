@@ -7,24 +7,28 @@ using System.Threading.Tasks;
 
 using Abp.Domain.Uow;
 
-using Abp.Configuration.Startup;
+using Abp.Application.Services;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 
 using B2000_AbpEf.Model;
+
+using B2000_AbpEf.Repository;
+
 
 
 namespace B2000_AbpEf.Test
 {
 
 
-    public class AbpTest : ITransientDependency
+    public class AbpTest : ApplicationService, ITransientDependency
     {
 
         /// <summary>
         /// 学校存储
         /// </summary>
-        private readonly IRepository<School, Int32> _schoolRepository;
+        // private readonly IRepository<School, Int32> _schoolRepository;
+        private readonly ISchoolRepository _schoolRepository;
 
         /// <summary>
         /// 教师存储
@@ -32,7 +36,7 @@ namespace B2000_AbpEf.Test
         private readonly IRepository<Teacher, Int32> _teacherRepository;
 
 
-        public AbpTest(IRepository<School, Int32> schoolRepository, IRepository<Teacher, Int32> teacherRepository)
+        public AbpTest(ISchoolRepository schoolRepository, IRepository<Teacher, Int32> teacherRepository)
         {
             _schoolRepository = schoolRepository;
             _teacherRepository = teacherRepository;
@@ -71,13 +75,13 @@ namespace B2000_AbpEf.Test
             Console.WriteLine("-- SELECT BY KEY --");
             // 根据 id 进行查询.
             var mySchool2 = this._schoolRepository.Get(schoolID);
-            printSchool(mySchool2);
+            Console.WriteLine(mySchool2);
 
 
             Console.WriteLine("-- SELECT BY NAME --");
             // 根据名称进行查询.
             var mySchool3 = this._schoolRepository.FirstOrDefault(p => p.SchoolName == TEST_SCHOOL_NAME);
-            printSchool(mySchool3);
+            Console.WriteLine(mySchool3);
 
 
 
@@ -97,13 +101,7 @@ namespace B2000_AbpEf.Test
         }
 
 
-        private void printSchool(School mySchool)
-        {
-            Console.WriteLine("SCHOOL : id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
-        }
-
-
-
+   
 
         /// <summary>
         /// 多表的基本操作测试.
@@ -146,7 +144,7 @@ namespace B2000_AbpEf.Test
             Console.WriteLine("-- SELECT --");
             // 根据 id 进行查询.
             var mySchool2 = this._schoolRepository.Get(schoolID);
-            printSchool(mySchool2);
+            Console.WriteLine(mySchool2);
 
             var myTeacher = this._teacherRepository.Get(teacherID1);            
             Console.WriteLine("  TEACHER : id = {0}, name = {1}.", myTeacher.Id, myTeacher.TeacherName);
@@ -181,7 +179,7 @@ namespace B2000_AbpEf.Test
         /// <summary>
         /// 翻页的测试.
         /// </summary>
-        [UnitOfWork]
+        //[UnitOfWork]
         public void TestPage()
         {
 
@@ -207,13 +205,22 @@ namespace B2000_AbpEf.Test
 
             Console.WriteLine("-- PAGE --");
 
+
+
+            // TODO :
+            // 下面的操作， 好像会出错...
+
+            /*
+
             // 排序 = 名称逆序
             // 跳过10行， 取5行.
-            var query = this._schoolRepository.Query(p=>p.Where(d=>d.SchoolName.StartsWith(TEST_SCHOOL_NAME)))
+            var query = this._schoolRepository.GetAll();
+
+            query = query.Where(d=>d.SchoolName.StartsWith(TEST_SCHOOL_NAME))
                 .OrderByDescending(o => o.SchoolName).Skip(10).Take(5);
 
 
-            // 这里好像会出错...
+            // 这里会提示数据库连接已关闭.
             var resultList = query.ToList();
 
             Console.WriteLine("Skip 10 Take 5 Result !");
@@ -221,6 +228,20 @@ namespace B2000_AbpEf.Test
             {
                 printSchool(mySchool);
             }
+
+            */
+
+
+
+
+            var resultList = this._schoolRepository.QuerySchoolList(null, "某某路", null, 5, 3);
+
+            Console.WriteLine("Skip 10 Take 5 Result !");
+            foreach (var mySchool in resultList)
+            {
+                Console.WriteLine(mySchool);
+            }
+
 
 
 
@@ -235,6 +256,70 @@ namespace B2000_AbpEf.Test
             Console.WriteLine();
         }
 
+
+
+
+
+        /// <summary>
+        /// 测试执行 SQL 语句.
+        /// </summary>
+        public void ExecSql()
+        {
+
+            // 测试插入 10 行.
+            Console.WriteLine("-- INSERT  10 LINE --");
+
+            List<int> schoolIDList = new List<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                School mySchool = new School()
+                {
+                    SchoolName = String.Format("{0}_{1:000}", TEST_SCHOOL_NAME, i),
+                    SchoolAddress = String.Format("上海市某某路{0:000}号", i),
+                    State = SchoolState.Unknow + i
+                };
+                var schoolID = this._schoolRepository.InsertAndGetId(mySchool);
+                schoolIDList.Add(schoolID);
+            }
+
+
+
+            Console.WriteLine("-- EXEC SQL --");
+
+            // 枚举的  位操作  查询.
+
+            var resultList = this._schoolRepository.QueryByStatus(SchoolState.Plan);
+            Console.WriteLine("## SchoolState.Plan");
+            foreach (var mySchool in resultList)
+            {
+                Console.WriteLine(mySchool);
+            }
+
+            resultList = this._schoolRepository.QueryByStatus(SchoolState.Build);
+            Console.WriteLine("## SchoolState.Build");
+            foreach (var mySchool in resultList)
+            {
+                Console.WriteLine(mySchool);
+            }
+
+            resultList = this._schoolRepository.QueryByStatus(SchoolState.Use);
+            Console.WriteLine("## SchoolState.Use");
+            foreach (var mySchool in resultList)
+            {
+                Console.WriteLine(mySchool);
+            }
+
+
+            Console.WriteLine("-- DELETE --");
+
+            foreach (var sid in schoolIDList)
+            {
+                this._schoolRepository.Delete(sid);
+            }
+
+
+            Console.WriteLine();
+        }
 
 
     }

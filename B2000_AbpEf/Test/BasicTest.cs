@@ -42,7 +42,7 @@ namespace B2000_AbpEf.Test
                 context.Schools.Add(mySchool);
                 // 物理保存.
                 context.SaveChanges();
-                Console.WriteLine("After Add. id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
+                Console.WriteLine("After Add. School = {0}", mySchool);
             }
 
 
@@ -57,7 +57,7 @@ namespace B2000_AbpEf.Test
                 }
                 else
                 {
-                    Console.WriteLine("Query 1. id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
+                    Console.WriteLine("Query 1.  School = {0}", mySchool);
                 }                
             }
 
@@ -82,7 +82,7 @@ namespace B2000_AbpEf.Test
                     Console.WriteLine("## School Data Not Found!");
                 } else
                 {
-                    Console.WriteLine("Query 2. id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
+                    Console.WriteLine("Query 2. School = {0}", mySchool);
                 }                
             }
 
@@ -137,7 +137,7 @@ namespace B2000_AbpEf.Test
                 context.Schools.Add(mySchool);
                 // 物理保存.
                 context.SaveChanges();
-                Console.WriteLine("After Add. id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
+                Console.WriteLine("After Add.  School = {0}", mySchool);
             }
 
 
@@ -173,10 +173,10 @@ namespace B2000_AbpEf.Test
                 // 注意： 这里好像没法   context.Schools.Includes("SchoolTeachers")
                 var mySchool = context.Schools.FirstOrDefault(p => p.SchoolName == TEST_SCHOOL_NAME);
 
-                Console.WriteLine("SCHOOL : id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
+                Console.WriteLine(mySchool);
                 foreach(var myTeacher in mySchool.SchoolTeachers)
                 {
-                    Console.WriteLine("  TEACHER : id = {0}, name = {1}.", myTeacher.Id, myTeacher.TeacherName);
+                    Console.WriteLine(myTeacher);
                 }                
             }
 
@@ -215,10 +215,7 @@ namespace B2000_AbpEf.Test
 
 
 
-        private static void printSchool(School mySchool)
-        {
-            Console.WriteLine("SCHOOL : id = {0}, name = {1}, address = {2}", mySchool.Id, mySchool.SchoolName, mySchool.SchoolAddress);
-        }
+
 
 
 
@@ -267,7 +264,7 @@ namespace B2000_AbpEf.Test
                 Console.WriteLine("Skip 10 Take 5 Result !");
                 foreach(var mySchool in resultList)
                 {
-                    printSchool(mySchool);
+                    Console.WriteLine(mySchool);
                 }
 
             }
@@ -288,6 +285,82 @@ namespace B2000_AbpEf.Test
 
             Console.WriteLine();
         }
+
+
+
+
+
+        /// <summary>
+        /// 直接执行 SQL 语句的测试.
+        /// </summary>
+        public static void ExecSql()
+        {
+            Console.WriteLine("----- test exec sql func -----");
+
+            // 测试插入 10 行.
+            Console.WriteLine("-- INSERT  10 LINE --");
+            using (B2000_AbpEfDbContext context = new B2000_AbpEfDbContext())
+            {
+
+                for (int i = 1; i <= 10; i++)
+                {
+                    School mySchool = new School()
+                    {
+                        SchoolName = String.Format("{0}_{1:000}", TEST_SCHOOL_NAME, i),
+                        SchoolAddress = String.Format("上海市某某路{0:000}号", i)
+                    };
+                    // 新增学校.
+                    context.Schools.Add(mySchool);
+                }
+                // 物理保存.
+                context.SaveChanges();
+            }
+
+
+
+
+            Console.WriteLine("-- EXEC SQL CMD. --");
+            using (B2000_AbpEfDbContext context = new B2000_AbpEfDbContext())
+            {
+
+                string sql = @"
+SELECT  TOP (3)
+    Id,
+    school_name         AS  SchoolName,
+    school_address      AS  SchoolAddress,
+    school_state        AS  State
+FROM
+    test_abp_school
+ORDER BY
+    Id
+";
+
+                var queryResult = context.Database.SqlQuery<School>(sql);
+
+                foreach (var mySchool in queryResult)
+                {
+                    Console.WriteLine(mySchool);
+                }
+
+            }
+
+
+
+            Console.WriteLine("-- DELETE --");
+            using (B2000_AbpEfDbContext context = new B2000_AbpEfDbContext())
+            {
+                var removeList = context.Schools.Where(p => p.SchoolName.StartsWith(TEST_SCHOOL_NAME)).ToList();
+                foreach (var item in removeList)
+                {
+                    context.Schools.Remove(item);
+                }
+                // 物理保存.
+                context.SaveChanges();
+            }
+
+            Console.WriteLine();
+        }
+
 
 
 
