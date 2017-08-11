@@ -106,6 +106,7 @@
   <ItemGroup>
     <Compile Include="DataAccess\B2000_AbpEfDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Other.cs" />
     <Compile Include="Model\School.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Module\B2000_AbpEfAbpModule.cs" />

@@ -14,6 +14,7 @@ namespace B2000_AbpEf.DataAccess
     public class B2000_AbpEfDbContext : AbpDbContext
     {
 
+
         /// <summary>
         /// 学校.
         /// </summary>
@@ -26,6 +27,14 @@ namespace B2000_AbpEf.DataAccess
         public virtual IDbSet<Teacher> Teachers { get; set; }
 
 
+        /// <summary>
+        /// 其它.
+        /// </summary>
+        public virtual IDbSet<Other> Others { get; set; }
+
+
+
+
 
 
         public B2000_AbpEfDbContext()
@@ -33,6 +42,7 @@ namespace B2000_AbpEf.DataAccess
         {
 
         }
+
 
         public B2000_AbpEfDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)

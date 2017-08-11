@@ -56,6 +56,9 @@ namespace B2000_AbpEf
                     tester.Object.TestMulTableFunc();
                     tester.Object.TestPage();
                     tester.Object.ExecSql();
+
+
+                    tester.Object.OtherTest();
                 }
             }
 

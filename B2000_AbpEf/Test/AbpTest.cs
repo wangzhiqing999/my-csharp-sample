@@ -36,10 +36,19 @@ namespace B2000_AbpEf.Test
         private readonly IRepository<Teacher, Int32> _teacherRepository;
 
 
-        public AbpTest(ISchoolRepository schoolRepository, IRepository<Teacher, Int32> teacherRepository)
+        /// <summary>
+        /// 其他存储.
+        /// </summary>
+        private readonly IRepository<Other, Int64> _otherRepository;
+
+
+
+
+        public AbpTest(ISchoolRepository schoolRepository, IRepository<Teacher, Int32> teacherRepository, IRepository<Other, Int64> otherRepository)
         {
             _schoolRepository = schoolRepository;
             _teacherRepository = teacherRepository;
+            _otherRepository = otherRepository;
         }
 
 
@@ -320,6 +329,73 @@ namespace B2000_AbpEf.Test
 
             Console.WriteLine();
         }
+
+
+
+
+
+
+
+        /// <summary>
+        /// 其他测试.
+        /// </summary>
+        public void OtherTest()
+        {
+
+            Console.WriteLine("=== OTHER  TEST ===");
+
+
+            Console.WriteLine("-- INSERT --");
+
+            Other other = new Other()
+            {
+                Name = TEST_SCHOOL_NAME,
+                IsActive = true
+            };
+
+            long id = this._otherRepository.InsertAndGetId(other);
+
+
+
+            Console.WriteLine("-- SELECT --");
+            // 尝试获取数据.
+            var dbData = this._otherRepository.Get(id);
+            Console.WriteLine(dbData);
+
+
+
+
+            Console.WriteLine("-- UPDATE --");
+
+            dbData.IsActive = false;
+            this._otherRepository.Update(dbData);
+
+
+
+            Console.WriteLine("-- SELECT --");
+            // 尝试获取数据.
+            dbData = this._otherRepository.Get(id);
+            Console.WriteLine(dbData);
+
+
+
+
+            Console.WriteLine("-- DELETE --");
+
+            // 注意： 
+            // 由于 Other 类， 实现了 IDeletionAudited 接口.
+            // 也就是  软删除的  接口
+            // 下面的操作执行完毕后，  数据并没有从数据库中物理删除，  只是 IsDeleted 的列，  被设置为 true.
+            this._otherRepository.Delete(id);
+
+
+            Console.WriteLine();
+
+        }
+
+
+
+
 
 
     }
