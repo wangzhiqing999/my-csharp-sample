@@ -48,12 +48,35 @@ namespace B2000_AbpEf.Model
 
 
 
+
+
+        #region 一对多.
+
+
         /// <summary>
         /// 学校中的教师.
         /// 这里是 一对多 关系中
         /// 一个学校，对应多个教师.
         /// </summary>
         public virtual ICollection<Teacher> SchoolTeachers { get; set; }
+
+
+
+
+
+        /// <summary>
+        /// 学校中的学生.
+        /// 这里是 一对多 关系中
+        /// 一个学校，对应多个学生.
+        /// </summary>
+        public virtual ICollection<Student> SchoolStudents { get; set; }
+
+
+
+        #endregion 一对多.
+
+
+
 
 
 

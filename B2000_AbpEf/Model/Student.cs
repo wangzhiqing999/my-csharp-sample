@@ -10,23 +10,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities;
 
 
+
 namespace B2000_AbpEf.Model
 {
 
     /// <summary>
-    /// 测试教师表.
+    /// 测试学生表.
     /// </summary>
-    [Table("test_abp_teacher")]
-    public class Teacher : Entity<Int32>
+    [Table("test_abp_student")]
+    public class Student : Entity<Int32>
     {
 
 
         /// <summary>
-        /// 教师名.
+        /// 学生名.
         /// </summary>
-        [Column("teacher_name")]
+        [Column("student_name")]
         [StringLength(32)]
-        public string TeacherName { set; get; }
+        public string StudentName { set; get; }
 
 
 
@@ -60,6 +61,7 @@ namespace B2000_AbpEf.Model
 
 
 
+
         #region 多对多.
 
 
@@ -68,7 +70,7 @@ namespace B2000_AbpEf.Model
         /// 一个学生，可能有多个老师对其进行授课.
         /// 一个老师，可能对多个同学进行授课.
         /// </summary>
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Teacher> Teachers { get; set; }
 
 
 
@@ -79,14 +81,16 @@ namespace B2000_AbpEf.Model
 
 
 
-
         public override string ToString()
         {
-            return String.Format(@"Teacher [ id = {0};  name = {1};  schoolID = {2} ]", this.Id, this.TeacherName, this.SchoolID);
+            return String.Format(@"Student [ id = {0};  name = {1};  schoolID = {2} ]", this.Id, this.StudentName, this.SchoolID);
         }
 
 
 
 
+
     }
+
+
 }
