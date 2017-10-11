@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Index</h2>
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2> 简单的验证码 </h2>
+        <p>
+            原始尺寸.
+            <img src="@Url.Action(controllerName:"VerificationCode", actionName:"Simple")" />
+        </p>
+
+        <p>
+            样式调整.
+            <img src="@Url.Action(controllerName:"VerificationCode", actionName:"Simple")"  style="height:36px;"/>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2> Gif 方式的验证码 </h2>
+        <p>
+            原始尺寸.
+            <img src="@Url.Action(controllerName: "VerificationCode", actionName: "Gif")" />
+        </p>
+    </div>
+
+
+    <div class="col-md-4">
+        <h2>...</h2>
+        <p></p>
+    </div>
+</div>

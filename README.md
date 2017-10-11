@@ -2821,6 +2821,12 @@ SignalR 客户端。  本项目为一个 C# 控制台程序， 调用 W1300_Sign
 
 
 
+### W1600_VerificationCode
+普通的静态 jpg 图形验证码， 与动态 Gif 的图形验证码的例子。
+
+
+
+
 ### W2001_WebSocket_Fleck 
 Fleck 实现 Web Socket 处理的例子。 
 
