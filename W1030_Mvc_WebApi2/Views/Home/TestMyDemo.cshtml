@@ -22,7 +22,7 @@
                 document.getElementById("pnlResult").innerHTML = "";
 
                 $.each(data, function (key, val) {
-                    var str = val.UserName + ': ' + val.Password;
+                    var str = val.userName + ': ' + val.password;
                     $('<li/>', { html: str }).appendTo($('#pnlResult'));
                 });
             }
@@ -63,7 +63,7 @@
             success: function (data) {
                 document.getElementById("pnlResult").innerHTML = "";
                 $.each(data, function (key, val) {
-                    var str = val.UserName + ': ' + val.Password;
+                    var str = val.userName + ': ' + val.password;
                     $('<li/>', { html: str }).appendTo($('#pnlResult'));
                 });
             }

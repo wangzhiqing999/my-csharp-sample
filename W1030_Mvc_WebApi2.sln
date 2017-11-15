@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1030_Mvc_WebApi2", "W1030_Mvc_WebApi2\W1030_Mvc_WebApi2.csproj", "{9821E5BC-FA53-43E3-959F-747CF26A1A3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1040_Mvc_WebApi2_swgger", "W1040_Mvc_WebApi2_swgger\W1040_Mvc_WebApi2_swgger.csproj", "{847D8CD2-A13C-44B0-9143-1BB9792DB51F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1030_Mvc_WebApi2_Client", "W1030_Mvc_WebApi2_Client\W1030_Mvc_WebApi2_Client.csproj", "{68FFB3C9-84EF-484A-BF43-8E7D6CC8936D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{847D8CD2-A13C-44B0-9143-1BB9792DB51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847D8CD2-A13C-44B0-9143-1BB9792DB51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{847D8CD2-A13C-44B0-9143-1BB9792DB51F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68FFB3C9-84EF-484A-BF43-8E7D6CC8936D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68FFB3C9-84EF-484A-BF43-8E7D6CC8936D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68FFB3C9-84EF-484A-BF43-8E7D6CC8936D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68FFB3C9-84EF-484A-BF43-8E7D6CC8936D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
