@@ -62,6 +62,26 @@ namespace B1110_AutoMapper_EF.Sample
                 Console.WriteLine("DB TO UI ...");
                 Console.WriteLine("DB = {0}", dv);
                 Console.WriteLine("UI = {0}", uv);
+
+
+
+                List<DbVersion> dvList = dp.VersionList;
+                List<UiVersion> uvList = Mapper.Map<List<DbVersion>, List<UiVersion>>(source: dvList);
+
+                Console.WriteLine("DB List TO UI  List...");
+
+                Console.WriteLine("DB List = ...");
+                foreach (var item in dvList)
+                {
+                    Console.WriteLine(item);
+                }
+
+                Console.WriteLine("UI List = ...");
+                foreach (var item in uvList)
+                {
+                    Console.WriteLine(item);
+                }
+
                 Console.WriteLine("DB TO UI Finish.");
             }
 
