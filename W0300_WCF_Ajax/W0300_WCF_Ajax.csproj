@@ -73,7 +73,15 @@
   <ItemGroup>
     <Content Include="AppDemo\index.htm" />
     <Content Include="AppDemo\LastVersion.htm" />
+    <Content Include="Autocomplete\AutocompleteTestCode.htm" />
     <Content Include="Autocomplete\AutocompleteTest2.htm" />
+    <Content Include="Autocomplete\codedata.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\bloodhound.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\bloodhound.min.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\typeahead.bundle.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\typeahead.bundle.min.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\typeahead.jquery.js" />
+    <Content Include="Autocomplete\typeahead_0.11.0\typeahead.jquery.min.js" />
     <Content Include="Autocomplete\jqui_Autocomplete.htm" />
     <Content Include="bootstrap-progressbar\.gitignore" />
     <Content Include="bootstrap-progressbar\bootstrap-progressbar.js" />

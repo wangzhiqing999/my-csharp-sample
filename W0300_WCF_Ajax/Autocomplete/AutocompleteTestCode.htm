@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Autocomplete 测试 </title>
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    
+    <script src="typeahead_0.11.0/bloodhound.js"></script>
+    <script src="typeahead_0.11.0/typeahead.bundle.js"></script>
+    <script src="typeahead_0.11.0/typeahead.jquery.js"></script>
+
+
+    <script src="codedata.js"></script>
+
+
+    <script type="text/javascript">
+
+        function sortNumber(a, b) {
+            return parseInt(a.c) - parseInt(b.c);
+        }
+
+
+
+        $(document).ready(function () {
+
+
+            s.sort(sortNumber);
+
+
+            var substringMatcher = function (strs) {
+                return function findMatches(q, cb) {
+                    var matches, substrRegex;
+                    matches = [];//定义字符串数组
+                    substrRegex = new RegExp(q, 'i');
+                    //用正则表达式来确定哪些字符串包含子串的'q'
+                    $.each(strs, function (i, str) {
+                        // 遍历
+                        // 代码匹配.
+                        if (substrRegex.test(str.c)) {
+                            matches.push({ value: str.c + ' ' + str.n });
+                        }
+                        // 名称匹配
+                        if (substrRegex.test(str.n)) {
+                            matches.push({ value: str.c + ' ' + str.n });
+                        }
+                        // 拼音匹配
+                        if (substrRegex.test(str.p)) {
+                            matches.push({ value: str.c + ' ' + str.n });
+                        }                        
+                    });
+                    cb(matches);
+                };
+            };
+
+
+
+            
+            // 单一数据来源.
+            $("#txtQuery").typeahead(
+                {
+                    highlight: true,
+                    minLength: 2
+                },
+                {
+                name: 's',
+                displayKey: 'value',
+                source: substringMatcher(s),
+                limit: 10
+            });
+            
+
+        });
+
+    </script>
+
+
+
+<style type="text/css">
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 396px;
+  height: 30px;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-dropdown-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+<h3>  测试 股票  </h3>
+
+
+    <p>
+        测试目的： 输入股票代码，股票名称，或者股票名称的拼音缩写。 能够自动下拉出匹配的数据.
+    </p>
+    
+
+    <input id="txtQuery" type="text" style="width:500px" placeholder="输入股票代码，股票名称，或者股票名称的拼音缩写" />
+
+    
+
+
+</body>
+</html>
