@@ -57,7 +57,7 @@ namespace A0624_EF_OneToOne.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

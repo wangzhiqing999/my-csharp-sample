@@ -50,7 +50,7 @@ namespace A0621_EF_CodeFirst.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

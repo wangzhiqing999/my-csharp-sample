@@ -15,7 +15,7 @@ namespace A0620_EFv4.Sample
     public class Test
     {
 
-        private static readonly string connString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Test;Integrated Security=True";
+        private static readonly string connString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Test2;Integrated Security=True";
 
         MyDbContext context = new MyDbContext(connString);
 
@@ -42,7 +42,7 @@ namespace A0620_EFv4.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

@@ -37,11 +37,37 @@ namespace A0624_EF_OneToOne
 
 
 
+            Car c3 = new Car()
+            {
+                CarName = "报废车辆，发动机已拆除"
+            };
+            t.SaveCarData(c3);
+
+
+
+            Console.WriteLine("===== 通过[从]  查询[主] =====");
             foreach (Engine e in t.EngineDataSource)
             {
                 Console.WriteLine("{0} 安装在 {1} 上.",
                     e.EngineName, e.OnCar.CarName);
             }
+            Console.WriteLine();
+
+
+            Console.WriteLine("===== 通过[主]  查询[从] =====");
+            foreach (Car c in t.CarDataSource)
+            {
+                Console.Write(c.CarName);
+                if (c.Engine != null)
+                {
+                    Console.WriteLine(" ----- {0}", c.Engine.EngineName);
+                }
+                else
+                {
+                    Console.WriteLine(" ----- 未安装");
+                }
+            }
+
 
             Console.ReadLine();
         }

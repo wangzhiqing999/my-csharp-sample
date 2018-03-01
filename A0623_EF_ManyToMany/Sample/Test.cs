@@ -55,7 +55,7 @@ namespace A0623_EF_ManyToMany.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }
@@ -74,7 +74,7 @@ namespace A0623_EF_ManyToMany.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

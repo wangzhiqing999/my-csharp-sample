@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace A0623_EF_ManyToMany.Sample
