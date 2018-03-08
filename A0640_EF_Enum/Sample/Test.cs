@@ -37,7 +37,7 @@ namespace A0640_EF_Enum.Sample
             }
             else
             {
-                context.Entry(data).State = EntityState.Modified;
+                //context.Entry(data).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

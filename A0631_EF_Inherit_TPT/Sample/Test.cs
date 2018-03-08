@@ -53,7 +53,7 @@ namespace A0631_EF_Inherit_TPT.Sample
             }
             else
             {
-                context.Entry(op).State = EntityState.Modified;
+                //context.Entry(op).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

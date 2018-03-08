@@ -53,7 +53,7 @@ namespace A0630_EF_Inherit_TPH.Sample
             }
             else
             {
-                context.Entry(op).State = EntityState.Modified;
+                //context.Entry(op).State = EntityState.Modified;
             }
             context.SaveChanges();
         }

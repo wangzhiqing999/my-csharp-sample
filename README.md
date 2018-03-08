@@ -1023,8 +1023,13 @@ Model First 的处理。
 
 
 
+### A0660_EF_MySql.
+Entity Framework  处理  MySQL 的例子代码
+Database First.
 
 
+### A0661_EF_MySql_RowVersion
+Entity Framework  Code First 处理  MySQL 的 并发版本控制的代码。
 
 
 
