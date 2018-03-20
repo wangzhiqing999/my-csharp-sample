@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "TestValues";
+}
+
+<h2>TestValues</h2>
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+    <script>
+
+        function testGetValues() {
+            $.ajax({
+                url: '/api/values/',
+                type: 'GET',
+                success: function (data) {
+                    document.getElementById("pnlResult").innerHTML = data;                                        
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+        }
+
+
+
+        var accessToken;
+
+
+        function testGetToken() {
+            $.ajax({
+                url: '/token',
+                type: 'POST',
+                data: {
+                    client_id:"1234",
+                    client_secret: "5678",
+                    grant_type: "client_credentials"
+                },
+                success: function (data) {
+
+                    accessToken = data["access_token"];
+
+                    document.getElementById("pnlResult").innerHTML = JSON.stringify(data);
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+        }
+
+
+        function testGetValuesPlus() {
+            $.ajax({
+                url: '/api/values/',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    Authorization: "Bearer " + accessToken
+                },
+                type: 'GET',
+                success: function (data) {
+                    document.getElementById("pnlResult").innerHTML = JSON.stringify(data);
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+        }
+
+    </script>
+}
+
+
+<h2> 无认证方式调用 </h2>
+
+<input id="btnTest1" type="button" value="测试调用" onclick="testGetValues()" />
+
+
+
+<h2> 认证方式调用 </h2>
+
+<input id="btnToken" type="button" value="测试获取 Token" onclick="testGetToken()" />
+
+<input id="btnTest2" type="button" value="测试调用(带Token)" onclick="testGetValuesPlus()" />
+
+
+<ul id="pnlResult"></ul>
+
