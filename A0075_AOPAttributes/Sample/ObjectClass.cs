@@ -19,5 +19,10 @@ namespace A0075_AOPAttributes.Sample
 		{
 			Console.WriteLine("Test:" + para);
 		}
+
+        public string GetTest()
+        {
+            return "Test";
+        }
 	}
 }

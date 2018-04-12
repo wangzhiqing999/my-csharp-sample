@@ -16,13 +16,15 @@ namespace A0075_AOPAttributes
 			obj.Test1();
 			obj.Test2("Test");
 			obj.Test3(1024);
+            Console.WriteLine("GetTest = {0}" , obj.GetTest());
 
 			ObjectClassAOP objAop = new ObjectClassAOP();
 			objAop.Test1();
 			objAop.Test2("Test");
 			objAop.Test3(1024);
+            Console.WriteLine("GetTest = {0}", objAop.GetTest());
 
-			Console.ReadLine();
+            Console.ReadLine();
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using System.Text;
 using System.Runtime.Remoting.Messaging;
 
+
 namespace A0075_AOPAttributes.Sample
 {
 
@@ -96,6 +97,12 @@ namespace A0075_AOPAttributes.Sample
 			buff.AppendFormat("$LOG$:调用{0}方法结束", call.MethodName);
 			buff.AppendLine();
 			Console.Write(buff.ToString());
-		}
+           
+            if (retMsg != null)
+            {
+                Console.WriteLine("$LOG$: 返回值 = {0}",  retMsg.Properties["__Return"]);
+            }
+
+        }
 	}
 }
