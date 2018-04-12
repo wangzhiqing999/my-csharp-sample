@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
-
+using System.Web.WebPages;
 
 
 
@@ -30,6 +29,7 @@ namespace W1050_Mvc5
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            DisplayConfig.RegisterDisplayModes(DisplayModeProvider.Instance.Modes);
 
 
 
@@ -59,5 +59,15 @@ namespace W1050_Mvc5
 
 
 
+
+
+
+
+
+
+
     }
+
+
+
 }
