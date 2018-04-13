@@ -25,6 +25,28 @@
             <a href="/TestMobile/TestErrorPage"> 尝试触发一个错误 ...</a>
         </div>
 
+
+
+
+        <div>
+
+
+            <a href="/TestMobile/Index?display=pc"> 用户自己要求，切换到PC页面. 并且后续页面都是 【pc页面】 </a>
+            <br />
+            <a href="/TestMobile/Index?display=mobile"> 用户自己要求，切换到手机页面. 并且后续页面都是 【手机页面】 </a>
+
+        </div>
+
+
+
+
+        <div>
+
+            @Html.Action(actionName: "TestPartialView")
+
+        </div>
+
+
     </div>
 </body>
 </html>

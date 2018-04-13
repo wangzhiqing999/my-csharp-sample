@@ -52,10 +52,25 @@ namespace W1050_Mvc5
         }
         public static Boolean IsSmartphone(this HttpRequestBase request)
         {
+            string display = null;
+            if (HasSessionDisplay(request, ref display))
+            {
+                // 如果 Session 中明确指定了，使用哪种页面
+                // 那么判断使用哪种页面，就不通过设备类型去检测了.
+                return display == "mobile";
+            }
+
             return request.Browser.IsMobileDevice;
         }
         public static Boolean IsTablet(this HttpRequestBase request)
         {
+            string display = null;
+            if (HasSessionDisplay(request, ref display)) {
+                // 如果 Session 中明确指定了，使用哪种页面
+                // 那么判断使用哪种页面，就不通过设备类型去检测了.
+                return display == "tablet";
+            }
+
             return IsTabletInternal(request.UserAgent);
         }
 
@@ -69,6 +84,19 @@ namespace W1050_Mvc5
         {
             var ua = userAgent.ToLower();
             return ua.Contains("ipad") || ua.Contains("gt-");
+        }
+
+
+        /// <summary>
+        /// Session 中，是否指定了显示类型.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="display"></param>
+        /// <returns></returns>
+        private static bool HasSessionDisplay(HttpRequestBase request, ref string display)
+        {
+            display = request.RequestContext.HttpContext.Session["DISPLAY"] as string;
+            return !String.IsNullOrEmpty(display);
         }
 
     }

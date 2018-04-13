@@ -198,6 +198,9 @@
     <Content Include="Views\TestMobile\Index.tablet.cshtml" />
     <Content Include="Views\Shared\Error.mobile.cshtml" />
     <Content Include="Views\Shared\Error.tablet.cshtml" />
+    <Content Include="Views\TestMobile\TestPartialView.cshtml" />
+    <Content Include="Views\TestMobile\TestPartialView.mobile.cshtml" />
+    <Content Include="Views\TestMobile\TestPartialView.tablet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
