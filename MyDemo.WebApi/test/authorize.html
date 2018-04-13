@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> 测试调用需要授权的 Web Api </title>
+
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+
+
+    <script>
+
+    function getAjaxErrorInfo(xhr, textStatus, err) {
+        return "<p> xhr : " + xhr + "</p>  <p> textStatus :" + textStatus + "</p>  <p> err :" + err + "</p>";
+    }
+
+    function testGetValues() {
+        $.ajax({
+            url: '/api/values/',
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = data;
+            }
+        }).fail(function (xhr, textStatus, err) {
+            alert('Error: ' + err);           
+            document.getElementById("pnlResult").innerHTML = getAjaxErrorInfo(xhr, textStatus, err);
+        });
+    }
+
+
+
+    var accessToken;
+
+
+    function testGetToken() {
+        $.ajax({
+            url: '/oauth2/token',
+            type: 'POST',
+            contentType: 'application/x-www-form-urlencoded',
+            data: {
+                username: "test",
+                password: "123456",
+                grant_type: "password"
+            },
+            success: function (data) {
+                accessToken = data["access_token"];
+                document.getElementById("pnlResult").innerHTML = JSON.stringify(data);
+            }
+        }).fail(function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+            document.getElementById("pnlResult").innerHTML = getAjaxErrorInfo(xhr, textStatus, err);
+        });
+    }
+
+
+    function testGetValuesPlus() {
+        $.ajax({
+            url: '/api/values/',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                Authorization: "Bearer " + accessToken
+            },
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = JSON.stringify(data);
+            }
+        }).fail(function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+            document.getElementById("pnlResult").innerHTML = getAjaxErrorInfo(xhr, textStatus, err);
+        });
+    }
+
+
+    function testGetUserInfo() {
+        $.ajax({
+            url: '/api/UserInfo/',
+            headers: {
+                Authorization: "Bearer " + accessToken
+            },
+            type: 'GET',
+            success: function (data) {
+                document.getElementById("pnlResult").innerHTML = data;
+            }
+        }).fail(function (xhr, textStatus, err) {
+            alert('Error: ' + err);
+            document.getElementById("pnlResult").innerHTML = getAjaxErrorInfo(xhr, textStatus, err);
+        });
+    }
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+    <h1> 关于 Token 的使用 </h1>
+
+
+
+    <hr />
+
+    <h2> 无认证方式调用 </h2>
+
+    <input id="btnTest1" type="button" value="测试调用" onclick="testGetValues()" />
+
+
+
+
+    <hr/>
+
+
+    <h2> 认证方式调用 </h2>
+
+    <input id="btnToken" type="button" value="测试获取 Token" onclick="testGetToken()" />
+
+    <input id="btnTest2" type="button" value="测试调用(带Token)" onclick="testGetValuesPlus()" />
+
+
+    <input id="btnGetUserInfo" type="button" value="测试获取当前用户信息" onclick="testGetUserInfo()" />
+
+
+    <ul id="pnlResult"></ul>
+
+
+
+
+</body>
+</html>

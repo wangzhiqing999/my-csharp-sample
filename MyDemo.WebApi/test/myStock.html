@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> 测试调用返回列表的 Web Api </title>
+
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/vue.js"></script>
+    <script src="/js/myDemoService.js"></script>
+
+
+</head>
+<body>
+
+
+    <h1> 返回列表数据 </h1>
+
+
+
+    <hr />
+
+    <h2> 先登录获取 Token. /  不同登录用户的Token， 将返回不同的结果列表数据。 </h2>
+
+    <ul id="uLogin">
+        <li>
+            <input type="text" id="username" value="test" />
+            (测试用户有  test / test2 / test3)
+        </li>
+        <li>
+            <input type="text" id="password" value="123456" />
+        </li>
+        <li>
+            <button type="button" onclick="doLogin()"> 登录 </button>
+        </li>
+
+    </ul>
+
+    <ul id="uLogoff">
+        <li>
+            <button type="button" onclick="doLogOff()"> 登出 </button>
+        </li>
+    </ul>
+
+
+
+    <hr/>
+
+
+    <h2> 查询列表数据 </h2>
+
+
+    <input id="btnGetUserInfo" type="button" value="测试获取当前用户的自选股" onclick="testGetMyStock()" />
+
+
+    <ul id="pnlResult"></ul>
+
+
+    <hr/>
+
+
+    <div id="myStockApp">
+
+        <table>
+            <thead>
+                <tr>
+                    <th> 代码 </th>
+                    <th> 名称 </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr v-for="item in dataList">
+                    <td>{{item.stockCode}}</td>
+                    <td>{{item.stockName}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    
+
+
+    <p>
+        获取数据之后， 可尝试 F5 刷新页面， 然后再次查询。
+    </p>
+
+
+
+    <script>
+
+
+        
+
+        function getAjaxErrorInfo(xhr, textStatus, err) {
+            return "<p> xhr : " + xhr + "</p>  <p> textStatus :" + textStatus + "</p>  <p> err :" + err + "</p>";
+        }
+
+        function doLogin() {
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            var loginResult = myDemoService.login(username, password);
+
+            if (loginResult) {
+                document.getElementById("pnlResult").innerHTML = "登录成功!";
+                checkUserLogin();
+            } else {
+                document.getElementById("pnlResult").innerHTML = "登录失败!";
+            }
+        }
+
+        function doLogOff() {
+            myDemoService.logoff();
+            checkUserLogin();
+        }
+
+
+        function testGetMyStock() {
+            $.ajax({
+                url: '/api/MyStock/',
+                headers: {
+                    Authorization: "Bearer " + myDemoService.getAccessToken()
+                },
+                type: 'GET',
+                success: function (data) {
+                    showData(data);
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+                document.getElementById("pnlResult").innerHTML = getAjaxErrorInfo(xhr, textStatus, err);
+            });
+        }
+
+
+        function showData(data) {
+            // console.log(data);
+            myVueApp.dataList = data;
+        }
+
+
+        // 表格显示.
+        var myVueApp = new Vue({
+            el: '#myStockApp',
+            data: {
+                dataList: []
+            }
+        });
+        
+
+        function checkUserLogin() {
+            // 判断当前是否已经登录.
+            if (myDemoService.isLogin()) {
+                // 已登录.
+                $("#btnGetUserInfo").show();
+                $("#uLogin").hide();
+                $("#uLogoff").show();
+            } else {
+                // 未登录
+                $("#btnGetUserInfo").hide();
+                $("#uLogin").show();
+                $("#uLogoff").hide();
+            }
+        }
+
+
+
+        checkUserLogin();
+
+    </script>
+
+</body>
+</html>

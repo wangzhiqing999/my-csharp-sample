@@ -2178,6 +2178,14 @@ MEF 的服务接口的实现 （仅仅实现 接口， 不被其他项目直接�
 
 
 
+### MyDemo.WebApi
+一个 Web API 的例子。
+使用 Jwt 来进行认证的处理。
+html 客户端，登录时获取 Access Token。
+后续调用需要认证的 WebApi 时，将这个 Access Token， 放在 http header 中进行处理。
+
+
+
 
 # 调用其他语言部分.
 
