@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Session 测试 </h2>
+
+
+<h3> 尝试在浏览器上， 禁用 Cookie 之后， 再进行本页面的测试。 </h3>
+
+<p>
+
+当浏览器 cookie 被禁用之后，网页地址将变成下面这样的格式.
+
+<br/>
+
+http://localhost:3994/(X(1)S(t3tps5dne4tiknr5wgb5ho22))/TestSession
+
+</p>
+
+
+
+<p>
+
+    <b> 测试 Session 的项目，本项目 Session 空闲超时为 3 分种 </b>
+
+    <br/>
+
+    <span style="color:red;">
+        Session["TEST"] = @(Session["TEST"])
+    </span>
+    
+
+</p>
+
+
+@using (Html.BeginForm("Index", "TestSession", FormMethod.Post))
+{
+<span> 新的数值： </span>
+@Html.TextBox(name: "sessionValue", value: Session["TEST"])
+
+<button type="submit">
+    修改
+</button>
+}
+
+
+<hr />
+
+@Html.ActionLink(linkText: "返回首页，然后再点回来，观察 Session 是否生效！", actionName: "Index", controllerName: "Home")
