@@ -170,6 +170,15 @@ Exam.Log       - Hello
   </appender>
 
 
+  <!-- UdpAppender -->
+  <appender name="UdpAppender" type="log4net.Appender.UdpAppender">
+    <!-- 可用的字符编码，参考： https://msdn.microsoft.com/zh-tw/library/mt643901(v=vs.110).aspx -->
+    <Encoding value="Utf-8" />
+    <remoteAddress value="127.0.0.1" />
+    <remotePort value="8080" />
+    <layout type="log4net.Layout.PatternLayout" value="%-5level %logger [%ndc] - %message%newline" />
+  </appender>
+
 
 
 
@@ -182,6 +191,7 @@ Exam.Log       - Hello
     <level value="DEBUG" />
     <!-- 日志的输出:  控制台 -->
     <appender-ref ref="Console" />
+    <appender-ref ref="UdpAppender" />
   </root>
 
   <!-- 这里专门为某些类，设置特殊的 LOG 配置. -->
@@ -193,7 +203,8 @@ Exam.Log       - Hello
     <appender-ref ref="ColoredConsoleAppender" />
     <appender-ref ref="FileAppender" />
     <appender-ref ref="RollingLogFileAppender_DateFormat" />
-    <appender-ref ref="AdoNetAppender" />
+    <!-- appender-ref ref="AdoNetAppender" / -->
+    <appender-ref ref="UdpAppender" />
     
   </logger>  
   
