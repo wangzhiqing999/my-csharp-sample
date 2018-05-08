@@ -2388,7 +2388,27 @@ C# 代码， 调用 Java 类的例子.
 
 
 
+# RabbitMQ 相关.
 
+
+### R0001_TestProducing
+用于测试 RabbitMQ 的 生产者程序.  Hello World 版本
+
+### R0002_Consuming
+用于测试 RabbitMQ 的消费者程序.  Hello World 版本
+
+### R0003_TestProducing
+用于测试 RabbitMQ 的 生产者程序.  持久化 / 消息响应 / 公平分发 版本.
+
+### R0004_Consuming
+用于测试 RabbitMQ 的消费者程序.  持久化 / 消息响应 / 公平分发 版本.
+
+
+
+# Rx.NET 相关.
+
+### R0100_Rx
+学习 Rx.NET 的例子代码.
 
 
 
