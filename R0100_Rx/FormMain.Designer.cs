@@ -45,13 +45,20 @@
             this.whereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helloWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newObservablePlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transformingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.combiningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.observableToolStripMenuItem});
+            this.observableToolStripMenuItem,
+            this.caseToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(884, 25);
@@ -185,6 +192,53 @@
             this.anyToolStripMenuItem.Text = "Any";
             this.anyToolStripMenuItem.Click += new System.EventHandler(this.anyToolStripMenuItem_Click);
             // 
+            // caseToolStripMenuItem
+            // 
+            this.caseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helloWorldToolStripMenuItem,
+            this.newObservablePlusToolStripMenuItem,
+            this.transformingToolStripMenuItem,
+            this.filteringToolStripMenuItem,
+            this.combiningToolStripMenuItem});
+            this.caseToolStripMenuItem.Name = "caseToolStripMenuItem";
+            this.caseToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
+            this.caseToolStripMenuItem.Text = "Case";
+            // 
+            // helloWorldToolStripMenuItem
+            // 
+            this.helloWorldToolStripMenuItem.Name = "helloWorldToolStripMenuItem";
+            this.helloWorldToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.helloWorldToolStripMenuItem.Text = "HelloWorld";
+            this.helloWorldToolStripMenuItem.Click += new System.EventHandler(this.helloWorldToolStripMenuItem_Click);
+            // 
+            // newObservablePlusToolStripMenuItem
+            // 
+            this.newObservablePlusToolStripMenuItem.Name = "newObservablePlusToolStripMenuItem";
+            this.newObservablePlusToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.newObservablePlusToolStripMenuItem.Text = "NewObservablePlus";
+            this.newObservablePlusToolStripMenuItem.Click += new System.EventHandler(this.newObservablePlusToolStripMenuItem_Click);
+            // 
+            // transformingToolStripMenuItem
+            // 
+            this.transformingToolStripMenuItem.Name = "transformingToolStripMenuItem";
+            this.transformingToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.transformingToolStripMenuItem.Text = "Transforming";
+            this.transformingToolStripMenuItem.Click += new System.EventHandler(this.transformingToolStripMenuItem_Click);
+            // 
+            // filteringToolStripMenuItem
+            // 
+            this.filteringToolStripMenuItem.Name = "filteringToolStripMenuItem";
+            this.filteringToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.filteringToolStripMenuItem.Text = "Filtering";
+            this.filteringToolStripMenuItem.Click += new System.EventHandler(this.filteringToolStripMenuItem_Click);
+            // 
+            // combiningToolStripMenuItem
+            // 
+            this.combiningToolStripMenuItem.Name = "combiningToolStripMenuItem";
+            this.combiningToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.combiningToolStripMenuItem.Text = "Combining";
+            this.combiningToolStripMenuItem.Click += new System.EventHandler(this.combiningToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -221,6 +275,12 @@
         private System.Windows.Forms.ToolStripMenuItem whereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helloWorldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newObservablePlusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transformingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filteringToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem combiningToolStripMenuItem;
     }
 }
 

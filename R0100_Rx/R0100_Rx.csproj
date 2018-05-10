@@ -50,6 +50,10 @@
       <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Reactive.Windows.Forms, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Forms.3.1.1\lib\net45\System.Reactive.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +103,24 @@
     <Compile Include="UI\FormCombineLatest.Designer.cs">
       <DependentUpon>FormCombineLatest.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI2\FormCombining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormCombining.Designer.cs">
+      <DependentUpon>FormCombining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\FormFiltering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormFiltering.Designer.cs">
+      <DependentUpon>FormFiltering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\FormHelloWorld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormHelloWorld.Designer.cs">
+      <DependentUpon>FormHelloWorld.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormMerge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +132,12 @@
     </Compile>
     <Compile Include="UI\FormNewObservable.Designer.cs">
       <DependentUpon>FormNewObservable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\FormNewObservablePlus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormNewObservablePlus.Designer.cs">
+      <DependentUpon>FormNewObservablePlus.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormSkip.cs">
       <SubType>Form</SubType>
@@ -153,6 +181,12 @@
     <Compile Include="UI\FormTakeWhile.Designer.cs">
       <DependentUpon>FormTakeWhile.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI2\FormTransforming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormTransforming.Designer.cs">
+      <DependentUpon>FormTransforming.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormWhere.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +223,23 @@
     <EmbeddedResource Include="UI\FormCombineLatest.resx">
       <DependentUpon>FormCombineLatest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormCombining.resx">
+      <DependentUpon>FormCombining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormFiltering.resx">
+      <DependentUpon>FormFiltering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormHelloWorld.resx">
+      <DependentUpon>FormHelloWorld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormMerge.resx">
       <DependentUpon>FormMerge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormNewObservable.resx">
       <DependentUpon>FormNewObservable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormNewObservablePlus.resx">
+      <DependentUpon>FormNewObservablePlus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormSkip.resx">
       <DependentUpon>FormSkip.cs</DependentUpon>
@@ -215,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormTakeWhile.resx">
       <DependentUpon>FormTakeWhile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormTransforming.resx">
+      <DependentUpon>FormTransforming.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormWhere.resx">
       <DependentUpon>FormWhere.cs</DependentUpon>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using R0100_Rx.UI;
+using R0100_Rx.UI2;
 
 
 namespace R0100_Rx
@@ -21,14 +22,12 @@ namespace R0100_Rx
         }
 
 
-
         private void newObservableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var subForm = new FormNewObservable();
             subForm.MdiParent = this;
             subForm.Show();
         }
-
 
 
         private void subscribeOnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,6 +128,45 @@ namespace R0100_Rx
             subForm.MdiParent = this;
             subForm.Show();
         }
+
+
+        private void helloWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormHelloWorld();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+        private void newObservablePlusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormNewObservablePlus();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void transformingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormTransforming();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void filteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormFiltering();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void combiningToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormCombining();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
 
 
 
