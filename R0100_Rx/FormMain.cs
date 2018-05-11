@@ -166,6 +166,27 @@ namespace R0100_Rx
             subForm.Show();
         }
 
+        private void errorHandlingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormErrorHandling();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void utilityOperatorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormUtilityOperators();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void conditionalAndBooleanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormConditionalAndBoolean();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
 
 
 

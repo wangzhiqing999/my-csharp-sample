@@ -51,6 +51,9 @@
             this.transformingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.combiningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilityOperatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conditionalAndBooleanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,7 +202,10 @@
             this.newObservablePlusToolStripMenuItem,
             this.transformingToolStripMenuItem,
             this.filteringToolStripMenuItem,
-            this.combiningToolStripMenuItem});
+            this.combiningToolStripMenuItem,
+            this.errorHandlingToolStripMenuItem,
+            this.utilityOperatorsToolStripMenuItem,
+            this.conditionalAndBooleanToolStripMenuItem});
             this.caseToolStripMenuItem.Name = "caseToolStripMenuItem";
             this.caseToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
             this.caseToolStripMenuItem.Text = "Case";
@@ -207,37 +213,58 @@
             // helloWorldToolStripMenuItem
             // 
             this.helloWorldToolStripMenuItem.Name = "helloWorldToolStripMenuItem";
-            this.helloWorldToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.helloWorldToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.helloWorldToolStripMenuItem.Text = "HelloWorld";
             this.helloWorldToolStripMenuItem.Click += new System.EventHandler(this.helloWorldToolStripMenuItem_Click);
             // 
             // newObservablePlusToolStripMenuItem
             // 
             this.newObservablePlusToolStripMenuItem.Name = "newObservablePlusToolStripMenuItem";
-            this.newObservablePlusToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.newObservablePlusToolStripMenuItem.Text = "NewObservablePlus";
+            this.newObservablePlusToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.newObservablePlusToolStripMenuItem.Text = "创建操作";
             this.newObservablePlusToolStripMenuItem.Click += new System.EventHandler(this.newObservablePlusToolStripMenuItem_Click);
             // 
             // transformingToolStripMenuItem
             // 
             this.transformingToolStripMenuItem.Name = "transformingToolStripMenuItem";
-            this.transformingToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.transformingToolStripMenuItem.Text = "Transforming";
+            this.transformingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.transformingToolStripMenuItem.Text = "转化操作";
             this.transformingToolStripMenuItem.Click += new System.EventHandler(this.transformingToolStripMenuItem_Click);
             // 
             // filteringToolStripMenuItem
             // 
             this.filteringToolStripMenuItem.Name = "filteringToolStripMenuItem";
-            this.filteringToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.filteringToolStripMenuItem.Text = "Filtering";
+            this.filteringToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.filteringToolStripMenuItem.Text = "过滤操作";
             this.filteringToolStripMenuItem.Click += new System.EventHandler(this.filteringToolStripMenuItem_Click);
             // 
             // combiningToolStripMenuItem
             // 
             this.combiningToolStripMenuItem.Name = "combiningToolStripMenuItem";
-            this.combiningToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.combiningToolStripMenuItem.Text = "Combining";
+            this.combiningToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.combiningToolStripMenuItem.Text = "结合操作";
             this.combiningToolStripMenuItem.Click += new System.EventHandler(this.combiningToolStripMenuItem_Click);
+            // 
+            // errorHandlingToolStripMenuItem
+            // 
+            this.errorHandlingToolStripMenuItem.Name = "errorHandlingToolStripMenuItem";
+            this.errorHandlingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.errorHandlingToolStripMenuItem.Text = "错误处理";
+            this.errorHandlingToolStripMenuItem.Click += new System.EventHandler(this.errorHandlingToolStripMenuItem_Click);
+            // 
+            // utilityOperatorsToolStripMenuItem
+            // 
+            this.utilityOperatorsToolStripMenuItem.Name = "utilityOperatorsToolStripMenuItem";
+            this.utilityOperatorsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.utilityOperatorsToolStripMenuItem.Text = "辅助操作";
+            this.utilityOperatorsToolStripMenuItem.Click += new System.EventHandler(this.utilityOperatorsToolStripMenuItem_Click);
+            // 
+            // conditionalAndBooleanToolStripMenuItem
+            // 
+            this.conditionalAndBooleanToolStripMenuItem.Name = "conditionalAndBooleanToolStripMenuItem";
+            this.conditionalAndBooleanToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.conditionalAndBooleanToolStripMenuItem.Text = "条件和布尔操作";
+            this.conditionalAndBooleanToolStripMenuItem.Click += new System.EventHandler(this.conditionalAndBooleanToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -281,6 +308,9 @@
         private System.Windows.Forms.ToolStripMenuItem transformingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filteringToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem combiningToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem errorHandlingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilityOperatorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conditionalAndBooleanToolStripMenuItem;
     }
 }
 

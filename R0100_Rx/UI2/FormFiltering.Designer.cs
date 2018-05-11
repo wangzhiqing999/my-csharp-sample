@@ -38,6 +38,12 @@
             this.btnTakeLast = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
             this.btnSample = new System.Windows.Forms.Button();
+            this.btnThrottle = new System.Windows.Forms.Button();
+            this.btnSkip = new System.Windows.Forms.Button();
+            this.btnSkipLast = new System.Windows.Forms.Button();
+            this.btnElementAt = new System.Windows.Forms.Button();
+            this.btnIgnoreElements = new System.Windows.Forms.Button();
+            this.btnOfType = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,19 +54,26 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.Controls.Add(this.btnFirst, 1, 1);
-            this.tlpMain.Controls.Add(this.btnDistinctUntilChanged, 0, 1);
-            this.tlpMain.Controls.Add(this.txtResult, 0, 3);
-            this.tlpMain.Controls.Add(this.btnWhere, 0, 0);
-            this.tlpMain.Controls.Add(this.btnTake, 1, 0);
-            this.tlpMain.Controls.Add(this.btnDistinct, 3, 0);
-            this.tlpMain.Controls.Add(this.btnTakeLast, 2, 0);
-            this.tlpMain.Controls.Add(this.btnLast, 2, 1);
-            this.tlpMain.Controls.Add(this.btnSample, 3, 1);
+            this.tlpMain.Controls.Add(this.txtResult, 0, 4);
+            this.tlpMain.Controls.Add(this.btnThrottle, 0, 0);
+            this.tlpMain.Controls.Add(this.btnDistinct, 1, 0);
+            this.tlpMain.Controls.Add(this.btnDistinctUntilChanged, 2, 0);
+            this.tlpMain.Controls.Add(this.btnTake, 2, 3);
+            this.tlpMain.Controls.Add(this.btnTakeLast, 3, 3);
+            this.tlpMain.Controls.Add(this.btnWhere, 0, 1);
+            this.tlpMain.Controls.Add(this.btnElementAt, 3, 0);
+            this.tlpMain.Controls.Add(this.btnSkipLast, 3, 2);
+            this.tlpMain.Controls.Add(this.btnSkip, 2, 2);
+            this.tlpMain.Controls.Add(this.btnSample, 1, 2);
+            this.tlpMain.Controls.Add(this.btnIgnoreElements, 0, 2);
+            this.tlpMain.Controls.Add(this.btnLast, 3, 1);
+            this.tlpMain.Controls.Add(this.btnFirst, 2, 1);
+            this.tlpMain.Controls.Add(this.btnOfType, 1, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 4;
+            this.tlpMain.RowCount = 5;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -71,7 +84,7 @@
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(199, 38);
+            this.btnFirst.Location = new System.Drawing.Point(395, 38);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(190, 23);
             this.btnFirst.TabIndex = 13;
@@ -81,7 +94,7 @@
             // 
             // btnDistinctUntilChanged
             // 
-            this.btnDistinctUntilChanged.Location = new System.Drawing.Point(3, 38);
+            this.btnDistinctUntilChanged.Location = new System.Drawing.Point(395, 3);
             this.btnDistinctUntilChanged.Name = "btnDistinctUntilChanged";
             this.btnDistinctUntilChanged.Size = new System.Drawing.Size(190, 23);
             this.btnDistinctUntilChanged.TabIndex = 12;
@@ -93,17 +106,17 @@
             // 
             this.tlpMain.SetColumnSpan(this.txtResult, 4);
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(3, 108);
+            this.txtResult.Location = new System.Drawing.Point(3, 143);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(778, 250);
+            this.txtResult.Size = new System.Drawing.Size(778, 215);
             this.txtResult.TabIndex = 11;
             // 
             // btnWhere
             // 
-            this.btnWhere.Location = new System.Drawing.Point(3, 3);
+            this.btnWhere.Location = new System.Drawing.Point(3, 38);
             this.btnWhere.Name = "btnWhere";
             this.btnWhere.Size = new System.Drawing.Size(190, 23);
             this.btnWhere.TabIndex = 6;
@@ -113,7 +126,7 @@
             // 
             // btnTake
             // 
-            this.btnTake.Location = new System.Drawing.Point(199, 3);
+            this.btnTake.Location = new System.Drawing.Point(395, 108);
             this.btnTake.Name = "btnTake";
             this.btnTake.Size = new System.Drawing.Size(190, 23);
             this.btnTake.TabIndex = 7;
@@ -123,7 +136,7 @@
             // 
             // btnDistinct
             // 
-            this.btnDistinct.Location = new System.Drawing.Point(591, 3);
+            this.btnDistinct.Location = new System.Drawing.Point(199, 3);
             this.btnDistinct.Name = "btnDistinct";
             this.btnDistinct.Size = new System.Drawing.Size(190, 23);
             this.btnDistinct.TabIndex = 9;
@@ -133,7 +146,7 @@
             // 
             // btnTakeLast
             // 
-            this.btnTakeLast.Location = new System.Drawing.Point(395, 3);
+            this.btnTakeLast.Location = new System.Drawing.Point(591, 108);
             this.btnTakeLast.Name = "btnTakeLast";
             this.btnTakeLast.Size = new System.Drawing.Size(190, 23);
             this.btnTakeLast.TabIndex = 8;
@@ -143,7 +156,7 @@
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(395, 38);
+            this.btnLast.Location = new System.Drawing.Point(591, 38);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(190, 23);
             this.btnLast.TabIndex = 14;
@@ -153,13 +166,73 @@
             // 
             // btnSample
             // 
-            this.btnSample.Location = new System.Drawing.Point(591, 38);
+            this.btnSample.Location = new System.Drawing.Point(199, 73);
             this.btnSample.Name = "btnSample";
             this.btnSample.Size = new System.Drawing.Size(190, 23);
             this.btnSample.TabIndex = 15;
             this.btnSample.Text = "使用 Sample";
             this.btnSample.UseVisualStyleBackColor = true;
             this.btnSample.Click += new System.EventHandler(this.btnSample_Click);
+            // 
+            // btnThrottle
+            // 
+            this.btnThrottle.Location = new System.Drawing.Point(3, 3);
+            this.btnThrottle.Name = "btnThrottle";
+            this.btnThrottle.Size = new System.Drawing.Size(190, 23);
+            this.btnThrottle.TabIndex = 16;
+            this.btnThrottle.Text = "使用 Throttle";
+            this.btnThrottle.UseVisualStyleBackColor = true;
+            this.btnThrottle.Click += new System.EventHandler(this.btnThrottle_Click);
+            // 
+            // btnSkip
+            // 
+            this.btnSkip.Location = new System.Drawing.Point(395, 73);
+            this.btnSkip.Name = "btnSkip";
+            this.btnSkip.Size = new System.Drawing.Size(190, 23);
+            this.btnSkip.TabIndex = 17;
+            this.btnSkip.Text = "使用 Skip";
+            this.btnSkip.UseVisualStyleBackColor = true;
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
+            // 
+            // btnSkipLast
+            // 
+            this.btnSkipLast.Location = new System.Drawing.Point(591, 73);
+            this.btnSkipLast.Name = "btnSkipLast";
+            this.btnSkipLast.Size = new System.Drawing.Size(190, 23);
+            this.btnSkipLast.TabIndex = 18;
+            this.btnSkipLast.Text = "使用 SkipLast";
+            this.btnSkipLast.UseVisualStyleBackColor = true;
+            this.btnSkipLast.Click += new System.EventHandler(this.btnSkipLast_Click);
+            // 
+            // btnElementAt
+            // 
+            this.btnElementAt.Location = new System.Drawing.Point(591, 3);
+            this.btnElementAt.Name = "btnElementAt";
+            this.btnElementAt.Size = new System.Drawing.Size(190, 23);
+            this.btnElementAt.TabIndex = 19;
+            this.btnElementAt.Text = "使用 ElementAt";
+            this.btnElementAt.UseVisualStyleBackColor = true;
+            this.btnElementAt.Click += new System.EventHandler(this.btnElementAt_Click);
+            // 
+            // btnIgnoreElements
+            // 
+            this.btnIgnoreElements.Location = new System.Drawing.Point(3, 73);
+            this.btnIgnoreElements.Name = "btnIgnoreElements";
+            this.btnIgnoreElements.Size = new System.Drawing.Size(190, 23);
+            this.btnIgnoreElements.TabIndex = 20;
+            this.btnIgnoreElements.Text = "使用 IgnoreElements";
+            this.btnIgnoreElements.UseVisualStyleBackColor = true;
+            this.btnIgnoreElements.Click += new System.EventHandler(this.btnIgnoreElements_Click);
+            // 
+            // btnOfType
+            // 
+            this.btnOfType.Location = new System.Drawing.Point(199, 38);
+            this.btnOfType.Name = "btnOfType";
+            this.btnOfType.Size = new System.Drawing.Size(190, 23);
+            this.btnOfType.TabIndex = 21;
+            this.btnOfType.Text = "使用 OfType";
+            this.btnOfType.UseVisualStyleBackColor = true;
+            this.btnOfType.Click += new System.EventHandler(this.btnOfType_Click);
             // 
             // FormFiltering
             // 
@@ -188,5 +261,11 @@
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnSample;
+        private System.Windows.Forms.Button btnThrottle;
+        private System.Windows.Forms.Button btnSkip;
+        private System.Windows.Forms.Button btnSkipLast;
+        private System.Windows.Forms.Button btnElementAt;
+        private System.Windows.Forms.Button btnIgnoreElements;
+        private System.Windows.Forms.Button btnOfType;
     }
 }

@@ -160,6 +160,46 @@ namespace R0100_Rx.UI2
 
 
         /// <summary>
+        /// Start — 创建发射一个函数的返回值的Observable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            var o = Observable.Start<string>(TestFunc);
+
+            o.Subscribe(this.myObserver);
+        }
+
+        private string TestFunc()
+        {
+            return "这是 TestFunc() 函数的返回值！";
+        }
+
+
+        /// <summary>
+        /// ToObservable 将集合转换为 发射这些对象的Observable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnToObservable_Click(object sender, EventArgs e)
+        {
+            List<string> testDataList = new List<string>()
+            {
+                "A", "B", "C", "D", "E"
+            };
+
+            var x = testDataList.ToObservable();
+            x.Subscribe(this.myObserver);
+        }
+
+
+
+
+
+
+
+        /// <summary>
         /// Empty 创建一个不发射任何数据但是正常终止的Observable
         /// </summary>
         /// <param name="sender"></param>
@@ -211,10 +251,7 @@ namespace R0100_Rx.UI2
 
             var repeat = greeting.Repeat(10);
 
-            repeat.Subscribe(this.myObserver);
-
-
-            
+            repeat.Subscribe(this.myObserver);            
         }
 
 
@@ -272,6 +309,8 @@ namespace R0100_Rx.UI2
                 formNewObservablePlus.txtResult.AppendText("\r\n");
             }
         }
+
+
 
 
 

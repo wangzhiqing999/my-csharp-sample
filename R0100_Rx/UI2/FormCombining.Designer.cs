@@ -37,6 +37,7 @@
             this.btnAndThenWhen = new System.Windows.Forms.Button();
             this.btnSwitch = new System.Windows.Forms.Button();
             this.btnStartWith = new System.Windows.Forms.Button();
+            this.btnConcat = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,11 +51,12 @@
             this.tlpMain.Controls.Add(this.txtResult, 0, 3);
             this.tlpMain.Controls.Add(this.btnZip, 0, 0);
             this.tlpMain.Controls.Add(this.btnMerege, 1, 0);
-            this.tlpMain.Controls.Add(this.btnJoin, 2, 0);
-            this.tlpMain.Controls.Add(this.btnCombineLatest, 3, 0);
-            this.tlpMain.Controls.Add(this.btnAndThenWhen, 0, 1);
             this.tlpMain.Controls.Add(this.btnSwitch, 1, 1);
             this.tlpMain.Controls.Add(this.btnStartWith, 2, 1);
+            this.tlpMain.Controls.Add(this.btnAndThenWhen, 3, 1);
+            this.tlpMain.Controls.Add(this.btnCombineLatest, 0, 1);
+            this.tlpMain.Controls.Add(this.btnJoin, 3, 0);
+            this.tlpMain.Controls.Add(this.btnConcat, 2, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -101,7 +103,7 @@
             // 
             // btnJoin
             // 
-            this.btnJoin.Location = new System.Drawing.Point(395, 3);
+            this.btnJoin.Location = new System.Drawing.Point(591, 3);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(190, 23);
             this.btnJoin.TabIndex = 12;
@@ -111,7 +113,7 @@
             // 
             // btnCombineLatest
             // 
-            this.btnCombineLatest.Location = new System.Drawing.Point(591, 3);
+            this.btnCombineLatest.Location = new System.Drawing.Point(3, 38);
             this.btnCombineLatest.Name = "btnCombineLatest";
             this.btnCombineLatest.Size = new System.Drawing.Size(190, 23);
             this.btnCombineLatest.TabIndex = 13;
@@ -121,7 +123,7 @@
             // 
             // btnAndThenWhen
             // 
-            this.btnAndThenWhen.Location = new System.Drawing.Point(3, 38);
+            this.btnAndThenWhen.Location = new System.Drawing.Point(591, 38);
             this.btnAndThenWhen.Name = "btnAndThenWhen";
             this.btnAndThenWhen.Size = new System.Drawing.Size(190, 23);
             this.btnAndThenWhen.TabIndex = 14;
@@ -149,6 +151,16 @@
             this.btnStartWith.UseVisualStyleBackColor = true;
             this.btnStartWith.Click += new System.EventHandler(this.btnStartWith_Click);
             // 
+            // btnConcat
+            // 
+            this.btnConcat.Location = new System.Drawing.Point(395, 3);
+            this.btnConcat.Name = "btnConcat";
+            this.btnConcat.Size = new System.Drawing.Size(190, 23);
+            this.btnConcat.TabIndex = 17;
+            this.btnConcat.Text = "使用 Concat";
+            this.btnConcat.UseVisualStyleBackColor = true;
+            this.btnConcat.Click += new System.EventHandler(this.btnConcat_Click);
+            // 
             // FormCombining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button btnAndThenWhen;
         private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.Button btnStartWith;
+        private System.Windows.Forms.Button btnConcat;
     }
 }

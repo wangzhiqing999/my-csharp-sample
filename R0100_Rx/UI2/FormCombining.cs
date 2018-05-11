@@ -102,6 +102,39 @@ namespace R0100_Rx.UI2
 
 
         /// <summary>
+        /// Concat — 将多个Observable发射的数据组合并成一个
+        /// 与 Merge 的区别：  Merge 是多个发射的同时处理，  Concat 是前面的发射处理完，并结束之后，才开始后续的。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnConcat_Click(object sender, EventArgs e)
+        {
+            // 每秒产生一个数据.
+            var interval = Observable.Interval(TimeSpan.FromSeconds(1)).Select(p => Convert.ToInt32(p)).Take(5);
+
+            // 每2秒产生一个数据.
+            var interva2 = Observable.Interval(TimeSpan.FromSeconds(2)).Select(p => Convert.ToInt32(p * 10)).Take(5);
+
+            // 每3秒产生一个数据.
+            var interva3 = Observable.Interval(TimeSpan.FromSeconds(3)).Select(p => Convert.ToInt32(p * 100)).Take(5);
+
+
+            var interva = Observable.Concat(interval, interva2, interva3);
+
+            interva
+                // 观察者线程，跑到 WinForm 控件的线程上.
+                .ObserveOn(uiScheduler)
+                .Subscribe(myObserver);
+        }
+
+
+
+
+
+
+
+
+        /// <summary>
         /// Join — 无论何时，如果一个Observable发射了一个数据项，
         /// 只要在另一个Observable发射的数据项定义的时间窗口内，就将两个Observable发射的数据合并发射
         /// </summary>
@@ -244,7 +277,7 @@ namespace R0100_Rx.UI2
         private void btnSwitch_Click(object sender, EventArgs e)
         {
             // 每1秒产生一个数据.
-            IObservable<int> interva2 = Observable.Interval(TimeSpan.FromSeconds(1)).Select(p => Convert.ToInt32(p)).Take(10);
+            IObservable<int> interva2 = Observable.Interval(TimeSpan.FromSeconds(1)).Select(p => Convert.ToInt32(p * 100)).Take(10);
 
             // 每5秒产生一组数据. 共5组.
             IObservable<IObservable<int>> interva3 = Observable.Interval(TimeSpan.FromSeconds(5)).Select(p => interva2).Take(5);
@@ -252,11 +285,15 @@ namespace R0100_Rx.UI2
             // 有5组 IObservable<int>,  在一个 IObservable<IObservable<int>> 之中。
             // 每当新的一组 IObservable<int> 来的时候， 丢弃上一组 未发送的数据.
             // 直到最后一组 IObservable<int> 的最后一个 int 数据处理完毕后， 全部结束.
-
+           
             Observable.Switch(interva3)
                 // 观察者线程，跑到 WinForm 控件的线程上.
                 .ObserveOn(uiScheduler)
                 .Subscribe(myObserver);
+
+
+            // 这里的处理， 与 转化操作中的  flatMap/SelectMany 有点相似的地方。
+            // 区别在于， flatMap/SelectMany  不会丢弃上一组 未发送的数据. 如果数据多，且高繁，那么会发生交错。
         }
 
 
@@ -380,6 +417,8 @@ namespace R0100_Rx.UI2
                 formItem.txtResult.AppendText("\r\n");
             }
         }
+
+
 
 
 

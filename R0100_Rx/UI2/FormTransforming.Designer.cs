@@ -34,6 +34,10 @@
             this.btnBufferSkip = new System.Windows.Forms.Button();
             this.btnScan = new System.Windows.Forms.Button();
             this.btnGroupBy = new System.Windows.Forms.Button();
+            this.btnSelectMany = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnWindow = new System.Windows.Forms.Button();
+            this.btnWindowSkip = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +53,10 @@
             this.tlpMain.Controls.Add(this.btnBufferSkip, 1, 0);
             this.tlpMain.Controls.Add(this.btnScan, 3, 0);
             this.tlpMain.Controls.Add(this.btnGroupBy, 2, 0);
+            this.tlpMain.Controls.Add(this.btnSelectMany, 0, 1);
+            this.tlpMain.Controls.Add(this.btnSelect, 1, 1);
+            this.tlpMain.Controls.Add(this.btnWindow, 2, 1);
+            this.tlpMain.Controls.Add(this.btnWindowSkip, 3, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -57,6 +65,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(784, 361);
             this.tlpMain.TabIndex = 14;
             // 
@@ -112,6 +121,46 @@
             this.btnGroupBy.UseVisualStyleBackColor = true;
             this.btnGroupBy.Click += new System.EventHandler(this.btnGroupBy_Click);
             // 
+            // btnSelectMany
+            // 
+            this.btnSelectMany.Location = new System.Drawing.Point(3, 38);
+            this.btnSelectMany.Name = "btnSelectMany";
+            this.btnSelectMany.Size = new System.Drawing.Size(190, 23);
+            this.btnSelectMany.TabIndex = 12;
+            this.btnSelectMany.Text = "使用 SelectMany";
+            this.btnSelectMany.UseVisualStyleBackColor = true;
+            this.btnSelectMany.Click += new System.EventHandler(this.btnSelectMany_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(199, 38);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(190, 23);
+            this.btnSelect.TabIndex = 13;
+            this.btnSelect.Text = "使用 Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnWindow
+            // 
+            this.btnWindow.Location = new System.Drawing.Point(395, 38);
+            this.btnWindow.Name = "btnWindow";
+            this.btnWindow.Size = new System.Drawing.Size(190, 23);
+            this.btnWindow.TabIndex = 14;
+            this.btnWindow.Text = "使用 Window";
+            this.btnWindow.UseVisualStyleBackColor = true;
+            this.btnWindow.Click += new System.EventHandler(this.btnWindow_Click);
+            // 
+            // btnWindowSkip
+            // 
+            this.btnWindowSkip.Location = new System.Drawing.Point(591, 38);
+            this.btnWindowSkip.Name = "btnWindowSkip";
+            this.btnWindowSkip.Size = new System.Drawing.Size(190, 23);
+            this.btnWindowSkip.TabIndex = 15;
+            this.btnWindowSkip.Text = "使用 Window + skip";
+            this.btnWindowSkip.UseVisualStyleBackColor = true;
+            this.btnWindowSkip.Click += new System.EventHandler(this.btnWindowSkip_Click);
+            // 
             // FormTransforming
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -135,5 +184,9 @@
         private System.Windows.Forms.Button btnBufferSkip;
         private System.Windows.Forms.Button btnScan;
         private System.Windows.Forms.Button btnGroupBy;
+        private System.Windows.Forms.Button btnSelectMany;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnWindow;
+        private System.Windows.Forms.Button btnWindowSkip;
     }
 }

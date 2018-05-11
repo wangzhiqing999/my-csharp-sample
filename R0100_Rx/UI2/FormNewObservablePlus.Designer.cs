@@ -36,10 +36,12 @@
             this.txtResult = new System.Windows.Forms.TextBox();
             this.btnRepeat = new System.Windows.Forms.Button();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.btnThrow = new System.Windows.Forms.Button();
             this.btnTimer = new System.Windows.Forms.Button();
-            this.btnEmpty = new System.Windows.Forms.Button();
+            this.btnThrow = new System.Windows.Forms.Button();
             this.btnNever = new System.Windows.Forms.Button();
+            this.btnEmpty = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnToObservable = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,12 +99,12 @@
             // 
             this.tlpMain.SetColumnSpan(this.txtResult, 4);
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(3, 108);
+            this.txtResult.Location = new System.Drawing.Point(3, 143);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(778, 250);
+            this.txtResult.Size = new System.Drawing.Size(778, 215);
             this.txtResult.TabIndex = 11;
             // 
             // btnRepeat
@@ -122,21 +124,24 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.Controls.Add(this.btnThrow, 0, 2);
             this.tlpMain.Controls.Add(this.btnTimer, 1, 1);
-            this.tlpMain.Controls.Add(this.txtResult, 0, 3);
+            this.tlpMain.Controls.Add(this.txtResult, 0, 4);
             this.tlpMain.Controls.Add(this.btnReturn, 0, 0);
             this.tlpMain.Controls.Add(this.btnInterval, 0, 1);
             this.tlpMain.Controls.Add(this.btnCreate, 1, 0);
             this.tlpMain.Controls.Add(this.btnGenerate, 3, 0);
             this.tlpMain.Controls.Add(this.btnRange, 2, 0);
-            this.tlpMain.Controls.Add(this.btnEmpty, 2, 1);
             this.tlpMain.Controls.Add(this.btnRepeat, 3, 2);
-            this.tlpMain.Controls.Add(this.btnNever, 3, 1);
+            this.tlpMain.Controls.Add(this.btnThrow, 3, 3);
+            this.tlpMain.Controls.Add(this.btnNever, 2, 3);
+            this.tlpMain.Controls.Add(this.btnEmpty, 1, 3);
+            this.tlpMain.Controls.Add(this.btnStart, 2, 1);
+            this.tlpMain.Controls.Add(this.btnToObservable, 0, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 4;
+            this.tlpMain.RowCount = 5;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -144,16 +149,6 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(784, 361);
             this.tlpMain.TabIndex = 13;
-            // 
-            // btnThrow
-            // 
-            this.btnThrow.Location = new System.Drawing.Point(3, 73);
-            this.btnThrow.Name = "btnThrow";
-            this.btnThrow.Size = new System.Drawing.Size(190, 23);
-            this.btnThrow.TabIndex = 16;
-            this.btnThrow.Text = "使用 Observable.Throw";
-            this.btnThrow.UseVisualStyleBackColor = true;
-            this.btnThrow.Click += new System.EventHandler(this.btnThrow_Click);
             // 
             // btnTimer
             // 
@@ -165,9 +160,29 @@
             this.btnTimer.UseVisualStyleBackColor = true;
             this.btnTimer.Click += new System.EventHandler(this.btnTimer_Click);
             // 
+            // btnThrow
+            // 
+            this.btnThrow.Location = new System.Drawing.Point(591, 108);
+            this.btnThrow.Name = "btnThrow";
+            this.btnThrow.Size = new System.Drawing.Size(190, 23);
+            this.btnThrow.TabIndex = 16;
+            this.btnThrow.Text = "使用 Observable.Throw";
+            this.btnThrow.UseVisualStyleBackColor = true;
+            this.btnThrow.Click += new System.EventHandler(this.btnThrow_Click);
+            // 
+            // btnNever
+            // 
+            this.btnNever.Location = new System.Drawing.Point(395, 108);
+            this.btnNever.Name = "btnNever";
+            this.btnNever.Size = new System.Drawing.Size(190, 23);
+            this.btnNever.TabIndex = 15;
+            this.btnNever.Text = "使用 Observable.Never";
+            this.btnNever.UseVisualStyleBackColor = true;
+            this.btnNever.Click += new System.EventHandler(this.btnNever_Click);
+            // 
             // btnEmpty
             // 
-            this.btnEmpty.Location = new System.Drawing.Point(395, 38);
+            this.btnEmpty.Location = new System.Drawing.Point(199, 108);
             this.btnEmpty.Name = "btnEmpty";
             this.btnEmpty.Size = new System.Drawing.Size(190, 23);
             this.btnEmpty.TabIndex = 14;
@@ -175,15 +190,25 @@
             this.btnEmpty.UseVisualStyleBackColor = true;
             this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
-            // btnNever
+            // btnStart
             // 
-            this.btnNever.Location = new System.Drawing.Point(591, 38);
-            this.btnNever.Name = "btnNever";
-            this.btnNever.Size = new System.Drawing.Size(190, 23);
-            this.btnNever.TabIndex = 15;
-            this.btnNever.Text = "使用 Observable.Never";
-            this.btnNever.UseVisualStyleBackColor = true;
-            this.btnNever.Click += new System.EventHandler(this.btnNever_Click);
+            this.btnStart.Location = new System.Drawing.Point(395, 38);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(190, 23);
+            this.btnStart.TabIndex = 17;
+            this.btnStart.Text = "使用 Observable.Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnToObservable
+            // 
+            this.btnToObservable.Location = new System.Drawing.Point(3, 73);
+            this.btnToObservable.Name = "btnToObservable";
+            this.btnToObservable.Size = new System.Drawing.Size(190, 23);
+            this.btnToObservable.TabIndex = 18;
+            this.btnToObservable.Text = "使用 ToObservable";
+            this.btnToObservable.UseVisualStyleBackColor = true;
+            this.btnToObservable.Click += new System.EventHandler(this.btnToObservable_Click);
             // 
             // FormNewObservablePlus
             // 
@@ -214,5 +239,7 @@
         private System.Windows.Forms.Button btnEmpty;
         private System.Windows.Forms.Button btnThrow;
         private System.Windows.Forms.Button btnNever;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnToObservable;
     }
 }

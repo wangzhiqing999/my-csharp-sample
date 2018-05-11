@@ -79,6 +79,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\MyFromEventPattern.cs" />
+    <Compile Include="UI2\FormConditionalAndBoolean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormConditionalAndBoolean.Designer.cs">
+      <DependentUpon>FormConditionalAndBoolean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\FormErrorHandling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormErrorHandling.Designer.cs">
+      <DependentUpon>FormErrorHandling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI2\FormUtilityOperators.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI2\FormUtilityOperators.Designer.cs">
+      <DependentUpon>FormUtilityOperators.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormAll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +229,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI2\FormConditionalAndBoolean.resx">
+      <DependentUpon>FormConditionalAndBoolean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormErrorHandling.resx">
+      <DependentUpon>FormErrorHandling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI2\FormUtilityOperators.resx">
+      <DependentUpon>FormUtilityOperators.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormAll.resx">
       <DependentUpon>FormAll.cs</DependentUpon>
     </EmbeddedResource>
