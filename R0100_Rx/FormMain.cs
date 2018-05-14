@@ -187,6 +187,20 @@ namespace R0100_Rx
             subForm.Show();
         }
 
+        private void mathematicalAndAggregateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormMathematicalAndAggregate();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void connectableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormConnectable();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
 
 
 
