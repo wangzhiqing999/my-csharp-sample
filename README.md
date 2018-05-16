@@ -314,6 +314,10 @@ Switch 语句， goto 处理的例子
 
 
 
+### A0106_YamlDotNet
+使用 YamlDotNet ， 进行 序列化 / 反序列化  的例子 ( YAML 主要是拿来当配置文件使用)
+
+
 
 
 ### A0110_DateTime

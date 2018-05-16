@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0331_ThreadAsyncInvoke_TAP", "A0331_ThreadAsyncInvoke_TAP\A0331_ThreadAsyncInvoke_TAP.csproj", "{3574B4EB-0DFA-4684-8B31-53145E472F83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0106_YamlDotNet", "A0106_YamlDotNet\A0106_YamlDotNet.csproj", "{C31BD050-1D3C-4239-A858-C046A68D3092}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3574B4EB-0DFA-4684-8B31-53145E472F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3574B4EB-0DFA-4684-8B31-53145E472F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3574B4EB-0DFA-4684-8B31-53145E472F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31BD050-1D3C-4239-A858-C046A68D3092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31BD050-1D3C-4239-A858-C046A68D3092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31BD050-1D3C-4239-A858-C046A68D3092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31BD050-1D3C-4239-A858-C046A68D3092}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
