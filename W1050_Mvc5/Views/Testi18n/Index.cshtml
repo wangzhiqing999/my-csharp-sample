@@ -1,0 +1,25 @@
+﻿@using System.Threading
+@using W1050_Mvc5.Resource
+
+@{
+    MyResource.Culture = Thread.CurrentThread.CurrentCulture;
+    
+    ViewBag.Title = MyResource.HelloWorld;
+}
+
+<h2> 国际化测试页面 </h2>
+
+<p> 仅仅测试下面的区域， 别的区域没有设置 </p>
+
+
+
+
+<div>
+
+    <span> @Html.Label(MyResource.Lang) </span>
+
+
+    <span>@MyResource.HelloWorld</span>
+
+</div>
+
