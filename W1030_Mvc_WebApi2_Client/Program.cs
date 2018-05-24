@@ -18,6 +18,12 @@ namespace W1030_Mvc_WebApi2_Client
             var s = testSuccess();
             Console.ReadKey();
 
+
+
+
+            var l = testI18n();
+            Console.ReadKey();
+
             Console.WriteLine("Finish!");
             
 
@@ -44,6 +50,32 @@ namespace W1030_Mvc_WebApi2_Client
 
             Console.WriteLine("### 使用 Access Token 访问完成! 按任意键继续.");
         }
+
+
+
+
+
+        /// <summary>
+        /// 测试默认语言.
+        /// </summary>
+        /// <returns></returns>
+        static async Task testI18n()
+        {            
+            I18nTest test = new I18nTest();
+
+            Console.WriteLine("测试默认语言");
+            await test.TestDefault();
+
+
+            Console.WriteLine("测试 zh-CN");
+            await test.TestLang("zh-CN");
+
+            Console.WriteLine("测试 en-US");
+            await test.TestLang("en-US");
+
+        }
+
+
 
 
     }

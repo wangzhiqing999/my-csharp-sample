@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "TestI18n";
+}
+
+<h2>TestI18n</h2>
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+    <script>
+
+        $(document).ready(function () {
+            $(".myapitest").click(function () {
+                var path = $(this).attr("data-path");
+                var lang = $(this).attr("data-lang");
+
+                $.ajax({
+                    url: path,
+                    type: 'GET',
+                    headers: {
+                        "Accept-Language": lang
+                    },
+                    success: function (data) {
+                        console.log("Ajax Result = ", data);
+                        var resultText = "ResultCode = " + data.resultCode + "; ResultMessage = " + data.resultMessage;
+                        document.getElementById("pnlResult").innerHTML = resultText;
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    alert('Error: ' + err);
+                });
+            });
+        });
+
+    </script>
+}
+
+
+
+<h3> zh-CN </h3>
+<ul>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/Success" data-lang="zh-CN" type="button" value="测试返回成功" />
+    </li>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/DataNotFound" data-lang="zh-CN" type="button" value="测试返回数据不存在的错误信息" />
+    </li>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/SystemException" data-lang="zh-CN" type="button" value="测试返回服务器忙" />
+    </li>
+</ul>
+
+
+<h3> en-US </h3>
+<ul>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/Success" data-lang="en-US" type="button" value="测试返回成功" />
+    </li>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/DataNotFound" data-lang="en-US" type="button" value="测试返回数据不存在的错误信息" />
+    </li>
+    <li>
+        <input class="myapitest" data-path="/api/TestI18n/SystemException" data-lang="en-US" type="button" value="测试返回服务器忙" />
+    </li>
+</ul>
+
+
+
+<ul id="pnlResult"></ul>
