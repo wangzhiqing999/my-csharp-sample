@@ -14,9 +14,16 @@ namespace A0101_NewtonsoftJson
         static void Main(string[] args)
         {
 
+            DataContractJsonSerializerTest.DoTestWithSerialization();
+
+
+            JsonConvertTest.DoTestWithSerialization();
             JsonConvertTest.DoTest();
 
+
+            JsonSerializerTest.DoTestWithSerialization();
             JsonSerializerTest.DoTest();
+            
 
 
             JObjectTest.DoTest();

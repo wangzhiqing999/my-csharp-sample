@@ -60,6 +60,45 @@ namespace A0101_NewtonsoftJson.Sample
         }
 
 
+
+        public static void DoTestWithSerialization()
+        {
+            Console.WriteLine("----- JsonConvertTest.DoTestWithSerialization -----");
+
+            Test1 t1 = new Test1()
+            {
+                A = 1,
+                B = 2,
+                C = 3
+            };
+
+            Test2 t2 = new Test2()
+            {
+                A = 2,
+                B = 4,
+                C = 6
+            };
+
+            Test3 t3 = new Test3()
+            {
+                A = 3,
+                B = 6,
+                C = 9
+            };
+
+
+            string jsonString1 = JsonConvert.SerializeObject(t1);
+            Console.WriteLine("Test1 对象转换为 Json 字符串：\n{0}", jsonString1);
+
+            string jsonString2 = JsonConvert.SerializeObject(t2);
+            Console.WriteLine("Test2 对象转换为 Json 字符串：\n{0}", jsonString2);
+
+            string jsonString3 = JsonConvert.SerializeObject(t3);
+            Console.WriteLine("Test3 对象转换为 Json 字符串：\n{0}", jsonString3);
+        }
+
+
+
     }
 
 }

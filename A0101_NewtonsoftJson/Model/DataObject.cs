@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Runtime.Serialization;
+
 using Newtonsoft.Json;
 
 
@@ -164,5 +166,55 @@ namespace A0101_NewtonsoftJson.Model
     }
 
 
+
+
+
+
+    #region 测试序列化的时候， 可能会遇到的问题.
+
+
+    /// <summary>
+    /// 测试类1. 未加任何序列化标志.
+    /// </summary>
+    public class Test1
+    {
+        public int A { set; get; }
+
+        public long B { set; get; }
+
+        public decimal C { set; get; }
+    }
+
+
+    /// <summary>
+    /// 测试类2. 使用 [Serializable] 序列化标志.
+    /// </summary>
+    [Serializable]
+    public class Test2
+    {
+        public int A { set; get; }
+
+        public long B { set; get; }
+
+        public decimal C { set; get; }
+    }
+
+    /// <summary>
+    /// 测试类3. 使用 [DataContract] 序列化标志.
+    /// </summary>
+    [DataContract]
+    public class Test3
+    {
+        [DataMember]
+        public int A { set; get; }
+
+        [DataMember]
+        public long B { set; get; }
+
+        [DataMember]
+        public decimal C { set; get; }
+    }
+
+    #endregion
 
 }
