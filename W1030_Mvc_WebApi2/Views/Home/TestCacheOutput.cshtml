@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "TestCacheOutput";
+}
+
+<h2>TestCacheOutput</h2>
+
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+    <script>
+
+        function testGet() {
+            $.ajax({
+                url: '/api/TestCacheOutput/TestGet/',
+                type: 'GET',
+                success: function (data) {
+
+                    console.log("Call Web Api Result:", data);
+
+                    document.getElementById("pnlResult").innerHTML = data;
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+        }
+
+
+        function testGetByKey(key) {
+            $.ajax({
+                url: '/api/TestCacheOutput/TestGetByKey?id=' + key,
+                type: 'GET',
+                success: function (data) {
+
+                    console.log("Call Web Api （" + key +  "） Result:", data);
+
+                    document.getElementById("pnlResult").innerHTML = data;
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert('Error: ' + err);
+            });
+        }
+
+
+    </script>
+}
+
+
+<h2> 无认证方式调用 </h2>
+
+<input id="btnTest" type="button" value="测试无参数调用" onclick="testGet()" />
+
+
+
+<h2> 认证方式调用 </h2>
+
+<input id="btnTest1" type="button" value="测试带参数调用（1）" onclick="testGetByKey(1)" />
+
+<input id="btnTest2" type="button" value="测试带参数调用（2）" onclick="testGetByKey(2)" />
+
+
+<ul id="pnlResult"></ul>
+

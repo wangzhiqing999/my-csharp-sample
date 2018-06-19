@@ -44,5 +44,16 @@ namespace W1030_Mvc_WebApi2.Controllers
         }
 
 
+
+        /// <summary>
+        /// 测试在 在ASP.NET WebAPI 中使用缓存.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestCacheOutput()
+        {
+            return View();
+        }
+
+
     }
 }
