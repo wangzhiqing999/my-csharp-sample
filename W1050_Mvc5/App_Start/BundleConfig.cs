@@ -26,6 +26,14 @@ namespace W1050_Mvc5
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+
+
+            // 单纯的测试使用 Bundle 来打包压缩 js 的处理.
+            bundles.Add(new ScriptBundle("~/bundles/myTestService").Include(
+                      "~/Scripts/myTestService.js"));
+
         }
     }
 }

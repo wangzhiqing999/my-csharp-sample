@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+
+    通过设置 Web.config 中的  system.web  
+
+    将 compilation debug="true" 修改为  compilation debug="false"
+
+    在浏览器中， 按 F12 来观察， js 是否被压缩了.
+
+</p>
+
+
+
+@section scripts
+{
+
+
+@Scripts.Render("~/bundles/myTestService")
+
+
+
+
+    <script>
+
+        document.write("window.navigator.userAgent = " + window.navigator.userAgent);
+
+        document.write("<br/>isWeixin()  = " + myTestService.isWeixin());
+        document.write("<br/>isIos() = " + myTestService.isIos());
+        document.write("<br/>isAndroid() = " + myTestService.isAndroid());
+        document.write("<br/>isPC() = " + myTestService.isPC());
+        document.write("<br/>isAppleWebKit() = " + myTestService.isAppleWebKit());
+
+
+        document.write("<br/>isBaiduApp() = " + myTestService.isBaiduApp());
+        document.write("<br/>isUCApp() = " + myTestService.isUCApp());
+        document.write("<br/>isSafariApp() = " + myTestService.isSafariApp());
+        document.write("<br/>isQQApp() = " + myTestService.isQQApp());
+        document.write("<br/>isWeiboApp() = " + myTestService.isWeiboApp());
+
+    </script>
+
+}
+
