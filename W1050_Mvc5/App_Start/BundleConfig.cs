@@ -34,6 +34,11 @@ namespace W1050_Mvc5
             bundles.Add(new ScriptBundle("~/bundles/myTestService").Include(
                       "~/Scripts/myTestService.js"));
 
+
+            // 目标文件是由 TypeScript 编译为 JavaScript 的.
+            bundles.Add(new ScriptBundle("~/bundles/myHelloWorld").Include(
+                      "~/Scripts/myHelloWorld.js"));
+
         }
     }
 }
