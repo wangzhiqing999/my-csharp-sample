@@ -62,12 +62,93 @@ namespace W1050_Mvc5
 
 
 
+        /// <summary>
+        /// 在使用 OutputCache， varyByCustom 的时候， 需要在  Global.asax 文件中重写 GetVaryByCustomString 方法
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="custom"></param>
+        /// <returns></returns>
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
 
+            // 自定义的， 根据显示模式进行缓存的处理.
+            if (string.Equals(custom, "DisplayMode", StringComparison.OrdinalIgnoreCase))
+            {
+                return context.Request.DisplayMode();
+            }
+
+
+            return base.GetVaryByCustomString(context, custom);
+        }
 
 
 
     }
 
 
+
+    public static class HttpRequestExtensions
+    {
+
+        public static string DisplayMode(this HttpRequest request)
+        {
+            string display = null;
+            if (HasCookieDisplay(request, ref display))
+            {
+                // 如果 Cookie 中明确指定了，使用哪种页面
+                // 那么判断使用哪种页面，就不通过设备类型去检测了.
+                return display;
+            }
+
+            // Session 中没有指定的情况下.
+            // 按顺序进行判断.
+            if (IsTabletInternal(request.UserAgent))
+            {
+                // 是平板.
+                return "tablet";
+            }
+            if (request.Browser.IsMobileDevice)
+            {
+                // 是手机.
+                return "mobile";
+            }
+            // 其他情况下， PC
+            return "pc";
+        }
+
+
+        /// <summary>
+        /// 设备是否是平板电脑.
+        /// </summary>
+        /// <param name="userAgent"></param>
+        /// <returns></returns>
+        private static Boolean IsTabletInternal(String userAgent)
+        {
+            var ua = userAgent.ToLower();
+            return ua.Contains("ipad") || ua.Contains("gt-");
+        }
+
+
+        /// <summary>
+        /// Cookie 中，是否指定了显示类型.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="display"></param>
+        /// <returns></returns>
+        private static bool HasCookieDisplay(HttpRequest request, ref string display)
+        {
+            if (request.Cookies == null)
+            {
+                return false;
+            }
+            if (request.Cookies["DISPLAY"] == null)
+            {
+                return false;
+            }
+
+            display = request.Cookies["DISPLAY"].Value;
+            return !String.IsNullOrEmpty(display);
+        }
+    }
 
 }

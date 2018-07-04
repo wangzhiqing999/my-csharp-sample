@@ -53,9 +53,9 @@ namespace W1050_Mvc5
         public static Boolean IsSmartphone(this HttpRequestBase request)
         {
             string display = null;
-            if (HasSessionDisplay(request, ref display))
+            if (HasCookieDisplay(request, ref display))
             {
-                // 如果 Session 中明确指定了，使用哪种页面
+                // 如果 Cookie 中明确指定了，使用哪种页面
                 // 那么判断使用哪种页面，就不通过设备类型去检测了.
                 return display == "mobile";
             }
@@ -65,8 +65,8 @@ namespace W1050_Mvc5
         public static Boolean IsTablet(this HttpRequestBase request)
         {
             string display = null;
-            if (HasSessionDisplay(request, ref display)) {
-                // 如果 Session 中明确指定了，使用哪种页面
+            if (HasCookieDisplay(request, ref display)) {
+                // 如果 Cookie 中明确指定了，使用哪种页面
                 // 那么判断使用哪种页面，就不通过设备类型去检测了.
                 return display == "tablet";
             }
@@ -88,14 +88,23 @@ namespace W1050_Mvc5
 
 
         /// <summary>
-        /// Session 中，是否指定了显示类型.
+        /// Cookie 中，是否指定了显示类型.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="display"></param>
         /// <returns></returns>
-        private static bool HasSessionDisplay(HttpRequestBase request, ref string display)
+        private static bool HasCookieDisplay(HttpRequestBase request, ref string display)
         {
-            display = request.RequestContext.HttpContext.Session["DISPLAY"] as string;
+            if (request.Cookies == null)
+            {
+                return false;
+            }
+            if (request.Cookies["DISPLAY"] == null)
+            {
+                return false;
+            }
+
+            display = request.Cookies["DISPLAY"].Value;
             return !String.IsNullOrEmpty(display);
         }
 

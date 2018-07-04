@@ -221,6 +221,15 @@
     <Content Include="Views\Testi18n\Index.cshtml" />
     <Content Include="Views\TestBundle\Index.cshtml" />
     <Content Include="Views\TestTypeScript\Index.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCache.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCache.mobile.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCache.tablet.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByCustom.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByCustom.tablet.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByCustom.mobile.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByHeader.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByHeader.tablet.cshtml" />
+    <Content Include="Views\TestMobile\TestOutputCacheVaryByHeader.mobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
