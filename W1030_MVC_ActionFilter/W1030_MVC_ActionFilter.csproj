@@ -16,6 +16,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -114,6 +118,8 @@
   <ItemGroup>
     <Compile Include="ActionFilters\CompressFilter.cs" />
     <Compile Include="ActionFilters\ETagAttribute.cs" />
+    <Compile Include="ActionFilters\HelloWorldActionFilter.cs" />
+    <Compile Include="ActionFilters\HelloWorldResultFilter.cs" />
     <Compile Include="ActionFilters\SearchBotFilter.cs" />
     <Compile Include="ActionFilters\TidyHtml.cs" />
     <Compile Include="ActionFilters\WhitespaceFilter.cs" />

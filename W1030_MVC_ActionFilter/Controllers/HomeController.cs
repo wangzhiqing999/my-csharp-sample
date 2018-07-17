@@ -71,5 +71,20 @@ namespace W1030_MVC_ActionFilter.Controllers
 
 
 
+
+
+        /// <summary>
+        /// 测试 IActionFilter / IResultFilter 执行顺序.
+        /// </summary>
+        /// <returns></returns>
+        [HelloWorldResultFilter]
+        [HelloWorldActionFilter]
+        public ActionResult HelloWorld()
+        {
+            return Content("<h3>Hello World</h3><br/>");
+        }
+
+
+
     }
 }
