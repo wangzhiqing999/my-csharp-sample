@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "UsePartialView";
+}
+
+<h2>UsePartialView</h2>
+
+
+
+
+<div id="test1"></div>
+
+<div id="test2"></div>
+
+<div id="test3"></div>
+
+
+
+<p>
+    本例子是使用 js 来异步加载3个区块。
+</p>
+
+
+@section scripts
+{
+
+    <script>
+
+        $("#test1").load("/TestAsync/WithoutAsyncSub/1");
+        $("#test2").load("/TestAsync/WithoutAsyncSub/2");
+        $("#test3").load("/TestAsync/WithoutAsyncSub/3");
+
+    </script>
+
+
+}

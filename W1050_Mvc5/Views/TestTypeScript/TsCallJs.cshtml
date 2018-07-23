@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "TsCallJs";
+}
+
+<h2>测试 TypeScript 调用已有的 JavaScript 库.</h2>
+
+
+
+<div id="content"></div>
+
+
+
+
+@Html.Action(actionName: "SubMenu")
+
+
+
+
+
+@section scripts
+{
+
+    <script src="~/Scripts/myTestCallOther.js"></script>
+
+}

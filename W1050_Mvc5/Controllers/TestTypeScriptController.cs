@@ -22,6 +22,61 @@ namespace W1050_Mvc5.Controllers
         }
 
 
+        /// <summary>
+        /// 子菜单.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SubMenu()
+        {
+            return PartialView();
+        }
+
+
+
+
+
+        /// <summary>
+        /// 测试 TypeScript 调用已有的 JavaScript 库
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TsCallJs()
+        {
+            return View();
+        }
+
+
+        /// <summary>
+        /// 测试 TypeScript的变量声明 let 与 常量声明 const 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestLetAndConst()
+        {
+            return View();
+        }
+
+
+
+        /// <summary>
+        /// 测试 Promise 的使用.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestPromise()
+        {
+            return View();
+        }
+
+
+
+        /// <summary>
+        /// 测试 async await 的使用.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestAsyncAwait()
+        {
+            return View();
+        }
+
+
 
     }
 }

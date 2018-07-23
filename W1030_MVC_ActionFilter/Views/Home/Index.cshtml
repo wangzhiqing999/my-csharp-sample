@@ -37,6 +37,11 @@
         <li>
             @Html.ActionLink(linkText: "测试 IActionFilter / IResultFilter 执行顺序", actionName: "HelloWorld")
         </li>
+
+
+        <li>
+            @Html.ActionLink(linkText: "测试超时日志", actionName: "TestTimeout", routeValues: new { sec = 2 })
+        </li>
     </ul>
 
 

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "TestAsync";
+
+    DateTime startTime = ViewBag.StartTime;
+}
+
+<ul>
+    <li> 开始处理时间： @(startTime) </li>
+    <li> 结果： @(ViewBag.Val) </li>
+    <li> 处理完成时间： @(DateTime.Now) </li>
+    <li> 总耗时:  @((DateTime.Now - startTime).Seconds) 秒.  </li>
+</ul>

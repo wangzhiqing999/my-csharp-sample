@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "TestPromise";
+}
+
+<h2>测试 Promise 的使用. </h2>
+
+
+
+
+<div id="test1"></div>
+
+<div id="test2"></div>
+
+<div id="test3"></div>
+
+
+
+<div>
+
+    <button onclick="testAll()"> 测试 Promise.all </button>
+
+    <button onclick="testRace()"> 测试 Promise.race </button>
+
+    <button onclick="testEach()"> 测试遍历 </button>
+
+    <button onclick="testNesting()"> 测试嵌套 </button>
+
+</div>
+
+
+
+@Html.Action(actionName: "SubMenu")
+
+
+
+
+@section scripts
+{
+
+    <script src="~/Scripts/myTestPromise.js"></script>
+
+}

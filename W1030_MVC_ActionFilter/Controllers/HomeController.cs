@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -84,6 +85,21 @@ namespace W1030_MVC_ActionFilter.Controllers
             return Content("<h3>Hello World</h3><br/>");
         }
 
+
+
+
+
+
+        /// <summary>
+        /// 测试超时.
+        /// </summary>
+        /// <returns></returns>
+        [TimeoutFilter]
+        public ActionResult TestTimeout(int sec = 1)
+        {
+            Thread.Sleep(sec * 1000);
+            return View();
+        }
 
 
     }

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "测试超时处理";
+}
+
+<h2>测试超时处理</h2>
+
+
+<p>
+    超时3秒（含）以上的，将 请求的信息，写入日志文件.
+</p>
+
+@using (Html.BeginForm(actionName: "TestTimeout", controllerName: "Home", routeValues: new { }, method: FormMethod.Post, htmlAttributes: new { role = "form" }))
+{
+    <span>测试页面耗时：</span><input id="sec" name="sec" type="text" value="@(Request["sec"])" />
+    <input id="Submit1" type="submit" value="submit" />
+}

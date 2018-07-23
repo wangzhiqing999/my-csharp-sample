@@ -7,12 +7,11 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.WebPages;
 
-
-
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Mapping;
 using System.Data.Entity.Core.Metadata.Edm;
 
+using log4net;
 
 using W1050_Mvc5.Controllers;
 
@@ -63,6 +62,11 @@ namespace W1050_Mvc5
 
 
         /// <summary>
+        /// 日志处理类.
+        /// </summary>
+        private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        /// <summary>
         /// 在使用 OutputCache， varyByCustom 的时候， 需要在  Global.asax 文件中重写 GetVaryByCustomString 方法
         /// </summary>
         /// <param name="context"></param>
@@ -70,18 +74,19 @@ namespace W1050_Mvc5
         /// <returns></returns>
         public override string GetVaryByCustomString(HttpContext context, string custom)
         {
-
             // 自定义的， 根据显示模式进行缓存的处理.
             if (string.Equals(custom, "DisplayMode", StringComparison.OrdinalIgnoreCase))
             {
-                return context.Request.DisplayMode();
+                string displayMode = context.Request.DisplayMode();
+                if (logger.IsDebugEnabled)
+                {
+                    logger.DebugFormat("UserAgent = {0}", context.Request.UserAgent);
+                    logger.DebugFormat("DisplayMode = {0}", displayMode);
+                }
+                return displayMode;
             }
-
-
             return base.GetVaryByCustomString(context, custom);
         }
-
-
 
     }
 

@@ -151,5 +151,29 @@ namespace W1050_Mvc5.Controllers
 		
 		// 注意：  MVC 5不支持分部视图的异步，MVC 6支持。
 
+
+        /// <summary>
+        /// 使用分布视图.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UsePartialView()
+        {
+            return View();
+        }
+
+
+        /// <summary>
+        /// 分布视图.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult WithoutAsyncSub(int id)
+        {
+            ViewBag.StartTime = DateTime.Now;
+            ViewBag.Val = GetVal(id);
+            return PartialView();
+        }
+
+
     }
 }

@@ -122,6 +122,7 @@
     <Compile Include="ActionFilters\HelloWorldResultFilter.cs" />
     <Compile Include="ActionFilters\SearchBotFilter.cs" />
     <Compile Include="ActionFilters\TidyHtml.cs" />
+    <Compile Include="ActionFilters\TimeoutFilter.cs" />
     <Compile Include="ActionFilters\WhitespaceFilter.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\TestTidyHtml.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\TestTimeout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

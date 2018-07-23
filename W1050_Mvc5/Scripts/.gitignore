@@ -1,2 +1,14 @@
 /myHelloWorld.js
 /myHelloWorld.js.map
+
+/myTestAsyncAwait.js
+/myTestAsyncAwait.js.map
+
+/myTestCallOther.js
+/myTestCallOther.js.map
+
+/myTestLetAndConst.js
+/myTestLetAndConst.js.map
+
+/myTestPromise.js
+/myTestPromise.js.map
