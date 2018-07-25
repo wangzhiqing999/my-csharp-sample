@@ -179,6 +179,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyResource.en.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\TestErrorController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -258,6 +259,8 @@
     <Content Include="Views\TestAsync\UsePartialView.cshtml" />
     <Content Include="Views\TestTypeScript\TestPromise.cshtml" />
     <Content Include="Views\TestTypeScript\TestAsyncAwait.cshtml" />
+    <Content Include="Views\TestError\PageNotFound.cshtml" />
+    <Content Include="Views\TestError\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

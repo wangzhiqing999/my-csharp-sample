@@ -88,6 +88,24 @@ namespace W1050_Mvc5
             return base.GetVaryByCustomString(context, custom);
         }
 
+
+
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 404)
+            {
+                // 在Global.asax中调用Server.ClearError方法相当于是告诉Asp.Net系统抛出的异常已经被处理过了，不需要系统跳转到Asp.Net的错误页了。
+                // 如果不加下面这一句代码，将导致后面的跳转无效，最终还是跳转到Asp.Net的错误页。
+                Server.ClearError();
+
+                // 页面跳转
+                Response.Redirect("/TestError/PageNotFound", true);
+                
+            }
+        }
+
     }
 
 

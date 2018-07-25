@@ -15,6 +15,14 @@ namespace W1050_Mvc5
 
 
             routes.MapRoute(
+                name: "PageNotFound",
+                url: "PageNotFound",
+                defaults: new { controller = "TestError", action = "PageNotFound"}
+            );
+
+
+
+            routes.MapRoute(
                 "Globalization", // 路由名称
                 "{lang}/{controller}/{action}/{id}", // 带有参数的 URL
                 new { lang = "zh", controller = "Home", action = "Index", id = UrlParameter.Optional }, // 参数默认值
