@@ -1,0 +1,286 @@
+﻿
+@{
+    ViewBag.Title = "TestStepABC";
+}
+
+<h3>测试同时调用 TestStepA -- TestStepB -- TestStepC</h3>
+
+<p>
+    具体调用步骤的细节，通过控制台查看.
+</p>
+
+
+
+<ul>
+    <li>
+        <button onclick="btnUseJquery()"> 使用 jquery 处理 </button>
+    </li>
+
+    <li>
+        <button onclick="btnUsePromise()"> 使用 ES6 的 Promise 处理 </button>
+    </li>
+
+    <li>
+        <button id="btnUseRxMerge"> 使用 Reactive-Extensions 处理（merge 合并） </button>
+
+        <button id="btnUseRxConcat"> 使用 Reactive-Extensions 处理（concat 合并） </button>
+    </li>
+</ul>
+
+
+<div>
+
+    <span>处理结果：</span>
+
+    <span id="resultData1"></span>
+    <span id="resultData2"></span>
+    <span id="resultData3"></span>
+</div>
+
+
+
+
+@section scripts {
+    <script src="~/Scripts/rx.lite.js"></script>
+    <script src="~/Scripts/rx.jquery.js"></script>
+
+    <script>
+
+        /**
+         * 重置结果.
+         */
+        function resetResult() {
+            $("#resultData1").html("");
+            $("#resultData2").html("");
+            $("#resultData3").html("");
+        }
+
+
+
+        // ---------- 单纯使用 jquery 处理 ----------
+
+        // 封装 ajax 处理的代码.
+        var myUseJqueryService = {
+            // Ajax 调用 /TestAjax/TestStepA
+            getTestStepA: function (callbackFunc, failCallbackFunc) {
+                console.log("### POST /TestAjax/TestStepA Start...");
+                $.ajax({
+                    url: "/TestAjax/TestStepA",
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        console.log("/TestAjax/TestStepA  Result:", data);
+                        callbackFunc(data);
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    if (failCallbackFunc != undefined) {
+                        failCallbackFunc(err);
+                    }
+                });
+            },
+
+            // Ajax 调用 /TestAjax/TestStepB
+            getTestStepB: function (callbackFunc, failCallbackFunc) {
+                console.log("### POST /TestAjax/TestStepB Start...");
+                $.ajax({
+                    url: "/TestAjax/TestStepB",
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        console.log("/TestAjax/TestStepB  Result:", data);
+                        callbackFunc(data);
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    if (failCallbackFunc != undefined) {
+                        failCallbackFunc(err);
+                    }
+                });
+
+            },
+
+            // Ajax 调用 /TestAjax/TestStepC
+            getTestStepC: function (callbackFunc, failCallbackFunc) {
+                console.log("### POST /TestAjax/TestStepC Start...");
+                $.ajax({
+                    url: "/TestAjax/TestStepC",
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        console.log("/TestAjax/TestStepC  Result:", data);
+                        callbackFunc(data);
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    if (failCallbackFunc != undefined) {
+                        failCallbackFunc(err);
+                    }
+                });
+            }
+        };
+
+
+        function btnUseJquery() {
+
+            resetResult();
+
+            // 注意： 这里没有传递 failCallbackFunc 的参数.
+            myUseJqueryService.getTestStepA(function (step1Result) {
+                $("#resultData1").html(step1Result);
+            });
+
+            myUseJqueryService.getTestStepB(function (step2Result) {
+                $("#resultData2").html(step2Result);
+            });
+
+            myUseJqueryService.getTestStepC(function (step3Result) {
+                $("#resultData3").html(step3Result);
+            });
+        }
+
+
+
+
+        // ---------- 使用 ES6 的 Promise + jquery 进行处理 ----------
+
+        // 使用 Promise， 定义了成功的 resolve 与 失败的 reject.
+        var myUsePromiseService = {
+
+            // 获取 Ajax /TestAjax/TestStepA 的 Promise.
+            getTestStepA: function () {
+                return new Promise(function (resolve, reject) {
+                    console.log("### POST /TestAjax/TestStepA Start...");
+                    $.ajax({
+                        url: "/TestAjax/TestStepA",
+                        type: 'POST',
+                        data: {},
+                        success: function (data) {
+                            console.log("/TestAjax/TestStepA  Result:", data);
+                            resolve(data);
+                        }
+                    }).fail(function (xhr, textStatus, err) {
+                        reject(err);
+                    });
+                });
+            },
+
+            // 获取 Ajax /TestAjax/TestStepB 的 Promise.
+            getTestStepB: function () {
+                return new Promise(function (resolve, reject) {
+                    console.log("### POST /TestAjax/TestStepB Start...");
+                    $.ajax({
+                        url: "/TestAjax/TestStepB",
+                        type: 'POST',
+                        data: {},
+                        success: function (data) {
+                            console.log("/TestAjax/TestStepB  Result:", data);
+                            resolve(data);
+                        }
+                    }).fail(function (xhr, textStatus, err) {
+                        reject(err);
+                    });
+                });
+            },
+
+            // 获取 Ajax /TestAjax/TestStepC 的 Promise.
+            getTestStepC: function () {
+                return new Promise(function (resolve, reject) {
+                    console.log("### POST /TestAjax/TestStepC Start...");
+                    $.ajax({
+                        url: "/TestAjax/TestStepC",
+                        type: 'POST',
+                        data: {},
+                        success: function (data) {
+                            console.log("/TestAjax/TestStepC  Result:", data);
+                            resolve(data);
+                        }
+                    }).fail(function (xhr, textStatus, err) {
+                        reject(err);
+                    });
+                });
+            },
+        };
+
+        // 使用 Promise.
+        function btnUsePromise() {
+
+            resetResult();
+
+            // Promise.all 意味着多个 Promise，全部执行完毕后，才执行 then 的操作.
+            var allStep = Promise.all([myUsePromiseService.getTestStepA(),
+            myUsePromiseService.getTestStepB(),
+            myUsePromiseService.getTestStepC()]);
+
+            allStep.then(function (value) {
+                for (var i = 0; i < value.length; i++) {
+                    var idx = i + 1;
+                    var data = value[i];
+                    $("#resultData" + idx).html(data.toString());
+                }
+            });
+        }
+
+
+
+
+        // ---------- 使用  Reactive-Extensions + jquery 进行处理 ----------
+        // 使用的js库：  https://github.com/Reactive-Extensions/rxjs-jquery
+
+        var myUseRxService = {
+
+            getTestStepA: function () {
+                return $.ajaxAsObservable({
+                    url: '/TestAjax/TestStepA',
+                    type: 'POST',
+                    data: {},
+                });
+            },
+
+            getTestStepB: function () {
+                return $.ajaxAsObservable({
+                    url: '/TestAjax/TestStepB',
+                    type: 'POST',
+                    data: {},
+                });
+            },
+
+            getTestStepC: function () {
+                return $.ajaxAsObservable({
+                    url: '/TestAjax/TestStepC',
+                    type: 'POST',
+                    data: {},
+                });
+            },
+        };
+
+
+
+        var obMerge = $("#btnUseRxMerge").clickAsObservable();
+        obMerge.subscribe(() => btnUseRx(true));
+
+        var obConcat = $("#btnUseRxConcat").clickAsObservable();
+        obConcat.subscribe(() => btnUseRx(false));
+
+
+        function btnUseRx(isUseMerge) {
+            resetResult();
+            var obs = null;
+
+            if (isUseMerge) {
+                // merge方法负责执行合并操作.
+                // 简单合并，Ajax 请求同时发出，谁的数据应答先到，先进行处理
+                obs = Rx.Observable.merge(myUseRxService.getTestStepA(), myUseRxService.getTestStepB(), myUseRxService.getTestStepC());
+            } else {
+                // concat方法负责执行合并操作.
+                // 按顺序合并，Ajax 请求同时发出，处理完前面的数据之后，再处理后面的数据。
+                obs = Rx.Observable.concat(myUseRxService.getTestStepA(), myUseRxService.getTestStepB(), myUseRxService.getTestStepC());
+            }
+
+            var resultItem = $("#resultData1");
+            obs.subscribe(function (value) {
+                console.log("Ajax Result:", value);
+                var data = value.data;
+                resultItem.html(data);
+                resultItem = resultItem.next();
+            });
+        }
+    </script>
+}

@@ -21,6 +21,9 @@ namespace W1050_Mvc5
             );
 
 
+            //启用Attribute路由
+            routes.MapMvcAttributeRoutes();
+
 
             routes.MapRoute(
                 "Globalization", // 路由名称

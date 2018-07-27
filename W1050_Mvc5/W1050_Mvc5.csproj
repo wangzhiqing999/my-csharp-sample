@@ -156,6 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestAjaxController.cs" />
     <Compile Include="Controllers\TestAsyncController.cs" />
     <Compile Include="Controllers\TestBundleController.cs" />
     <Compile Include="Controllers\TestChartController.cs" />
@@ -202,6 +203,18 @@
     <Content Include="Scripts\myTestService.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\rx.binding.js" />
+    <Content Include="Scripts\rx.binding.min.js" />
+    <Content Include="Scripts\rx.compat.js" />
+    <Content Include="Scripts\rx.jquery.js" />
+    <Content Include="Scripts\rx.jquery.min.js" />
+    <Content Include="Scripts\rx.js" />
+    <Content Include="Scripts\rx.lite.compat.js" />
+    <Content Include="Scripts\rx.lite.compat.min.js" />
+    <Content Include="Scripts\rx.lite.js" />
+    <Content Include="Scripts\rx.lite.min.js" />
+    <Content Include="Scripts\x.compat.min.js" />
+    <Content Include="Scripts\x.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -261,6 +274,9 @@
     <Content Include="Views\TestTypeScript\TestAsyncAwait.cshtml" />
     <Content Include="Views\TestError\PageNotFound.cshtml" />
     <Content Include="Views\TestError\Index.cshtml" />
+    <Content Include="Views\TestAjax\Index.cshtml" />
+    <Content Include="Views\TestAjax\TestStep123.cshtml" />
+    <Content Include="Views\TestAjax\TestStepABC.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
