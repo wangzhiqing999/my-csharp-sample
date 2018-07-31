@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
+using W1050_Mvc5.Models;
 
 namespace W1050_Mvc5.Controllers
 {
@@ -76,6 +76,34 @@ namespace W1050_Mvc5.Controllers
             return View();
         }
 
+
+
+
+        /// <summary>
+        /// 测试 interface 的使用.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestInterface()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 返回的结果的数据类型为 CommonServiceResult<int>，测试在 TypeScript 中，能否进行对结果的数据类型的定义。
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public JsonResult TestCommonService(int id)
+        {
+            if(id <= 0)
+            {
+                var errResult = CommonServiceResult<int>.DataNotFoundResult;
+                return Json(errResult);
+            }
+
+            var result = CommonServiceResult<int>.CreateDefaultSuccessResult(id);
+            return Json(result);
+        }
 
 
     }

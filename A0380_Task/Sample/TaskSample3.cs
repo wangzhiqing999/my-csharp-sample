@@ -14,7 +14,7 @@ namespace A0380_Task.Sample
     class TaskSample3
     {
 
-        public static async  void DoTest()
+        public static async void DoTest()
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -59,7 +59,7 @@ namespace A0380_Task.Sample
             await t3;
 
 
-            
+
 
             Console.WriteLine("#{0} 处理结果： {1}, {2}, {3}", Thread.CurrentThread.ManagedThreadId, t1.Result, t2.Result, t3.Result);
         }
@@ -72,13 +72,88 @@ namespace A0380_Task.Sample
         static async Task<int> GetVal(int i)
         {
             Console.WriteLine("#{0} GetVal({1}) 方法处理开始！", Thread.CurrentThread.ManagedThreadId, i);
-            
+
             await Task.Delay(i * 1000);
-           
+
             Console.WriteLine("#{0} GetVal({1}) 方法处理结束！", Thread.CurrentThread.ManagedThreadId, i);
 
-            return random.Next(100);            
-        } 
+            return random.Next(100);
+        }
+
+
+
+
+
+        #region  需要等待所有任务完成 Task.WaitAll
+
+        public static void DoTestWaitAll()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            Console.WriteLine("#{0} 主线程的方法处理开始！", Thread.CurrentThread.ManagedThreadId);
+
+            TestWaitAll();
+
+            stopwatch.Stop();
+            Console.WriteLine("#{0} 主线程的方法处理结束！, 耗时：{1}", Thread.CurrentThread.ManagedThreadId, stopwatch.ElapsedMilliseconds);
+        }
+
+        static void TestWaitAll()
+        {
+            Console.WriteLine("#{0} TestWaitAll() 方法处理开始！", Thread.CurrentThread.ManagedThreadId);
+            Task<int> t1 = GetVal(1);
+            Task<int> t2 = GetVal(2);
+            Task<int> t3 = GetVal(3);
+
+            Task.WaitAll(t1, t2, t3);
+            Console.WriteLine("#{0} 处理结果： {1}, {2}, {3}", Thread.CurrentThread.ManagedThreadId, t1.Result, t2.Result, t3.Result);
+        }
+
+        #endregion
+
+
+
+
+        #region  需要等待任何一个任务 Task.WaitAny
+
+        public static void DoTestWaitAny()
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            Console.WriteLine("#{0} 主线程的方法处理开始！", Thread.CurrentThread.ManagedThreadId);
+
+            TestWaitAny();
+
+            stopwatch.Stop();
+            Console.WriteLine("#{0} 主线程的方法处理结束！, 耗时：{1}", Thread.CurrentThread.ManagedThreadId, stopwatch.ElapsedMilliseconds);
+        }
+
+        static void TestWaitAny()
+        {
+            Console.WriteLine("#{0} TestWaitAny() 方法处理开始！", Thread.CurrentThread.ManagedThreadId);
+            Task<int> t1 = GetVal(1);
+            Task<int> t2 = GetVal(2);
+            Task<int> t3 = GetVal(3);
+
+            Task.WaitAny(t1, t2, t3);
+
+            if(t1.IsCompleted)
+            {
+                Console.WriteLine("#{0} 处理结果： t1 = {1}", Thread.CurrentThread.ManagedThreadId, t1.Result);
+            }
+            if (t2.IsCompleted)
+            {
+                Console.WriteLine("#{0} 处理结果： t2 = {1}", Thread.CurrentThread.ManagedThreadId, t2.Result);
+            }
+            if (t3.IsCompleted)
+            {
+                Console.WriteLine("#{0} 处理结果： t3 = {1}", Thread.CurrentThread.ManagedThreadId, t3.Result);
+            }
+        }
+
+        #endregion
 
     }
 }

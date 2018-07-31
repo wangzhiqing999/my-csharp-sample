@@ -16,6 +16,7 @@ function asyncFunction(id: number): Promise<string> {
             data: { id: id },
             cache: false,
             success: function (data) {
+                console.log("asyncFunction 处理结束", id);
                 resolve(data);
             }
         }).fail(function (xhr, textStatus, err) {

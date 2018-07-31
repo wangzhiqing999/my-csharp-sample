@@ -2819,8 +2819,15 @@ MVC 项目, 简单创建 Web Api 项目的例子
 2.测试  MVC 中的  async 与 await
 3.测试 System.Web.Helpers.Chart 的使用.
 4.网站初始化时，使用 EF Pre-Generated Mapping Views， 使得初始化完毕后，首次查询操作时，不会发生太过耗时的处理。
+5.网站 DisplayMode 的设置， 使得同一个控制器， pc 访问的时候，使用 pc 页面， 手机访问的时候， 使用手机页面。
+6.国际化的相关处理.
+7.Bundle 压缩脚本的相关处理.
+8.TypeScript 的相关处理.
 
 
+
+### W1055_Mvc5_gulp
+Visual Studio 2017 Community 中使用 Gulp 的例子.
 
 
 

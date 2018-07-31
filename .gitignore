@@ -219,3 +219,6 @@ pip-log.txt
 .vs
 /.vs/config/applicationhost.config
 /.vs/config
+
+
+node_modules

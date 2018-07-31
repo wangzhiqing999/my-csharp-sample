@@ -32,7 +32,7 @@ namespace A0380_Task
 
             TaskSample2.DoTest();
 
-            Console.WriteLine("### Before TaskSample2.DoTest()! ");
+            Console.WriteLine("### After TaskSample2.DoTest()! ");
 
             
             Console.WriteLine("Wait...");
@@ -44,7 +44,30 @@ namespace A0380_Task
 
             TaskSample3.DoTest();
 
-            Console.WriteLine("### Before TaskSample3.DoTest()! ");
+            Console.WriteLine("### After TaskSample3.DoTest()! ");
+            Console.WriteLine("Wait...");
+            Console.ReadLine();
+
+
+
+            Console.WriteLine("### Before TaskSample3.DoTestWaitAll()! ");
+
+            TaskSample3.DoTestWaitAll();
+
+            Console.WriteLine("### After TaskSample3.DoTestWaitAll()! ");
+            Console.ReadLine();
+
+
+
+
+            Console.WriteLine("### Before TaskSample3.DoTestWaitAny()! ");
+
+            TaskSample3.DoTestWaitAny();
+
+            Console.WriteLine("### After TaskSample3.DoTestWaitAny()! ");
+            Console.ReadLine();
+
+
 
 
             Console.WriteLine("Finish!");

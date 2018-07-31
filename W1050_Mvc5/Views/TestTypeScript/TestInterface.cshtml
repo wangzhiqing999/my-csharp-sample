@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "TestInterface";
+}
+
+<h2>测试 interface 的使用.</h2>
+
+
+
+
+<div id="content">
+
+
+    <h3> 基本属性的测试. </h3>
+    <p>
+        接口中只定义了属性的名称与数据类型. 没有具体的实现类.
+        <br />
+        写代码的时候，一般处理机制是   方法名(变量名 :  【定义的接口】 )
+        <br />
+        在这种情况下，编译的时候， 检查 变量中， 是否包含了  接口中定义的属性。
+    </p>
+    <ul>
+        <li>
+            <button id="btnAjaxSuccess"> 测试成功调用(ajax调用) </button>
+        </li>
+        <li>
+            <button id="btnAjaxFail"> 测试失败调用(ajax调用) </button>
+        </li>
+        <li>
+            <button id="btnLocalSuccess"> 测试成功调用(本地调用) </button>
+        </li>
+        <li>
+            <button id="btnLocalFail"> 测试失败调用(本地调用) </button>
+        </li>
+    </ul>
+
+
+
+
+    <h3> 基本方法的测试. </h3>
+    <p>
+        接口中定义了 方法。
+        <br/>
+        实现类， 需要实现接口中所定义的方法. 否则编译不过.
+    </p>
+
+    <ul>
+        <li>
+            <button id="btnAjaxSuccess2"> 测试成功调用(ajax调用) </button>
+        </li>
+        <li>
+            <button id="btnAjaxFail2"> 测试失败调用(ajax调用) </button>
+        </li>
+        <li>
+            <button id="btnLocalSuccess2"> 测试成功调用(本地调用) </button>
+        </li>
+        <li>
+            <button id="btnLocalFail2"> 测试失败调用(本地调用) </button>
+        </li>
+    </ul>
+
+</div>
+
+
+<div>
+
+    <span> 执行结果 </span>
+    <span id="spResult"> </span>
+
+</div>
+
+
+
+
+@Html.Action(actionName: "SubMenu")
+
+
+
+
+
+@section scripts
+{
+    <script src="~/Scripts/myTestNameSpace.js"></script>
+    <script src="~/Scripts/myTestInterface.js"></script>
+
+
+
+
+    <script>
+
+        var myTestInterface = new MyTestInterface($("#spResult"));
+
+        $("#btnAjaxSuccess").click(function () {
+            myTestInterface.testAjaxFunc(1024);
+        });
+        $("#btnAjaxFail").click(function () {
+            myTestInterface.testAjaxFunc(-200);
+        });
+
+        $("#btnLocalSuccess").click(function () {
+            var result = myTestInterface.testLocalFunc(100);
+            myTestInterface.showResultData(result);
+        });
+        $("#btnLocalFail").click(function () {
+            var result = myTestInterface.testLocalFunc(-100);
+            myTestInterface.showResultData(result);
+        });
+
+
+        var myServerTestWorkingService = new ServerTestWorkingService();
+        var myLocalTestWorkingService = new LocalTestWorkingService();
+
+        $("#btnAjaxSuccess2").click(function () {
+            var result = myServerTestWorkingService.doWork(1000);
+            myTestInterface.showResultData(result);
+        });
+        $("#btnAjaxFail2").click(function () {
+            var result = myServerTestWorkingService.doWork(-1000);
+            myTestInterface.showResultData(result);
+        });
+
+        $("#btnLocalSuccess2").click(function () {
+            var result = myLocalTestWorkingService.doWork(2000);
+            myTestInterface.showResultData(result);
+        });
+        $("#btnLocalFail2").click(function () {
+            var result = myLocalTestWorkingService.doWork(-2000);
+            myTestInterface.showResultData(result);
+        });
+
+    </script>
+
+}
