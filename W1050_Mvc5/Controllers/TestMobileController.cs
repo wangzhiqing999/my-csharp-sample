@@ -119,11 +119,45 @@ namespace W1050_Mvc5.Controllers
             // 加了 [OutputCache] 的方法.
             // 会不会影响 页面.
             ViewBag.Date = DateTime.Now;
-           
 
             return View();
         }
 
+
+
+
+
+
+
+
+
+        // 注意： 这里仅仅是单纯的测试，新闻页面上， 点击图片，跳到单独的图片页面。
+        // 实际的业务相当复杂。
+
+        // 这里的例子，是 新闻页的图片 与 单独图片， 是同一个图片文件。
+        // 实际的业务中，新闻页的图片，是一个 缩略图。
+
+        // 具体的操作，需要一个图片的服务器， 通过对图片，传递额外的参数， 来获取缩略图，或者实际尺寸的图片。
+
+
+        /// <summary>
+        /// 测试新闻页.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestNews()
+        {
+            return View(); 
+        }
+
+        /// <summary>
+        /// 测试图片页
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestImages(string id)
+        {            
+            ViewBag.ID = id;
+            return View();
+        }
 
     }
 }

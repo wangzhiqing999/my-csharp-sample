@@ -2937,7 +2937,7 @@ WPF Template
 
 
 
-# Web 服务相关.
+# Windows 服务相关.
 
 ### WS001_HelloWorld
 Windows Service 的简单例子

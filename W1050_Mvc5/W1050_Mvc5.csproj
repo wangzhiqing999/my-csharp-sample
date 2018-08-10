@@ -217,6 +217,8 @@
     <Content Include="Scripts\x.compat.min.js" />
     <Content Include="Scripts\x.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="upload\1.jpeg" />
+    <Content Include="upload\2.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -279,6 +281,8 @@
     <Content Include="Views\TestAjax\TestStep123.cshtml" />
     <Content Include="Views\TestAjax\TestStepABC.cshtml" />
     <Content Include="Views\TestTypeScript\TestInterface.cshtml" />
+    <Content Include="Views\TestMobile\TestNews.cshtml" />
+    <Content Include="Views\TestMobile\TestImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
