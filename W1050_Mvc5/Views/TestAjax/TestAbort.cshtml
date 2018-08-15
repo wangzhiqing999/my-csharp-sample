@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "TestAbort";
+}
+
+
+<h3> 测试 发起 ajax 请求之后， 取消的操作. </h3>
+
+<p>
+    具体调用步骤的细节，通过控制台查看.
+</p>
+
+
+<ul>
+
+    <li>
+        <button onclick="btnStartAjax()"> 发起 Ajax 请求. </button>
+    </li>
+
+    <li>
+        <button id="btnAbortAjax" onclick="btnAbortAjax()" disabled="disabled"> 取消 Ajax 请求. </button>
+    </li>
+
+</ul>
+
+
+<div>
+
+    <span>处理结果：</span>
+
+    <span id="resultData"></span>
+
+</div>
+
+
+
+@section scripts {
+
+    <script>
+
+        // Create an instance.
+        const controller = new AbortController()
+        const signal = controller.signal
+
+        // Register a listenr.
+        signal.addEventListener("abort", () => {
+            console.log("aborted!");
+            $("#resultData").html("操作已经被取消...");
+        })
+
+
+        function btnStartAjax() {
+
+            console.log('Now fetching');
+            var urlToFetch = "/TestAjax/TestLongTime/10";
+
+            $("#resultData").html("开始处理，预计10秒后返回结果...");
+            $("#btnAbortAjax").removeAttr("disabled");
+
+            fetch(urlToFetch, {
+                    method: 'get',
+                    signal,
+                }).then(function (response) {
+                    console.log(`Fetch complete. (Not aborted)`);
+                    return response.json();
+                }).then(function (data) {
+                    $("#resultData").html("处理结果：" + data);
+
+                    $("#btnAbortAjax").attr("disabled", "disabled");
+
+                }).catch(function (err) {
+                    console.error(` Err: ${err}`);
+                });
+        }
+
+
+        function btnAbortAjax() {
+            console.log('Now aborting');
+            // Abort.
+            controller.abort()
+        }
+
+
+    </script>
+
+}

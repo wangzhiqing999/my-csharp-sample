@@ -25,6 +25,12 @@
 
         <button id="btnUseRxConcat"> 使用 Reactive-Extensions 处理（concat 合并） </button>
     </li>
+
+    <li>
+        <button onclick="btnUseFetch()"> 使用 fetch + Promise.all 处理 </button>
+    </li>
+
+
 </ul>
 
 
@@ -282,5 +288,70 @@
                 resultItem = resultItem.next();
             });
         }
+
+
+
+
+        // ---------- 使用 fetch  处理 ----------
+
+        var myUseFetchService = {
+            // 获取 Ajax /TestAjax/TestStepA 的 Promise.
+            getTestStepA: function () {
+                return fetch("/TestAjax/TestStepA", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }
+                });
+            },
+
+            // 获取 Ajax /TestAjax/TestStepB 的 Promise.
+            getTestStepB: function () {
+                return fetch("/TestAjax/TestStepB", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }
+                });
+            },
+
+            // 获取 Ajax /TestAjax/TestStepC 的 Promise.
+            getTestStepC: function () {
+                return fetch("/TestAjax/TestStepC", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+        };
+
+
+        // 使用 Fetch.
+        function btnUseFetch() {
+
+            resetResult();
+
+            // Promise.all 意味着多个 Promise，全部执行完毕后，才执行 then 的操作.
+            var allStep = Promise.all([myUseFetchService.getTestStepA().then(resp => resp.json()),
+                myUseFetchService.getTestStepB().then(resp => resp.json()),
+                myUseFetchService.getTestStepC().then(resp => resp.json())]);
+
+            allStep.then(function (value) {
+                for (var i = 0; i < value.length; i++) {
+                    var idx = i + 1;
+                    var data = value[i];
+                    $("#resultData" + idx).html(data.toString());
+                }
+            });
+        }
+
+
     </script>
 }

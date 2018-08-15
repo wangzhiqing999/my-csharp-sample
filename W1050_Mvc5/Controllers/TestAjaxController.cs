@@ -128,5 +128,30 @@ namespace W1050_Mvc5.Controllers
 
 
 
+
+
+        #region 测试取消 Ajax 请求.
+
+
+        public ActionResult TestAbort()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 测试长时间处理.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public JsonResult TestLongTime(int id)
+        {
+            Thread.Sleep(1000 * id);
+            return Json(id, JsonRequestBehavior.AllowGet);
+        }
+
+
+        #endregion
+
+
     }
 }

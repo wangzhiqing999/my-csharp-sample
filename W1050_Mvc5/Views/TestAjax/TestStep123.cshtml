@@ -19,9 +19,13 @@
     <li>
         <button onclick="btnUsePromise()"> 使用 ES6 的 Promise 处理 </button>
     </li>
-    
+
     <li>
         <button id="btnUseRx"> 使用 Reactive-Extensions 处理 </button>
+    </li>
+
+    <li>
+        <button onclick="btnUseFetch()"> 使用 fetch 处理 </button>
     </li>
 
 </ul>
@@ -275,6 +279,82 @@
                         var data = value.data;
                         $("#resultData3").html(data);
 
+                    });
+                });
+            });
+        }
+
+
+
+
+
+        // ---------- 使用 fetch  处理 ----------
+
+        var myUseFetchService = {
+
+            getTestStep1: function () {
+                return fetch("/TestAjax/TestStep1", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }
+                });
+            },
+
+            getTestStep2: function (id) {
+                return fetch("/TestAjax/TestStep2", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: id })
+                });
+            },
+
+            getTestStep3: function (id) {
+                return fetch("/TestAjax/TestStep3", {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: id })
+                });
+            }
+
+        };
+
+
+        // 使用 fetch.
+        function btnUseFetch() {
+
+            resetResult();
+
+            var testStep1 = myUseFetchService.getTestStep1();
+            testStep1.then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                console.log("/TestAjax/TestStep1  Result:", data);
+                $("#resultData1").html(data);
+
+                var testStep2 = myUseFetchService.getTestStep2(data);
+                testStep2.then(function (response) {
+                    return response.json();
+                }).then(function (data) {
+                    console.log("/TestAjax/TestStep2  Result:", data);
+                    $("#resultData2").html(data);
+
+                    var testStep3 = myUseFetchService.getTestStep3(data);
+                    testStep3.then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        console.log("/TestAjax/TestStep3  Result:", data);
+                        $("#resultData3").html(data);
                     });
                 });
             });

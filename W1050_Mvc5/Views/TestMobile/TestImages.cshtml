@@ -7,13 +7,13 @@
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=0.1">
     <title>@(id)</title>
-    
+
 
     <style>
-        .box { 
+        .box {
             display: table-cell;
-            vertical-align:middle; 
-            text-align:center; 
+            vertical-align:middle;
+            text-align:center;
             *display: block;
             *font-size: 175px;
             *font-family:Arial;
@@ -25,26 +25,54 @@
         }
     </style>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var img = document.getElementById("img");
-
-            var imgHeight = img.height;
-            var screenHeight = window.screen.height;
-            var boxHeigth = Math.max(imgHeight, screenHeight);
-
-            console.log("Image Heigth:", imgHeight);
-            console.log("Screen Heigth:", screenHeight);
-            console.log("Box Heigth:", boxHeigth);
-
-            $(".box").css("height", boxHeigth);
-        });
-    </script>
 </head>
 <body style="margin: 0px;background: #0e0e0e;">
-    <div class="box">
+    <div id="box" class="box">
         <img id="img" style="-webkit-user-select: none;max-width: 100%;" src="@(id)">
     </div>
+
+
+<script>
+	// 取得图片对象.
+	var img = document.getElementById("img");
+	// 取得外部 box.
+	var box = document.getElementById("box");
+
+	// 获取图片的 宽度与高度.
+	var imgWidth = img.width;
+	var imgHeight = img.height;
+
+	// 获取屏幕的高度与宽度 （注： 这里的高度，不是手机屏幕的物理高度，而是 排除掉 头部的 URL 与底部的按钮之后的高度）
+	var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+	console.log("imgHeight = ", imgHeight);
+	console.log("imgWidth = ", imgWidth);
+	console.log("screenWidth = ", screenWidth);
+	console.log("screenHeight = ", screenHeight);
+
+	// 判断图片的宽度.
+	// 在 Chrome 浏览器中，手机模式下，大的图片，由于样式的 max-width: 100%;  宽度已经被等比缩小到小于屏幕大小了。
+	// 在实际的手机上，大的图片，依然是实际的尺寸。
+	if(imgWidth > screenWidth) {
+		// 这里的处理逻辑是：如果获得的图片宽度，大于屏幕宽度。
+		// 那么，之前获得的图片高度，也是偏大的。
+		// 需要按比例进行缩小。
+		imgHeight = imgHeight * screenWidth / imgWidth;
+	}
+
+	// 最终的 Box 的高度 = 图片高度 与 屏幕高度中， 较大的一个。
+	// 这样一来，遇到小的图片， Box 高度为屏幕高度， 图片居中显示.
+	// 遇到大的图片，Box 高度为图片高度，用户通过拉滚动条，来查看完整的图片。
+	var boxHeigth = Math.max(imgHeight, screenHeight);
+
+	console.log("----------");
+	console.log("Result imgHeight = ", imgHeight);
+	console.log("Result screenHeight = ", screenHeight);
+	console.log("Result box height = ", boxHeigth);
+
+	box.style.height = '' + boxHeigth + 'px';
+</script>
+
 </body>
 </html>

@@ -283,6 +283,7 @@
     <Content Include="Views\TestTypeScript\TestInterface.cshtml" />
     <Content Include="Views\TestMobile\TestNews.cshtml" />
     <Content Include="Views\TestMobile\TestImages.cshtml" />
+    <Content Include="Views\TestAjax\TestAbort.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
