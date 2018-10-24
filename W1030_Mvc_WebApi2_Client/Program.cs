@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using W1030_Mvc_WebApi2_Client.Api;
+
 namespace W1030_Mvc_WebApi2_Client
 {
     class Program
@@ -23,6 +25,12 @@ namespace W1030_Mvc_WebApi2_Client
 
             var l = testI18n();
             Console.ReadKey();
+
+
+
+            RefitTest.DoTest();
+
+
 
             Console.WriteLine("Finish!");
             
