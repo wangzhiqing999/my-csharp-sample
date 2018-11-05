@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.4.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.4\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Extended, Version=3.2.16.421, Culture=neutral, PublicKeyToken=675fb48d7a2b2d96, processorArchitecture=MSIL">
@@ -48,8 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
+    <Compile Include="RSAConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSHA1withRSA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

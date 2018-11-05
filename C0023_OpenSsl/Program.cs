@@ -31,7 +31,8 @@ namespace C0023_OpenSsl
         static void Main(string[] args)
         {
 
-            Test2();
+            Test3();
+            Test4();
             Console.ReadKey();
 
         }
@@ -98,6 +99,106 @@ namespace C0023_OpenSsl
 
 
         }
+
+
+
+
+        static void Test3()
+        {
+            Console.WriteLine("-----Test3-----");
+
+            string publicJavaKey, privateJavaKey, content, publicCSharpKey, privateCSharpKey, signData;
+
+            //java的base64格式秘钥
+
+            privateJavaKey = TestSHA1withRSA.privatestr;
+
+            publicJavaKey = TestSHA1withRSA.publicstr;
+
+            content = "1234567890,1234567890,1234567890,1234567890,1234567890";
+
+            //转成C#的xml格式
+
+            publicCSharpKey = RSAConverter.RSAPublicKeyJava2DotNet(publicJavaKey);
+
+            privateCSharpKey = RSAConverter.RSAPrivateKeyJava2DotNet(privateJavaKey);
+
+            Console.WriteLine("转换得到的C#公钥：" + publicCSharpKey);
+
+            Console.WriteLine("转换得到的C#私钥：" + privateCSharpKey);
+
+
+
+            //RSAHelper.Create(out publicCSharpKey, out privateCSharpKey, 1024);
+
+            string encData = RSAHelper.Encrypt(publicCSharpKey, content);
+
+            Console.WriteLine("公钥加密结果：" + encData);
+
+            Console.WriteLine("私钥解密结果：" + RSAHelper.Decrypt(privateCSharpKey, encData));
+
+            //下面是java通过SHA1WithRSA生成的签名
+
+            //Dv67xT5SgGQ9q+bKVWuyyxljx28cxNkIMDk5ro8cMopsiPf7Z8/n/02yaN/SVUQPmWJk/f+cjwydikVStwjkll49/D4PrTW+nd4XWr5hea8n7c6JTdRvaOGwFG3Do1n8Sndj7aqxuUWUmlLiC1dYEHeZhSwm9BCMJJSvF8n34CY=
+
+            //下面是JAVA通过MD5withRSA生成的签名
+
+            //MUXPVxxNZOlzDY03hOXQgQLQnJ/SrJa0lxQAx8Kl+H+pLBcL6cqdLupVwK6mwKZ1mRP2CCwGaQC8wHkOVRafPdkOSRsnKnkAjRv1iqHBxJtPCG83XlrB7AofzqHi/VULCA9KdWqmvnarVCV+lVwwUVCXP5cK1nwEJN258T/eV8M=
+
+            //下面是JAVA通过SHA256WithRSA生成的签名
+
+            //qPfkIAITcKW452/NacSQHjNbBUtJNhel4SpTMp1T/nGaY0Z4I3Xx13/aVl001ZKwBfdFf7cIPAKlbqmywm3sqEzVpBQlVOYMZBARlHAoOexTCZk50tgrCFUlXXa2pWt+jRS2lGUX5esbo6cKS0Yk1fdkYlm+4S4NRKYgEAXO+lY=
+
+            string halg = "SHA1";//SHA1 MD5 SHA256
+
+            signData = RSAHelper.SignData(privateCSharpKey, content, halg);//SHA1
+
+            Console.WriteLine("生成签名：" + signData);
+
+
+
+            byte[] signArray = Convert.FromBase64String(signData);
+            foreach (var x in signArray)
+            {
+                Console.Write("{0:X}", x);
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("签名一致：" + RSAHelper.VerifyData(publicCSharpKey, content, signData, halg));
+            Console.WriteLine();
+        }
+
+
+
+
+
+        static void Test4() {
+
+            Console.WriteLine("-----Test4-----");
+
+            string publicJavaKey, privateJavaKey, content, signData;
+
+            privateJavaKey = TestSHA1withRSA.privatestr;
+
+            publicJavaKey = TestSHA1withRSA.publicstr;
+
+            content = "1234567890,1234567890,1234567890,1234567890,1234567890";
+
+            signData = TestSHA1withRSA.signWhole(privateJavaKey, content);
+            Console.WriteLine("私钥生成签名结果 = {0}", signData);
+            byte[] signArray = Convert.FromBase64String(signData);
+            foreach (var x in signArray)
+            {
+                Console.Write("{0:X}", x);
+            }
+            Console.WriteLine();
+
+
+
+            Console.WriteLine("公钥验证签名结果：" + TestSHA1withRSA.verifyWhole(content, signData, publicJavaKey));
+
+        }
+
 
     }
 }
