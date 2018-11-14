@@ -140,11 +140,24 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="ReportFiles\testEmpty.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testEmpty.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReportFiles\testImage.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>testImage.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Empty.aspx.cs">
+      <DependentUpon>Empty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\Empty.aspx.designer.cs">
+      <DependentUpon>Empty.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportViewer\ReportViewer1.aspx.cs">
       <DependentUpon>ReportViewer1.aspx</DependentUpon>
@@ -175,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ReportViewer\Empty.aspx" />
     <Content Include="ReportViewer\ReportViewer1.aspx" />
     <Content Include="ReportViewer\ReportViewer2.aspx" />
     <Content Include="ReportViewer\ReportViewer3.aspx" />
@@ -228,6 +242,10 @@
     <EmbeddedResource Include="ReportFiles\test.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>test.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportFiles\testEmpty.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>testEmpty.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportFiles\testImage.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
