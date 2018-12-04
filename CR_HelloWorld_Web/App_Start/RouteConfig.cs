@@ -13,11 +13,6 @@ namespace CR_HelloWorld_Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
 
             // 水晶报表图片的处理路由.
             Route r = new Route("ReportViewer/CrystalImageHandler.aspx", new CrystalImageRouteHandler());
@@ -25,6 +20,15 @@ namespace CR_HelloWorld_Web
             r.RouteExistingFiles = false;
             // 加入路由规则 
             routes.Add(r);
+
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+
         }
     }
 }
