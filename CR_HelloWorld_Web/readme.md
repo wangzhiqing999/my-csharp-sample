@@ -50,7 +50,7 @@ CrystalDecisions.Web
 
 test.rpt : 只是简单的 select * from sys.tables
 testImage.rpt : 只是简单的 select * from sys.columns
-
+TestParam.rpt ：简单 select * from sys.columns， 同时页面包含一参数字段。（用于测试，当报表有参数时，在翻页/导出时，是否会有故障）
 
 
 ### 创建 WinForm 页面，用于加载水晶报表.
@@ -58,6 +58,7 @@ testImage.rpt : 只是简单的 select * from sys.columns
 ReportViewer/ReportViewer1.aspx
 ReportViewer/ReportViewer2.aspx
 ReportViewer/ReportViewer3.aspx
+ReportViewer/ReportViewer4.aspx
 
 
 ### 图表的额外的配置.
