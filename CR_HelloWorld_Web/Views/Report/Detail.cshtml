@@ -1,0 +1,11 @@
+﻿@{
+    Layout = null;
+
+    
+    
+    Response.Redirect("/ReportViewer/ReportViewer.aspx?name=" + ViewBag.Name);
+    
+    // 说明：
+    // 这里使用了  Response.Redirect ， 向最终用户暴露了 aspx 的地址.
+    // 如果使用  Server.Transfer ， 将不会暴露 aspx 的地址， 但是会发生 某些 水晶报表对话框中，某些图片的地址不正确的情况.
+}

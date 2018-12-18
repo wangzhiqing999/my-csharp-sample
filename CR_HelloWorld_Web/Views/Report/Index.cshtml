@@ -3,32 +3,48 @@
 }
 
 
-<h3> 水晶报表测试页面 </h3>
+<h2> 水晶报表测试页面 </h2>
 
+
+
+<h3> 直接跳转 .aspx 的玩法 </h3>
 
 <ul>
-
     <li>
         <a href="/ReportViewer/Empty.aspx">不访问任何数据源的空白报表页面 （排除故障时使用）</a>
     </li>
-
     <li>
         <a href="/ReportViewer/ReportViewer1.aspx">使用 CrystalReportViewer + CrystalReportSource 实现的报表页面</a>
     </li>
-
-
     <li>
         <a href="/ReportViewer/ReportViewer2.aspx">使用 CrystalReportViewer + ReportDocument 实现的报表页面</a>
     </li>
-
-
     <li>
         <a href="/ReportViewer/ReportViewer3.aspx"> 测试图表的页面 </a>
     </li>
-
-
     <li>
         <a href="/ReportViewer/ReportViewer4.aspx"> 测试带参数的报表页面 </a>
+    </li>
+</ul>
+
+
+
+<h3> 走控制器的 Action， 最后再跳转到  .aspx 的玩法 </h3>
+<ul>
+    <li>
+        <a href="/Report/Detail/testEmpty"> /Report/Detail/testEmpty </a>
+    </li>
+
+    <li>
+        <a href="/Report/Detail/test"> /Report/Detail/test </a>
+    </li>
+
+    <li>
+        <a href="/Report/Detail/testImage"> /Report/Detail/testImage </a>
+    </li>
+
+    <li>
+        <a href="/Report/Detail/TestParam"> /Report/Detail/TestParam </a>
     </li>
 
 </ul>

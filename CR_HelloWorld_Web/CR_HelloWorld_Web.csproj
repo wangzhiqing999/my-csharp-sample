@@ -165,6 +165,13 @@
     <Compile Include="ReportViewer\Empty.aspx.designer.cs">
       <DependentUpon>Empty.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewer\ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer\ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewer\ReportViewer1.aspx.cs">
       <DependentUpon>ReportViewer1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +209,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ReportViewer\Empty.aspx" />
+    <Content Include="ReportViewer\ReportViewer.aspx" />
     <Content Include="ReportViewer\ReportViewer1.aspx" />
     <Content Include="ReportViewer\ReportViewer2.aspx" />
     <Content Include="ReportViewer\ReportViewer3.aspx" />
@@ -237,6 +245,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
