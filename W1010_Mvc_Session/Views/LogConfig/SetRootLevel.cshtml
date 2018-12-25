@@ -1,0 +1,29 @@
+﻿@{
+    string rootLoggerLevel = ViewBag.RootLoggerLevel;
+}
+
+<div>
+
+    <h2> 设置 Root 级别的日志等级 </h2>
+
+
+    <p> 当前系统 Root 日志等级为： @(rootLoggerLevel) </p>
+
+    <form action="/LogConfig/SetRootLevel" method="post">
+
+        <p>
+            将 Root 日志等级变更为：
+            <select name="logLevel" id="logLevel">
+                <option value="DEBUG" @(rootLoggerLevel == "DEBUG" ? "selected" : "")>DEBUG</option>
+                <option value="INFO" @(rootLoggerLevel == "INFO" ? "selected" : "")>INFO</option>
+                <option value="WARN" @(rootLoggerLevel == "WARN" ? "selected" : "")>WARN</option>
+                <option value="ERROR" @(rootLoggerLevel == "ERROR" ? "selected" : "")>ERROR</option>
+            </select>
+
+            <input type="submit" />
+        </p>
+
+    </form>
+
+
+</div>

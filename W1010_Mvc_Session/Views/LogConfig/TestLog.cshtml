@@ -1,0 +1,31 @@
+﻿<div>
+
+    <h2> 测试记录日志 </h2>
+
+    <input type="text" id="txtMessage" value="Test" />
+    <button id="btnTestLog"> 测试记录日志 </button>
+    <span id="TestLogResult"></span>
+
+    <p>
+        测试记录日志的操作，是 DEBUG / INFO / WARN / ERROR 的日志， 各执行一次.
+        通过修改上面的日志级别，然后再 测试记录日志， 最后去观察日志文件的输出.
+    </p>
+</div>
+
+
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#btnTestLog").click(function () {
+                $.post("/LogConfig/TestLog",
+                {
+                    message: $("#txtMessage").val()
+                },
+                function (data, status) {
+                    $("#TestLogResult").html(data);
+                });
+            });
+        });
+
+</script>

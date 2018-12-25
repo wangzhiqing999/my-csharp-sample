@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>log4net 动态配置</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+
+
+
+    @Html.Action(actionName: "SetRootLevel")
+
+
+
+    <hr />
+
+
+    @Html.Action(actionName: "SetLevelRangeFilter")
+
+
+    <hr />
+
+
+    @Html.Action(actionName: "TestLog")
+ 
+
+    <hr />
+
+
+
+
+
+
+
+
+</body>
+</html>

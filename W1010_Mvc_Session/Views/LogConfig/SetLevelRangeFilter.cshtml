@@ -1,0 +1,70 @@
+﻿@using log4net.Filter
+@model Dictionary<string, LevelRangeFilter>
+
+<div>
+
+    <h2> 设置 LevelRangeFilter </h2>
+
+
+    <table>
+        <tr>
+            <th> 名称 </th>
+            <th> Min </th>
+            <th> Max </th>
+        </tr>
+
+@foreach (string key in Model.Keys)
+{
+    LevelRangeFilter levelRangeFilter = Model[key];
+    <tr>
+        <td> @(key) </td>
+        <td> @(levelRangeFilter.LevelMin) </td>
+        <td> @(levelRangeFilter.LevelMax) </td>
+    </tr>
+}
+
+    </table>
+
+    
+
+    <div>
+
+        <form action="/LogConfig/SetLevelRangeFilter" method="post">
+
+            <p>
+                将  
+                <select name="name" id="name">
+                    @foreach (string key in Model.Keys)
+                    {
+                        <option value="@(key)">@(key)</option>
+                    }
+                </select>
+                日志等级变更为：
+                Min :                
+                <select name="min" id="min">
+                    <option value="DEBUG" selected>DEBUG</option>
+                    <option value="INFO">INFO</option>
+                    <option value="WARN">WARN</option>
+                    <option value="ERROR">ERROR</option>
+                </select>
+                Max :
+                <select name="max" id="max">
+                    <option value="DEBUG">DEBUG</option>
+                    <option value="INFO">INFO</option>
+                    <option value="WARN">WARN</option>
+                    <option value="ERROR" selected>ERROR</option>
+                </select>
+
+                <input type="submit" />
+            </p>
+
+        </form>
+
+
+    </div>
+
+
+
+
+</div>
+

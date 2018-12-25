@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogConfigController.cs" />
     <Compile Include="Controllers\TestSessionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,7 +215,9 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -226,6 +229,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\TestSession\Index.cshtml" />
+    <Content Include="Views\LogConfig\Index.cshtml" />
+    <Content Include="Views\LogConfig\SetRootLevel.cshtml" />
+    <Content Include="Views\LogConfig\SetLevelRangeFilter.cshtml" />
+    <Content Include="Views\LogConfig\TestLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

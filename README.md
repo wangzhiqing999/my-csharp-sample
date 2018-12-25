@@ -2780,7 +2780,7 @@ MVC 项目, 在 IIS 中发布为某个网站下面的“应用程序”时候，
 
 ### W1010_Mvc_Session
 Mvc 项目， Session的监控， 以及 Log4Net + SQLite 数据库的使用
-
+还有 log4net 参数动态配置 的例子.
 
 
 
