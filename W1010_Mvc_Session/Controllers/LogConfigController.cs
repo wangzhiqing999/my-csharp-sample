@@ -97,20 +97,18 @@ namespace W1010_Mvc_Session.Controllers
             Logger rootLogger = h.Root;
             AppenderCollection ac = rootLogger.Appenders;
 
-            Dictionary<string, LevelRangeFilter> resultData = new Dictionary<string, LevelRangeFilter>();
-            
+            Dictionary<string, LevelRangeFilter> resultData = new Dictionary<string, LevelRangeFilter>();            
             foreach (var a in ac)
-            {
-                if (a.GetType().Name == "RollingFileAppender")
-                {                    
-                    RollingFileAppender rfa = a as RollingFileAppender;
-
-                    if (rfa.FilterHead != null && rfa.FilterHead is LevelRangeFilter)
+            {                
+                AppenderSkeleton appenderSkeleton = a as AppenderSkeleton;
+                if (appenderSkeleton != null)
+                {
+                    if (appenderSkeleton.FilterHead != null && appenderSkeleton.FilterHead is LevelRangeFilter)
                     {
-                        LevelRangeFilter levelRangeFilter = rfa.FilterHead as LevelRangeFilter;
+                        LevelRangeFilter levelRangeFilter = appenderSkeleton.FilterHead as LevelRangeFilter;
                         resultData.Add(a.Name, levelRangeFilter);
                     }
-                }
+                }                                
             }
 
             return PartialView(model: resultData);
@@ -128,8 +126,9 @@ namespace W1010_Mvc_Session.Controllers
             {
                 if (a.Name == name)
                 {
-                    RollingFileAppender rfa = a as RollingFileAppender;
-                    LevelRangeFilter levelRangeFilter = rfa.FilterHead as LevelRangeFilter;
+
+                    AppenderSkeleton appenderSkeleton = a as AppenderSkeleton;
+                    LevelRangeFilter levelRangeFilter = appenderSkeleton.FilterHead as LevelRangeFilter;
 
                     levelRangeFilter.LevelMin = h.LevelMap[min];
                     levelRangeFilter.LevelMax = h.LevelMap[max];
