@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "TestNoWhitespace";
+}
+
+<h2>测试不去掉空格</h2>
+
+
+<div>
+    本例子是测试一个 排除 生效的标志的例子。
+    <br />
+    这个主要用在那些， 全局都生效，仅仅在几个特定的地方不生效的情况下， 使用。
+</div>
+
+
+
+<div>
+    <h3>参考的情况</h3>
+    
+    <p>
+        某网站，全部需要用户登录后，才能操作。
+        但是 Login 页面， 是允许 未登录就访问的。
+    </p>
+    
+
+    <p>
+        这种情况下。
+        <ul>
+            <li>
+                方案一： 除了  Account/Login，  其他所有的 Controller / Action  头上， 加上 【要求登录】。
+            </li>
+
+            <li>
+                方案二： FilterConfig 里面，全局加上 要求登录的 Fliter。 仅仅在 Account/Login 上面，加上一个 【不需要登录】 的标记。
+            </li>
+        </ul>
+        
+        
+    </p>
+    
+</div>

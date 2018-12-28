@@ -22,6 +22,24 @@ namespace W1030_MVC_ActionFilter.ActionFilters
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+
+
+            // 获取当前 Action 上定义的 Filter
+            object[] actionFilter = filterContext.ActionDescriptor.GetCustomAttributes(typeof(NoWhitespace), false);
+            // 获取当前 Controller 上定义的 Filter
+            object[] controllerFilter = filterContext.ActionDescriptor.ControllerDescriptor.GetCustomAttributes(typeof(NoWhitespace), false);
+
+
+            if (controllerFilter.Length == 1 || actionFilter.Length == 1)
+            {
+                // 如果 Action 或者 Controller 上面， 定义了 NoWhitespace 这个标识.
+                // 那么不处理.
+                return;
+            }
+
+
+
+
             var response = filterContext.HttpContext.Response;
             // If it's a sitemap, just return.
             if (filterContext.HttpContext.Request.RawUrl == "/sitemap.xml") return;

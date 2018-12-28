@@ -31,6 +31,8 @@ namespace W1030_MVC_ActionFilter.ActionFilters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+
+
             // 是否允许压缩处理.
             bool allowCompression = false;
 

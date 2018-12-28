@@ -36,6 +36,10 @@ namespace W1030_MVC_ActionFilter.Controllers
 
 
 
+
+
+
+
         /// <summary>
         /// 测试去掉空格.
         /// </summary>
@@ -45,6 +49,23 @@ namespace W1030_MVC_ActionFilter.Controllers
         {
             return View();
         }
+
+
+        /// <summary>
+        /// 测试 去掉空格 遇到了 不去掉空格.
+        /// </summary>
+        /// <returns></returns>
+        [WhitespaceFilterAttribute]
+        [NoWhitespace]
+        public ActionResult TestNoWhitespace()
+        {
+            // 这里是 为了 测试 NoWhitespace ， 专门写的。
+            // 正常情况下， WhitespaceFilterAttribute 是全局生效， 仅仅在那些不需要的情况下， 才写 NoWhitespace
+            // 不会像本例子这样， 又写 【去掉空格】，又写【不去掉空格】这种玩法.
+            return View();
+        }
+
+
 
 
 
