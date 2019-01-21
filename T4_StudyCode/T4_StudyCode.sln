@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4_0001_RunTimeT4_HelloWorld", "T4_0001_RunTimeT4_HelloWorld\T4_0001_RunTimeT4_HelloWorld.csproj", "{6F2B3543-4903-4E7F-9AD3-396D43D139CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4_1001_DesignTimeT4_HelloWorld", "T4_1001_DesignTimeT4_HelloWorld\T4_1001_DesignTimeT4_HelloWorld.csproj", "{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F2B3543-4903-4E7F-9AD3-396D43D139CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2B3543-4903-4E7F-9AD3-396D43D139CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2B3543-4903-4E7F-9AD3-396D43D139CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2B3543-4903-4E7F-9AD3-396D43D139CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E570AB7-6851-4867-8D24-34EA566D8CEA}
+	EndGlobalSection
+EndGlobal

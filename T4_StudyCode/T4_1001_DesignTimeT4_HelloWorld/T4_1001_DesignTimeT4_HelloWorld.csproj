@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7453D5F-F88B-4DA9-84A6-FEEB97988E89}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>T4_1001_DesignTimeT4_HelloWorld</RootNamespace>
+    <AssemblyName>T4_1001_DesignTimeT4_HelloWorld</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HelloWorld.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloWorld.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorld1.cs">
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorld2.cs">
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorld3.cs">
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorld4.cs">
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorld5.cs">
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorldMultiFile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HelloWorldMultiFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelloWorld.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelloWorld.cs</LastGenOutput>
+    </Content>
+    <Content Include="HelloWorldMultiFile.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HelloWorldMultiFile.cs</LastGenOutput>
+    </Content>
+    <None Include="MultipleOutputHelper.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
