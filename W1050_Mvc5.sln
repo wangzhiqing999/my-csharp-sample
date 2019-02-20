@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1050_Mvc5", "W1050_Mvc5\W1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1055_Mvc5_gulp", "W1055_Mvc5_gulp\W1055_Mvc5_gulp.csproj", "{9BD02510-A1EC-4456-8F05-B25AD14716F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1051_Mvc5_MobileFirst", "W1051_Mvc5_MobileFirst\W1051_Mvc5_MobileFirst.csproj", "{17CA2B6F-8D0D-46A0-A74A-EF0AF85FC10C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BD02510-A1EC-4456-8F05-B25AD14716F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD02510-A1EC-4456-8F05-B25AD14716F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD02510-A1EC-4456-8F05-B25AD14716F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17CA2B6F-8D0D-46A0-A74A-EF0AF85FC10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CA2B6F-8D0D-46A0-A74A-EF0AF85FC10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CA2B6F-8D0D-46A0-A74A-EF0AF85FC10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17CA2B6F-8D0D-46A0-A74A-EF0AF85FC10C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
