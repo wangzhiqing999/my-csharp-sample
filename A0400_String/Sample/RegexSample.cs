@@ -409,7 +409,8 @@ namespace A0401_String.Sample
             source = @"<div style='color: #000000;'>
                                 <!--【北京时间16:00行情播报，英镑兑美元扩大涨幅】<br/>美元指数震荡整理，现报100.94，日跌0.15%；<br/>欧元兑美元震荡整理，现报1.0612，日升0.12%；<br/>英镑兑美元扩大涨幅，现报1.2485，日升0.19%；<br/>澳元兑美元震荡盘整，现报0.7704，日跌0.12%；<br/>美元兑日元震荡调整，现报113.96，日跌0.19%-->
                                                                     【北京时间16:00行情播报，英镑兑美元扩大涨幅】<br />美元指数震荡整理，现报100.94，日跌0.15%；<br />欧元兑美元震荡整理，现报1.0612，日升0.12%；<br />英镑兑美元扩大涨幅，现报1.2485，日升0.19%；<br />澳元兑美元震荡盘整，现报0.7704，日跌0.12%；<br />美元兑日元震荡调整，现报113.96，日跌0.19%
-                            </div>";
+                            </div>
+";
 
             pat = "<!--.*-->";
             string removeRemark = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
@@ -417,6 +418,22 @@ namespace A0401_String.Sample
 {0}
 {1}", source, removeRemark);
 
+
+
+
+
+
+
+
+            source = "<img alt=\"😀\" class=\"emojioneemoji\" src=\"http://192.168.1.9/test/78/data/assets/png/1f600.png\">";
+
+            pat = "alt=\"[^ ]+\"";
+
+            string removeAlt = Regex.Replace(source, pat, "", RegexOptions.IgnoreCase);
+
+            Console.WriteLine(@"[07]尝试移除 html 中的  alt=.
+{0}
+{1}", source, removeAlt);
 
 
 
