@@ -70,6 +70,10 @@
 
 
             // -------------------- Checkbox --------------------
+			
+			// 注：使用 $(this).attr("checked") == "checked" 无效的情况下
+			// 替换方案1： $(this).prop('checked')
+			// 替换方案2： $(this).is(':checked')
 
             $(":checkbox[name='chkABCD']").change(function () {
                 // 取得用户输入.

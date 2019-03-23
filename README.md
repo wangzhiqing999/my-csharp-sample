@@ -1251,7 +1251,8 @@ WinForm 环境下，页面设置/打印预览/打印 的例子
 
 
 
-
+### A1080_Image_Base64
+将html中，img src="data:image/png;base64,......" 这样的字符串数据，存储为图片文件的处理。
 
 
 
