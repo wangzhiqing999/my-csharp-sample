@@ -192,6 +192,55 @@ namespace C0013_AES.Sample
 
 
 
+
+
+
+
+        public void TestMySql()
+        {
+
+            Console.WriteLine();
+            Console.WriteLine("----- C# 与 Mysql 的 AES_ENCRYPT. -----");
+
+            AES2 aes = new AES2()
+            {
+                // 密钥
+                Key = @"0123456789ABCDEF",
+
+                // 向量
+                IV = @"0000000000000000"
+            };
+
+
+            // SELECT 
+            // HEX(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF')) AS hex,
+            // to_base64(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF')) as base64;
+
+            // 616ADDD573E60A22F3C539696DBFDA1234AF336C9F031B3556738C63E61EA2F6	YWrd1XPmCiLzxTlpbb/aEjSvM2yfAxs1VnOMY+YeovY=
+
+
+            string source = "C0013_AES.Sample";
+            Console.WriteLine("原始字符：{0}", source);
+
+
+            string step1 = aes.AESEncryptECB(source);
+            Console.WriteLine("AES 加密后结果：{0}", step1);
+
+            byte[] data = Convert.FromBase64String(step1);
+            foreach(var d in data)
+            {
+                Console.Write("{0:X2}", d);
+            }
+            Console.WriteLine();
+
+
+            string step2 = aes.AESDecryptECB(step1);
+            Console.WriteLine("AES 解密后结果：{0}", step2);
+
+        }
+
+
+
     }
 
 }

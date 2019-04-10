@@ -26,6 +26,9 @@ namespace C0013_AES
             tester.TestAes2();
 
 
+            tester.TestMySql();
+
+
             Console.WriteLine("Finish!");
             Console.ReadLine();
 
