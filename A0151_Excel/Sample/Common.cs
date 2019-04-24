@@ -8,23 +8,25 @@ namespace A0151_Excel.Sample
 	public class Common
 	{
 
-		#region OLEDB 驱动的选择处理.
+        #region OLEDB 驱动的选择处理.
 
 
-		/// <summary>
-		/// 取得 OLEDB 的连接字符串.
-		/// 优先启动 ACE 驱动，
-		/// 假如 ACE 失败，再尝试启动 JET
-		///
-		/// 该方法可能用不上。
-		/// 因为 在 Office 2010 上面，Jet 与 ACE 都能正常运作
-		///
-		/// 唯一需要注意的是， 如果目标机器的操作系统，是64位的话。
-		/// 项目需要 编译为 x86， 而不是简单的使用默认的 Any CPU.
-		/// </summary>
-		/// <param name="excelFileName"></param>
-		/// <returns></returns>
-		public static string GetOleDbConnectionString(string excelFileName, bool hasTitle)
+        /// <summary>
+        /// 取得 OLEDB 的连接字符串.
+        /// 优先启动 ACE 驱动，
+        /// 假如 ACE 失败，再尝试启动 JET
+        ///
+        /// 该方法可能用不上。
+        /// 因为 在 Office 2010 上面，Jet 与 ACE 都能正常运作
+        ///
+        /// 唯一需要注意的是， 如果目标机器的操作系统，是64位的话。
+        /// 项目需要 编译为 x86， 而不是简单的使用默认的 Any CPU.
+        /// </summary>
+        /// <param name="excelFileName"> Excel 文件.</param>
+        /// <param name="hasTitle">Excel 文件是否有标题行. </param>
+        /// <param name="isReadonly">是否是只读操作.</param>
+        /// <returns></returns>
+        public static string GetOleDbConnectionString(string excelFileName, bool hasTitle, bool isReadonly = false)
 		{
 
             
@@ -39,9 +41,20 @@ namespace A0151_Excel.Sample
             {
                 optionString = "HDR=no;";
             }
+
+
+            // 当 IMEX = 0 时为“汇出模式”，这个模式开启的 Excel 档案只能用来做“写入”用途。
+            // 当 IMEX = 1 时为“汇入模式”，这个模式开启的 Excel 档案只能用来做“读取”用途。
+            // 当 IMEX = 2 时为“连結模式”，这个模式开启的 Excel 档案可同时支援“读取”与“写入”用途。
+            if(isReadonly)
+            {
+                optionString = String.Format("{0};IMEX=1", optionString);
+            }
             
+
+
             // Office 2007 以及 以下版本使用.
-			string jetConnString =
+            string jetConnString =
 			  String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;" + optionString + "\"", excelFileName);
 
 			// xlsx 扩展名 使用.

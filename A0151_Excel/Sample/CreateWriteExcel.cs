@@ -128,13 +128,14 @@ WHERE
 
 				// 注: 删除一行的操作，将抛出异常.
 
+                /*
 				// 尝试删除一行.
 				OleDbCommand cmdDelete = new OleDbCommand(DELETE_SQL, cn);
 				// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
 				cmdDelete.Parameters.Add(new OleDbParameter("?", 2));
 				// 修改数据.
 				cmdDelete.ExecuteNonQuery();
-
+                */
 
 
 

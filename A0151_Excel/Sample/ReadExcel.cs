@@ -28,7 +28,7 @@ namespace A0151_Excel.Sample
 		/// <returns></returns>
 		public DataSet ReadExcelData(string fileName)
 		{
-			return ReadExcelData(fileName, String.Empty, true);
+			return ReadExcelData(fileName, String.Empty, true, true);
 		}
 
 
@@ -40,10 +40,10 @@ namespace A0151_Excel.Sample
 		/// <param name="startIndex"> 标题与内容的区域 例如 A3:X100 </param>
         /// <param name="hasTitle">是否有标题</param>
 		/// <returns></returns>
-		public DataSet ReadExcelData(string fileName, string startIndex, bool hasTitle)
+		public DataSet ReadExcelData(string fileName, string startIndex, bool hasTitle, bool isReadOnly)
 		{
 			String sConnectionString =
-                Common.GetOleDbConnectionString(fileName, hasTitle);
+                Common.GetOleDbConnectionString(fileName, hasTitle, isReadOnly);
 
             OleDbConnection connection = new OleDbConnection(sConnectionString);
 			try
@@ -102,9 +102,9 @@ namespace A0151_Excel.Sample
 
 
 
-        public void TestRead(string fileName, string startIndex, bool hasTitle)
+        public void TestRead(string fileName, string startIndex, bool hasTitle, bool isReadOnly = true)
 		{
-            DataSet ds = this.ReadExcelData(fileName, startIndex, hasTitle);
+            DataSet ds = this.ReadExcelData(fileName, startIndex, hasTitle, isReadOnly);
 
 			foreach (DataTable dt in ds.Tables)
 			{
