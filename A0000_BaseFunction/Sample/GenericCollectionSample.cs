@@ -32,7 +32,7 @@ namespace A001_BaseFunction.Sample
             // 初始化.
             List<int> dataList = new List<int>();
 
-            Console.WriteLine("***加入测试数据. 100/300/200/400 ");
+            Console.WriteLine("***dataList 加入测试数据. 100/300/200/400 ");
             dataList.Add(100);
             dataList.Add(300);
             dataList.Add(200);
@@ -92,6 +92,38 @@ namespace A001_BaseFunction.Sample
             {
                 Console.WriteLine(val);
             }
+
+
+
+
+
+            Console.WriteLine("***测试 Except :");
+
+            List<int> dataList2 = new List<int>();
+
+            Console.WriteLine("***dataList2 加入测试数据. 500/300/600/400 ");
+            dataList2.Add(500);
+            dataList2.Add(300);
+            dataList2.Add(600);
+            dataList2.Add(400);
+
+
+            List<int> resultList = dataList.Except(dataList2).ToList();
+            Console.WriteLine("*** dataList.Except(dataList2) :");
+            foreach (int val in resultList)
+            {
+                Console.WriteLine(val);
+            }
+
+
+            resultList = dataList2.Except(dataList).ToList();
+            Console.WriteLine("*** dataList2.Except(dataList) :");
+            foreach (int val in resultList)
+            {
+                Console.WriteLine(val);
+            }
+
+
 
 
             // 方法结束.

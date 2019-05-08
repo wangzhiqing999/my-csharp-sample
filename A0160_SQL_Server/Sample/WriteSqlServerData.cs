@@ -158,6 +158,12 @@ WHERE
                 // 事务处理.
                 Transaction(conn);
 
+
+
+                // 批量插入.
+                BatchInsertData(conn);
+
+
             }
             catch (Exception ex)
             {
@@ -384,6 +390,62 @@ WHERE
             Console.WriteLine("尝试插入数据， 结果造成了{0}条记录的插入。", insertRowCount);
 
         }
+
+
+
+
+
+        /// <summary>
+        /// 批量插入数据.
+        /// 定义一个 SqlCommand，
+        /// 然后多次设置参数，并执行.
+        /// </summary>
+        /// <param name="conn"></param>
+        private void BatchInsertData(SqlConnection conn)
+        {
+
+            Console.WriteLine("批量插入数据！");
+
+            // 开始创建一个事务.
+            SqlTransaction t = conn.BeginTransaction();
+
+            try
+            {
+                // 创建一个 Command.
+                SqlCommand insertCommand = conn.CreateCommand();
+
+                // 定义需要执行的SQL语句.
+                insertCommand.CommandText = INSERT_SQL;
+
+                // 注意： 只有加了这一句， 才能事务处理！！！
+                insertCommand.Transaction = t;
+
+                for (int i = 1; i < 10; i++)
+                {
+                    insertCommand.Parameters.Clear();
+
+                    // 定义要查询的参数.
+                    insertCommand.Parameters.Add(new SqlParameter("@sale_date", DateTime.Today.AddDays(i)));
+                    insertCommand.Parameters.Add(new SqlParameter("@sale_item", "X" + i));
+                    insertCommand.Parameters.Add(new SqlParameter("@sale_money", 100000 * i));
+
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                // 提交事务.
+                t.Commit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+
+                // 回滚事务.
+                t.Rollback();
+            }
+
+        }
+
 
 
 
