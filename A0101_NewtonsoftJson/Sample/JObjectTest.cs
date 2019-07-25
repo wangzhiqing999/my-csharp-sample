@@ -41,7 +41,7 @@ namespace A0101_NewtonsoftJson.Sample
             Console.WriteLine("TestDateTime = {0}", o["TestDateTime"]);
             Console.WriteLine("TestNullValue = {0}", o["TestNullValue"]);
 
-
+            Console.WriteLine();
 
 
 
@@ -70,6 +70,52 @@ namespace A0101_NewtonsoftJson.Sample
             Console.WriteLine("PUXT.REQ_HEADER = {0}", o2["PUXT"]["REQ_HEADER"]);
 
             Console.WriteLine("PUXT.REQ_HEADER.CLT_VERSION = {0}", o2["PUXT"]["REQ_HEADER"]["CLT_VERSION"]);
+
+            Console.WriteLine();
+
+
+
+
+            string jsonString3 = @"{	
+	""result"":{
+		""hasNext"":true,
+		""resultList"":[
+			{""id"":78,""name"":""黄浦区""},
+			{""id"":2813,""name"":""徐汇区""},
+			{""id"":2815,""name"":""长宁区""},
+			{""id"":2817,""name"":""静安区""},
+			{""id"":2820,""name"":""闸北区""},
+			{""id"":2822,""name"":""虹口区""},
+			{""id"":2823,""name"":""杨浦区""},
+			{""id"":2824,""name"":""宝山区""},
+			{""id"":2825,""name"":""闵行区""},
+			{""id"":2826,""name"":""嘉定区""},
+			{""id"":2830,""name"":""浦东新区""},
+			{""id"":2833,""name"":""青浦区""},
+			{""id"":2834,""name"":""松江区""},
+			{""id"":2835,""name"":""金山区""},
+			{""id"":2837,""name"":""奉贤区""},
+			{""id"":2841,""name"":"" 普陀区""},
+			{""id"":2919,""name"":""崇明区""}
+		]
+	}
+}";
+            JObject o3 = JObject.Parse(jsonString3);
+
+            Console.WriteLine("Source Json String : \n{0}", jsonString3);
+
+
+            var query =
+                from data in o3["result"]["resultList"]
+                select data;
+
+            foreach(var item in query)
+            {
+                Console.WriteLine("id = {0}, name = {1}", item["id"], item["name"]);
+            }
+
+            Console.WriteLine();
+
         }
 
     }

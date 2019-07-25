@@ -182,7 +182,36 @@ namespace A0401_String.Sample
             {
                 Console.WriteLine("[04]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", cardValue, cradPat, Regex.IsMatch(cardValue, cradPat));
             }
-		}
+
+
+            // 某系统创建用户名的时候， 做的检查.
+            // 用户名 允许使用 小写字母/数字/下环线
+            string userNamePat = @"^[\d|a-z|_]+$";
+
+            string[] testUserName =
+            {
+                "1234567890",
+                "test",
+                "zhang3",
+                "zhang_3",
+                "li4",
+                "li_4",
+                "manager001",
+                "manager_001",
+                "master666",
+                "master_666",
+                "error1 ",
+                " error2",
+                " error3 ",
+                "error 4",
+            };
+
+            foreach (string userName in testUserName)
+            {
+                Console.WriteLine("[04]使用正则表达式静态方法IsMatch({0}, {1})的结果为：{2}", userName, userNamePat, Regex.IsMatch(userName, userNamePat));
+            }
+
+        }
 
 
 
@@ -463,6 +492,36 @@ namespace A0401_String.Sample
                 Console.WriteLine("After:  {0}", httpsUrl);
             }
 
+
+
+
+
+            // 用户昵称中，如果出现连续4位及以上连续数字时，数字部分用***替换
+            string[] userNickNames =
+            {
+                "洗车0",
+                "洗车02",
+                "洗车024",
+                "洗车0246",
+                "洗车02468",
+                "美容1234-5",
+                "美容1234-56",
+                "美容1234-5678",
+                "美容1234-5678-9",
+                "美容1234-5678-90",
+                "推拿130-1234-5678",
+            };
+
+            string namePat = @"\d{4,}";
+
+
+            foreach (string nickname in userNickNames)
+            {
+                
+                string resultName = Regex.Replace(nickname, namePat, "***", RegexOptions.IgnoreCase);
+
+                Console.WriteLine("初始值: {0};  替换后:  {1}", nickname, resultName);
+            }
         }
 
 
