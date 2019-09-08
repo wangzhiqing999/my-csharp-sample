@@ -11,7 +11,7 @@ namespace A0185_MySQL_MySqlClient
     {
         static void Main(string[] args)
         {
-
+            /*
 
             // 读
             ReadMySQLData reader = new ReadMySQLData();
@@ -33,8 +33,13 @@ namespace A0185_MySQL_MySqlClient
             CallMySqlProc proc = new CallMySqlProc();
             proc.TestCallProcFunc();
 
+            */
 
 
+            UseMySqlConnectionStringBuilder.TestUse1();
+            UseMySqlConnectionStringBuilder.TestUse2();
+
+            Console.WriteLine("Finish!");
             Console.ReadLine();
         }
     }

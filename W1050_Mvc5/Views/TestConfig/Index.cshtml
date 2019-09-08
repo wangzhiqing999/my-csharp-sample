@@ -1,0 +1,248 @@
+﻿@using System.Configuration
+@using System.Data.SqlClient
+@{
+    ViewBag.Title = "Index";
+    string[] allKeys = ConfigurationManager.AppSettings.AllKeys;
+}
+
+<h2>测试动态修改 Web.Config 数据</h2>
+
+
+
+
+<h3> 基本 AppSetting </h3>
+<table>
+
+    <tr>
+        <th>配置名</th>
+        <th>配置值</th>
+        <th>操作</th>
+    </tr>
+
+
+    @foreach (string key in allKeys)
+    {
+        if (!key.StartsWith("Test:"))
+        {
+            continue;
+        }
+        string configValue = ConfigurationManager.AppSettings[key];
+        <tr>
+            <td>@(key)</td>
+            <td>
+                @(configValue)
+            </td>
+            <td>
+                <select class="selectUpdateConfig">
+                    <option value="true" @(configValue == "true" ? "selected":"")>打开</option>
+                    <option value="false" @(configValue == "false" ? "selected":"")>关闭</option>
+                </select>
+                <input class="btnUpdateConfig" type="button" value="更新" data-key="@(key)" />
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+<h3> ConnectionString </h3>
+@{ 
+    var myTestConfig = ConfigurationManager.ConnectionStrings["MyTestConfig"];
+    string connString = myTestConfig.ConnectionString;
+    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connString);
+}
+
+<table>
+    <tr>
+        <td>DataSource</td>
+        <td>
+            <input type="text" id="txtDataSource" value="@(builder.DataSource)" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>InitialCatalog</td>
+        <td>
+            <input type="text" id="txtInitialCatalog" value="@(builder.InitialCatalog)" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>UserID</td>
+        <td>
+            <input type="text" id="txtUserID" value="@(builder.UserID)" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>Password</td>
+        <td>
+            <input type="text" id="txtPassword" value="@(builder.Password)" />
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <td colspan="2">
+            <button id="btnTestConn">测试连接</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <button id="btnSaveConn" disabled="disabled">保存</button>
+        </td>
+    </tr>
+
+</table>
+
+
+
+@section scripts {
+
+<script>
+
+
+    $(document).ready(function () {
+
+        // 修改单个配置.
+        $(".btnUpdateConfig").click(function () {
+
+            var key = $(this).attr("data-key");
+            var value = $(this).prev().val();
+
+            console.log("key = " + key);
+            console.log("value = " + value);
+
+            var r = confirm("确定要将【" + key + "】的配置，修改为 " + value + " 么？");
+            if (r === false) {
+                return;
+            }
+
+
+            $.ajax({
+                url: "/TestConfig/TestUpdateConfig",
+                type: 'POST',
+                data: {
+                    key: key,
+                    value: value
+                },
+                success: function (data) {
+                    console.log("/TestConfig/TestUpdateConfig  Result:", data);
+
+                    if (data.ResultCode != "0") {
+                        // 失败.
+                        alert(data.ResultMessage);
+                        return;
+                    }
+
+
+                    // 刷新页面。 检查效果.
+                    location.reload(true);
+                }
+            }).fail(function (xhr, textStatus, err) {
+                alert("Ajax Fail!");
+            });
+
+
+        });
+
+
+
+        // 测试连接.
+        $("#btnTestConn").click(function () {
+
+            $("#btnTestConn").attr("disabled", "disabled");
+
+            var server = $("#txtDataSource").val();
+            var db = $("#txtInitialCatalog").val();
+            var uid = $("#txtUserID").val();
+            var pwd = $("#txtPassword").val();
+
+
+            $.ajax({
+                url: "/TestConfig/TestConnect",
+                type: 'POST',
+                data: {
+                    server: server,
+                    db: db,
+                    uid: uid,
+                    pwd: pwd
+                },
+                success: function (data) {
+                    $("#btnTestConn").removeAttr("disabled");
+                    console.log("/TestConfig/TestConnect  Result:", data);
+
+                    if (data.ResultCode != "0") {
+                        // 失败.
+                        alert(data.ResultMessage);
+                        return;
+                    }
+                    
+                    alert("测试连接成功.");
+                    
+                    $("#btnSaveConn").removeAttr("disabled");
+                }
+            }).fail(function (xhr, textStatus, err) {
+                $("#btnTestConn").removeAttr("disabled");
+                alert("Ajax Fail!");
+            });
+
+        });
+
+
+
+
+
+
+        // 测试更新连接字符串.
+        $("#btnSaveConn").click(function () {
+
+            $("#btnSaveConn").attr("disabled", "disabled");
+
+            var server = $("#txtDataSource").val();
+            var db = $("#txtInitialCatalog").val();
+            var uid = $("#txtUserID").val();
+            var pwd = $("#txtPassword").val();
+
+
+            $.ajax({
+                url: "/TestConfig/TestUpdateConnectString",
+                type: 'POST',
+                data: {
+                    server: server,
+                    db: db,
+                    uid: uid,
+                    pwd: pwd
+                },
+                success: function (data) {
+                    $("#btnSaveConn").removeAttr("disabled");
+                    console.log("/TestConfig/TestUpdateConnectString  Result:", data);
+
+                    if (data.ResultCode != "0") {
+                        // 失败.
+                        alert(data.ResultMessage);
+                        return;
+                    }
+
+                    // 刷新页面。 检查效果.
+                    location.reload(true);
+                }
+            }).fail(function (xhr, textStatus, err) {
+                $("#btnSaveConn").removeAttr("disabled");
+                alert("Ajax Fail!");
+            });
+
+        });
+
+
+
+    });
+
+
+</script>
+
+
+}

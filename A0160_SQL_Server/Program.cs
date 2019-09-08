@@ -12,6 +12,7 @@ namespace A0160_SQL_Server
         static void Main(string[] args)
         {
 
+
             ReadSqlServerDataIn testIn = new ReadSqlServerDataIn ();
             testIn.ReadDataByReader();
 
@@ -57,6 +58,13 @@ namespace A0160_SQL_Server
 
 
 
+            Console.WriteLine("===== 测试 SqlConnectionStringBuilder 的使用 =====");
+            UseSqlConnectionStringBuilder.TestUse1();
+            UseSqlConnectionStringBuilder.TestUse2();
+
+
+
+            Console.WriteLine("Finish!");
             Console.ReadLine();
 
         }

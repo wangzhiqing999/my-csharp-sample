@@ -476,10 +476,10 @@ namespace A0401_String.Sample
                     @"http://b.test.com/Sample?id=12345",
                     @"http://c.test.com/A/B/C/12345/",
                     @"http://d.test.com:1234/",
-                    @"http://d.test.com:1234/xyz",
-                    @"http://d.test.com:1234/1234",
-                    @"http://d.test.com:1234/1234/",
-                    @"http://d.test.com:1234/1234/5678/",
+                    @"http://10086.test.com:1234/xyz",
+                    @"http://go123.test.com:1234/1234",
+                    @"http://400400400.test.com:1234/1234/",
+                    @"https://hadhttps.test.com:1234/1234/5678/",
                                };
 
             string httpPortPat = @"[:][0-9]+/";
@@ -492,6 +492,22 @@ namespace A0401_String.Sample
                 Console.WriteLine("After:  {0}", httpsUrl);
             }
 
+
+            // 识别 URL 中的域名.
+            string domainPat = @"[htps]+://([\d|a-z|A-Z|\.]+)";
+            Regex domainR = new Regex(domainPat, RegexOptions.IgnoreCase);
+
+            foreach (string httpulr in httpUrls)
+            {
+                Match domainM = domainR.Match(httpulr);
+                // 和 Uri 对象中的 Host 做验证.
+                Uri baseUri = new Uri(httpulr);
+                if (domainM.Success)
+                {
+                    Group domainG = domainM.Groups[1];
+                    Console.WriteLine("Url = {0},   Domain = {1},   Uri.Host = {2}", httpulr,  domainG.Value,  baseUri.Host);
+                }                
+            }
 
 
 

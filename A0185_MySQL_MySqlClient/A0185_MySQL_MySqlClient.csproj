@@ -52,6 +52,7 @@
     <Compile Include="Sample\CallMySqlProc.cs" />
     <Compile Include="Sample\ReadMySQLData.cs" />
     <Compile Include="Sample\ReadWriteUtf8.cs" />
+    <Compile Include="Sample\UseMySqlConnectionStringBuilder.cs" />
     <Compile Include="Sample\WriteMySQLData.cs" />
   </ItemGroup>
   <ItemGroup>

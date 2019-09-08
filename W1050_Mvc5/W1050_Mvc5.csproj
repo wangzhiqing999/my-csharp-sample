@@ -18,8 +18,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
     <Use64BitIISExpress />
@@ -160,6 +160,7 @@
     <Compile Include="Controllers\TestAsyncController.cs" />
     <Compile Include="Controllers\TestBundleController.cs" />
     <Compile Include="Controllers\TestChartController.cs" />
+    <Compile Include="Controllers\TestConfigController.cs" />
     <Compile Include="Controllers\TestGlimpseController.cs" />
     <Compile Include="Controllers\Testi18nController.cs" />
     <Compile Include="Controllers\TestMobileController.cs" />
@@ -284,6 +285,7 @@
     <Content Include="Views\TestMobile\TestNews.cshtml" />
     <Content Include="Views\TestMobile\TestImages.cshtml" />
     <Content Include="Views\TestAjax\TestAbort.cshtml" />
+    <Content Include="Views\TestConfig\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
