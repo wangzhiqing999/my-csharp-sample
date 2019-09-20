@@ -10,6 +10,12 @@ using System.Web.Routing;
 
 namespace W1050_Mvc5.Module
 {
+
+    /// <summary>
+    /// 国际化的处理模块.
+    /// 定义在  web.config 的 system.webServer 标签下.
+    /// 
+    /// </summary>
     public class CultureAwareHttpModule : IHttpModule
     {
 

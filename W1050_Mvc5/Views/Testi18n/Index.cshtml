@@ -1,10 +1,14 @@
 ﻿@using System.Threading
 @using W1050_Mvc5.Resource
-
+@model W1050_Mvc5.Models.TestModelData
 @{
     MyResource.Culture = Thread.CurrentThread.CurrentCulture;
-    
+
     ViewBag.Title = MyResource.HelloWorld;
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 <h2> 国际化测试页面 </h2>
@@ -23,3 +27,68 @@
 
 </div>
 
+
+<hr />
+
+
+
+
+@using (Html.BeginForm(actionName: "Index", controllerName: "Testi18n", method: FormMethod.Post,
+    htmlAttributes: new { role = "form", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <legend>区域</legend>
+
+
+
+    <div class="form-group">
+        <label for="AreaCode" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.AreaCode) </label>
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.AreaCode, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.AreaCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <label for="AreaName" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.AreaName) </label>
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.AreaName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <label for="DisplayWeight" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.DisplayWeight) </label>
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.DisplayWeight, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.ValidationMessageFor(model => model.DisplayWeight, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group form-group-sm">
+        <div class="col-sm-offset-2 col-sm-9">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>
+                创建
+            </button>
+        </div>
+    </div>
+
+}
+
+<p>
+    @ViewBag.Message
+</p>

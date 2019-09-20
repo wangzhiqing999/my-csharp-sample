@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewBag.Title = "TestMyDemoAxios";
+}
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+    <script src="~/Scripts/axios.js"></script>
+
+
+    <script>
+
+        // 全部查询.
+        function getAll() {
+
+            console.log("getAll Start.");
+
+            axios({
+                method: "GET",
+                url: '/api/mydemo/'
+                })
+                .then(function (response) {
+                    console.log("response = ", response);
+
+                    document.getElementById("pnlResult").innerHTML = "";
+                    $.each(response.data, function (key, val) {
+                        var str = val.userName + ': ' + val.password;
+                        $('<li/>', { html: str }).appendTo($('#pnlResult'));
+                    });
+
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+        }
+
+        // 单个查询.
+        function find() {
+            console.log("find Start.");
+
+            var inputText = document.getElementById("txtSearchUserName").value;
+
+            axios({
+                method: "GET",
+                url: '/api/mydemo/',
+                params: { id: inputText } 
+                })
+                .then(function (response) {
+                    console.log("response = ", response);
+
+                    document.getElementById("pnlResult").innerHTML = "";
+                    $.each(response.data, function (key, val) {
+                        var str = val.userName + ': ' + val.password;
+                        $('<li/>', { html: str }).appendTo($('#pnlResult'));
+                    });
+
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+        }
+
+
+
+        function add() {
+            console.log("add Start.");
+
+            var inputName = document.getElementById("txtNewUserName").value;
+            var inputPwd = document.getElementById("txtNewPassword").value;
+
+            axios({
+                method: "POST",
+                url: '/api/mydemo/',
+                data: {
+                    "UserName": inputName,
+                    "Password": inputPwd
+                }
+                }).then(function (response) {
+                    console.log("response = ", response);
+                    getAll();
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+        }
+
+
+
+        function update() {
+            console.log("update Start.");
+
+            var inputName = document.getElementById("txtUpdateUserName").value;
+            var inputPwd = document.getElementById("txtUpdatePassword").value;
+
+            axios({
+                method: "PUT",
+                url: '/api/mydemo/' + inputName,
+                data: {
+                    "UserName": inputName,
+                    "Password": inputPwd
+                }
+                }).then(function (response) {
+                    console.log("response = ", response);
+                    getAll();
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+
+        }
+
+
+        function remove() {
+            console.log("remove Start.");
+
+            var inputName = document.getElementById("txtDelUserName").value;
+
+            axios({
+                method: "DELETE",
+                url: '/api/mydemo/' + inputName
+                }).then(function (response) {
+                    console.log("response = ", response);
+                    getAll();
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+        }
+
+
+
+        function removeAll() {
+
+            console.log("removeAll Start.");
+
+            axios({
+                method: "DELETE",
+                url: '/api/mydemo/'
+                }).then(function (response) {
+                    console.log("response = ", response);
+                    getAll();
+                })
+                .catch(function (error) {
+                    alert('Error: ' + error);
+                });
+        }
+
+
+
+    </script>
+
+
+
+
+}
+
+
+
+
+<h2> 查询 </h2>
+
+<input id="btnTestGet" type="button" value="查询全部数据" onclick="getAll()" />
+
+<hr />
+
+
+<h2> 条件查询 </h2>
+
+<table>
+    <tr>
+        <td> 用户名 </td>
+        <td> <input id="txtSearchUserName" type="text" /> </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input id="btnTestGetSome" type="button" value="查询" onclick="find()" />
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+
+<h2> 新增 </h2>
+
+<table>
+    <tr>
+        <td> 用户名 </td>
+        <td> <input id="txtNewUserName" type="text" /> </td>
+    </tr>
+    <tr>
+        <td> 密码 </td>
+        <td> <input id="txtNewPassword" type="text" /> </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input id="btnAddNew" type="button" value="新增数据" onclick="add()" />
+        </td>
+    </tr>
+</table>
+
+
+<hr />
+
+<h2> 编辑 </h2>
+
+<table>
+    <tr>
+        <td> 用户名 </td>
+        <td> <input id="txtUpdateUserName" type="text" /> </td>
+    </tr>
+    <tr>
+        <td> 密码 </td>
+        <td> <input id="txtUpdatePassword" type="text" /> </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input id="btnUpdate" type="button" value="更新数据" onclick="update()" />
+        </td>
+    </tr>
+</table>
+
+
+<hr />
+
+
+<h2> 删除 </h2>
+
+<table>
+    <tr>
+        <td> 用户名 </td>
+        <td> <input id="txtDelUserName" type="text" /> </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input id="btnRemove" type="button" value="删除数据" onclick="remove()" />
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+
+<h2> 全部删除 </h2>
+
+<input id="btnRemoveAll" type="button" value="删除全部数据" onclick="removeAll()" />
+
+<hr />
+
+
+
+
+
+
+<ul id="pnlResult"></ul>
+
