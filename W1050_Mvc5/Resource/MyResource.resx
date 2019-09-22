@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AreaCodeRequired" xml:space="preserve">
-    <value>区域代码必须要输入的</value>
+    <value>{0} 必须要输入（文字写在资源文件里）</value>
   </data>
   <data name="HelloWorld" xml:space="preserve">
     <value>你好世界</value>
