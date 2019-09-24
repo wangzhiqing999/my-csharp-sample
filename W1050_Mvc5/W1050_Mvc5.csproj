@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MyHtmlHelpers.cs" />
     <Compile Include="Models\CommonServiceResult.cs" />
     <Compile Include="Models\TestModelData.cs" />
     <Compile Include="Module\CultureAwareHttpModule.cs" />

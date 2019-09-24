@@ -1,5 +1,7 @@
 ﻿@using System.Threading
 @using W1050_Mvc5.Resource
+@using W1050_Mvc5.Helpers;
+
 @model W1050_Mvc5.Models.TestModelData
 @{
     MyResource.Culture = Thread.CurrentThread.CurrentCulture;
@@ -46,9 +48,12 @@
 
 
     <div class="form-group">
-        <label for="AreaCode" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.AreaCode) </label>
+        <label for="AreaCode" class="col-sm-2 control-label">
+            @Html.IsRequiredFor(model => model.AreaCode)
+            @Html.DisplayNameFor(model => model.AreaCode) 
+        </label>
         <div class="col-md-6">
-            @Html.EditorFor(model => model.AreaCode, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.EditorFor(model => model.AreaCode, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = Html.DescriptionFor(m => m.AreaCode) } })
             @Html.ValidationMessageFor(model => model.AreaCode, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -58,9 +63,12 @@
 
 
     <div class="form-group">
-        <label for="AreaName" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.AreaName) </label>
+        <label for="AreaName" class="col-sm-2 control-label">
+            @Html.IsRequiredFor(model => model.AreaName)
+            @Html.DisplayNameFor(model => model.AreaName) 
+        </label>
         <div class="col-md-6">
-            @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = Html.DescriptionFor(m => m.AreaName) } })
             @Html.ValidationMessageFor(model => model.AreaName, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -70,10 +78,26 @@
 
 
     <div class="form-group">
-        <label for="DisplayWeight" class="col-sm-2 control-label">  @Html.DisplayNameFor(model => model.DisplayWeight) </label>
+        <label for="DisplayWeight" class="col-sm-2 control-label">
+            @Html.IsRequiredFor(model => model.AreaName)
+            @Html.DisplayNameFor(model => model.DisplayWeight) 
+        </label>
         <div class="col-md-6">
-            @Html.EditorFor(model => model.DisplayWeight, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+            @Html.EditorFor(model => model.DisplayWeight, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = Html.DescriptionFor(m => m.DisplayWeight) } })
             @Html.ValidationMessageFor(model => model.DisplayWeight, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="AreaRemark" class="col-sm-2 control-label">
+            @Html.IsRequiredFor(model => model.AreaRemark)
+            @Html.DisplayNameFor(model => model.AreaRemark)
+        </label>
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.AreaRemark, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = Html.DescriptionFor(m => m.AreaRemark) } })
+            @Html.ValidationMessageFor(model => model.AreaRemark, "", new { @class = "text-danger" })
         </div>
     </div>
 
