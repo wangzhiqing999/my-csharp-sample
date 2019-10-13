@@ -31,6 +31,16 @@ namespace A0501_LINQ_Base2
 
             sample.TestXml();
 
+
+            // 测试外部指定排序.
+            sample.TestOrderBy();
+
+            sample.IsOrderByDescending = true;
+            sample.TestOrderBy();
+
+            sample.OrderByColumn = "Color";
+            sample.TestOrderBy();
+
             Console.ReadLine();
 
         }

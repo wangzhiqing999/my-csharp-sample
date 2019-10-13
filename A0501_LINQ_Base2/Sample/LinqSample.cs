@@ -553,5 +553,74 @@ namespace A0501_LINQ_Base2.Sample
 
 
 
+
+
+
+
+
+
+        /// <summary>
+        /// 排序的列.
+        /// </summary>
+        public string OrderByColumn = "Country";
+
+        /// <summary>
+        /// 排序的方式. 是否逆序？
+        /// </summary>
+        public bool IsOrderByDescending = false;
+
+        // 测试排序.
+        public void TestOrderBy()
+        {
+            Console.WriteLine("### TestOrderBy {0}, {1}", this.OrderByColumn, this.IsOrderByDescending);
+
+            // 定义查询.
+            var query =
+                 from data in orangeList
+                 select data;
+
+            query = query.Where(p => p.Color != null);
+
+            if(!this.IsOrderByDescending)
+            {
+                query = query.OrderBy(GetOrderBy);
+            } 
+            else
+            {
+                query = query.OrderByDescending(GetOrderBy);
+            }
+
+            foreach(var item in query)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
+        
+
+
+        // 外部设置的 排序条件.
+        private object GetOrderBy(Orange orange)
+        {
+            if (this.OrderByColumn == "Country")
+            {
+                return orange.Country;
+            }
+            else if (this.OrderByColumn == "Color")
+            {
+                return orange.Color;
+            }
+            else if (this.OrderByColumn == "Sapor")
+            {
+                return orange.Sapor;
+            }
+            
+            return orange.Country;
+        }
+
+        
+
+
     }
 }

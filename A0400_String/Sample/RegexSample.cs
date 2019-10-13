@@ -395,7 +395,21 @@ namespace A0401_String.Sample
             }
 
 
-		}
+
+
+
+            string patGetNullAbleDataType = @"System.Nullable`1\[\[([^,]*)";
+            string dataTypeString = "System.Nullable`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]";
+
+            Regex rGetType = new Regex(patGetNullAbleDataType, RegexOptions.IgnoreCase);
+            Match mGetType = rGetType.Match(dataTypeString);
+            if (mGetType.Success)
+            {
+                Group gGetType = mGetType.Groups[1];
+                Console.WriteLine("[06] 分析字符串 {0} ，获取 基础的数据类型 {1}", dataTypeString, gGetType.Value);
+            }
+
+        }
 
 
 
