@@ -34,6 +34,15 @@ namespace A0401_String
             regexSample.DemoRegexUse8();
 
 
+
+
+
+            Console.WriteLine("===========Uri 类使用的例子！===========");
+
+            UriSample uriSample = new UriSample();
+            uriSample.ShowBasicProp(@"https://mbd.baidu.com/newspage/data/landingsuper?context=%7B%22nid%22%3A%22news_10169213394206363137%22%7D&n_type=0&p_from=1");
+
+
             Console.ReadLine();
         }
     }
