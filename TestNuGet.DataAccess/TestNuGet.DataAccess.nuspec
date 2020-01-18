@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>wangzhiqing</authors>
+    <owners>wangzhiqing</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <description>测试一个准备打包为 NuGet 的类库</description>
+    <releaseNotes>初始版本.</releaseNotes>
+    <copyright>Copyright 2020</copyright>	
+	<dependencies>
+      <group targetFramework=".NETFramework4.5" />
+    </dependencies>	
+  </metadata>
+</package>

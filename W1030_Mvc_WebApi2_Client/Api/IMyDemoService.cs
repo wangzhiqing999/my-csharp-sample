@@ -26,6 +26,10 @@ namespace W1030_Mvc_WebApi2_Client.Api
 
 
 
+		// 注意：如果 Web API 是有 JWT 验证的. 
+		// 使用下面这种方式， 来实现，请求 Web Api 时，向 Http 头中，写入 JWT 信息。
+		// [Get("/api/SystemUser/GetUserInfo")]
+		// Task<SystemUser> GetUserInfo([Header("Authorization")] string authorization);
     }
 
 
