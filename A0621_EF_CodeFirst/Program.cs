@@ -89,10 +89,23 @@ namespace A0621_EF_CodeFirst
             p.DeleteMrDemoData(data2);
             p.DeleteMrDemoData(data4);
 
+
+
+
+            p.TestQuerySmsLog();
+
+
+
             Console.WriteLine("Finish!");
 
             Console.ReadLine();
 
         }
+
+
+
+
+
+
     }
 }

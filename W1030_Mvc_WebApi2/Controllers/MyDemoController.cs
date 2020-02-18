@@ -4,15 +4,17 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Threading;
 
 
 using W1030_Mvc_WebApi2.Models;
-
+using W1030_Mvc_WebApi2.ActionFilters;
 
 namespace W1030_Mvc_WebApi2.Controllers
 {
 
 
+    [WebApiLogFilter]
     public class MyDemoController : ApiController
     {
 
@@ -76,6 +78,9 @@ namespace W1030_Mvc_WebApi2.Controllers
         // DELETE api/mydemo
         public void Delete()
         {
+            // 测试 Filter 能否计算操作的耗时.
+            Thread.Sleep(2048);
+
             testUserList.Clear();
         }
 

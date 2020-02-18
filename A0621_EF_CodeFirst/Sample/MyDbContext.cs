@@ -26,6 +26,13 @@ namespace A0621_EF_CodeFirst.Sample
         /// 定义多个 DbSet. 
         /// </summary>
         public DbSet<MrDemoData> MrDemoDataDbSet { get; set; }
+
+
+        /// <summary>
+        /// 短信日志.
+        /// </summary>
+        public DbSet<SmsLog> SmsLogs { get; set; }
+
     }
 
 }
