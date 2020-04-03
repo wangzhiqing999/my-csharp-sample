@@ -619,6 +619,38 @@ namespace A0401_String.Sample
 
 
 
+
+		public void DemoRegexUse9()
+		{
+
+			string sourceText = "__{@BName}_（身份证号码：{@BCardNo}_{@yyyy}_年_{@MM}_月_{@dd}_";
+
+
+			string pattern = @"{@([^}]+)}";
+
+
+			// 初始化 正则表达式  忽略大小写
+			Regex r = new Regex(pattern, RegexOptions.IgnoreCase);
+
+			// 指定的输入字符串中搜索 Regex 构造函数中指定的正则表达式的第一个匹配项。
+			Match m = r.Match(sourceText);
+
+
+			while (m.Success)
+			{
+
+				// Groups 为 获取由正则表达式匹配的组的集合。
+				Group g = m.Groups[1];
+				Console.WriteLine("==Group[1]={0}", g);
+
+				m = m.NextMatch();
+			}
+
+		}
+
+
+
+
 	}
 
 }

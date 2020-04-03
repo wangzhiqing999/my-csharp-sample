@@ -123,5 +123,18 @@ namespace W1030_MVC_ActionFilter.Controllers
         }
 
 
+
+
+        /// <summary>
+        /// 测试分布视图.
+        /// </summary>
+        /// <returns></returns>
+        public PartialViewResult TestPartial()
+        {
+            return PartialView();
+        }
+
+
+
     }
 }

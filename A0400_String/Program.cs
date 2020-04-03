@@ -35,6 +35,9 @@ namespace A0401_String
 
 
 
+            regexSample.DemoRegexUse9();
+
+
 
 
             Console.WriteLine("===========Uri 类使用的例子！===========");

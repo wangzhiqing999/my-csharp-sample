@@ -14,3 +14,8 @@
     <span>测试页面耗时：</span><input id="sec" name="sec" type="text" value="@(Request["sec"])" />
     <input id="Submit1" type="submit" value="submit" />
 }
+
+
+
+<hr />
+@Html.Action(actionName: "TestPartial", controllerName: "Home")
