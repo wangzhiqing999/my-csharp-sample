@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
+using A0151_Excel.NpoiSample;
 using A0151_Excel.Sample;
 
 namespace A0151_Excel
@@ -23,6 +25,10 @@ namespace A0151_Excel
             rExcel.TestRead(excelFileName, String.Empty, true);
 
 
+            TestNpoiReadExcel(excelFileName);
+
+
+
             // 测试读取 标题不在 第一行的情况。
             rExcel.TestRead("Report.xls", "A4:C100", true);
 
@@ -38,7 +44,50 @@ namespace A0151_Excel
             rExcel.TestRead("Report2.xls", "A4:C100", true);
 
 
+
+
+
+            
+
+
             Console.ReadLine();
         }
+
+
+
+        private static void TestNpoiReadExcel(string excelFileName)
+        {
+            Console.WriteLine("------ NPOI TEST ------");
+
+            NpoiReadExcel readExcel = new NpoiReadExcel();
+
+            DataSet ds = readExcel.ReadExcelData(excelFileName, String.Empty, true);
+
+
+            foreach (DataTable dt in ds.Tables)
+            {
+                Console.WriteLine("Sheet名：{0}", dt.TableName);
+
+                foreach (DataColumn col in dt.Columns)
+                {
+                    Console.Write(col.ColumnName);
+                    Console.Write("\t");
+                }
+                Console.WriteLine();
+
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        Console.Write(row[col.ColumnName]);
+                        Console.Write("\t");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
+
+
     }
 }

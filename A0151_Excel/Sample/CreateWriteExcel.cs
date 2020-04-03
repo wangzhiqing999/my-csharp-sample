@@ -84,60 +84,62 @@ WHERE
 			// 取得连接字符串.
 			string connString = Common.GetOleDbConnectionString(fileName);
 
-			// 定义 Oledb 的数据库联接.
-			OleDbConnection cn = new OleDbConnection(connString);
 
 			try
 			{
-				// 打开连接.
-				cn.Open();
 
-				// 创建 Excel Sheet的 命令.
-				OleDbCommand cmdCreate = new OleDbCommand(CREATE_TABLE_SQL, cn);
-				// 创建Sheet.
-				cmdCreate.ExecuteNonQuery();
-
-				// 插入数据的 命令.
-				OleDbCommand cmdInsert = new OleDbCommand(INSERT_SQL, cn);
-				for (int i = 0; i < 10; i++)
+				using (OleDbConnection cn = new OleDbConnection(connString))
 				{
-					// 清空参数.
-					cmdInsert.Parameters.Clear();
+
+					// 打开连接.
+					cn.Open();
+
+					// 创建 Excel Sheet的 命令.
+					OleDbCommand cmdCreate = new OleDbCommand(CREATE_TABLE_SQL, cn);
+					// 创建Sheet.
+					cmdCreate.ExecuteNonQuery();
+
+					// 插入数据的 命令.
+					OleDbCommand cmdInsert = new OleDbCommand(INSERT_SQL, cn);
+					for (int i = 0; i < 10; i++)
+					{
+						// 清空参数.
+						cmdInsert.Parameters.Clear();
+						// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
+						cmdInsert.Parameters.Add(new OleDbParameter("?", i));
+						cmdInsert.Parameters.Add(new OleDbParameter("?", "名称" + i));
+						cmdInsert.Parameters.Add(new OleDbParameter("?", i * 10));
+						// 插入数据.
+						cmdInsert.ExecuteNonQuery();
+					}
+
+
+
+
+					// 尝试修改一行.
+					OleDbCommand cmdUpdate = new OleDbCommand(UPDATE_SQL, cn);
 					// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
-					cmdInsert.Parameters.Add(new OleDbParameter("?", i));
-					cmdInsert.Parameters.Add(new OleDbParameter("?", "名称" + i));
-					cmdInsert.Parameters.Add(new OleDbParameter("?", i*10 ));
-					// 插入数据.
-					cmdInsert.ExecuteNonQuery();
+					cmdUpdate.Parameters.Add(new OleDbParameter("?", "名称X1X"));
+					cmdUpdate.Parameters.Add(new OleDbParameter("?", 100));
+					cmdUpdate.Parameters.Add(new OleDbParameter("?", 1));
+					// 修改数据.
+					cmdUpdate.ExecuteNonQuery();
+
+
+
+
+					// 注: 删除一行的操作，将抛出异常.
+
+					/*
+					// 尝试删除一行.
+					OleDbCommand cmdDelete = new OleDbCommand(DELETE_SQL, cn);
+					// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
+					cmdDelete.Parameters.Add(new OleDbParameter("?", 2));
+					// 修改数据.
+					cmdDelete.ExecuteNonQuery();
+					*/
+
 				}
-
-
-
-
-				// 尝试修改一行.
-				OleDbCommand cmdUpdate = new OleDbCommand(UPDATE_SQL, cn);
-				// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
-				cmdUpdate.Parameters.Add(new OleDbParameter("?", "名称X1X"));
-				cmdUpdate.Parameters.Add(new OleDbParameter("?", 100));
-				cmdUpdate.Parameters.Add(new OleDbParameter("?", 1));
-				// 修改数据.
-				cmdUpdate.ExecuteNonQuery();
-
-
-
-
-				// 注: 删除一行的操作，将抛出异常.
-
-                /*
-				// 尝试删除一行.
-				OleDbCommand cmdDelete = new OleDbCommand(DELETE_SQL, cn);
-				// 参数只能按照 SQL语句 中 ? 的顺序，进行添加.
-				cmdDelete.Parameters.Add(new OleDbParameter("?", 2));
-				// 修改数据.
-				cmdDelete.ExecuteNonQuery();
-                */
-
-
 
 
 			}
