@@ -47,8 +47,11 @@ namespace A0151_Excel
 
 
 
-            
 
+            TestNpoiWriteExcel();
+
+
+            Console.WriteLine("----- Finish -----");
 
             Console.ReadLine();
         }
@@ -88,6 +91,40 @@ namespace A0151_Excel
             }
         }
 
+
+
+
+        private static void TestNpoiWriteExcel()
+        {
+            NpoiWriteExcel tester = new NpoiWriteExcel();
+            tester.CreateExcel();
+
+
+            DataSet ds = tester.ReadExcel();
+
+            foreach (DataTable dt in ds.Tables)
+            {
+                Console.WriteLine("Sheet名：{0}", dt.TableName);
+
+                foreach (DataColumn col in dt.Columns)
+                {
+                    Console.Write(col.ColumnName);
+                    Console.Write("\t");
+                }
+                Console.WriteLine();
+
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        Console.Write(row[col.ColumnName]);
+                        Console.Write("\t");
+                    }
+                    Console.WriteLine();
+                }
+            }
+        }
 
     }
 }
