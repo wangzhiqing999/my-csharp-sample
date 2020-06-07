@@ -175,6 +175,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\AuthFilter.cs" />
     <Compile Include="ActionFilters\I18nFilter.cs" />
     <Compile Include="ActionFilters\WebApiLogFilter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyDemoController.cs" />
+    <Compile Include="Controllers\NeedLoginController.cs" />
     <Compile Include="Controllers\TestCacheOutputController.cs" />
     <Compile Include="Controllers\TestI18nController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -308,6 +310,7 @@
     <Content Include="Views\Home\TestI18n.cshtml" />
     <Content Include="Views\Home\TestCacheOutput.cshtml" />
     <Content Include="Views\Home\TestMyDemoAxios.cshtml" />
+    <Content Include="Views\Home\TestNeedLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

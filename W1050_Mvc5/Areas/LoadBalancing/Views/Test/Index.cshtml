@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "负载均衡测试";
+
+    string servceCode = ViewBag.ServerCode;
+}
+
+<h2>负载均衡测试</h2>
+
+
+<ul>
+
+    <li>
+        当前连接的服务器： @(servceCode)
+    </li>
+
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+<li>
+    当前用户已登录: @(User.Identity.Name)
+</li>
+    }
+    else
+    {
+<li>
+    当前用户未登录
+</li>
+    }
+
+
+
+<li>
+    SessionID = @Session.SessionID
+</li>
+
+<li>
+    Session["LOAD_BALANCING_SESSION_TEST"] = @Session["LOAD_BALANCING_SESSION_TEST"]
+</li>
+
+<li>
+    <form action="/LoadBalancing/Test/SetSessionValue" method="post">
+        <span>
+            设置 Session["LOAD_BALANCING_SESSION_TEST"] =
+            @Html.TextBox(name: "vaule")
+        </span>
+        <button type="submit" class="btn btn-default">
+            确定
+        </button>
+    </form>
+</li>
+
+
+
+</ul>
+
+
+
+<hr/>
+
+<h3> Check List</h3>
+
+<ol>
+    <li>
+        StateServer 的机器，注册表中：
+        [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters] 配置端口（Port，默认是42424），
+        允许远程连接（AllowRemoteConnection，默认是0，0-不允许，1-允许）
+    </li>
+
+    <li>
+        Web.config
+        配置 system.web 下的 sessionState。
+        mode="StateServer"
+        注意，负载均衡中的每一台机器， 都指向同一台 StateServer。
+        否则，指向不同的 StateServer , 是无法实现共享 Session 的。
+    </li>
+
+
+    <li>
+        Web.config
+        配置 system.web 下的 machineKey。
+        要求，负载均衡中的每一台机器， 都有相同的 machineKey
+    </li>
+
+
+    <li>
+        IIS
+        选择网站，鼠标右键，【管理网站】--> 【高级设置】，  确认， 在两台服务器上，  网站的 【ID】 要一样。
+    </li>
+
+</ol>

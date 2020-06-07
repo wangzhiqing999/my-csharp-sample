@@ -155,6 +155,8 @@
     <Compile Include="App_Start\DisplayConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\LoadBalancing\Controllers\TestController.cs" />
+    <Compile Include="Areas\LoadBalancing\LoadBalancingAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestAjaxController.cs" />
     <Compile Include="Controllers\TestAsyncController.cs" />
@@ -195,6 +197,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\LoadBalancing\Views\web.config" />
+    <Content Include="Areas\LoadBalancing\Views\Test\Index.cshtml" />
+    <Content Include="Areas\LoadBalancing\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -292,6 +297,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\LoadBalancing\Data\" />
+    <Folder Include="Areas\LoadBalancing\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

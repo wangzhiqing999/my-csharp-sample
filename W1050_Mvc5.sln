@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNuGet.Service", "TestNu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNuGet.Client", "TestNuGet.Client\TestNuGet.Client.csproj", "{D1EC622F-32B4-4F56-A341-8B38E8202DDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1052_MachineKey", "W1052_MachineKey\W1052_MachineKey.csproj", "{63F22743-CC16-4CB3-BF16-129208E4CACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D1EC622F-32B4-4F56-A341-8B38E8202DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1EC622F-32B4-4F56-A341-8B38E8202DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1EC622F-32B4-4F56-A341-8B38E8202DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F22743-CC16-4CB3-BF16-129208E4CACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F22743-CC16-4CB3-BF16-129208E4CACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F22743-CC16-4CB3-BF16-129208E4CACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F22743-CC16-4CB3-BF16-129208E4CACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -61,5 +61,19 @@ namespace W1030_Mvc_WebApi2.Controllers
         }
 
 
+
+
+
+
+        /// <summary>
+        /// 测试 需要登录的 WebApi.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestNeedLogin()
+        {
+            return View();
+        }
+
+
     }
 }
