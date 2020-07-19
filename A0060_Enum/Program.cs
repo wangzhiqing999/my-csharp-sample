@@ -37,6 +37,15 @@ namespace A0060_Enum
             //  测试 int 强制转换为 枚举.
             sample.TestIntToEnum();
 
+
+
+
+
+            EnumSample2 sample2 = new EnumSample2();
+
+            sample2.DoTestAll();
+
+
             Console.ReadLine();
         }
     }
