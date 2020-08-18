@@ -166,6 +166,7 @@
     <Compile Include="Controllers\TestGlimpseController.cs" />
     <Compile Include="Controllers\Testi18nController.cs" />
     <Compile Include="Controllers\TestMobileController.cs" />
+    <Compile Include="Controllers\TestRedirectController.cs" />
     <Compile Include="Controllers\TestTypeScriptController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,6 +227,7 @@
     <Content Include="Scripts\x.compat.min.js" />
     <Content Include="Scripts\x.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TestHtml\TestPage.html" />
     <Content Include="upload\1.jpeg" />
     <Content Include="upload\2.jpeg" />
     <Content Include="Web.config">
@@ -294,6 +296,10 @@
     <Content Include="Views\TestMobile\TestImages.cshtml" />
     <Content Include="Views\TestAjax\TestAbort.cshtml" />
     <Content Include="Views\TestConfig\Index.cshtml" />
+    <Content Include="Views\TestRedirect\Index.cshtml" />
+    <Content Include="Views\TestRedirect\Page1.cshtml" />
+    <Content Include="Views\TestRedirect\Page2.cshtml" />
+    <Content Include="Views\TestRedirect\Page3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

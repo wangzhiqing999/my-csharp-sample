@@ -45,6 +45,8 @@ namespace W1050_Mvc5
             // 这样一来， 首次查询操作， 将不会发生速度非常慢的现象。
       
             // 对程序中定义的所有DbContext逐一进行这个操作
+            /*
+             * 
             using (var dbcontext = new MyTestContext())
             {
                 var objectContext = ((IObjectContextAdapter)dbcontext).ObjectContext;
@@ -52,7 +54,7 @@ namespace W1050_Mvc5
                 mappingCollection.GenerateViews(new List<EdmSchemaError>());
             }  
 
-
+            */
             
         }
 
