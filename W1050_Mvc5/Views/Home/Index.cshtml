@@ -7,9 +7,9 @@
     <h1>MVC5 例子代码</h1>
 
     <p class="lead">
-        
+
     </p>
-    
+
 </div>
 
 
@@ -41,7 +41,7 @@
         </p>
         <p><a class="btn btn-default" href='@Url.Action(actionName: "Index", controllerName: "TestAsync")'>  Test Async  </a></p>
     </div>
-    
+
 
     <div class="col-md-3">
         <h2> Test Chart </h2>
@@ -140,12 +140,53 @@
 
 
 
+
+
+<div class="row">
+
+    <div class="col-md-3">
+        <h2> 网站认证 - 默认 </h2>
+        <p>
+            测试认证 --- 默认的认证方式
+        </p>
+        <p><a class="btn btn-default" href='/TestAuthentication/Index'>  网站认证 - 默认 </a></p>
+    </div>
+
+    <div class="col-md-3">
+        <h2> 网站认证 - 通过 Cookie </h2>
+        <p>
+            测试认证 --- 自己写的 存储在 Cookie 里的方式
+        </p>
+        <p><a class="btn btn-default" href='/TestCookieAuthentication/Index'>  网站认证 - 通过 Cookie </a></p>
+    </div>
+
+    <div class="col-md-3">
+        <h2> 网站认证 - 通过 Session </h2>
+        <p>
+            测试认证 --- 自己写的 存储在 Session 里的方式
+        </p>
+        <p><a class="btn btn-default" href='/TestSessionAuthentication/Index'>  网站认证 - 通过 Session </a></p>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="row">
 
     <div class="col-md-3">
         <h2> 负载均衡测试 </h2>
         <p>
-            测试 均衡测试 的共享 Session 
+            测试 均衡测试 的共享 Session
         </p>
         <p><a class="btn btn-default" href='/LoadBalancing/Test'>  Test LoadBalancing  </a></p>
     </div>

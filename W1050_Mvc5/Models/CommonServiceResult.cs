@@ -140,7 +140,21 @@ namespace W1050_Mvc5.Models
             return result;
         }
 
-
+        /// <summary>
+        /// 创建失败的结果.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static CommonServiceResult<T> CreateFailResult(string code, string message)
+        {
+            CommonServiceResult<T> result = new CommonServiceResult<T>()
+            {
+                ResultCode = code,
+                ResultMessage = message,
+            };
+            return result;
+        }
 
         /// <summary>
         /// 复制结果.
@@ -223,7 +237,21 @@ namespace W1050_Mvc5.Models
         }
 
 
-
+        /// <summary>
+        /// 创建失败的结果.
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static new CommonServiceResult CreateFailResult(string code, string message)
+        {
+            CommonServiceResult result = new CommonServiceResult()
+            {
+                ResultCode = code,
+                ResultMessage = message,
+            };
+            return result;
+        }
 
     }
 

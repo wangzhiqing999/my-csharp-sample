@@ -157,9 +157,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\LoadBalancing\Controllers\TestController.cs" />
     <Compile Include="Areas\LoadBalancing\LoadBalancingAreaRegistration.cs" />
+    <Compile Include="Common\AES.cs" />
+    <Compile Include="Common\AuthenticationProcesser.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestAjaxController.cs" />
     <Compile Include="Controllers\TestAsyncController.cs" />
+    <Compile Include="Controllers\TestSessionAuthenticationController.cs" />
+    <Compile Include="Controllers\TestCookieAuthenticationController.cs" />
+    <Compile Include="Controllers\TestAuthenticationController.cs" />
     <Compile Include="Controllers\TestBundleController.cs" />
     <Compile Include="Controllers\TestChartController.cs" />
     <Compile Include="Controllers\TestConfigController.cs" />
@@ -300,6 +305,9 @@
     <Content Include="Views\TestRedirect\Page1.cshtml" />
     <Content Include="Views\TestRedirect\Page2.cshtml" />
     <Content Include="Views\TestRedirect\Page3.cshtml" />
+    <Content Include="Views\TestAuthentication\Index.cshtml" />
+    <Content Include="Views\TestCookieAuthentication\Index.cshtml" />
+    <Content Include="Views\TestSessionAuthentication\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

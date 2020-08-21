@@ -1,0 +1,29 @@
+﻿@using W1050_Mvc5.Models
+@model CommonServiceResult<string>
+@{
+    ViewBag.Title = "测试认证";
+}
+
+<h2>测试认证 --- 自己写的 存储在 Session 里的方式</h2>
+
+
+@if (Model.IsSuccess)
+{
+    <div>
+        <span> 已登录 </span>
+        <span> 用户名：@(Model.ResultData) </span>
+        <a href="/TestSessionAuthentication/Logoff">登出</a>
+    </div>
+}
+else
+{
+    <div>
+        <span> 未登录 </span>
+        <form action="/TestSessionAuthentication/Login" method="post">
+
+            <input type="text" name="userName" placeholder="测试的用户名" />
+
+            <input type="submit" value="测试登录" />
+        </form>
+    </div>
+}
