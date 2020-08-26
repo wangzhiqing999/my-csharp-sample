@@ -56,11 +56,14 @@ namespace A0151_Excel.NpoiSample
             var cell3 = row1.CreateCell(2);
             cell3.SetCellValue("Name");
 
+            var cell4 = row1.CreateCell(3);
+            cell4.SetCellValue("Photo");
 
-            for(int i =0; i < 10; i++)
+
+            for (int i =0; i < 10; i++)
             {
-                var cell4 = row1.CreateCell(3 + i);
-                cell4.SetCellValue("ID_" + i);
+                var cell5 = row1.CreateCell(4 + i);
+                cell5.SetCellValue("ID_" + i);
             }
 
 
@@ -81,7 +84,10 @@ namespace A0151_Excel.NpoiSample
             comment3.Author = "开发人员";
             cell3.CellComment = comment3;
 
-
+            var comment4 = patr.CreateCellComment(new HSSFClientAnchor(0, 0, 0, 0, 1, 2, 4, 4));
+            comment4.String = new HSSFRichTextString("这一列是照片.");
+            comment4.Author = "开发人员";
+            cell4.CellComment = comment4;
 
 
 
@@ -97,11 +103,15 @@ namespace A0151_Excel.NpoiSample
             var cell23 = row2.CreateCell(2);
             cell23.SetCellValue("我是姓名");
 
+            var cell24 = row2.CreateCell(3);
+            cell24.SetCellValue("我是照片");
+
+
 
             for (int i = 0; i < 10; i++)
             {
-                var cell4 = row2.CreateCell(3 + i);
-                cell4.SetCellValue("名称_" + i);
+                var cell5 = row2.CreateCell(4 + i);
+                cell5.SetCellValue("名称_" + i);
             }
 
 
@@ -111,8 +121,15 @@ namespace A0151_Excel.NpoiSample
             // 第二个参数表示要冻结的行数；
             // 第三个参数表示右边区域可见的首列序号，从1开始计算；
             // 第四个参数表示下边区域可见的首行序号，也是从1开始计算；
-            sheet1.CreateFreezePane(3, 2, 3, 2);
+            sheet1.CreateFreezePane(4, 2, 4, 2);
 
+
+
+
+
+            // 设置列宽   SetColumnWidth(列的索引号从0开始, N * 256) 第二个参数的单位是1 / 256个字符宽度。
+            // 例：将第四列宽度设置为了30个字符。
+            sheet1.SetColumnWidth(3, 30 * 256);
 
 
 
@@ -120,8 +137,17 @@ namespace A0151_Excel.NpoiSample
             // 创建数据.
             for (int i = 2; i <= 10; i++)
             {
+                
+                // 创建一行.
                 var row = sheet1.CreateRow(i);
-                for(int j=0; j < 3; j++)
+
+                // 行高.
+                // Height 属性后面的值的单位是：1/20个点，所以要想得到一个点的话，需要乘以20。
+                row.Height = 64 * 20;
+
+
+                // 左边的标题部分.
+                for (int j=0; j < 3; j++)
                 {
                     var cell = row.CreateCell(j);
 
@@ -129,9 +155,18 @@ namespace A0151_Excel.NpoiSample
                 }
 
 
-                for(int j=0; j<10; j++)
+
+
+                // 图片.
+                string imageFile = string.Format("Images\\{0}.png", i);
+                AddCellPicture(sheet1, hssfworkbook, imageFile, i, 3);
+
+
+
+                // 数据
+                for (int j=0; j<10; j++)
                 {
-                    var cell = row.CreateCell(3+j);
+                    var cell = row.CreateCell(4+j);
 
                     cell.SetCellValue( (i + j)%2 );
 
@@ -147,6 +182,31 @@ namespace A0151_Excel.NpoiSample
 
 
         }
+
+
+        private void AddCellPicture(ISheet sheet, HSSFWorkbook workbook, string fileName, int row, int col)
+        {
+            try
+            {
+                if (File.Exists(fileName))
+                {
+                    byte[] bytes = System.IO.File.ReadAllBytes(fileName);
+                    if (!string.IsNullOrEmpty(fileName))
+                    {
+                        int pictureIdx = workbook.AddPicture(bytes, NPOI.SS.UserModel.PictureType.JPEG);
+                        HSSFPatriarch patriarch = (HSSFPatriarch)sheet.CreateDrawingPatriarch();
+                        HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 0, 0, col, row, col + 1, row + 1);
+                        HSSFPicture pict = (HSSFPicture)patriarch.CreatePicture(anchor, pictureIdx);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
 
 
