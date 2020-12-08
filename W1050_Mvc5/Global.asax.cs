@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.WebPages;
+using System.Web.SessionState;
+using System.Reflection;
 
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Mapping;
@@ -16,11 +18,71 @@ using log4net;
 using W1050_Mvc5.Controllers;
 
 
-
 namespace W1050_Mvc5
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
+
+
+        #region 
+
+        // 多个ASP.NET站点如何通过ASP.NET State服务共享Session会话
+        // Sharing session state over multiple ASP.NET applications with ASP.NET state server
+        // https://weblogs.asp.net/lichen/sharing-session-state-over-multiple-asp-net-applications-with-asp-net-state-server
+
+
+        // 需求：
+        //     在一台服务器上，两个网站之间，共享 Session 。
+        //     这两个网站，可能域名不同。或者端口不同。
+
+        // 测试方式：
+        //     通过访问那个 【负载均衡测试】 的页面来进行测试。
+        //     【负载均衡测试】的页面，测试负载均衡时，是网站发布到两台计算机上，配置相同的域名，进行测试。
+        //     测试共享 Session 时，则只需要简单将网站，发布到一台机器上，创建两个网站即可。
+
+
+        public override void Init()
+        {
+            base.Init();
+
+            foreach (string moduleName in this.Modules)
+            {
+                string appName = "MyApp";
+                IHttpModule module = this.Modules[moduleName];
+                SessionStateModule ssm = module as SessionStateModule;
+                if (ssm != null)
+                {
+                    FieldInfo storeInfo = typeof(SessionStateModule).GetField("_store", BindingFlags.Instance | BindingFlags.NonPublic);
+                    SessionStateStoreProviderBase store = (SessionStateStoreProviderBase)storeInfo.GetValue(ssm);
+                    if (store == null) //In IIS7 Integrated mode, module.Init() is called later
+                    {
+                        FieldInfo runtimeInfo = typeof(HttpRuntime).GetField("_theRuntime", BindingFlags.Static | BindingFlags.NonPublic);
+                        HttpRuntime theRuntime = (HttpRuntime)runtimeInfo.GetValue(null);
+                        FieldInfo appNameInfo = typeof(HttpRuntime).GetField("_appDomainAppId", BindingFlags.Instance | BindingFlags.NonPublic);
+                        appNameInfo.SetValue(theRuntime, appName);
+                    }
+                    else
+                    {
+                        Type storeType = store.GetType();
+                        if (storeType.Name.Equals("OutOfProcSessionStateStore"))
+                        {
+                            FieldInfo uribaseInfo = storeType.GetField("s_uribase", BindingFlags.Static | BindingFlags.NonPublic);
+                            uribaseInfo.SetValue(storeType, appName);
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        #endregion
+
+
+
+
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
