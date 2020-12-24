@@ -68,20 +68,20 @@ namespace A0501_LINQ_Base2.Sample
         /// <returns></returns>
         private static List<Orange> GetOrangeDataList()
         {
-            // 创建一个 apple 的数据源.
+            // 创建一个 Orange 的数据源.
             List<Orange> orangeList = new List<Orange>();
 
             orangeList.Add(new Orange("中国", "红", "甜"));
             orangeList.Add(new Orange("中国", "黄", "甜"));
-            orangeList.Add(new Orange("中国", "青", "甜"));
+            orangeList.Add(new Orange("中国", "青", "甜", false));
 
             orangeList.Add(new Orange("美国", "红", "甜"));
             orangeList.Add(new Orange("美国", "黄", "甜"));
-            orangeList.Add(new Orange("美国", "青", "甜"));
+            orangeList.Add(new Orange("美国", "青", "甜", false));
 
             orangeList.Add(new Orange("日本", "红", "甜"));
             orangeList.Add(new Orange("日本", "黄", "甜"));
-            orangeList.Add(new Orange("日本", "青", "甜"));
+            orangeList.Add(new Orange("日本", "青", "甜", false));
 
             return orangeList;
         }
@@ -217,6 +217,25 @@ namespace A0501_LINQ_Base2.Sample
             foreach (Apple apple in allQuery2)
             {
                 Console.WriteLine("=={0} ", apple);
+            }
+
+
+
+
+            // 定义查询.
+            var allQuery3 =
+                from orange in orangeList
+                where orange.Country == "中国"
+                orderby
+                    orange.IsBuyAble
+                select
+                    orange;
+
+            // 执行查询.
+            Console.WriteLine("[03]查询桔子列表中 产地为中国，按可购买表示升序排列，结果为：");
+            foreach (var o in allQuery3)
+            {
+                Console.WriteLine("=={0} ", o);
             }
         }
 

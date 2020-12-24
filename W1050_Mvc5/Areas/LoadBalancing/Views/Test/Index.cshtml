@@ -59,7 +59,7 @@
 
 <hr/>
 
-<h3> Check List</h3>
+<h3> 负载均衡 Check List</h3>
 
 <ol>
     <li>
@@ -89,4 +89,36 @@
         选择网站，鼠标右键，【管理网站】--> 【高级设置】，  确认， 在两台服务器上，  网站的 【ID】 要一样。
     </li>
 
+
+
 </ol>
+
+
+
+
+<hr/>
+
+<h3> 同主域名 Check List</h3>
+
+<ol>
+	<li>
+	前3点基本与 负责均衡相同。
+	（如果是 一台服务器，跑2个网站，  例如 ：  a.test.com  和  b.test.com  ， 那么，注册表那个可以不设置）
+	</li>
+	
+	<li>
+		需要将多个网站， httpCookies 下的 domain， 设置 为 相同的主域名。
+		（a.test.com  和  b.test.com，  那么， domain="test.com"）
+	</li>
+	
+	<li>
+		测试页面访问的时候，需要浏览器中，观察 Cookie 。
+		ASP.NET_SessionId 这个 Cookie 的域名，是不是 主域名的 Cookie.
+		如果还是完整域名的话， 最终将无法实现共享。
+	</li>
+	
+</ol>
+
+
+
+
