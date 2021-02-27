@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -148,6 +149,89 @@ namespace W1050_Mvc5.Controllers
             Thread.Sleep(1000 * id);
             return Json(id, JsonRequestBehavior.AllowGet);
         }
+
+
+        #endregion
+
+
+
+
+
+
+
+
+        #region 测试 X --> (Y & Z) 的逻辑.
+
+
+        public ActionResult TestStepXYZ()
+        {
+            return View();
+        }
+
+
+
+
+        public JsonResult TestStepXY()
+        {
+            int result = myRandom.Next(3);
+            char resultChar = (char)('A' + result);
+
+            var x = new
+            {
+                id = "1",
+                name = resultChar,
+                text = "for a background process..."
+            };
+
+
+            // 如果直接这么写，将导致 TestStepXY 整体耗时过长.
+            // DoFuncY(x);
+
+
+            ParameterizedThreadStart ts = new ParameterizedThreadStart(this.DoFuncY);
+            Thread t = new Thread(ts);
+            // 启动.
+            t.Start(x);
+
+
+            return Json(result);
+        }
+
+
+
+        /// <summary>
+        /// 这个模拟一个后台耗时的操作.
+        /// 此操作结果， 不影响页面的返回.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="text"></param>
+        private void DoFuncY(dynamic x)
+        {
+
+            string defbugInfo = string.Format("{0}:{1}:{2}", x.id, x.name, x.text);
+
+            Debug.WriteLine(defbugInfo);
+
+            Thread.Sleep(3000);
+
+
+            Debug.WriteLine("Finish!");
+
+        }
+
+
+
+
+        public JsonResult TestStepZ(int z)
+        {
+            Thread.Sleep(2000);
+            char resultChar = (char)('X' + z);
+            return Json(resultChar);
+        }
+
+
+
 
 
         #endregion

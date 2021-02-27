@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "TestStepXYZ";
+}
+
+<h3>测试调用 TestStepXY  ， 并将  执行结果， 作为参数， 调用  TestStepZ </h3>
+
+<p>
+    具体调用步骤的细节，通过控制台查看.
+</p>
+
+
+
+
+<ul>
+    <li>
+        <button onclick="btnUseJquery()"> 使用 jquery 处理 </button>
+    </li>
+
+</ul>
+
+
+
+<div>
+
+    <span>处理结果：</span>
+
+    <span id="resultData1"></span>
+
+    <span id="resultData3"></span>
+</div>
+
+
+
+
+
+@section scripts {
+
+
+    <script>
+
+        /**
+         * 重置结果.
+         */
+        function resetResult() {
+            $("#resultData1").html("");
+            $("#resultData2").html("");
+            $("#resultData3").html("");
+        }
+
+
+
+        // ---------- 单纯使用 jquery 处理 ----------
+
+        // 封装 ajax 处理的代码.
+        var myUseJqueryService = {
+            // Ajax 调用 /TestAjax/TestStepXY
+            getTestStepXY: function (callbackFunc, failCallbackFunc) {
+                console.log("### POST /TestAjax/TestStepXY Start...");
+                $.ajax({
+                    url: "/TestAjax/TestStepXY",
+                    type: 'POST',
+                    data: {},
+                    success: function (data) {
+                        console.log("/TestAjax/TestStepXY  Result:", data);
+                        callbackFunc(data);
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    if (failCallbackFunc != undefined) {
+                        failCallbackFunc(err);
+                    }
+                });
+            },
+
+            // Ajax 调用 /TestAjax/TestStepZ
+            getTestStepZ: function (z, callbackFunc, failCallbackFunc) {
+                console.log("### POST /TestAjax/TestStepZ Start...", z);
+                $.ajax({
+                    url: "/TestAjax/TestStepZ",
+                    type: 'POST',
+                    data: {
+                        z : z
+                    },
+                    success: function (data) {
+                        console.log("/TestAjax/TestStepZ  Result:", data);
+                        callbackFunc(data);
+                    }
+                }).fail(function (xhr, textStatus, err) {
+                    if (failCallbackFunc != undefined) {
+                        failCallbackFunc(err);
+                    }
+                });
+
+            }
+        };
+
+
+
+        function btnUseJquery() {
+
+            resetResult();
+
+
+            // 注意： 这里没有传递 failCallbackFunc 的参数.
+            myUseJqueryService.getTestStepXY(function (step1Result) {
+
+                $("#resultData1").html(step1Result);
+
+                myUseJqueryService.getTestStepZ(step1Result, function (step3Result) {
+
+                    $("#resultData3").html(step3Result);
+                });
+
+            });
+
+
+        }
+
+
+
+
+    </script>
+
+
+}

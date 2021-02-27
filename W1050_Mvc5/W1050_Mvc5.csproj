@@ -308,6 +308,7 @@
     <Content Include="Views\TestAuthentication\Index.cshtml" />
     <Content Include="Views\TestCookieAuthentication\Index.cshtml" />
     <Content Include="Views\TestSessionAuthentication\Index.cshtml" />
+    <Content Include="Views\TestAjax\TestStepXYZ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
