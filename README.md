@@ -1769,6 +1769,13 @@ Install-Package AutoMapper.EF6 -Version 0.3.0
 
 
 
+### B3100_XxljobClient
+
+XXL-JOB 调度中心 与 C# 执行器的例子代码。
+
+
+
+
 
 
 # 加密/解密 部分.
