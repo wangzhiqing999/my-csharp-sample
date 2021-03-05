@@ -1763,6 +1763,9 @@ Install-Package AutoMapper.EF6 -Version 0.3.0
 
 
 
+### B3000_NacosClient.
+
+使用 Nacos 配置中心的例子代码. (这个仅仅是使用配置中心， 没有使用注册中心 ) 
 
 
 
