@@ -146,3 +146,43 @@ Cron表达式的时间字段，除允许设置数值外，还可使用一些特�
 ●斜杠(/)：x/y表达一个等步长序列，x为起始值，y为增量步长值。如在分钟字段中使用0/15，则表示为0,15,30和45秒，而5/15在分钟字段中表示5,20,35,50，你也可以使用*/y，它等同于0/y。
 
 
+
+### 执行器传递参数
+
+在 B3100_XxljobClient.Jobs 创建一个 TestGetParamJobHandler
+简单输出传入的参数
+在【任务管理】-->【新增任务】中，
+【JobHandler】 = TestGetParamJobHandler
+【任务参数】= 123
+
+测试执行后，在【调度日志】那里，查看【执行日志】
+能够观察到
+ReturnT:ReturnT [code=200, msg=Success, content=TestGetParamJobHandler 执行：参数=123]
+
+在网站的日志中，能够观察到，获取到的参数。
+
+
+
+
+
+
+
+
+### 注意事项.
+
+当前这个测试项目，是在 VS 2019 里面， 创建了一个 Web 项目， 类型是 Web Api .
+结果是 产生了一大堆的， 不必要的引用。
+
+
+较好的操作， 是克隆
+https://github.com/yuniansheng/xxl-job-dotnet
+然后，找到 sample\WebApiSample\ 目录下的 packages.config
+只安装这些包即可。
+
+最终发布的时候， 可能会存在：
+开发环境一切正常。
+发布到服务器后，提示某个方法不存在的情况。
+这种情况下，也是去找 sample\WebApiSample\ 目录下的 Web.config
+复制 runtime 的配置， 粘贴到服务器的 Web.config 上。
+
+
