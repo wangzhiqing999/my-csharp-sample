@@ -1753,7 +1753,9 @@ Install-Package AutoMapper -Version 4.2.1
 Install-Package AutoMapper.EF6 -Version 0.3.0
 
 
+### B1200_Redis
 
+访问 Redis 的例子.
 
 
 ### B2000_AbpEf
