@@ -118,5 +118,91 @@ namespace A0101_NewtonsoftJson.Sample
 
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+        public class TestData
+        {
+            public int id { set; get; }
+            public string name { set; get; }
+        }
+
+
+
+
+        
+        public static void DoTest2()
+        {
+
+
+            // 这个例子，是 源 json 字符串， 包含一堆其他的信息.
+            // 而预期只是获取其中的一个 片段.
+            string jsonString3 = @"{	
+	""result"":{
+		""hasNext"":true,
+		""resultList"":[
+			{""id"":78,""name"":""黄浦区""},
+			{""id"":2813,""name"":""徐汇区""},
+			{""id"":2815,""name"":""长宁区""},
+			{""id"":2817,""name"":""静安区""},
+			{""id"":2820,""name"":""闸北区""},
+			{""id"":2822,""name"":""虹口区""},
+			{""id"":2823,""name"":""杨浦区""},
+			{""id"":2824,""name"":""宝山区""},
+			{""id"":2825,""name"":""闵行区""},
+			{""id"":2826,""name"":""嘉定区""},
+			{""id"":2830,""name"":""浦东新区""},
+			{""id"":2833,""name"":""青浦区""},
+			{""id"":2834,""name"":""松江区""},
+			{""id"":2835,""name"":""金山区""},
+			{""id"":2837,""name"":""奉贤区""},
+			{""id"":2841,""name"":"" 普陀区""},
+			{""id"":2919,""name"":""崇明区""}
+		]
+	}
+}";
+            JObject o3 = JObject.Parse(jsonString3);
+
+
+
+
+
+            List<TestData> resultDataList = new List<TestData>();
+
+
+            // 先 LINQ ， 获取  指定的片段.
+            var query =
+                from data in o3["result"]["resultList"]
+                select data;
+
+            // 遍历数据.
+            foreach (var item in query)
+            {
+                // 获取单个数据的 json 字符串.
+                string subJson = item.ToString();
+
+                // 转换为对象.
+                TestData testData = JsonConvert.DeserializeObject<TestData>(subJson);
+
+                resultDataList.Add(testData);
+            }
+
+
+            Console.WriteLine("Result Count = {0}", resultDataList.Count);
+
+        }
+
+
+
+
     }
 }

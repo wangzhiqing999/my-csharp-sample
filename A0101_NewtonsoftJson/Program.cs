@@ -28,6 +28,10 @@ namespace A0101_NewtonsoftJson
 
             JObjectTest.DoTest();
 
+
+
+            JObjectTest.DoTest2();
+
             Console.ReadLine();
         }
     }
