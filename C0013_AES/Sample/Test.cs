@@ -54,16 +54,18 @@ namespace C0013_AES.Sample
             AES aes = new AES()
             {
                 // 密钥
-                Key = @")O[NB]6,YF}+efcaj{+oESb9d8>Z'e9M",
+                Key = @"1234567890123456",
 
                 // 向量
-                IV =@"L+\~f4,Ir)b$=pkf"
+                IV = @"1234567890123456"
             };
 
 
 
-
-            string source = "测试 AES 加密处理！";
+            // 这个是用于测试 使用同样的 Key+IV.
+            // Java 的加密、解密。
+            // 是否与 C# 的结果一致。
+            string source = "13000000000";
             Console.WriteLine("原始字符：{0}", source);
 
 
@@ -78,7 +80,7 @@ namespace C0013_AES.Sample
             Console.WriteLine("---------- AES : ECB ----------");
 
 
-            source = "测试 AES 加密处理！";
+            source = "13000000000";
             Console.WriteLine("原始字符：{0}", source);
 
 
