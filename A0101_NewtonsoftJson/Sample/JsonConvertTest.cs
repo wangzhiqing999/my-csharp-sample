@@ -5,6 +5,7 @@ using System.Text;
 
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 
@@ -96,6 +97,96 @@ namespace A0101_NewtonsoftJson.Sample
             string jsonString3 = JsonConvert.SerializeObject(t3);
             Console.WriteLine("Test3 对象转换为 Json 字符串：\n{0}", jsonString3);
         }
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 测试 遇到 对方的接口中， 存在的 数据类型是不确定的情况下，做哪些处理。
+        /// </summary>
+        public static void DoTestExt()
+        {
+
+            string jsonString = @"{
+	""userid"":""zhangsan"",
+	""name"":""张三"",
+	""extattr"":{
+		""attrs"":[
+			{
+				""name"":""工号"",
+				""value"":""6666"",
+				""type"":0,
+				""text"":{""value"":""6666""}
+			},
+			{
+                ""type"": 0,
+                ""name"": ""文本名称"",
+                ""text"": {
+                    ""value"": ""文本""
+                }
+            },
+            {
+                ""type"": 1,
+                ""name"": ""网页名称"",
+                ""web"": {
+                    ""url"": ""http://www.test.com"",
+                    ""title"": ""标题""
+                }
+            }
+		]
+	}
+}";
+
+            TestExtDataObj data = JsonConvert.DeserializeObject<TestExtDataObj>(jsonString);
+
+
+            Console.WriteLine(data.userid);
+            Console.WriteLine(data.name);
+
+            // Console.WriteLine(data.extattr);
+
+            if(data.extattr != null)
+            {
+                JObject ext = data.extattr as JObject;
+                foreach(var item in ext["attrs"])
+                {
+                    string name = item["name"].ToString();
+                    if(name == "工号")
+                    {
+                        Console.WriteLine($"工号 = { item["value"] }");
+                    }
+                }
+            }
+            
+
+        }
+
+
+
+        /// <summary>
+        /// 测试类.
+        /// 接口文档中， 对于 userid、name 有明确的数据类型定义
+        /// 但是对于 extattr， 则是没有明确的定义。
+        /// </summary>
+        public class TestExtDataObj
+        {
+            public string userid { set; get; }
+            public string name { set; get; }
+
+
+            /// <summary>
+            /// 这个元素， 说明文档中，没有明确的定义。
+            /// </summary>
+            public JObject extattr { set; get; }
+        }
+
+
+
 
 
 

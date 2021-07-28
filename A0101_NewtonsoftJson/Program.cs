@@ -19,6 +19,7 @@ namespace A0101_NewtonsoftJson
 
             JsonConvertTest.DoTestWithSerialization();
             JsonConvertTest.DoTest();
+            JsonConvertTest.DoTestExt();
 
 
             JsonSerializerTest.DoTestWithSerialization();
