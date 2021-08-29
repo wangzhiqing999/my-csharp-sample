@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0148_HtmlAgilityPack", "A0148_HtmlAgilityPack\A0148_HtmlAgilityPack.csproj", "{C3455FC7-6C8B-4593-822D-CD15AC5E40D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3455FC7-6C8B-4593-822D-CD15AC5E40D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3455FC7-6C8B-4593-822D-CD15AC5E40D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3455FC7-6C8B-4593-822D-CD15AC5E40D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3455FC7-6C8B-4593-822D-CD15AC5E40D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F418BF17-8DAA-4586-92C6-E99EC56AA5DE}
+	EndGlobalSection
+EndGlobal
