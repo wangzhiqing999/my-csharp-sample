@@ -172,6 +172,7 @@
     <Compile Include="Controllers\Testi18nController.cs" />
     <Compile Include="Controllers\TestMobileController.cs" />
     <Compile Include="Controllers\TestRedirectController.cs" />
+    <Compile Include="Controllers\TestTaskController.cs" />
     <Compile Include="Controllers\TestTypeScriptController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -309,6 +310,8 @@
     <Content Include="Views\TestCookieAuthentication\Index.cshtml" />
     <Content Include="Views\TestSessionAuthentication\Index.cshtml" />
     <Content Include="Views\TestAjax\TestStepXYZ.cshtml" />
+    <Content Include="Views\TestTask\Index.cshtml" />
+    <Content Include="Views\TestTask\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "测试控制器中启用 Task";
+}
+
+<h2>测试控制器中启用 Task</h2>
+
+
+
+<table border="1">
+
+    <tr>
+        <th>
+            &nbsp;
+        </th>
+
+        <th>
+            User.Identity.Name
+        </th>
+
+        <th>
+            Environment.UserName
+        </th>
+    </tr>
+
+
+
+    <tr>
+        <td>
+            控制器里面
+        </td>
+        <td>
+            @(ViewBag.UserName)
+        </td>
+        <td>
+            @(ViewBag.EnvironmentUserName)
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            Task.Run 里面
+        </td>
+        <td>
+            @(ViewBag.TaskUserName1)
+        </td>
+
+        <td>
+            @(ViewBag.EnvironmentUserName1)
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            Task.Factory.StartNew 里面
+        </td>
+        <td>
+            @(ViewBag.TaskUserName2)
+        </td>
+        <td>
+            @(ViewBag.EnvironmentUserName2)
+        </td>
+    </tr>
+
+</table>
