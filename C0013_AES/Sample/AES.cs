@@ -53,6 +53,16 @@ namespace C0013_AES.Sample
 
             string encrypt = null;
             Rijndael aes = Rijndael.Create();
+
+            // 模式.
+            aes.Mode = CipherMode.CBC;
+
+
+            // 填充模式.
+            // 遇到 需要和 其它语言，进行加密、解密的对照时，需要注意这个参数.
+            aes.Padding = PaddingMode.PKCS7;
+
+
             try
             {
                 using (MemoryStream mStream = new MemoryStream())
@@ -85,6 +95,15 @@ namespace C0013_AES.Sample
 
             string decrypt = null;
             Rijndael aes = Rijndael.Create();
+
+            // 模式.
+            aes.Mode = CipherMode.CBC;
+
+
+            // 填充模式.
+            // 遇到 需要和 其它语言，进行加密、解密的对照时，需要注意这个参数.
+            aes.Padding = PaddingMode.PKCS7;
+
             try
             {
                 using (MemoryStream mStream = new MemoryStream())

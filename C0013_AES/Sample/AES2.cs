@@ -66,6 +66,9 @@ namespace C0013_AES.Sample
             // 模式 ： CBC
             aes.Mode = CipherMode.CBC;
 
+            // 填充模式.
+            // 遇到 需要和 其它语言，进行加密、解密的对照时，需要注意这个参数.
+            aes.Padding = PaddingMode.PKCS7;
 
             try
             {
@@ -111,6 +114,9 @@ namespace C0013_AES.Sample
             // 模式 ： CBC
             aes.Mode = CipherMode.CBC;
 
+            // 填充模式.
+            // 遇到 需要和 其它语言，进行加密、解密的对照时，需要注意这个参数.
+            aes.Padding = PaddingMode.PKCS7;
 
             try
             {

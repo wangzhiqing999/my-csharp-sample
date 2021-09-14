@@ -214,11 +214,40 @@ namespace C0013_AES.Sample
             };
 
 
-            // SELECT 
-            // HEX(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF')) AS hex,
-            // to_base64(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF')) as base64;
+            // MySQL 可以通过block_encryption_mode参数，控制块加密模式，默认值为：aes-128-ecb。
+            // 可配置的形式为：aes - keylen–mode。
+            // 其中：
+            // keylen可配置为128, 192, 256
+            // mode可配置为ECB, CBC, CFB1, CFB8, CFB128, OFB
 
-            // 616ADDD573E60A22F3C539696DBFDA1234AF336C9F031B3556738C63E61EA2F6	YWrd1XPmCiLzxTlpbb/aEjSvM2yfAxs1VnOMY+YeovY=
+
+
+
+            // SET block_encryption_mode = 'aes-128-ecb';
+            // 
+            // SELECT 
+            //   HEX(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF', '0000000000000000')) AS hex,
+            //   to_base64(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF', '0000000000000000')) as base64;
+            // 
+            // 
+            // 616ADDD573E60A22F3C539696DBFDA1234AF336C9F031B3556738C63E61EA2F6	
+            // YWrd1XPmCiLzxTlpbb/aEjSvM2yfAxs1VnOMY+YeovY=
+
+
+
+            // SET block_encryption_mode = 'aes-128-cbc';
+            // 
+            // SELECT
+            //  HEX(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF', '0000000000000000')) AS hex,
+            //  to_base64(AES_ENCRYPT('C0013_AES.Sample', '0123456789ABCDEF', '0000000000000000')) as base64;
+
+            // 3ACFAC228A24D3964A05C0CF835DBBFC88E362999FCD9960602CB78C2B349B4C
+            // Os+sIook05ZKBcDPg127/IjjYpmfzZlgYCy3jCs0m0w =
+
+
+
+
+
 
 
             string source = "C0013_AES.Sample";
@@ -226,7 +255,7 @@ namespace C0013_AES.Sample
 
 
             string step1 = aes.AESEncryptECB(source);
-            Console.WriteLine("AES 加密后结果：{0}", step1);
+            Console.WriteLine("AES-128-ECB 加密后结果：{0}", step1);
 
             byte[] data = Convert.FromBase64String(step1);
             foreach(var d in data)
@@ -237,7 +266,25 @@ namespace C0013_AES.Sample
 
 
             string step2 = aes.AESDecryptECB(step1);
-            Console.WriteLine("AES 解密后结果：{0}", step2);
+            Console.WriteLine("AES-128-ECB 解密后结果：{0}", step2);
+            Console.WriteLine();
+
+
+
+
+            step1 = aes.AESEncryptCBC(source);
+            Console.WriteLine("AES-128-CBC 加密后结果：{0}", step1);
+
+            data = Convert.FromBase64String(step1);
+            foreach (var d in data)
+            {
+                Console.Write("{0:X2}", d);
+            }
+            Console.WriteLine();
+
+
+            step2 = aes.AESDecryptCBC(step1);
+            Console.WriteLine("AES-128-CBC 解密后结果：{0}", step2);
 
         }
 
