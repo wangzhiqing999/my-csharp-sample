@@ -1620,6 +1620,20 @@ Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报�
 
 
 
+### B0250_Quartz
+
+使用 Quartz.Net 的最简单的例子。
+所有 作业的定义，触发的时间，均使用硬编码写死。
+
+
+
+### B0251_QuartzConfig
+
+使用 Quartz.Net 的最简单的例子。
+这里，作业与触发，都定义在 quartz_jobs.xml 配置文件里面。
+
+
+
 
 ### B0300_zxing
 调用 Google 的 Zxing.Net 来 生成/解析 二维码的例子.

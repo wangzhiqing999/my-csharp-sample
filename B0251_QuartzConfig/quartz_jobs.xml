@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+
+  <processing-directives>
+    <overwrite-existing-data>true</overwrite-existing-data>
+  </processing-directives>
+
+  <schedule>
+
+    <!-- 定义作业. -->
+    <job>
+      <name>HelloJob</name>
+      <group>TestGroup</group>
+      <description>用于测试的 Hello Job</description>
+      <job-type>B0251_QuartzConfig.Jobs.HelloJob,B0251_QuartzConfig</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+    </job>
+
+
+    <job>
+      <name>TestParamJob</name>
+      <group>TestGroup</group>
+      <description>用于测试的 TestParamJob</description>
+      <job-type>B0251_QuartzConfig.Jobs.TestParamJob,B0251_QuartzConfig</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>jobSays</key>
+          <value>张三</value>
+        </entry>
+        <entry>
+          <key>myFloatValue</key>
+          <value>10086</value>
+        </entry>
+      </job-data-map>      
+    </job>
+
+
+
+    <job>
+      <name>TestParam2Job</name>
+      <group>TestGroup</group>
+      <description>用于测试的 TestParamJob</description>
+      <job-type>B0251_QuartzConfig.Jobs.TestParam2Job,B0251_QuartzConfig</job-type>
+      <durable>true</durable>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>jobSays</key>
+          <value>李四</value>
+        </entry>
+        <entry>
+          <key>myFloatValue</key>
+          <value>10000</value>
+        </entry>
+      </job-data-map>
+    </job>
+
+
+
+
+
+
+    <!-- 定义触发. -->
+    <trigger>
+      <cron>
+        <name>HelloTrigger</name>
+        <group>TestGroup</group>
+        <job-name>HelloJob</job-name>
+        <job-group>TestGroup</job-group>
+        <cron-expression>0,30 * * * * ? *</cron-expression>
+      </cron>
+    </trigger>
+
+
+    <trigger>
+      <cron>
+        <name>TestParamTrigger</name>
+        <group>TestGroup</group>
+        <job-name>TestParamJob</job-name>
+        <job-group>TestGroup</job-group>
+        <cron-expression>15,45 * * * * ? *</cron-expression>
+      </cron>
+    </trigger>
+
+
+    <trigger>
+      <cron>
+        <name>TestParam2Trigger</name>
+        <group>TestGroup</group>
+        <job-name>TestParam2Job</job-name>
+        <job-group>TestGroup</job-group>
+        <cron-expression>20,40 * * * * ? *</cron-expression>
+      </cron>
+    </trigger>
+
+
+  </schedule>
+
+</job-scheduling-data>
