@@ -1634,6 +1634,13 @@ Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报�
 
 
 
+### B0252_QuartzJob
+
+使用 Quartz.Net 的简单例子。
+这个项目，主要是测试 Job 上面一些特定配置的具体效果。
+
+
+
 
 ### B0300_zxing
 调用 Google 的 Zxing.Net 来 生成/解析 二维码的例子.
