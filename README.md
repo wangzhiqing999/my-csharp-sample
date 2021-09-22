@@ -1642,6 +1642,21 @@ Nant + Nunit + NUnit2Report  自动化  编译、单元测试、生成测试报�
 
 
 
+
+### B0253_QuartzAdoJobStore
+
+Quartz.Net支持Job的持久化操作，被称为JobStore。
+默认情况下，Quartz将数据持久化到内存中，好处是内存的速度很快，坏处是无法提供负载均衡的支持，并且在程序崩溃后，将丢失所有Job数据
+这个例子，将数据存储在 MySQL 数据库中。
+测试启动任务后，意外退出。
+然后再次运行，任务是否能继续执行。
+
+数据库的创建语句可以在Quartz.Net的源码中找到：https://github.com/quartznet/quartznet/tree/master/database/tables
+本例子使用的是 tables_mysql_innodb.sql 文件
+MySQL 数据库版本是 5.7.34
+
+
+
 ### B0300_zxing
 调用 Google 的 Zxing.Net 来 生成/解析 二维码的例子.
 
