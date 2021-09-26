@@ -54,6 +54,9 @@
     <Compile Include="Sample\ReadWriteUtf8.cs" />
     <Compile Include="Sample\UseMySqlConnectionStringBuilder.cs" />
     <Compile Include="Sample\WriteMySQLData.cs" />
+    <Compile Include="XaSample\XaTest1.cs" />
+    <Compile Include="XaSample\XaTest2.cs" />
+    <Compile Include="Xa\MySqlXaTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

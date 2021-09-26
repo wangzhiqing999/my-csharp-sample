@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using A0185_MySQL_MySqlClient.Sample;
+using A0185_MySQL_MySqlClient.XaSample;
 
 namespace A0185_MySQL_MySqlClient
 {
@@ -36,8 +37,30 @@ namespace A0185_MySQL_MySqlClient
             */
 
 
+            /*
             UseMySqlConnectionStringBuilder.TestUse1();
             UseMySqlConnectionStringBuilder.TestUse2();
+            */
+
+
+
+
+            /*
+            XaTest1 xaTest1 = new XaTest1();
+            xaTest1.TestXaCommit();
+            xaTest1.TestXaRollback();
+            xaTest1.TestError();
+            xaTest1.TestForgetCommit();
+            */
+
+
+
+            XaTest2 xaTest2 = new XaTest2();
+
+            xaTest2.TestAllSucc();
+            xaTest2.TestAFail();
+            xaTest2.TestBFail();
+
 
             Console.WriteLine("Finish!");
             Console.ReadLine();
