@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0620_EFv4", "A0620_EFv4\A0620_EFv4.csproj", "{81F13FE0-80FB-42AE-8533-3739AC023211}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0660_EF_MySql", "A0660_EF_MySql\A0660_EF_MySql.csproj", "{E6843635-0A81-4BD5-AD09-8A488FF7FFA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0661_EF_MySql_RowVersion", "A0661_EF_MySql_RowVersion\A0661_EF_MySql_RowVersion.csproj", "{5C2657A2-4647-46F2-8F03-4C5C0B707AFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A0662_EF_MySql_Work", "A0662_EF_MySql_Work\A0662_EF_MySql_Work.csproj", "{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,14 @@ Global
 		{5C2657A2-4647-46F2-8F03-4C5C0B707AFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C2657A2-4647-46F2-8F03-4C5C0B707AFD}.Release|x86.ActiveCfg = Release|Any CPU
 		{5C2657A2-4647-46F2-8F03-4C5C0B707AFD}.Release|x86.Build.0 = Release|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Debug|x86.Build.0 = Debug|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Release|x86.ActiveCfg = Release|Any CPU
+		{37E8DC8C-0BD8-4279-8FB7-EA0D3AFE7956}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

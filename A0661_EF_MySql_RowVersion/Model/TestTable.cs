@@ -13,7 +13,7 @@ namespace A0661_EF_MySql_RowVersion.Model
     /// <summary>
     /// 测试表.
     /// </summary>
-    [ToString]
+    //[ToString]
     [Table("test_table")]
     public class TestTable
     {

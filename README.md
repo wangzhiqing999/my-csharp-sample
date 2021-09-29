@@ -1042,6 +1042,13 @@ Entity Framework  Code First 处理  MySQL 的 并发版本控制的代码。
 
 
 
+### A0662_EF_MySql_Work
+Entity Framework  Code First 处理  MySQL 的一些日常例子
+
+
+
+
+
 ### A0700_Main/ A0701_AutoUpdate/ A0702_CommonFunc
 多项目之间 代码引用 的例子
 
