@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0252_QuartzJob", "B0252_Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0253_QuartzAdoJobStore", "B0253_QuartzAdoJobStore\B0253_QuartzAdoJobStore.csproj", "{247993C7-0007-4C34-91CC-6E36478E8B90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B0254_QuartAdmin", "B0254_QuartAdmin\B0254_QuartAdmin.csproj", "{1311B356-6778-4F4A-8F59-18B11E650397}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{247993C7-0007-4C34-91CC-6E36478E8B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247993C7-0007-4C34-91CC-6E36478E8B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247993C7-0007-4C34-91CC-6E36478E8B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1311B356-6778-4F4A-8F59-18B11E650397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1311B356-6778-4F4A-8F59-18B11E650397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1311B356-6778-4F4A-8F59-18B11E650397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1311B356-6778-4F4A-8F59-18B11E650397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1664,6 +1664,21 @@ MySQL 数据库版本是 5.7.34
 
 
 
+
+### B0254_QuartAdmin
+
+配合 B0253_QuartzAdoJobStore 项目的 管理页。
+
+能够做暂停、删除任务的操作。
+
+现状是，查看 作业明细的时候，JobDataMap 的数据无法获取。
+观察浏览器控制台，是 js 的 e.JobDetails 为 null.
+
+
+
+
+
+
 ### B0300_zxing
 调用 Google 的 Zxing.Net 来 生成/解析 二维码的例子.
 
