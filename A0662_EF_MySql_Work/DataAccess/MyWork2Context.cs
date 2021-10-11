@@ -53,30 +53,16 @@ namespace A0662_EF_MySql_Work.DataAccess
         {
             base.OnModelCreating(modelBuilder);
 
-            // 并发控制字段.            
-            modelBuilder.Properties().Where(o => typeof(IRowVersion).IsAssignableFrom(o.DeclaringType) && o.PropertyType == typeof(byte[]) && o.Name == "RowVersion")
-                .Configure(o => o.IsConcurrencyToken().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None));
-            
+
+            // 指定 并发控制的处理.
+            modelBuilder.Entity<TestWorkData2>()
+                .Property(p => p.RowVersion).IsConcurrencyToken()
+                .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
 
         }
 
 
-        public override int SaveChanges()
-        {
 
-            this.ChangeTracker.DetectChanges();
-            var objectContext = ((IObjectContextAdapter)this).ObjectContext;
-            foreach (ObjectStateEntry entry in objectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified | EntityState.Added))
-            {
-                var v = entry.Entity as IRowVersion;
-                if (v != null)
-                {
-                    // 并发控制字段.
-                    v.RowVersion = System.Text.Encoding.UTF8.GetBytes(Guid.NewGuid().ToString());
-                }
-            }
-            return base.SaveChanges();
-        }
         
 
 

@@ -17,7 +17,7 @@ namespace A0662_EF_MySql_Work.Model
     /// 测试工作数据2.
     /// </summary>
     [Table("test_work_data2")]
-    public class TestWorkData2 : IRowVersion
+    public class TestWorkData2
     {
 
         /// <summary>
@@ -44,11 +44,24 @@ namespace A0662_EF_MySql_Work.Model
         public long WorkValue2 { set; get; }
 
 
+
+
         /// <summary>
         /// 版本 （并发控制使用列）
+        /// 
+        /// 这里的数据类型是 DateTime.
+        /// 
+        /// 
+        /// 这里的 Column， 增加了 TypeName= "TIMESTAMP" 的定义。
+        /// 
+        /// 这就避免了手动去执行 sql 语句， 修改 数据类型的操作.
+        /// ALTER TABLE `test_work_data2` CHANGE COLUMN `row_version` `row_version` TIMESTAMP NOT NULL ;
+        /// 
         /// </summary>
-        [Column("row_version")]
-        [Display(Name = "版本")]
-        public byte[] RowVersion { set; get; }
+        [Column("row_version", TypeName= "TIMESTAMP")]
+        [Display(Name = "版本")]        
+        public DateTime RowVersion { get; set; }
+
+
     }
 }

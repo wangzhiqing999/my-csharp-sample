@@ -47,8 +47,10 @@ namespace A0662_EF_MySql_Work
 
 
 
+
             /*
 
+            // 测试 LINQ 里面，GROUP BY 的处理.
             TestGroup testGroup = new TestGroup();
             testGroup.TestLastData();
 
@@ -56,9 +58,16 @@ namespace A0662_EF_MySql_Work
 
 
 
+
+
+
             /*
              
             // 测试 2个用户， 同时更新 一行数据的 不同的字段。
+            // 这里的 版本，主要通过 覆盖 SaveChanges() 方法.
+            // 在物理保存以前，向 版本列， 写入 System.Text.Encoding.UTF8.GetBytes(Guid.NewGuid().ToString())
+            // 也就是写代码的时候，是 MySQL， 万一后面要变更数据库了，不需要做修改的处理。
+
             TestRowVersion testRowVersion = new TestRowVersion();
             testRowVersion.InitTestWorkData();
 
@@ -76,10 +85,48 @@ namespace A0662_EF_MySql_Work
 
 
 
+
+            /*
+
+            // 测试 2个用户， 同时更新 一行数据的 不同的字段。
+            // 这里的 版本，主要通过 MySQL 的 TIMESTAMP 数据类型来实现。
+            // 也就是写代码的时候，是 MySQL， 万一后面要变更数据库了，需要做额外的修改。
+
+            TestRowVersion2 testRowVersion2 = new TestRowVersion2();
+            testRowVersion2.InitTestWorkData();
+
+            Task task21 = Task.Run(() => {
+                testRowVersion2.UpdateWorkValue();
+            });
+            Task task22 = Task.Factory.StartNew(() => {
+                testRowVersion2.UpdateWorkValue2();
+            });
+
+            Task.WaitAll(task21, task22);
+
+            */
+
+
+
+
+
+
+
+
+
+            /*
+
+
+            // 测试两个 DbContext， 使用同一个事务处理.
             TestTwoContextInSameDB testTwoContextInSameDB = new TestTwoContextInSameDB();
             testTwoContextInSameDB.InitTestWorkData();
             testTwoContextInSameDB.UpdateWorkValue();
             testTwoContextInSameDB.UpdateWorkValue2();
+
+            */
+
+
+
 
 
 

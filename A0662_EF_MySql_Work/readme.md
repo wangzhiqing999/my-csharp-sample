@@ -56,11 +56,34 @@ Convert Zero Datetime=True;Allow Zero Datetime=True
 
 ### RowVersion
 
-新增一个 IRowVersion， 用于定义  并发控制的列。
+两个方案：
 
+方案一：
+
+新增一个 IRowVersion， 用于定义  并发控制的列。
 参考 MyWorkContext.cs
 覆盖 OnModelCreating() 方法，增加这个 RowVersion 的存储机制的处理。
 覆盖 SaveChanges() 方法，增加存储时，对 RowVersion 额外设置数据的处理。
+
+
+优点：
+可移植性好， 写代码的时候，是 MySQL，万一后面要变更数据库了，不需要做修改的处理。
+
+缺点：
+代码多一点，需要覆盖 SaveChanges() 方法， 自己写 RowVersion 的处理逻辑。
+
+
+
+方案二：
+
+使用 [Column("row_version", TypeName= "TIMESTAMP")] 的机制。
+参考 MyWork2Context.cs
+
+优点：
+代码修改得少，只需要在 RowVersion 列上加标签即可。
+
+缺点：
+如果发生数据库变更，例如，写代码的时候，是 MySQL， 运营发布的时候， 数据库变更为 SQL Server 什么的，那就尴尬了。
 
 
 
