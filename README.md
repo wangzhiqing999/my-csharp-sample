@@ -1047,6 +1047,11 @@ Entity Framework  Code First 处理  MySQL 的一些日常例子
 
 
 
+### A0670_EF_SQLite
+Entity Framework  Code First 处理  SQLite 的例子
+
+
+
 
 
 ### A0700_Main/ A0701_AutoUpdate/ A0702_CommonFunc
