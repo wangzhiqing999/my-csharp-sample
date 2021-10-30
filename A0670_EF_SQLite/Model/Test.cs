@@ -38,5 +38,13 @@ namespace A0670_EF_SQLite.Model
         [StringLength(32)]
         public string TestDesc { set; get; }
 
+
+
+        public override string ToString()
+        {
+            return $"Test ID={this.TestID}; Name={this.TestName}; Desc={this.TestDesc}";
+        }
+
+
     }
 }
