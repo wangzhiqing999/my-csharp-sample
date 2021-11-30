@@ -26,10 +26,27 @@ namespace W1030_Mvc_WebApi2_Client.Api
 
 
 
+
+
+
 		// 注意：如果 Web API 是有 JWT 验证的. 
 		// 使用下面这种方式， 来实现，请求 Web Api 时，向 Http 头中，写入 JWT 信息。
 		// [Get("/api/SystemUser/GetUserInfo")]
 		// Task<SystemUser> GetUserInfo([Header("Authorization")] string authorization);
+		
+		
+		
+		
+		
+		
+		// 注意：关于 Post 请求.
+		// 有时候会遇到， 用 Postman 测试， 数据请求能够正常发出去。
+		// 但是用代码，服务器那里返回 “你没有传递数据” 的应答
+		// 尝试在参数前面，加上特定的标签，来完成处理。
+		// [Body(BodySerializationMethod.UrlEncoded)]
+		// Task<CommonResponse> SendCodeSmsAsync([Body(BodySerializationMethod.UrlEncoded)] SendCodeSmsRequest request);
+		// 也就是  BodySerializationMethod.Json  请求出去， 服务器方不能识别， 所以只好  BodySerializationMethod.UrlEncoded
+		
     }
 
 

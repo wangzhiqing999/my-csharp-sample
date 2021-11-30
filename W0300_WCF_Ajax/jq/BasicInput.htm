@@ -229,6 +229,16 @@
             // 测试读取 Radio  点击处理事件.
             $("#btnTestReadRadio").click(function () {
 
+				
+				
+				// 简单的处理方式.
+				if(!$("input[name='rdoABCD']:checked").val()) {				
+					console.log("简单的处理方式 = 用户还没有选择！");
+				} else {
+					console.log("简单的处理方式 = " + $("input[name='rdoABCD']:checked").val() );
+				}
+
+
                 // 取得用户输入.
                 var vUserSelectVal = "";
 
