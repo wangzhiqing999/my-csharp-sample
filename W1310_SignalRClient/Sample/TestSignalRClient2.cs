@@ -56,7 +56,16 @@ namespace W1310_SignalRClient.Sample
 
 
 
-            hubConnection.Start();
+
+            // hubConnection.Start();
+
+            // 注意： 如果遇到那种 后台程序， 是连接上以后，需要立即发送消息的情况下。
+            // 需要将代码修改为：
+            hubConnection.Start().Wait();
+
+            // 如果没有 Wait() ， hubConnection.Start();  下一行马上就 发消息。 将会报错，提示连接处于断开的状态.
+            myTestHubProxy.Invoke("Hello");
+
         }
 
 
