@@ -9,6 +9,7 @@ namespace A0060_Enum.Sample
     /// <summary>
     /// 用于测试的， 按位存储的枚举.
     /// </summary>
+    [Flags]
     public enum ResourceMode
     {
         /// <summary>
@@ -138,6 +139,10 @@ namespace A0060_Enum.Sample
         private void TestAll(ResourceMode mode)
         {
             Console.WriteLine("--------------------");
+
+            // 按位存储的枚举， 定义有 [Flags] 的情况下， ToString() 能够获取到 容易阅读的信息。
+            Console.WriteLine(mode.ToString());
+
             this.TestReadAble(mode);
             this.TestWriteAble(mode);
             this.TestAdminAble(mode);
