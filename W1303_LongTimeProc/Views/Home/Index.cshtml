@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "模拟一个耗时很长的处理";
+}
+
+
+@section Scripts {
+
+
+    <script src="~/Scripts/jquery.signalR-2.4.3.js"></script>
+    <script src="/signalr/hubs"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var longTimeFunc = $.connection.funcHub;
+
+
+
+            // 开始处理.
+            longTimeFunc.client.showStart = function (count) {
+                $("#spCount").html(count);
+            };
+
+
+            // 处理过程.
+            longTimeFunc.client.showStatus = function (status) {
+                $("#spCurrent").html(status);
+            };
+
+
+            // 处理完成.
+            longTimeFunc.client.showFinish = function () {
+                alert("Finish!");
+            };
+
+
+
+
+            $.connection.hub.start().done(function () {
+
+                $('#btnStartLongTimeFunc').click(function () {
+                    // longTimeFunc.server.longTimeFunc();
+
+                    longTimeFunc.server.longTimeFunc2();
+                });
+
+            });
+
+
+        });
+    </script>
+
+}
+
+<div>
+
+    <button id="btnStartLongTimeFunc"> 模拟一个耗时很长的处理. </button>
+
+    <span id="spCurrent">
+        0
+    </span>
+    /
+    <span id="spCount">
+        0
+    </span>
+
+</div>

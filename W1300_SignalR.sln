@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1300_SignalR", "W1300_SignalR\W1300_SignalR.csproj", "{9A649518-B121-4FC0-BDB7-D00983416EBE}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1302_RoomManager", "W1302_RoomManager\W1302_RoomManager.csproj", "{20EFDEFB-8BF5-43CD-8757-BFA71559218E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1310_SignalRClient", "W1310_SignalRClient\W1310_SignalRClient.csproj", "{BAE50AD0-CE14-4FBD-9EF8-81FDB74B68F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W1303_LongTimeProc", "W1303_LongTimeProc\W1303_LongTimeProc.csproj", "{B68C82C5-A867-456C-B47E-7A94BCE2369F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{BAE50AD0-CE14-4FBD-9EF8-81FDB74B68F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAE50AD0-CE14-4FBD-9EF8-81FDB74B68F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAE50AD0-CE14-4FBD-9EF8-81FDB74B68F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68C82C5-A867-456C-B47E-7A94BCE2369F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68C82C5-A867-456C-B47E-7A94BCE2369F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68C82C5-A867-456C-B47E-7A94BCE2369F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68C82C5-A867-456C-B47E-7A94BCE2369F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A9A4D18-F2B4-43FE-BB0F-8D86757DA9D3}
 	EndGlobalSection
 EndGlobal

@@ -56,6 +56,28 @@ namespace A0031_delegate.Sample
 
 
 
+        /// <summary>
+        /// 委托方法，无返回值.
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="amt"></param>
+        public void DemoAction(Action<Account, double> action, double amt)
+        {
+            action(a, amt);
+        }
+
+
+        /// <summary>
+        /// 委托方法，有返回值.
+        /// </summary>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public double DemoFunc(Func<Account, double> func)
+        {
+            return func(a);
+        }
+
+
 
     }
 
