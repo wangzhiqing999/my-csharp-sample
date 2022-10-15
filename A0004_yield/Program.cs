@@ -20,6 +20,12 @@ namespace A0004_yield
             foreach (int data in test.GetDataListWithoutYield())
             {
                 Console.WriteLine("====处理时间:{0},  处理结果:{1}", DateTime.Now, data);
+
+                if(data == 6)
+                {
+                    Console.WriteLine("====== 当返回 6 的时候，中断处理！");
+                    break;
+                }
             }
             Console.WriteLine("==结束时间:{0}", DateTime.Now);
 
@@ -31,6 +37,12 @@ namespace A0004_yield
             foreach (int data in test.GetDataListWithYield())
             {
                 Console.WriteLine("====处理时间:{0},  处理结果:{1}", DateTime.Now, data);
+
+                if (data == 6)
+                {
+                    Console.WriteLine("====== 当返回 6 的时候，中断处理！");
+                    break;
+                }
             }
             Console.WriteLine("==结束时间:{0}", DateTime.Now);
 

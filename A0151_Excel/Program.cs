@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-
+using A0151_Excel.Model;
 using A0151_Excel.NpoiSample;
 using A0151_Excel.Sample;
 
@@ -20,14 +20,32 @@ namespace A0151_Excel
 
 
 
+            Console.WriteLine("准备测试 ReadExcel.ReadExcelData 注意观察内存使用！");
+            Console.WriteLine("按回车继续...");
+            Console.ReadLine();
+
             ReadExcel rExcel = new ReadExcel();
             // 测试读取 前面创建 的 Excel 文件.
             rExcel.TestRead(excelFileName, String.Empty, true);
 
 
+            Console.WriteLine("准备测试 NpoiReadExcel.ReadExcelData 注意观察内存使用！");
+            Console.WriteLine("注意观察内存使用！");
+            Console.WriteLine("按回车继续...");
+            Console.ReadLine();
+
             TestNpoiReadExcel(excelFileName);
 
+            Console.WriteLine("准备测试 ExcelDataReader.ReadExcelData 注意观察内存使用！");
+            Console.WriteLine("按回车继续...");
+            Console.ReadLine();
 
+            // 逐行读取.
+            TestReadExcelData();
+
+            Console.WriteLine("内存占用的测试完成！");
+            Console.WriteLine("按回车继续...");
+            Console.ReadLine();
 
             // 测试读取 标题不在 第一行的情况。
             rExcel.TestRead("Report.xls", "A4:C100", true);
@@ -125,6 +143,38 @@ namespace A0151_Excel
                 }
             }
         }
+
+
+
+
+
+        private static void TestReadExcelData()
+        {
+
+            Console.WriteLine("----- ExcelDataReader -----");
+
+
+            ExcelDataReader<TestData> excelReader = new ExcelDataReader<TestData>();
+
+            var results = excelReader.ReadExcelData("Test.xls", string.Empty, true, true, dataReader =>
+            {
+                TestData testData = new TestData();
+
+                testData.ID = Convert.ToInt32(dataReader["编号"]);
+                testData.Name = Convert.ToString(dataReader["名称"]);
+                testData.Value = Convert.ToInt32(dataReader["成绩"]);
+
+                return testData;
+            });
+
+
+            foreach(var item in results)
+            {
+                Console.Write(item);
+            }
+        }
+
+
 
     }
 }

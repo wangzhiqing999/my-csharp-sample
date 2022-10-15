@@ -101,7 +101,7 @@ WHERE
 
 					// 插入数据的 命令.
 					OleDbCommand cmdInsert = new OleDbCommand(INSERT_SQL, cn);
-					for (int i = 0; i < 10; i++)
+					for (int i = 0; i < 10000; i++)
 					{
 						// 清空参数.
 						cmdInsert.Parameters.Clear();

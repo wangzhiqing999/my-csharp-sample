@@ -21,6 +21,9 @@ namespace A0151_Excel.Sample
         ///
         /// 唯一需要注意的是， 如果目标机器的操作系统，是64位的话。
         /// 项目需要 编译为 x86， 而不是简单的使用默认的 Any CPU.
+		///
+		/// 注意：如果目标机器没有 Microsoft.ACE.OLEDB.12.0 驱动，尝试去下面的地址下载.
+		/// https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=13255
         /// </summary>
         /// <param name="excelFileName"> Excel 文件.</param>
         /// <param name="hasTitle">Excel 文件是否有标题行. </param>
