@@ -36,6 +36,7 @@ namespace A0401_String
 
 
             regexSample.DemoRegexUse9();
+            regexSample.DemoRegexUse10();
 
 
 
