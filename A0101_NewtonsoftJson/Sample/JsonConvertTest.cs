@@ -58,6 +58,22 @@ namespace A0101_NewtonsoftJson.Sample
             testData2 = JsonConvert.DeserializeObject<DataObject>(jsonString, setting);
             Console.WriteLine("Json 字符串 转换为 对象：\n{0}", testData2);
 
+
+
+
+            Console.WriteLine("------ 测试简单的转换为 json. ------");
+
+            var myTestData = new
+            {
+                Code =123,
+                Name = "张三",
+                Page = "https://www.baidu.com/s?wd=%E5%BC%A0%E4%B8%89"
+            };
+
+            string myTestJson = JsonConvert.SerializeObject(myTestData);
+            Console.WriteLine("对象转换为 Json 字符串：\n{0}", myTestJson);
+
+
         }
 
 
