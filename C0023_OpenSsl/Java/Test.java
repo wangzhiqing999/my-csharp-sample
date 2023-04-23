@@ -17,24 +17,24 @@ class Rextester
 
 
     /**
-     * å­—èŠ‚æµè½¬æˆåå…­è¿›åˆ¶è¡¨ç¤º
+     * ×Ö½ÚÁ÷×ª³ÉÊ®Áù½øÖÆ±íÊ¾
      */
     public static String encodeHexStr(byte[] src) {
         String strHex = "";
         StringBuilder sb = new StringBuilder("");
         for (int n = 0; n < src.length; n++) {
             strHex = Integer.toHexString(src[n] & 0xFF);
-            sb.append((strHex.length() == 1) ? "0" + strHex : strHex); // æ¯ä¸ªå­—èŠ‚ç”±ä¸¤ä¸ªå­—ç¬¦è¡¨ç¤ºï¼Œä½æ•°ä¸å¤Ÿï¼Œé«˜ä½è¡¥0
+            sb.append((strHex.length() == 1) ? "0" + strHex : strHex); // Ã¿¸ö×Ö½ÚÓÉÁ½¸ö×Ö·û±íÊ¾£¬Î»Êı²»¹»£¬¸ßÎ»²¹0
         }
         return sb.toString().trim();
     }
     
     /**
-     * å­—ç¬¦ä¸²è½¬æˆå­—èŠ‚æµ
+     * ×Ö·û´®×ª³É×Ö½ÚÁ÷
      */
     public static byte[] hexStringToBytes(String src) {
         int m = 0, n = 0;
-        int byteLen = src.length() / 2; // æ¯ä¸¤ä¸ªå­—ç¬¦æè¿°ä¸€ä¸ªå­—èŠ‚
+        int byteLen = src.length() / 2; // Ã¿Á½¸ö×Ö·ûÃèÊöÒ»¸ö×Ö½Ú
         byte[] ret = new byte[byteLen];
         for (int i = 0; i < byteLen; i++) {
             m = i * 2 + 1;
@@ -165,16 +165,16 @@ public static String publicstr = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzobVNZR
 
 
 public static String signWhole(String keycode, String param) {
-	// ä½¿ç”¨ç§é’¥åŠ ç­¾
+	// Ê¹ÓÃË½Ô¿¼ÓÇ©
 	byte[] signature = null;
 	try {
-		//è·å–privatekey
+		//»ñÈ¡privatekey
 		byte[] keyByte = decode(keycode);
 		KeyFactory keyfactory = KeyFactory.getInstance("RSA");
 		PKCS8EncodedKeySpec encoderule = new PKCS8EncodedKeySpec(keyByte);
 		PrivateKey privatekey = keyfactory.generatePrivate(encoderule);
 
-		//ç”¨ç§é’¥ç»™å…¥å‚åŠ ç­¾
+		//ÓÃË½Ô¿¸øÈë²Î¼ÓÇ©
 		Signature sign = Signature.getInstance("SHA1WithRSA");
 		sign.initSign(privatekey);
 		sign.update(param.getBytes());
@@ -194,28 +194,69 @@ public static String signWhole(String keycode, String param) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	//å°†åŠ ç­¾åçš„å…¥å‚è½¬æˆ16è¿›åˆ¶
+	//½«¼ÓÇ©ºóµÄÈë²Î×ª³É16½øÖÆ
 	String terminal = encodeHexStr(signature);
 	return terminal;
 }
 
 
+
+
+
+public static String signWhole256(String keycode, String param) {
+	// Ê¹ÓÃË½Ô¿¼ÓÇ©
+	byte[] signature = null;
+	try {
+		//»ñÈ¡privatekey
+		byte[] keyByte = decode(keycode);
+		KeyFactory keyfactory = KeyFactory.getInstance("RSA");
+		PKCS8EncodedKeySpec encoderule = new PKCS8EncodedKeySpec(keyByte);
+		PrivateKey privatekey = keyfactory.generatePrivate(encoderule);
+
+		//ÓÃË½Ô¿¸øÈë²Î¼ÓÇ©
+		Signature sign = Signature.getInstance("SHA256WithRSA");
+		sign.initSign(privatekey);
+		sign.update(param.getBytes());
+
+		signature = sign.sign();
+
+	} catch (NoSuchAlgorithmException e) {
+		e.printStackTrace();
+	
+	} catch (InvalidKeySpecException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SignatureException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	//½«¼ÓÇ©ºóµÄÈë²Î×ª³É16½øÖÆ
+	String terminal = encodeHexStr(signature);
+	return terminal;
+}
+
+
+
+
 public static boolean verifyWhole(String param,String signature,String keycode){
 	try {
-		//è·å–å…¬é’¥
+		//»ñÈ¡¹«Ô¿
 		KeyFactory keyFactory=KeyFactory.getInstance("RSA");
 		byte[] keyByte=decode(keycode);
 		X509EncodedKeySpec encodeRule=new X509EncodedKeySpec(keyByte);
 		PublicKey publicKey= keyFactory.generatePublic(encodeRule);
 
-		//ç”¨è·å–åˆ°çš„å…¬é’¥å¯¹   å…¥å‚ä¸­æœªåŠ ç­¾å‚æ•°param ä¸  å…¥å‚ä¸­çš„åŠ ç­¾ä¹‹åçš„å‚æ•°signature è¿›è¡ŒéªŒç­¾
+		//ÓÃ»ñÈ¡µ½µÄ¹«Ô¿¶Ô   Èë²ÎÖĞÎ´¼ÓÇ©²ÎÊıparam Óë  Èë²ÎÖĞµÄ¼ÓÇ©Ö®ºóµÄ²ÎÊısignature ½øĞĞÑéÇ©
 		Signature sign=Signature.getInstance("SHA1WithRSA");
 		sign.initVerify(publicKey);
 		sign.update(param.getBytes());
 
-		//å°†16è¿›åˆ¶ç è½¬æˆå­—ç¬¦æ•°ç»„
+		//½«16½øÖÆÂë×ª³É×Ö·ûÊı×é
 		byte[] hexByte=hexStringToBytes(signature);
-	   //éªŒè¯ç­¾å
+	   //ÑéÖ¤Ç©Ãû
 		return sign.verify(hexByte);
 
 	} catch (NoSuchAlgorithmException e) {
@@ -237,17 +278,70 @@ public static boolean verifyWhole(String param,String signature,String keycode){
 	
 	
 	
+	
+public static boolean verifyWhole256(String param,String signature,String keycode){
+	try {
+		//»ñÈ¡¹«Ô¿
+		KeyFactory keyFactory=KeyFactory.getInstance("RSA");
+		byte[] keyByte=decode(keycode);
+		X509EncodedKeySpec encodeRule=new X509EncodedKeySpec(keyByte);
+		PublicKey publicKey= keyFactory.generatePublic(encodeRule);
+
+		//ÓÃ»ñÈ¡µ½µÄ¹«Ô¿¶Ô   Èë²ÎÖĞÎ´¼ÓÇ©²ÎÊıparam Óë  Èë²ÎÖĞµÄ¼ÓÇ©Ö®ºóµÄ²ÎÊısignature ½øĞĞÑéÇ©
+		Signature sign=Signature.getInstance("SHA256WithRSA");
+		sign.initVerify(publicKey);
+		sign.update(param.getBytes());
+
+		//½«16½øÖÆÂë×ª³É×Ö·ûÊı×é
+		byte[] hexByte=hexStringToBytes(signature);
+	   //ÑéÖ¤Ç©Ãû
+		return sign.verify(hexByte);
+
+	} catch (NoSuchAlgorithmException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	
+	} catch (InvalidKeySpecException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SignatureException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return false;
+}
+	
+
+	
+	
+	
 	public static void main(String[] args) {  
 	
 		try {  
 	
 			String test = "1234567890,1234567890,1234567890,1234567890,1234567890";			
-			String sign = signWhole(privatestr, test);			
+			String sign = signWhole(privatestr, test);
 			System.out.println(sign);
 			
 			
 			boolean result = verifyWhole(test, sign, publicstr);
 			System.out.println(result);
+			
+			
+			System.out.println("----------");
+			
+			
+			
+			sign = signWhole256(privatestr, test);			
+			System.out.println(sign);
+
+			result = verifyWhole256(test, sign, publicstr);
+			System.out.println(result);
+
+			
 			
 		} catch (Exception ex) {  
             ex.printStackTrace();  

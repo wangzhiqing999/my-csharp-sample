@@ -160,11 +160,30 @@ namespace C0023_OpenSsl
             byte[] signArray = Convert.FromBase64String(signData);
             foreach (var x in signArray)
             {
-                Console.Write("{0:X}", x);
+                Console.Write("{0:X2}", x);
             }
             Console.WriteLine();
 
             Console.WriteLine("签名一致：" + RSAHelper.VerifyData(publicCSharpKey, content, signData, halg));
+
+
+
+
+            halg = "SHA256";
+
+            signData = RSAHelper.SignData(privateCSharpKey, content, halg);
+
+            Console.WriteLine("### SHA256 ### 生成签名：" + signData);
+
+            signArray = Convert.FromBase64String(signData);
+            foreach (var x in signArray)
+            {
+                Console.Write("{0:X2}", x);
+            }
+            Console.WriteLine();
+            Console.WriteLine("### SHA256 ### 签名一致：" + RSAHelper.VerifyData(publicCSharpKey, content, signData, halg));
+
+
             Console.WriteLine();
         }
 
@@ -189,7 +208,7 @@ namespace C0023_OpenSsl
             byte[] signArray = Convert.FromBase64String(signData);
             foreach (var x in signArray)
             {
-                Console.Write("{0:X}", x);
+                Console.Write("{0:X2}", x);
             }
             Console.WriteLine();
 
