@@ -206,6 +206,36 @@ namespace A0101_NewtonsoftJson.Sample
 
 
 
+        /// <summary>
+        /// 拼一个 微信里面，发送消息的参数的格式.
+        /// </summary>
+        public static void DoTestWeixinMesage()
+        {
+            Dictionary<string, Dictionary<string, string>> paramData = new Dictionary<string, Dictionary<string, string>>();
+
+
+            Dictionary<string, string> value1 = new Dictionary<string, string>();
+            value1.Add("value", "巧克力");
+            paramData.Add("keyword1", value1);
+
+
+            Dictionary<string, string> value2 = new Dictionary<string, string>();
+            value2.Add("value", "39.8元");
+            paramData.Add("keyword2", value2);
+
+
+            Dictionary<string, string> value3 = new Dictionary<string, string>();
+            value3.Add("value", "2014年9月22日");
+            paramData.Add("keyword3", value3);
+
+
+            string jsonString1 = JsonConvert.SerializeObject(paramData);
+            Console.WriteLine("转换 Dictionary<string, Dictionary<string, string>>：\n{0}", jsonString1);
+        }
+
+
+
+
     }
 
 }
