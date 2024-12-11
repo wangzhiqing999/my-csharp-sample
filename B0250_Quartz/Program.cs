@@ -9,6 +9,7 @@ using Quartz;
 using Quartz.Impl;
 
 using B0250_Quartz.Sample;
+using System.Collections.Specialized;
 
 namespace B0250_Quartz
 {
@@ -29,7 +30,8 @@ namespace B0250_Quartz
             Program p = new Program();
             p.Init();
 
-
+            /*
+             
             p.TestHelloJob();
 
             p.TestParamJob();
@@ -37,6 +39,8 @@ namespace B0250_Quartz
             p.TestParam2Job();
 
             p.TestCron();
+
+            */
 
 
 
@@ -63,8 +67,38 @@ namespace B0250_Quartz
         /// </summary>
         async void Init()
         {
-            // construct a scheduler factory using defaults
-            factory = new StdSchedulerFactory();
+
+
+            NameValueCollection properties = new NameValueCollection();
+
+            properties["quartz.scheduler.instanceName"] = "TestScheduler";
+            properties["quartz.scheduler.instanceId"] = "instance_one";
+            properties["quartz.threadPool.type"] = "Quartz.Simpl.SimpleThreadPool, Quartz";
+            properties["quartz.threadPool.threadCount"] = "5";
+            properties["quartz.threadPool.threadPriority"] = "Normal";
+
+
+
+
+
+            // 下面的配置信息，是将作业的数据， 由默认的存储在内存，变更为存储在数据库。
+            // 使得作业发生故障时，能够从数据库，重新加载数据，进行恢复的处理.
+            properties["quartz.jobStore.misfireThreshold"] = "60000";
+            properties["quartz.jobStore.type"] = "Quartz.Impl.AdoJobStore.JobStoreTX, Quartz";
+            properties["quartz.jobStore.dataSource"] = "default";
+            properties["quartz.jobStore.tablePrefix"] = "QRTZ_";
+            properties["quartz.jobStore.clustered"] = "true";
+
+            // https://www.quartz-scheduler.net/documentation/quartz-3.x/tutorial/job-stores.html#ado-net-job-store-adojobstore
+            properties["quartz.jobStore.lockHandler.type"] = "Quartz.Impl.AdoJobStore.UpdateLockRowSemaphore, Quartz";
+            properties["quartz.dataSource.default.connectionString"] = "Server=pve002;Database=quartznet;Uid=root;Pwd=123456;Charset=utf8mb4";
+            properties["quartz.dataSource.default.provider"] = "MySql";
+            properties["quartz.jobStore.useProperties"] = "true";
+            properties["quartz.serializer.type"] = "json";
+
+
+            // construct a scheduler factory using properties
+            factory = new StdSchedulerFactory(properties);
 
             // get a scheduler
             scheduler = await factory.GetScheduler();
