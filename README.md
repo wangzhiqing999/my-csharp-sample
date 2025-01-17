@@ -1841,6 +1841,20 @@ Install-Package AutoMapper.EF6 -Version 0.3.0
 
 
 
+### B2500_UIAutomation
+使用 UI Automation 来做一些自动化的处理。
+现状是微信勉强能读取一下用户列表， 无法做 设置文字与点击按钮的操作。
+钉钉则是基本上啥事情也没法干。
+
+
+### B2501_WinApi
+调用 winapi 来做一些自动化的处理。
+现状是微信能向指定用户发送消息、文件。
+（要求目标用户的窗口，是“在独立窗口中打开”）
+
+
+
+
 
 ### B3000_NacosClient.
 
